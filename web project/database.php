@@ -10,6 +10,10 @@ $password="";
 $dbname="users";
 //create a connection
 $conn="";
+//if the database doesn't exist, create it
+$create_db = "CREATE DATABASE IF NOT EXISTS $dbname";
+//send the query to the database
+$result = mysqli_query($conn, $create_db);
 try {
     $conn = mysqli_connect($servername, $user, $password, $dbname);
 } catch(Exception $e) {
