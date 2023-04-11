@@ -31,6 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // If there are no errors, insert the data into the database
   if (empty($errors)) {
+    //create the database table if it doesn't exist
+    $query = "CREATE TABLE IF NOT EXISTS entreprise (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        Name VARCHAR(30) NOT NULL,
+        CA INT(6) NOT NULL,
+        email VARCHAR(30) NOT NULL,
+        password VARCHAR(30) NOT NULL,
+        Logo VARCHAR(30) NOT NULL
+    )";
     //hash the password
     $password = password_hash($password, PASSWORD_DEFAULT);
     $query = "INSERT INTO entreprise (Name, CA, email, password, Logo) VALUES ('$name', $ca, '$email', '$password', '$filename')";

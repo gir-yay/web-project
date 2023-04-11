@@ -23,7 +23,7 @@ include("database.php");
 	<main>
   <section id="entreprise-section">
     <h2>Entreprise Forum</h2>
-    <p>Welcome to the Entreprise Forum. Here you can post and discuss topics related to business and entrepreneurship.</p>
+    <p>Welcome to the Entreprise Forum.here u can signup as entreprise .</p>
     <form action="submit.php" method="post" enctype="multipart/form-data">
         <!-- The name of the mark  -->
         <label for="name">Name:</label>
@@ -147,6 +147,7 @@ confirm_password.onkeyup = validatePassword;
 		</section>
 		<section id="influenceur-section" style="display:none">
 			<h2>Influenceur</h2>
+      <p>Welcome to the influenceur Forum ,here u can signup as a influenceur</p>
 			<form action="submitinf.php" method="post" enctype="multipart/form-data">
 				<!-- ask for the name first name age ,and the social media account..... -->
         <label for="Lastname">Last Name:</label>
@@ -155,12 +156,6 @@ confirm_password.onkeyup = validatePassword;
         <input type="text" id="Firstname" name="Firstname"><br>
         <label for="age">Age:</label>
         <input type="number" id="age" name="age"><br>
-        <!-- ask for which social media and then the input field for the url and add a button for multiple account  -->
-        <label for="socialmedia">Social Media:</label>
-        <input type="text" id="socialmedia" name="socialmedia"><br>
-        <label for="url">URL:</label>
-        <input type="text" id="url" name="url"><br>
-        <!-- the sumit button -->
         <input type="submit" value="Submit Post">
 			</form>
 			<div class="posts">
