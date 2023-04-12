@@ -47,8 +47,75 @@ foreach ($result as $row) {
     echo "</tr>";
 }
 echo "</table>";
-
-
-
-
 ?>
+<style>
+/* Style for the header tags */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #2d2d2d;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #2d2d2d;
+}
+
+/* Style for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1rem;
+  color: #2d2d2d;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table th {
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/* Style for the links */
+a {
+  color: #E24C4C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #AD2E2E;
+}
+
+/* Style for the buttons */
+button {
+  background-color: #E24C4C;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #AD2E2E;
+}
+
+</style>
