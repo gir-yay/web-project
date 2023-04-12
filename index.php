@@ -1,32 +1,20 @@
-<?php
-// start the session before any output
-session_start();
-
-// check if the form was submitted
-if (isset($_POST['logout'])) {
-    // unset and destroy the session
-    session_unset();
-    session_destroy();
-
-    // redirect to hom.php
-    header("Location: Home.php");
-    exit(); // stop executing the current script
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Homepage</title>
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Welcome</h1>
-    <p>You are logged in!</p>
-    <h2>You can log out</h2>
-    <form action="" method="POST">
-        <button type="submit" name="logout">Logout</button>
-    </form>
+	<div class="container">
+		<h1>Welcome to My Website</h1>
+		<p>Please select one of the following options:</p>
+		<ul>
+			<li><a href="LOGIN.php">Login</a></li>
+			<li><a href="signup.php">Signup</a></li>
+		</ul>
+	</div>
 </body>
 </html>
