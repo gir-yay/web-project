@@ -27,22 +27,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($password != $password_confirm) {
     $errors[] = "Passwords do not match";
   }
+    $logo_name = $_FILES['logo']['name'];
+    $target_dir = "upload/";
+    $target_file = $target_dir . basename($_FILES["logo"]["name"]);
 
-
+    // Select file type
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    move_uploaded_file($_FILES['logo']['tmp_name'],$target_dir.$logo_name);
   // If there are no errors, insert the data into the database
   if (empty($errors)) {
     //create the database table if it doesn't exist
     $query = "CREATE TABLE IF NOT EXISTS entreprise (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         Name VARCHAR(30) NOT NULL,
-        CA INT(6) NOT NULL,
-        email VARCHAR(30) NOT NULL,
+        CA INT(10) NOT NULL,
+        email VARCHAR(50) NOT NULL,
         password VARCHAR(30) NOT NULL,
-        Logo VARCHAR(30) NOT NULL
+        Logo_name VARCHAR(100) NOT NULL,
     )";
+    $result = mysqli_query($conn, $query);
+
     //hash the password
     // $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO entreprise (Name, CA, email, password, Logo) VALUES ('$name', $ca, '$email', '$password', '$filename')";
+    $query = "INSERT INTO entreprise (Name, CA, email, password, Logo_name) VALUES ('$name', $ca, '$email', '$password','".$logo_name."')";
     $result = mysqli_query($conn, $query);
     if ($result) {
       echo "Post submitted successfully!";
@@ -59,5 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     echo "</ul>";
   }
+  
+
 }
 ?>
