@@ -39,7 +39,7 @@
     <!-- create a navigation part  logout and home as a button  -->
     <nav>
         <ul>
-            <li><input type="button" value="Home" onclick="window.location.href='Home.php'"></li>
+            <li><input type="button" value="Home" onclick="window.location.href='index.php'"></li>
             <li><input type="button" value="Logout"></li>
             <!-- php code for logout button -->
             <?php 
