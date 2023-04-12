@@ -36,6 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     move_uploaded_file($_FILES['logo']['tmp_name'],$target_dir.$logo_name);
   // If there are no errors, insert the data into the database
   if (empty($errors)) {
+     $query = "CREATE TABLE IF NOT EXISTS entreprise (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(30) NOT NULL,
+        ca INT(10) NOT NULL,
+        email VARCHAR(50) NOT NULL,
+        password VARCHAR(30) NOT NULL,
+        logo VARCHAR(100) NOT NULL
+    )";
+    $result = mysqli_query($conn, $query);
+        //send the query
+        $result = mysqli_query($conn, $query);
     //hash the password
     // $password = password_hash($password, PASSWORD_DEFAULT);
     // Insert the data into the database

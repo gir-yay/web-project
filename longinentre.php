@@ -50,20 +50,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
                 $_SESSION['email'] = $row['email'];
 
-                $_SESSION['name'] = $row['Name'];
+                $_SESSION['name'] = $row['name'];
                 
-                $_SESSION['ca']=$row['CA'];
+                $_SESSION['ca']=$row['ca'];
 
                 $_SESSION['id'] = $row['id'];
                 
-                //check if the entreprise have a logo
-                if($row['logo'] == null){
-                    //if not set the logo to the default logo
-                    $_SESSION['logo'] = "logo.png";
-                }else{
-                    //get the logo 
-                    $_SESSION['logo']=$row['Logo'];
-                }
+                $_SESSION['logo'] = $row['logo'];
 
 
                 header("Location: entreprise.php");

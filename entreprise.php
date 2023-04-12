@@ -2,6 +2,7 @@
 
 <?php 
     //get the session
+   include('database.php');
     session_start();
     //check if the session is set
     if(!isset($_SESSION['email'])){
@@ -10,15 +11,17 @@
         exit();
     }else{
         //if set get the name of the entreprise
-        $name = $_SESSION['name'];
-        echo $name;
-        //the logo path 
-        $logo = $_SESSION['logo'];
-        //change th elogo path to Upload/logo
-        $logo = "Uploads/".$logo;
-        $ca = $_SESSION['ca'];
-        echo "chiffre d'affaire: ".$ca;
-       
+        $id =$_SESSION['id'];
+         $sql = "SELECT * FROM entreprise WHERE id=$id";
+         $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            
+                $name = $row['name'];
+                
+                $ca =$row['ca'];
+                
+                $logo = $row['logo'];
+        
 
     }
 ?>
@@ -32,7 +35,7 @@
     <title>Entreprise</title>
 </head>
 <body>
-    <h1> Welcome <?php echo $name; ?></h1>
+    <h1> Welcome <?php echo "$name"; ?></h1>
     <!-- create a navigation part  logout and home as a button  -->
     <nav>
         <ul>
@@ -53,10 +56,10 @@
 
     <!-- the body have the name of the entreprise the logo and the id  -->
     <main>
-        <h1>Entreprise <?php echo $name ?> </h1>
+        <h1>Entreprise <?php echo "$name" ?> </h1>
         <!-- the logo of the copany is a image get the path from the database  -->
-        <img src="<?php echo $logo ?>" alt="logo">
-        <h1>Id <?php echo $_SESSION['id'] ?></h1>
+        <img src="Upload/<?php echo "$logo";?>" alt="logo" width="300px">
+        <h1>Id <?php echo $id; ?></h1>
     </main>
 
     <style>
