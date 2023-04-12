@@ -8,7 +8,7 @@ include("database.php");
 	<title>My Forum</title>
 </head>
 <body>
-<a href="home.php"><button class="home-button">Home</button></a>
+<a href="index.php"><button class="home-button">Home</button></a>
 <a href="LOGIN.php"><button class="login-button">Login</button></a>
 
 

@@ -14,7 +14,7 @@
 </head>
 <body>
     <!-- add a home button  -->
-    <a href="Home.php">Home</a>
+    <a href="index.php">Home</a>
     <!-- add a link to the signup page  -->
     <a href="signup.php">Signup</a>
 

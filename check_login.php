@@ -9,7 +9,7 @@ if (isset($_POST['logout'])) {
     session_destroy();
 
     // redirect to hom.php
-    header("Location: Home.php");
+    header("Location: index.php");
     exit(); // stop executing the current script
 }
 ?>

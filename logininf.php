@@ -73,7 +73,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
 }else{
 
-    header("Location: index.php");
+    header("Location: check_login.php");
 
     exit();
 
