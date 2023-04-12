@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include('database.php');
 
 // Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,21 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     move_uploaded_file($_FILES['logo']['tmp_name'],$target_dir.$logo_name);
   // If there are no errors, insert the data into the database
   if (empty($errors)) {
-    //create the database table if it doesn't exist
-    $query = "CREATE TABLE IF NOT EXISTS entreprise (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        Name VARCHAR(30) NOT NULL,
-        CA INT(10) NOT NULL,
-        email VARCHAR(50) NOT NULL,
-        password VARCHAR(30) NOT NULL,
-        Logo_name VARCHAR(100) NOT NULL,
-    )";
-    $result = mysqli_query($conn, $query);
-
     //hash the password
     // $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO entreprise (Name, CA, email, password, Logo_name) VALUES ('$name', $ca, '$email', '$password','".$logo_name."')";
-    $result = mysqli_query($conn, $query);
+    // Insert the data into the database
+    $sql = "INSERT INTO entreprise (name, ca, email, password, logo) VALUES ('$name', '$ca', '$email', '$password', '$logo_name')";
+    $result = mysqli_query($conn, $sql);
+    
     if ($result) {
       echo "Post submitted successfully!";
       //go to the login page

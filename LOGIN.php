@@ -1,45 +1,6 @@
 <!-- we create the login page  -->
 <!-- we have two type of user entreprise and influenceur each have a forumm to login in  -->
 <!-- we have a link to the signup page  -->
-<?php
-session_start();
-include 'database.php';
-
-if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    //hash the password 
-    // $password = password_hash($password, PASSWORD_DEFAULT);
-
-    if (isset($_POST['entreprise'])) {
-    
-        $sql = "SELECT * FROM entreprise WHERE email = '$email' AND password = '$password'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['entreprise_id'] = $row['id'];
-            header('Location: index.php');
-        } else {
-            $error = "Email or password is incorrect.";
-        }
-    }
-
-    if (isset($_POST['influenceur'])) {
-        $sql = "SELECT * FROM influenceur WHERE email = '$email' AND password = '$password'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['influenceur_id'] = $row['id'];
-            header('Location: index.php');
-        } else {
-            $error = "Email or password is incorrect.";
-        }
-    }
-}
-?>
-
 <!-- Login page HTML code here -->
 
 
@@ -67,7 +28,7 @@ if (isset($_POST['login'])) {
     <main>
         <section id="entreprise">
             <h1>Entreprise</h1>
-            <form action="" method="POST">
+            <form action="longinentre.php" method="POST" >
                 <input type="text" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <button type="submit" name="login">Login</button>
@@ -75,7 +36,7 @@ if (isset($_POST['login'])) {
         </section>
         <section id="influenceur">
             <h1>Influenceur</h1>
-            <form action="" method="POST">
+            <form action="logininf.php" method="POST">
                 <input type="text" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <button type="submit" name="login">Login</button>
