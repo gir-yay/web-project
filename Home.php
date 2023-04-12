@@ -1,64 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>My Website Home Page</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #F5F5F5;
-			margin: 0;
-			padding: 0;
-		}
-
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 50px;
-			text-align: center;
-		}
-
-		h1 {
-			font-size: 48px;
-			margin-bottom: 20px;
-			color: #333333;
-			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-		}
-
-		p {
-			font-size: 18px;
-			margin-bottom: 50px;
-			color: #666666;
-		}
-
-		ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		li {
-			margin: 0 20px;
-		}
-
-		a {
-			display: inline-block;
-			padding: 20px;
-			background-color: #008CBA;
-			color: #FFFFFF;
-			border-radius: 5px;
-			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-			transition: all 0.2s ease-in-out;
-		}
-
-		a:hover {
-			transform: scale(1.1);
-			box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
-			background-color: #005D7E;
-		}
-	</style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Homepage</title>
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 	<div class="container">
