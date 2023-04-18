@@ -1,8 +1,8 @@
 <!-- create a page for the entreprise loged in  -->
 
-<?php 
+<?php   
+    include 'database.php';
     //get the session
-   include('database.php');
     session_start();
     //check if the session is set
     if(!isset($_SESSION['email'])){
@@ -11,17 +11,15 @@
         exit();
     }else{
         //if set get the name of the entreprise
-        $id =$_SESSION['id'];
-         $sql = "SELECT * FROM entreprise WHERE id=$id";
-         $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            
-                $name = $row['name'];
-                
-                $ca =$row['ca'];
-                
-                $logo = $row['logo'];
-        
+        $name = $_SESSION['name'];
+        echo "<br>".$name." ";
+        //the logo path 
+        $logo = $_SESSION['logo'];
+        //change th elogo path to Upload/logo
+        $logo = "Uploads/".$logo;
+        $ca = $_SESSION['ca'];
+        echo "chiffre d'affaire: ".$ca;
+       
 
     }
 ?>
@@ -35,103 +33,142 @@
     <title>Entreprise</title>
 </head>
 <body>
-    <h1> Welcome <?php echo "$name"; ?></h1>
+    <h1> Welcome <?php echo $name; ?></h1>
     <!-- create a navigation part  logout and home as a button  -->
     <nav>
         <ul>
-            <li><input type="button" value="Home" onclick="window.location.href='index.php'"></li>
-            <li><input type="button" value="Logout"></li>
-            <!-- php code for logout button -->
-            <?php 
-            //destroy the session and go to login page
-            if(isset($_POST['logout'])){
-                session_destroy();
-                header("Location: login.php");
-                exit();
-            }
-            ?>
+            <li><input type="button" value="Home" onclick="window.location.href='Home.php'"></li>
+            <!-- logout button and session destroyer  on click log out -->
+            <li>
+                <input type="submit" value="Logout" onclick="window.location.href='logout.php'">
+            </li>
         </ul>
 
     </nav>
 
     <!-- the body have the name of the entreprise the logo and the id  -->
     <main>
-        <h1>Entreprise <?php echo "$name" ?> </h1>
+        <h1>Entreprise <?php echo $name ?> </h1>
         <!-- the logo of the copany is a image get the path from the database  -->
-        <img src="Upload/<?php echo "$logo";?>" alt="logo" width="300px">
-        <h1>Id <?php echo $id; ?></h1>
+        <img src="<?php echo $logo ?>" alt="logo">
+        <h1>Id <?php echo $_SESSION['id'] ?></h1>
     </main>
 
-    <style>
-        /* Set box-sizing property for all elements */
-            * {
-            box-sizing: border-box;
-            }
-        /* give a modern look for the button */
-        input[type=button] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-        /* Set background and font colors */
-        body {
-            background-color: #f7f7f7;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            color: #555;
-            line-height: 20px;
-        }
-        /* customize the nav bar  */
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-        /* customize the main part  */
-        main {
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-        /* customize the footer  */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
-
-
-        
-            
-
-    
-    
-
-
-
-
-
 </body>
+<<?php 
+//show all the influenceur as a table 
+//get the database connection
+include 'database.php';
+//get the id of the entreprise
+$id = $_SESSION['id'];
+//get the name of the entreprise
+$name = $_SESSION['name'];
+//get the logo of the entreprise
+$logo = $_SESSION['logo'];
+//get the ca of the entreprise
+$ca = $_SESSION['ca'];
+//get the email of the entreprise
+$email = $_SESSION['email'];
+//send a request to the database to get all the influenceur
+echo "<h1>INFLUENCER</h1>";
+$sql = "SELECT * FROM influencer";
+$result = mysqli_query($conn, $sql); 
+//
+echo "<table>";
+echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Action</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['lastname']."</td>";
+    echo "<td>".$row['firstname']."</td>";
+    echo "<td>".$row['email']."</td>";
+    echo "<td>".$row['age']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    // add a button to make an offer to the influencer
+    echo "<button type='button' class='offer-btn'>Offer</button>";
+    echo "<div class='offer-form' style='display:none;'>";
+    // add a form to make an offer: the terms of an agreement between two parties, the amount paid by a brand to an influencer, and the duration of the contract
+    echo "<input type='text' name='terms' placeholder='Terms'>";
+    echo "<input type='text' name='amount' placeholder='Amount'>";
+    echo "<input type='text' name='duration' placeholder='Duration'>";
+    echo "<button type='submit' name='submit'>Submit</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</div>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+// check if the offer button is clicked
+if(isset($_POST['submit'])) {
+    // get the terms of the offer
+    $terms = $_POST['terms'];
+    // get the amount of the offer
+    $amount = $_POST['amount'];
+    // get the duration of the offer
+    $duration = $_POST['duration'];
+    // get the id of the entreprise
+    $id_entreprise = $_SESSION['id'];
+    // get the id of the influencer
+    $id_influencer = $_POST['id'];
+    // echo all the data in one sentence
+    echo "terms: ".$terms." amount: ".$amount." duration: ".$duration." id_entreprise: ".$id_entreprise." id_influencer: ".$id_influencer;
+    // send a request to the database to insert the offer in the offer table
+    $sql = "INSERT INTO offer (terms, amount, duration, id_entreprise, id_influencer) VALUES ('$terms', '$amount', '$duration', '$id_entreprise', '$id_influencer')";
+    $result = mysqli_query($conn, $sql);
+    // check if the request is successful
+    if($result) {
+        // if successful redirect to the entreprise page
+        header("Location: entreprise.php");
+        exit();
+    } else {
+        // if not successful show an error message
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+
+// add JavaScript to toggle the display of the offer form
+echo "<script>
+document.querySelectorAll('.offer-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const form = button.parentElement.querySelector('.offer-form');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
+});
+</script>";
+?>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+th {
+  background-color: #ddd;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.offer-form {
+  margin-top: 10px;
+}
+.offer-form input[type=text] {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.offer-form button {
+  padding: 5px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+</style>
