@@ -145,7 +145,7 @@ $result = $conn->query($sql);
             echo "</td>";
             echo "<td>";
             echo "<form method='post'>";
-            //add a button to refuse the offer
+            //add a button to refuse the offer WITH Adiffernt name
             echo "<button type='submit' name='refuse'>Refuse</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
@@ -276,6 +276,12 @@ button {
 button:hover {
   background-color: #3e8e41;
 }
+
+button[name=refuse] {
+  background-color: #f44336;
+}
+
+
 
 /* Form styles */
 .offer-form {
