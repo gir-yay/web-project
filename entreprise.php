@@ -13,14 +13,10 @@
         //if set get the name of the entreprise
         $name = $_SESSION['name'];
         echo "<br>".$name." ";
-        //the logo path 
+        //get the logo of the entreprise
         $logo = $_SESSION['logo'];
-        //change th elogo path to Upload/logo
-        $logo = "Uploads/".$logo;
-        $ca = $_SESSION['ca'];
-        echo "chiffre d'affaire: ".$ca;
-       
-
+        //renname the logo
+        $logo = "Upload/".$logo;
     }
 ?>
 <!-- html page for the entreprise  -->
@@ -63,8 +59,6 @@ include 'database.php';
 $id = $_SESSION['id'];
 //get the name of the entreprise
 $name = $_SESSION['name'];
-//get the logo of the entreprise
-$logo = $_SESSION['logo'];
 //get the ca of the entreprise
 $ca = $_SESSION['ca'];
 //get the email of the entreprise
@@ -139,38 +133,209 @@ document.querySelectorAll('.offer-btn').forEach(button => {
     });
 });
 </script>";
+//get the suggestion of the influencer
+echo "<h1>SUGGESTION</h1>";
+//show the suggestion of the influencer as a table and add a button to accept or refuse the suggestion where state is waiting
+$sql = "SELECT * FROM suggestion WHERE state = 'waiting'";
+$result = mysqli_query($conn, $sql);
+echo "<table>";
+echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Accept</th><th>Refuse</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['terms']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' name='accept' id='accept'>Accept</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' name='refuse' id='refuse'>Refuse</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+// check if the accept button is clicked
+if(isset($_POST['accept'])) {
+    // get the id of the suggestion
+    $id = $_POST['id'];
+    // change the state of the suggestion to accepted
+    $state = "accepted";
+    // send a request to the database to update the state of the suggestion
+    $sql = "UPDATE suggestion SET state = '$state' WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    // check if the request is successful
+    if($result) {
+        // if successful redirect to the entreprise page
+        header("Location: entreprise.php");
+        exit();
+    } else {
+        // if not successful show an error message
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+// check if the refuse button is clicked
+if(isset($_POST['refuse'])) {
+    // get the id of the suggestion
+    $id = $_POST['id'];
+    // change the state of the suggestion to refused
+    $state = "refused";
+    // send a request to the database to update the state of the suggestion
+    $sql = "UPDATE suggestion SET state = '$state' WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    // check if the request is successful
+    if($result) {
+        // if successful redirect to the entreprise page
+        header("Location: entreprise.php");
+        exit();
+    } else {
+        // if not successful show an error message
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+//show the accepted suggestion of the influencer as a table inner join with the influencer table to get the Fisrt name and Lastname of the influencer
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted'";
+$result = mysqli_query($conn, $sql);
+echo "<h1>ACCEPTED SUGGESTION</h1>";
+echo "<table>";
+echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['terms']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+//show the refused suggestion of the influencer as a table inner join with the influencer table to get the Fisrt name and Lastname of the influencer
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused'";
+$result = mysqli_query($conn, $sql);
+echo "<h1>REFUSED SUGGESTION</h1>";
+echo "<table>";
+echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['terms']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
 ?>
 <style>
+
+
+    /* Style for offer form */
+.offer-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.offer-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.accept-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.refuse-btn {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 20px;
+  margin-bottom: 1em;
 }
+
 th, td {
-  text-align: left;
-  padding: 8px;
+  border: 1px solid #ccc;
+  padding: 0.5em;
 }
+
 th {
-  background-color: #ddd;
+  background-color: #eee;
 }
-tr:nth-child(even) {
+
+tr:nth-child(even) td {
   background-color: #f2f2f2;
 }
-.offer-form {
-  margin-top: 10px;
+
+td.accepted {
+  background-color: #c9ffc9;
 }
-.offer-form input[type=text] {
-  margin-right: 10px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+
+td.refused {
+  background-color: #ffc9c9;
 }
-.offer-form button {
-  padding: 5px;
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
+#refuse {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
+
+#accept {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+
+
 </style>

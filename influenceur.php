@@ -48,19 +48,19 @@ $result = $conn->query($sql);
     <th>name</th>
     <th>email</th>
     <th>ca</th>
-    <th>Make a offer </th>
+    <th>Make a suggestion </th>
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['Name'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['CA'] . "</td>";
+        echo "<td>" . $row['ca'] . "</td>";
         echo "<td>";
         echo "<form method='post'>";
-        // add a button to make an offer to the influencer
-        echo "<button type='button' class='offer-btn'>Offer</button>";
-        echo "<div class='offer-form' style='display:none;'>";
+        // add a button to make an suggestion to the influencer
+        echo "<button type='button' class='suggestion-btn'>suggestion</button>";
+        echo "<div class='suggestion-form' style='display:none;'>";
         echo "<input type='text' name='terms' placeholder='Terms'>";
         echo "<input type='text' name='amount' placeholder='Amount'>";
         echo "<input type='text' name='duration' placeholder='Duration'>";
@@ -74,42 +74,39 @@ $result = $conn->query($sql);
     echo "</table>";
     //check if the submit button is clicked
     if(isset($_POST['submit'])) {
-        // get the terms of the offer
+        //get the id of the entreprise
+        $id_entreprise = $_POST['id'];
+        //get the terms of the offer
         $terms = $_POST['terms'];
-        // get the amount of the offer
+        //get the amount of the offer
         $amount = $_POST['amount'];
-        // get the duration of the offer
+        //get the duration of the offer
         $duration = $_POST['duration'];
-        // get the id of the entreprise
-        $id_entreprise = $_SESSION['id'];
-        // get the id of the influencer
-        $id_influencer = $_POST['id'];
-        //the state is by default waiting for the influencer to accept or refuse the offer
+        //get the id of the influencer
+        $id_influencer = $id;
+        //set the state of the offer to waiting
         $state = "waiting";
-        //echo all the data
-        echo "terms: ".$terms." amount: ".$amount." duration: ".$duration." id_entreprise: ".$id_entreprise." id_influencer: ".$id_influencer." state: ".$state;
-        // send a request to the database to add the offer to the database
-        $sql = "INSERT INTO offer (terms, amount, duration, id_entreprise, id_influencer, state) VALUES ('$terms', '$amount', '$duration', '$id_entreprise', '$id_influencer', '$state')";
-        $result = mysqli_query($conn, $sql);
-        // check if the request is successful
+        //add the suggestion to the database
+        $sql = "INSERT INTO suggestion (id_entreprise, id_influencer, terms, amount, duration, state) VALUES ('$id_entreprise', '$id_influencer', '$terms', '$amount', '$duration', '$state')";
+        $result = $conn->query($sql);
+        //check if the result is true
         if($result) {
-            // if successful redirect to the entreprise page
-            header("Location: entreprise.php");
+            //if true redirect to the same page
+            header("Location: influenceur.php");
             exit();
-        } else {
-            // if not successful show an error message
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
+    }else{
+        //if false show an error message
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
+  }
     echo "<script>
-    document.querySelectorAll('.offer-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const form = button.parentElement.querySelector('.offer-form');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        });
-    });
+    document.querySelectorAll('.suggestion-btn').forEach(item => {
+        item.addEventListener('click', event => {
+            item.nextElementSibling.style.display = 'block';
+        })
+    })
     </script>";
-    //show all the offers for the influencer and get the name of the entreprise where the state is waiting
+    //show all the offers as a table
     $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.name FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'waiting'";
     $result=mysqli_query($conn, $sql);
     // output data of each row
