@@ -75,7 +75,7 @@ $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql); 
 //
 echo "<table>";
-echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Action</th></tr>";
+echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make a offer</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['id'] . "</td>";
@@ -112,10 +112,12 @@ if(isset($_POST['submit'])) {
     $id_entreprise = $_SESSION['id'];
     // get the id of the influencer
     $id_influencer = $_POST['id'];
-    // echo all the data in one sentence
-    echo "terms: ".$terms." amount: ".$amount." duration: ".$duration." id_entreprise: ".$id_entreprise." id_influencer: ".$id_influencer;
-    // send a request to the database to insert the offer in the offer table
-    $sql = "INSERT INTO offer (terms, amount, duration, id_entreprise, id_influencer) VALUES ('$terms', '$amount', '$duration', '$id_entreprise', '$id_influencer')";
+    //the state is by default waiting for the influencer to accept or refuse the offer
+    $state = "waiting";
+    //echo all the data
+    echo "terms: ".$terms." amount: ".$amount." duration: ".$duration." id_entreprise: ".$id_entreprise." id_influencer: ".$id_influencer." state: ".$state;
+    // send a request to the database to add the offer to the database
+    $sql = "INSERT INTO offer (terms, amount, duration, id_entreprise, id_influencer, state) VALUES ('$terms', '$amount', '$duration', '$id_entreprise', '$id_influencer', '$state')";
     $result = mysqli_query($conn, $sql);
     // check if the request is successful
     if($result) {
