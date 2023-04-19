@@ -63,13 +63,13 @@ $name = $_SESSION['name'];
 $ca = $_SESSION['ca'];
 //get the email of the entreprise
 $email = $_SESSION['email'];
-//send a request to the database to get all the influenceur
+//send a request to the database to get all the influenceur 
 echo "<h1>INFLUENCER</h1>";
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql); 
 //
 echo "<table>";
-echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make a offer</th></tr>";
+echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make a offer</th><th>Message</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['id'] . "</td>";
@@ -81,14 +81,22 @@ foreach ($result as $row) {
     echo "<form method='post'>";
     // add a button to make an offer to the influencer
     echo "<button type='button' class='offer-btn'>Offer</button>";
+
     echo "<div class='offer-form' style='display:none;'>";
-    // add a form to make an offer: the terms of an agreement between two parties, the amount paid by a brand to an influencer, and the duration of the contract
+    // add a form to make an offer: the terms of an agreement between two partie, the amount paid by a brand to an influencer, and the duration of the contract
     echo "<input type='text' name='terms' placeholder='Terms'>";
     echo "<input type='text' name='amount' placeholder='Amount'>";
     echo "<input type='text' name='duration' placeholder='Duration'>";
     echo "<button type='submit' name='submit'>Submit</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</div>";
+    echo "</form>";
+    echo "</td>";
+    echo "<td>";
+    //add a button to go to the message.php page
+    echo "<form method='post'>";
+    echo "<button type='submit' name='message'>Message</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
@@ -123,6 +131,20 @@ if(isset($_POST['submit'])) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
+//if the message button is clicked
+if(isset($_POST['message'])) {
+    //get the id from the row 
+    $id = $_POST['id'];
+    //send the i d in the session variable
+    $_SESSION['id2'] = $id;
+    //add a variable type to know if the user is an entreprise or an influencer
+    $_SESSION['type'] = "ent";
+    //redirect to the message page
+    header("Location: message.php");
+    exit();
+}
+
+
 
 // add JavaScript to toggle the display of the offer form
 echo "<script>

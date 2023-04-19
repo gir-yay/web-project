@@ -18,6 +18,7 @@ $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql);  
 
 //print the result in a table format
+echo "<div class='container'>";
 echo "<table>";
 echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Action</th></tr>";
 foreach ($result as $row) {
@@ -37,6 +38,7 @@ foreach ($result as $row) {
 }
 
 echo "</table>";
+echo "</div>";
 
 // check if the delete button for influencer has been clicked
 if(isset($_POST['delete_influencer'])){
@@ -53,7 +55,7 @@ if(isset($_POST['delete_influencer'])){
 echo "<h1>BRAND</h1>";
 $sql = "SELECT * FROM entreprise";
 $result = mysqli_query($conn, $sql);
-
+echo "<div class='container'>";
 echo "<table>";
 echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>CA</th><th>Action</th></tr>";
 foreach ($result as $row) {
@@ -61,7 +63,7 @@ foreach ($result as $row) {
     echo "<td>" . $row['id'] . "</td>";
     echo "<td>".$row['Name']."</td>";
     echo "<td>".$row['email']."</td>";
-    echo "<td>".$row['CA']."</td>";
+    echo "<td>".$row['ca']."</td>";
     echo "<td>";
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
@@ -71,6 +73,7 @@ foreach ($result as $row) {
     echo "</tr>";
 }
 echo "</table>";
+echo "</div>";
 
 // check if the delete button for brand has been clicked
 if(isset($_POST['delete_brand'])){
@@ -83,97 +86,143 @@ if(isset($_POST['delete_brand'])){
         echo "Error deleting record: " . mysqli_error($conn);
     }
 }
+//show all collab from the offer table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
+echo "<h1>Offered COLLAB</h1>";
+$sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id INNER JOIN entreprise ON offer.id_entreprise = entreprise.id ";
+$result = mysqli_query($conn, $sql);
+//show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the collab
+echo "<div class='container'>";
+echo "<table>";
+echo "<th>Brand Name</th><th>Influencer Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>state</th><th>Action</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['Name'] . "</td>";
+    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>".$row['terms']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['reg_date']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "<input type='submit' name='delete_collab' value='Delete'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+echo "</div>";
+
+// check if the delete button for collab has been clicked
+if(isset($_POST['delete_collab'])){
+    $id = $_POST['id'];
+    $sql = "DELETE FROM offer WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        echo "Record deleted successfully.";
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+}
+//make a tabe  to show all the suggested collab from the suggestion table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
+echo "<h1>SUGGESTED COLLAB</h1>";
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id ";
+$result = mysqli_query($conn, $sql);
+//show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the collab
+echo "<div class='container'>";
+echo "<table>";
+echo "<th>Influencer Name</th><th>Brand Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>Action</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
+    echo "<td>".$row['Name']."</td>";
+    echo "<td>".$row['terms']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['reg_date']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "<input type='submit' name='delete_suggested_collab' value='Delete'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+echo "</div>";
+// check if the delete button for suggested collab has been clicked
+if(isset($_POST['delete_suggested_collab'])){
+    $id = $_POST['id'];
+    $sql = "DELETE FROM suggestion WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        echo "Record deleted successfully.";
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+}
+
+
+
+
 
 ?>
 <style>
-  /* Style for the header tags */
-h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #2d2d2d;
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #2d2d2d;
-}
-
-/* Style for the table */
+  /* style for table */
 table {
-  width: 100%;
   border-collapse: collapse;
-  margin: 2rem 0;
-  font-size: 1rem;
-  color: #2d2d2d;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-table th,
-table td {
-  padding: 1rem;
+th, td {
   text-align: left;
+  padding: 8px;
+  font-size: 16px;
 }
 
-table th {
-  font-weight: bold;
-  background-color: #f9f9f9;
+th {
+  background-color: #4CAF50;
+  color: white;
 }
 
-table tr:nth-child(even) {
-  background-color: #f5f5f5;
+tr:nth-child(even){
+  background-color: #f2f2f2
 }
 
-/* Style for the links */
-a {
-  color: #E24C4C;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #AD2E2E;
-}
-
-/* Style for the buttons */
-button {
-  background-color: #E24C4C;
-  color: #fff;
+/* style for delete button */
+input[type=submit] {
+  background-color: #f44336;
+  color: white;
+  padding: 6px 12px;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-button:hover {
-  background-color: #AD2E2E;
+input[type=submit]:hover {
+  background-color: #f44336;
+  opacity: 0.8;
 }
 
-/* Style for the delete buttons */
-input[type="submit"][name="delete_influencer"], input[type="submit"][name="delete_brand"] {
-  background-color: #FF0000;
-  color: #FFFFFF;
-  border: none;
-  padding: 8px 16px;
+/* style for headings */
+h1, h3 {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-  cursor: pointer;
+  color: #2F4F4F;
+  margin-bottom: 20px;
 }
 
-input[type="submit"][name="delete_influencer"]:hover, input[type="submit"][name="delete_brand"]:hover {
-  background-color: #AD2E2E;
+/* style for table container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-
-
-
-
 
 </style>

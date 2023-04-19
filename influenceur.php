@@ -49,6 +49,7 @@ $result = $conn->query($sql);
     <th>email</th>
     <th>ca</th>
     <th>Make a suggestion </th>
+    <th>Message</th>
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -67,6 +68,13 @@ $result = $conn->query($sql);
         echo "<button type='submit' name='submit'>Submit</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</div>";
+        echo "</form>";
+        echo "</td>";
+        echo "<td>";
+        //add a button to go to the massage.php page
+        echo "<form method='post'>";
+        echo "<button type='submit' name='message'>Message</button>";
+        echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</form>";
         echo "</td>";
         echo "</tr>";
@@ -99,6 +107,20 @@ $result = $conn->query($sql);
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
   }
+  //check if the message button is clicked
+    if(isset($_POST['message'])) {
+        //get the id from thr row 
+        $id_entreprise = $_POST['id'];
+        //send the i d in the session variable
+        $_SESSION['id2'] = $id_entreprise;
+        //add a variable type to know if the user is an entreprise or an influencer
+        $_SESSION['type'] = "inf";
+        $_SESSION['id']= $id;
+        //redirect to the message page
+        header("Location: message.php");
+        exit();
+    }
+
     echo "<script>
     document.querySelectorAll('.suggestion-btn').forEach(item => {
         item.addEventListener('click', event => {
