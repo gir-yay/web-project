@@ -169,19 +169,22 @@ button:hover{
 #icons a :hover{
     transform: scale(1.2);
     transition: 0.1s;
-}
+} /*
 .why {
-    background-color: #ffff;
+ background-image:url(wave.png);
+ background-position:center;
+ background-size:cover;
  text-align: center;
- margin-top: 30px;
  margin-bottom: 30px;
 }
 .why h1 {
     padding-bottom: 15px;
+    justify-content:center;
+    font-size:2rem;
 }
 .why p {
-    font-size: 1.5rem;
-}
+    font-size: 1.8rem;
+}*/
 .avis1 {
     display: flex;
     padding: 2px;
@@ -190,7 +193,7 @@ button:hover{
 }
 .avis {
     width: 400px;
-    border:1px solid  #36025f; ;
+    border:1px solid  #36025f ;
     padding: 2px 20px 2px 20px; /*haut -droit - bas -gauche- */
     margin-top: 20px;
     margin-bottom: 20px;
@@ -204,8 +207,96 @@ font-size: 1.3rem;
 }
 .avis img {
     width: 90px;
-    justify-content: left;
+    justify-content: left;}
+#about {
+    
+padding:100px 0;
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+padding-top:0px;
 }
-.about p {
-    font-size: 1.2rem;
+section#about {
+    padding-top:0px;
+}
+.about-left-col {
+    flex-basis:50%;
+    justify-items:right;
+}
+.about-left-col img {
+width:100%;
+max-width:500px;
+margin-top:0;
+justify-content:top;
+}
+.about-right-col {
+    flex-basis:50%;
+    text-align:right;
+}
+.about-text {
+    max-width:500px;
+    margin-right:100px;
+    display:inline-block;
+}
+/*   features  */
+#features{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-image:url(wave2.png);
+ background-position:center;
+ background-size:cover;
+}
+.feature-row {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.feature-col {
+    flex-basis: 25%;
+    text-align: center;
+}
+.feature-col img {
+    width: 300px;
+}
+.feature-col h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.feature-btn {
+    margin: 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+#why {
+        
+padding:100px 0;
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+padding-top:0px;
+background-image:url(wave.png);
+ background-position:center;
+ background-size:cover;
+
+
+}
+.why1 {
+    display: flex;
+    justify-content: center;
+}
+.why1 h1 {
+    text-align: center;
+}
+.why-left {
+    flex-basis:40%;
+    text-align: left;
+}
+.why-right {
+    flex-basis:40%;
+    text-align: left;
 }
