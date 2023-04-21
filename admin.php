@@ -5,73 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
 <!-- create a form to login username and password -->
+<h1><center>WELCOME ADMIN</center></h1>
 <form action="admin.php" method="post">
+  <div class="inputBox">
+  <ion-icon name="person-outline"></ion-icon>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
+    <i></i>
+</div>
+<div class="inputBox">
+<ion-icon name="lock-closed-outline"></ion-icon>
     <label for="password">Password:</label>
     <input type="password" name="password" id="password">
-    <input type="submit" value="Login">
+    <i></i>
+</div>
+    <input type="submit"  class="bouton" value="Login">
 
 </form>
-    
+  
 </body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
-<style>
-body {
-  background-color: #f2f2f2;
-  font-family: Arial, sans-serif;
-}
 
-form {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  margin: 50px auto;
-  max-width: 400px;
-  padding: 20px;
-  text-align: center; /* add text-align property */
-}
-
-label {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 10px; /* add margin to bottom */
-}
-
-input[type="submit"] {
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  transition: background-color 0.3s;
-  margin-top: 10px; /* add margin to top */
-}
-
-
-input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
-
-</style>
 <?php 
 // connect to database
 include 'database.php';
