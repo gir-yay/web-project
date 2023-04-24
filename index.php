@@ -19,7 +19,7 @@
 				<li> <a href="#contacte"> Contact</a></li>
 			</ul>
 			<div>
-			    <a href="LOGIN.php" class="btn">Login</a>
+			    <a href="loogin.php" class="btn">Login</a>
 		</div>
 		</nav>
 		<div class="content">
