@@ -17,12 +17,11 @@
 </head>
 <body>
 <div class="container">
-        <header>
-			<ul>
-				<li><button onclick="showEntrepriseSection()">Entreprise</button></li>
-				<li><button onclick="showInfluenceurSection()">Influenceur</button></li>
-			</ul>
-</header>
+        <div class="choice">
+		<p> Je suis :</p>
+        <button onclick="showEntrepriseSection()">Entreprise</button>
+		<button onclick="showInfluenceurSection()">Influenceur</button>		   
+        </div>
 <section id="entreprise">
         <div class="forme">
             <h1> Entreprise</h1>
@@ -39,6 +38,9 @@
                 </div>
                 <div class="btn-field">
                 <button type="submit" name="login">Login</button>
+                </div>
+                <div class="signuplink">
+                <p>Don't have account ? <a href="signup.php"> Sign Up</a></p>
                 </div>
             </form>
         </div>
@@ -59,6 +61,9 @@
                 </div>
                 <div class="btn-field">
                 <button type="button" name="login">Login</button>
+                </div>
+                <div class="signuplink">
+                <p>Don't have account ? <a href="signup.php"> Sign Up</a></p>
                 </div>
             </form>
         </div>
