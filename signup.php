@@ -9,7 +9,7 @@ include("database.php");
 </head>
 <body>
 <a href="index.php"><button class="home-button">Home</button></a>
-<a href="LOGIN.php"><button class="login-button">Login</button></a>
+<a href="loogin.php"><button class="home-button">Login</button></a>
 
 
 	<header>
