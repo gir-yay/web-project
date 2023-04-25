@@ -7,6 +7,6 @@ session_unset();
 session_destroy();
 
 //redirect to home page
-header("Location: Home.php");
+header("Location: index.php");
 exit();
 ?>

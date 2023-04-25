@@ -50,15 +50,15 @@
                 <div class="input-group">
                     <div class="input-field">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="email">
+                    <input type="email"name="email" placeholder="email">
                     </div>
                     <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="password">
+                    <input type="password"  name="password" placeholder="password">
                     </div>
                 </div>
                 <div class="btn-field">
-                <button type="button" name="login">Login</button>
+                <button type="submit" name="login">Login</button>
                 </div>
             </form>
         </div>
