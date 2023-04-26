@@ -2,6 +2,7 @@
 // connect to mysql database
 //a variable for the name of the server
 $servername = "localhost";
+//$servername = "127.0.0.1:3308";
 //a variable for the username
 $user="root";
 //a variable for the password

@@ -130,14 +130,17 @@
 			 En quelques mots : gain de temps, efficacité et rentabilité.</p>
 </span>
 </div>
-	          <footer>
-		<div> <h2 id="contacte" > Contacter nous</h2></div>
-    <form >
-    <input type="text" placeholder="Nom">
-    <input type="email" placeholder="E-mail" >
-    <textarea placeholder=" Votre message ici"></textarea>
-    <button> Envoyer</button>
-</form>
+
+
+
+<footer>
+	<div> <h2 id="contacte" > Contacter nous</h2></div>
+	<form method="post" action="https://formsubmit.co/no22one20@gmail.com">
+    	<input type="text" placeholder="Nom" name="nom">
+    	<input type="email" placeholder="E-mail" name="email" required >
+    	<textarea name="message" placeholder=" Votre message ici" required></textarea>
+	    <input class="but" type="submit" name="envoyer" value="envoyer"  >
+	</form>
 <div id="trait"> </div>
 <div id="copyrighticon"> 
     <div id="copyright"> <span> ©2023 </span></div>
