@@ -17,10 +17,12 @@
 </head>
 <body>
 <div class="container">
+  
         <div class="choice">
 		<p> Je suis :</p>
         <button onclick="showEntrepriseSection()">Entreprise</button>
-		<button onclick="showInfluenceurSection()">Influenceur</button>		   
+		<button onclick="showInfluenceurSection()">Influenceur</button>
+        <button onclick="showadminSection()">Admin</button> 		   
         </div>
 <section id="entreprise">
         <div class="forme">
@@ -69,16 +71,48 @@
         </div>
 </section>
 
+<section id="admin">
+        <div class="forme">
+            <h1>Influenceur</h1>
+            <form action="logininf.php" method="POST">
+                <div class="input-group">
+                    <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email"name="email" placeholder="email">
+                    </div>
+                    <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password"  name="password" placeholder="password">
+                    </div>
+                </div>
+                <div class="btn-field">
+                <button type="submit" name="login">Login</button>
+                </div>
+                <div class="signuplink">
+                <p>Don't have account ? <a href="signup.php"> Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+</section>
+
 <!-- script to show the forum  -->
 <script>
 		function showEntrepriseSection() {
 			document.getElementById("entreprise").style.display = "block";
 			document.getElementById("influenceur").style.display = "none";
+            document.getElementById("admin").style.display = "none";
 		}
 
 		function showInfluenceurSection() {
 			document.getElementById("entreprise").style.display = "none";
 			document.getElementById("influenceur").style.display = "block";
+            document.getElementById("admin").style.display = "none";
+
+		}
+        function showadminSection() {
+			document.getElementById("entreprise").style.display = "none";
+			document.getElementById("influenceur").style.display = "none";
+            document.getElementById("admin").style.display = "block";
 		}
 	</script>
  </div>
