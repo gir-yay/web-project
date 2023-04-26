@@ -1,25 +1,25 @@
-<!-- create a page for the entreprise loged in  -->
+<!-- creer une page pour une entreprise connectée -->
 
 <?php   
     include 'database.php';
     //get the session
     session_start();
-    //check if the session is set
+    //verifier si la session est définie
     if(!isset($_SESSION['email'])){
         //if not set redirect to the login page
         header("Location: login.php");
         exit();
     }else{
-        //if set get the name of the entreprise
+        //Si set recuperer le nom de l'entreprise
         $name = $_SESSION['name'];
         echo "<br>".$name." ";
-        //get the logo of the entreprise
+        //Recuperer le logo de l'entreprise
         $logo = $_SESSION['logo'];
-        //renname the logo
+        //renommer le logo
         $logo = "Upload/".$logo;
     }
 ?>
-<!-- html page for the entreprise  -->
+<!-- html page de l'entreprise  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,63 +27,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entreprise</title>
+    <link rel="stylesheet" href="css/entreprise.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1> Welcome <?php echo $name; ?></h1>
-    <!-- create a navigation part  logout and home as a button  -->
+    
+
+<div class="col-div-6">
+<div class="profile">
+    <!-- Le profil a le nom de l'entreprise le logo et  l'ID -->
+    <!-- Le logo de l'entreprise est une image et recuperer le chemin de la bd -->
+<img src="<?php echo $logo ?>" alt="logo" class="pro-img">
+<p><?php echo $name;?><span>ID:<?php echo $_SESSION['id'] ?></span></p>
+</div>
+</div>
+
     <nav>
         <ul>
-            <li><input type="button" value="Home" onclick="window.location.href='Home.php'"></li>
-            <!-- logout button and session destroyer  on click log out -->
+            <li>&#9776; MENU </li><br><br>
+            
+            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
+            </li><br>
+            
+        
+            <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
             <li>
+            <i class="fa fa-sign-out"></i>
                 <input type="submit" value="Logout" onclick="window.location.href='logout.php'">
-            </li>
+            </li><br>
+
+            <!--  lien pour modifier les infomations de l'entreprise -->
+
+            <li><a href=""><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+            </li><br>
+            
         </ul>
 
     </nav>
 
-    <!-- the body have the name of the entreprise the logo and the id  -->
+   
     <main>
-        <h1>Entreprise <?php echo $name ?> </h1>
-        <!-- the logo of the copany is a image get the path from the database  -->
-        <img src="<?php echo $logo ?>" alt="logo">
-        <h1>Id <?php echo $_SESSION['id'] ?></h1>
     </main>
 
 </body>
+
+<div class="main">
 <<?php 
-//show all the influenceur as a table 
-//get the database connection
+//Afficher tous les influenceurs sous forme d'une table  
+//Recuperer la bd connection
 include 'database.php';
-//get the id of the entreprise
+//Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
-//get the name of the entreprise
+//Recuperer le nom de l'entreprise
 $name = $_SESSION['name'];
-//get the ca of the entreprise
+//Recuperer ca de l'entreprise
 $ca = $_SESSION['ca'];
-//get the email of the entreprise
+//Recuperer l'email de l'entreprise
 $email = $_SESSION['email'];
-//send a request to the database to get all the influenceur 
-echo "<h1>INFLUENCER</h1>";
+//Envoyer une demande à la bd pour recuperer tous les influenceurs 
+echo "<h1 style='font-size:30px; padding: 16px;'><strong><center>INFLUENCER </center></strong></h1>";
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql); 
 //
 echo "<table>";
-echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make a offer</th><th>Message</th></tr>";
+echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make an offer</th><th>Message</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" .$row['id'] . "</td>";
     echo "<td>".$row['lastname']."</td>";
     echo "<td>".$row['firstname']."</td>";
     echo "<td>".$row['email']."</td>";
     echo "<td>".$row['age']."</td>";
     echo "<td>";
     echo "<form method='post'>";
-    // add a button to make an offer to the influencer
+    // ajouter un bouton pour executer un offre pour l'influencer
     echo "<button type='button' class='offer-btn'>Offer</button>";
 
-    echo "<div class='offer-form' style='display:none;'>";
-    // add a form to make an offer: the terms of an agreement between two partie, the amount paid by a brand to an influencer, and the duration of the contract
+    echo "<div clas-form' style='display:none;'>";
+    // ajouter une form pour executer un offre: Les termes d'un accord entre deux parties, le montant payé par une marque à un influenceur et la durée du contrat.
     echo "<input type='text' name='terms' placeholder='Terms'>";
     echo "<input type='text' name='amount' placeholder='Amount'>";
     echo "<input type='text' name='duration' placeholder='Duration'>";
@@ -93,60 +114,61 @@ foreach ($result as $row) {
     echo "</form>";
     echo "</td>";
     echo "<td>";
-    //add a button to go to the message.php page
+    //Ajouter un bouton pour aller à la page message.php.
     echo "<form method='post'>";
-    echo "<button type='submit' name='message'>Message</button>";
+    echo "<button type='submit' class='message-btn' name='message'>Message</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
 }
 echo "</table>";
-// check if the offer button is clicked
+// Vérifier si le bouton d'offre a été cliqué
 if(isset($_POST['submit'])) {
     // get the terms of the offer
     $terms = $_POST['terms'];
-    // get the amount of the offer
+    // Recuperer les termes de l'offre
     $amount = $_POST['amount'];
-    // get the duration of the offer
+    // Recuperer la durée de l'offre
     $duration = $_POST['duration'];
-    // get the id of the entreprise
+    // Recuperer l'ID de l'offre
     $id_entreprise = $_SESSION['id'];
-    // get the id of the influencer
+    // Recuperer l'ID de l'influenceur
     $id_influencer = $_POST['id'];
-    //the state is by default waiting for the influencer to accept or refuse the offer
+    //L'état par défaut est en attente que l'influenceur accepte ou refuse l'offre.
     $state = "waiting";
-    //echo all the data
+    //afficher toutes les données
     echo "terms: ".$terms." amount: ".$amount." duration: ".$duration." id_entreprise: ".$id_entreprise." id_influencer: ".$id_influencer." state: ".$state;
-    // send a request to the database to add the offer to the database
+    // Envoyer une demande à la base de données pour ajouter l'offre à la base de données
     $sql = "INSERT INTO offer (terms, amount, duration, id_entreprise, id_influencer, state) VALUES ('$terms', '$amount', '$duration', '$id_entreprise', '$id_influencer', '$state')";
     $result = mysqli_query($conn, $sql);
-    // check if the request is successful
+    // Vérifier si la demande a réussi
     if($result) {
-        // if successful redirect to the entreprise page
+        // Si la connexion réussit, rediriger vers la page de l'entreprise.
         header("Location: entreprise.php");
         exit();
     } else {
-        // if not successful show an error message
+        // Si cela n'a pas réussi, afficher un message d'erreur
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
-//if the message button is clicked
+//si le bouton de message a été cliqué
+
 if(isset($_POST['message'])) {
-    //get the id from the row 
+    //Recuperer l'ID du message
     $id = $_POST['id'];
-    //send the i d in the session variable
+    //Envoyer l'identifiant dans la variable de session
     $_SESSION['id2'] = $id;
-    //add a variable type to know if the user is an entreprise or an influencer
+    //ajouter une  variable type pour savoir si l'utilisateur est une entreprise ou un influenceur
     $_SESSION['type'] = "ent";
-    //redirect to the message page
+    //rediriger vers la page des message
     header("Location: message.php");
     exit();
 }
 
 
 
-// add JavaScript to toggle the display of the offer form
+// Ajouter du JavaScript pour basculer l'affichage du formulaire d'offre
 echo "<script>
 document.querySelectorAll('.offer-btn').forEach(button => {
     button.addEventListener('click', () => {
@@ -155,74 +177,74 @@ document.querySelectorAll('.offer-btn').forEach(button => {
     });
 });
 </script>";
-//get the suggestion of the influencer
-echo "<h1>SUGGESTION</h1>";
-//show the suggestion of the influencer as a table and add a button to accept or refuse the suggestion where state is waiting
+//Recuperer la suggestion de l'influenceur
+echo "<h1><center>SUGGESTION</center></h1>";
+//Afficher les suggestions de l'influenceur sous forme de tableau et ajouter un bouton pour accepter ou refuser la suggestion lorsque l'état est en attente.
 $sql = "SELECT * FROM suggestion WHERE state = 'waiting'";
 $result = mysqli_query($conn, $sql);
 echo "<table>";
 echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Accept</th><th>Refuse</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
     echo "<td>".$row['state']."</td>";
     echo "<td>";
     echo "<form method='post'>";
-    echo "<button type='submit' name='accept' id='accept'>Accept</button>";
+    echo "<button type='submit' name='accept' class='accept-btn' id='accept'>Accept</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</form>";
     echo "</td>";
     echo "<td>";
     echo "<form method='post'>";
-    echo "<button type='submit' name='refuse' id='refuse'>Refuse</button>";
+    echo "<button type='submit' name='refuse' class='refuse-btn' id='refuse'>Refuse</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
 }
 echo "</table>";
-// check if the accept button is clicked
+// Verifier si le bouton d'acceptation a été cliqué
 if(isset($_POST['accept'])) {
-    // get the id of the suggestion
+    // Recuperer l'ID de la suggestion
     $id = $_POST['id'];
-    // change the state of the suggestion to accepted
+    // Changer l'état de la suggestion en "accepté
     $state = "accepted";
-    // send a request to the database to update the state of the suggestion
+    // Envoyer une requête à la base de données pour mettre à jour l'état de la suggestion
     $sql = "UPDATE suggestion SET state = '$state' WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
-    // check if the request is successful
+    // Vérifier si la requête est réussie
     if($result) {
-        // if successful redirect to the entreprise page
+        // Si réussi, rediriger vers la page de l'entreprise.
         header("Location: entreprise.php");
         exit();
     } else {
-        // if not successful show an error message
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        // si cela n'a pas réussi, afficher un message d'erreur
+        echo "Error: ".$sql."<br>".mysqli_error($conn);
     }
 }
-// check if the refuse button is clicked
+// Verifier si le bouton du refus a été cliqué
 if(isset($_POST['refuse'])) {
-    // get the id of the suggestion
+    // Recuperer l'ID de la suggestion
     $id = $_POST['id'];
-    // change the state of the suggestion to refused
+    // Changer l'état de la suggestion en refusé
     $state = "refused";
-    // send a request to the database to update the state of the suggestion
-    $sql = "UPDATE suggestion SET state = '$state' WHERE id = '$id'";
+    // Envoyer une requête à la base de données pour mettre à jour l'état de la suggestion.
+    $sql = "UPDATE suggestion SET state ='$state' WHERE id ='$id'";
     $result = mysqli_query($conn, $sql);
-    // check if the request is successful
+    // Vérifier si la requête a réussi
     if($result) {
-        // if successful redirect to the entreprise page
+        // Si la connexion réussit, rediriger vers la page de l'entreprise.
         header("Location: entreprise.php");
         exit();
     } else {
-        // if not successful show an error message
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        // si cela n'est pas réussi, afficher un message d'erreur
+        echo "Error: ". $sql ."<br>".mysqli_error($conn);
     }
 }
-//show the accepted suggestion of the influencer as a table inner join with the influencer table to get the Fisrt name and Lastname of the influencer
+//Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted'";
 $result = mysqli_query($conn, $sql);
 echo "<h1>ACCEPTED SUGGESTION</h1>";
@@ -230,7 +252,7 @@ echo "<table>";
 echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" .$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
@@ -239,7 +261,7 @@ foreach ($result as $row) {
     echo "</tr>";
 }
 echo "</table>";
-//show the refused suggestion of the influencer as a table inner join with the influencer table to get the Fisrt name and Lastname of the influencer
+//Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused'";
 $result = mysqli_query($conn, $sql);
 echo "<h1>REFUSED SUGGESTION</h1>";
@@ -247,7 +269,7 @@ echo "<table>";
 echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
@@ -257,107 +279,4 @@ foreach ($result as $row) {
 }
 echo "</table>";
 ?>
-<style>
-
-
-    /* Style for offer form */
-.offer-form {
-    display: none;
-    margin-top: 10px;
-}
-
-.offer-btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.accept-btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.refuse-btn {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.5em;
-}
-
-th {
-  background-color: #eee;
-}
-
-tr:nth-child(even) td {
-  background-color: #f2f2f2;
-}
-
-td.accepted {
-  background-color: #c9ffc9;
-}
-
-td.refused {
-  background-color: #ffc9c9;
-}
-#refuse {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-#accept {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-
-
-
-
-</style>
+</div>
