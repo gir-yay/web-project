@@ -10,14 +10,18 @@
         header("Location: login.php");
         exit();
     }else{
-        //Si set recuperer le nom de l'entreprise
-        $name = $_SESSION['name'];
-        echo "<br>".$name." ";
-        //Recuperer le logo de l'entreprise
-        $logo = $_SESSION['logo'];
-        //renommer le logo
-        $logo = "Upload/".$logo;
+        //get the info from entreprise table
+        $id=$_SESSION['id'];
+        $sql="SELECT * FROM entreprise WHERE id='$id'";
+        $result=mysqli_query($conn,$sql);
+        $row=mysqli_fetch_assoc($result);
+        //get the name of the entreprise
+        $name=$row['Name'];
+        //get the logo of the entreprise
+        $logo='Upload/'.$row['logo'];
+        $_SESSION['type']='entreprise';
     }
+    $_SESSION['type']='entreprise';
 ?>
 <!-- html page de l'entreprise  -->
 <!DOCTYPE html>
@@ -58,8 +62,10 @@
 
             <!--  lien pour modifier les infomations de l'entreprise -->
 
-            <li><a href=""><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+            <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
             </li><br>
+            <!-- send a request to the admin to delete ur accont  -->
+            <li><a href="delete.php"><i class="fa fa-trash"></i> Delete Account</a>
             
         </ul>
 
@@ -170,13 +176,17 @@ if(isset($_POST['message'])) {
 
 // Ajouter du JavaScript pour basculer l'affichage du formulaire d'offre
 echo "<script>
-document.querySelectorAll('.offer-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const form = button.parentElement.querySelector('.offer-form');
-        form.style.display = form.style.display === 'none' ? 'block' : 'none';
-    });
-});
-</script>";
+    var offerBtn = document.querySelectorAll('.offer-btn');
+    var form = document.querySelectorAll('.form');
+    for(var i = 0; i < offerBtn.length; i++) {
+        offerBtn[i].addEventListener('click', function() {
+            this.nextElementSibling.style.display = 'block';
+        });
+    }";
+echo "</script>";
+
+
+
 //Recuperer la suggestion de l'influenceur
 echo "<h1><center>SUGGESTION</center></h1>";
 //Afficher les suggestions de l'influenceur sous forme de tableau et ajouter un bouton pour accepter ou refuser la suggestion lorsque l'état est en attente.

@@ -154,19 +154,70 @@ echo "</table>";
 echo "</div>";
 // check if the delete button for suggested collab has been clicked
 if(isset($_POST['delete_suggested_collab'])){
-    $id = $_POST['id'];
-    $sql = "DELETE FROM suggestion WHERE id = '$id'";
+  $id = $_POST['id'];
+  $sql = "DELETE FROM suggestion WHERE id = '$id'";
+  $result = mysqli_query($conn, $sql);
+  if ($result) {
+      echo "Record deleted successfully.";
+  } else {
+      echo "Error deleting record: " . mysqli_error($conn);
+  }
+}
+//make a table for the request : id ,user_id , type ,state, the button need to be delete 
+echo "<h1>REQUEST</h1>";
+$sql = "SELECT * FROM request";
+$result = mysqli_query($conn, $sql);
+echo "<div class='container'>";
+echo "<table>";
+echo "<th>ID</th><th>User ID</th><th>Type</th><th>State</th><th>Action</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>".$row['user_id']."</td>";
+    echo "<td>".$row['type']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "<input type='submit' name='delete_request' value='Delete'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
+// check if the delete button for request has been clicked
+if(isset($_POST['delete_request'])){
+  $id = $_POST['id'];
+  //change the state to deleted 
+  $sql = "UPDATE request SET state = 'deleted' WHERE id = '$id'";
+  $result = mysqli_query($conn, $sql);
+  //depend of the type delte the user from the table
+  if($result){
+    $sql = "SELECT * FROM request WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
-    if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $type = $row['type'];
+    $user_id = $row['user_id'];
+    if($type == 'influencer'){
+      $sql = "DELETE FROM influencer WHERE id = '$user_id'";
+      $result = mysqli_query($conn, $sql);
+      if($result){
         echo "Record deleted successfully.";
-    } else {
+      }else{
         echo "Error deleting record: " . mysqli_error($conn);
+      }
+    }else{
+      $sql = "DELETE FROM entreprise WHERE id = '$user_id'";
+      $result = mysqli_query($conn, $sql);
+      if($result){
+        echo "Record deleted successfully.";
+      }else{
+        echo "Error deleting record: " . mysqli_error($conn);
+      }
     }
 }
-
-
-
-
+}
+echo "</table>";
+echo "</div>";
 
 ?>
 <style>
