@@ -12,6 +12,10 @@ if (isset($_SESSION['username'])) {
     // if the session variable is not set, redirect to admin.php
     header('Location: admin.php');
 }
+//add a nav bar for home and logout
+echo "<nav>";
+echo "<a href='logout.php'>Logout</a>";
+echo "</nav>";
 // show all the influencer from the database as a table
 echo "<h1>INFLUENCER</h1>";
 $sql = "SELECT * FROM influencer";
@@ -200,14 +204,32 @@ if(isset($_POST['delete_request'])){
     if($type == 'influencer'){
       $sql = "DELETE FROM influencer WHERE id = '$user_id'";
       $result = mysqli_query($conn, $sql);
+      //delete evey collab that the influencer has
+      $sql = "DELETE FROM offer WHERE id_influencer = '$user_id'";
+      $result = mysqli_query($conn, $sql);
+      $sql = "DELETE FROM suggestion WHERE id_influencer = '$user_id'";
+      $result = mysqli_query($conn, $sql);
       if($result){
         echo "Record deleted successfully.";
       }else{
         echo "Error deleting record: " . mysqli_error($conn);
       }
     }else{
+      //delte the logo 
+      $sql = "SELECT * FROM entreprise WHERE id = '$user_id'";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      $logo = $row['logo'];
+      unlink($logo);
+      //delete the entreprise
       $sql = "DELETE FROM entreprise WHERE id = '$user_id'";
       $result = mysqli_query($conn, $sql);
+      //delete evey collab that the influencer has
+      $sql = "DELETE FROM offer WHERE id_entreprise = '$user_id'";
+      $result = mysqli_query($conn, $sql);
+      $sql = "DELETE FROM suggestion WHERE id_entreprise = '$user_id'";
+      $result = mysqli_query($conn, $sql);
+
       if($result){
         echo "Record deleted successfully.";
       }else{
