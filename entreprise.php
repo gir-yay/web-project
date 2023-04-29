@@ -49,7 +49,7 @@
         <ul>
             <li>&#9776; MENU </li><br><br>
             
-            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
+            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='index.php'">
             </li><br>
             
         
