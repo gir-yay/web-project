@@ -94,12 +94,19 @@
 include 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
-//Recuperer le nom de l'entreprise
-$name = $_SESSION['name'];
-//Recuperer ca de l'entreprise
-$ca = $_SESSION['ca'];
-//Recuperer l'email de l'entreprise
-$email = $_SESSION['email'];
+// //Recuperer le nom de l'entreprise
+// $name = $_SESSION['name'];
+// //Recuperer ca de l'entreprise
+// $ca = $_SESSION['ca'];
+// //Recuperer l'email de l'entreprise
+// $email = $_SESSION['email'];
+// GET THE INFO FROM THE DATABASE
+$sql = "SELECT * FROM entreprise WHERE id='$id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['Name'];
+$ca = $row['ca'];
+$email = $row['email'];
 //Envoyer une demande à la bd pour recuperer tous les influenceurs 
 echo "<h1 style='font-size:30px; padding: 16px;'><strong><center>INFLUENCER </center></strong></h1>";
 $sql = "SELECT * FROM influencer";

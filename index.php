@@ -13,7 +13,6 @@
 	<nav>
 			<img src="logo1.png" class="logo">
 			<ul>
-				<li> <a href="#"> Home</a></li>
 				<li> <a href="#about"> About as</a></li>
 				<li> <a href="#"> Services</a></li>
 				<li> <a href="#contacte"> Contact</a></li>

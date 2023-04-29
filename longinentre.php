@@ -4,87 +4,25 @@ session_start();
 
 include "database.php";
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
+//the email and password from the form are not empty and stored in th e$_post array
+$email =$_POST['email'];
+$password =$_POST['password'];
+// check if the email and password exist in the entreprise table
+$sql = "SELECT * FROM entreprise WHERE email='$email' AND password='$password'";
+$result = mysqli_query($conn, $sql);
 
-    function validate($data){
-
-       $data = trim($data);
-
-       $data = stripslashes($data);
-
-       $data = htmlspecialchars($data);
-
-       return $data;
-
-    }
-
-    $uname = validate($_POST['email']);
-
-    $pass = validate($_POST['password']);
-
-    if (empty($uname)) {
-
-        header("Location: index.php?error=email is required");
-
-        exit();
-
-    }else if(empty($pass)){
-
-        header("Location: index.php?error=Password is required");
-
-        exit();
-
-    }else{
-
-        $sql = "SELECT * FROM entreprise WHERE email='$uname' AND password='$pass'";
-
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) === 1) {
-
-            $row = mysqli_fetch_assoc($result);
-
-            if ($row['email'] === $uname && $row['password'] === $pass) {
-
-                echo "Logged in!";
-
-                $_SESSION['email'] = $row['email'];
-
-                $_SESSION['name'] = $row['name'];
-                
-                $_SESSION['ca']=$row['ca'];
-
-                $_SESSION['id'] = $row['id'];
-                
-                $_SESSION['logo'] = $row['logo'];
-
-
-                header("Location: entreprise.php");
-
-                exit();
-
-            }else{
-
-                header("Location: check_login.php?error=Incorect User name or password");
-
-                exit();
-
-            }
-
-        }else{
-
-            header("Location: check_login.php?error=Incorect User name or password");
-
-            exit();
-
-        }
-
-    }
-
-}else{
-
-    header("Location: index.php");
-
+//check if the result is not empty
+if (mysqli_num_rows($result) > 0) {
+    //store the email in the session
+    $_SESSION['email'] = $email;
+    //add the id of the entreprise to the session
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['id'] = $row['id'];
+    //redirect to the dashboard page
+    header("Location: entreprise.php");
     exit();
-
+} else {
+    //redirect to the login page with an error message
+    header("Location: loogin.php?error=Incorect User name or password");
+    exit();
 }
