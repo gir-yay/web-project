@@ -8,7 +8,7 @@ if($type==='entreprise'){
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 }else{
-    $sql = "select * from influenceur where id = '$id'";
+    $sql = "select * from influencer where id = '$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 }

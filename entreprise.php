@@ -49,7 +49,7 @@
         <ul>
             <li>&#9776; MENU </li><br><br>
             
-            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='index.php'">
+            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
             </li><br>
             
         
@@ -88,7 +88,7 @@
 </body>
 
 <div class="main">
-<<?php 
+<?php 
 //Afficher tous les influenceurs sous forme d'une table  
 //Recuperer la bd connection
 include 'database.php';
@@ -271,39 +271,49 @@ if(isset($_POST['refuse'])) {
         echo "Error: ". $sql ."<br>".mysqli_error($conn);
     }
 }
-//Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
+//SHOW RUNNING collaboration (accepted offer and accepted suggestion) of the entreprise the state is accepted and the id_entreprise is the id of the entreprise inner join with the influencer table to get the id of the influencer
+echo "<h1><center>RUNNING COLLABORATION</center></h1>";
+//Afficher les collaborations en cours sous forme de tableau
+$sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id WHERE offer.state = 'accepted' AND offer.id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>ACCEPTED SUGGESTION</h1>";
 echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+echo "<t>";
+echo "<tr><th>Terms</th><th>Amount</th><th>Duration</th><th>Influencer</th><th>State</th><th>Message</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" .$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
+    //Afficher le nom de l'influenceur = lastname + firstname
+    echo "<td>".$row['lastname']." ".$row['firstname']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
     echo "</tr>";
 }
-echo "</table>";
-//Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
+//afficher les suggestions en cours dans le meme tableau
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE suggestion.state = 'accepted' AND suggestion.id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>REFUSED SUGGESTION</h1>";
-echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>".$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['lastname']." ".$row['firstname']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
     echo "</tr>";
 }
 echo "</table>";
+
 ?>
 </div>
