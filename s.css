@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 100px;
+    position: fixed;
+    background-color:#4b097d;
+}
+nav .logo p{
+    font-size: 40px;
+    font-weight: bold;
+    float: left;
+    color:#ca98f0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+nav ul{
+    float: right;
+}
+nav li {
+    display: inline-block;
+    list-style: none;
+}
+nav li a {
+    font-size: 18px;
+    padding: 0 30px;
+    color: #fff;
+    text-decoration: none;
+}
+nav li a:hover {
+    color: #fd0ad8;
+}
+.container {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin:0 15px ;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.container header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+}
+.container header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color:#4b097d;
+}
+.container form {
+    position: relative;
+    min-height: 490px;
+    margin-top: 15px;
+}
+.container form .details{
+    margin-top: 30px;
+}
+.container form .titre {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.container form .boxs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .boxs .input-boxss {
+     display: flex;
+     flex-direction: column;
+     width: calc(100% / 3 - 15px);
+     margin: 4px 0;
+}
+.input-boxss label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.input-boxss input,select {
+    height: 42px;
+    margin: 8px 0;
+    padding: 0 15px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+
+}
+
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    background-color: #4b097d;
+    color: #fff;
+    cursor: pointer;
+    margin: 25px 50px;
+}
+section {
+    display: none;
+}
+
+
+@media (max-width: 750px) {
+    form .boxs .input-boxss{
+        width: calc(100% / 2 - 15px);
+    }
+   
+}

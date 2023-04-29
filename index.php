@@ -15,7 +15,7 @@
 			<ul>
 				<li> <a href="#"> Home</a></li>
 				<li> <a href="#about"> About as</a></li>
-				<li> <a href="#"> Services</a></li>
+				<li> <a href="admin.php"> Admin</a></li>
 				<li> <a href="#contacte"> Contact</a></li>
 			</ul>
 			<div>
@@ -28,7 +28,7 @@
 				 d'influence, vous devez travailler avec des
 				  influenceurs expérimentés, qui partagent 
 				  les valeurs de votre marque. </p>
-			<a  href="signup.php" class ="btn anim">Join Now</a> </div> 
+			<a  href="ssignup.php" class ="btn anim">Join Now</a> </div> 
 			<img src="head3.png" width="750px" class="features-img anim"></section>
 				
 	                       <!-- about -->
@@ -49,7 +49,7 @@
 				   <br> <br>
 				  <strong>  Rejoignez-nous dès maintenant.<strong\> <br> <br> <br> 
 				</p>
-				<a  href="signup.php" class ="btn anim">Join Now</a>
+				<a  href="s.php" class ="btn anim">Join Now</a>
       </div>
       </div>
 </section>
@@ -81,7 +81,7 @@
 
             <!-- why -->
 <section id="why"> 
-	<div> <h1> Pourquoi <br> nous choisir ?</h1></div>
+	<div class="qst"> <h1> Pourquoi <br> Nous choisir ?</h1></div>
 
 	<div class="why1">
              <p> Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
@@ -101,6 +101,7 @@
 			 par les top marques présentes sur Natividi</p>
 
 	</div>
+	<br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
 	</section> 
 	<div class="avis1">
 		<span class="avis">
