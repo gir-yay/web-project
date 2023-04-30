@@ -1,5 +1,4 @@
 <!-- creer une page pour une entreprise connectée -->
-
 <?php   
     include 'database.php';
     //get the session
@@ -7,17 +6,21 @@
     //verifier si la session est définie
     if(!isset($_SESSION['email'])){
         //if not set redirect to the login page
-        header("Location: login.php");
+        header("Location: loogin.php");
         exit();
     }else{
-        //Si set recuperer le nom de l'entreprise
-        $name = $_SESSION['name'];
-        echo "<br>".$name." ";
-        //Recuperer le logo de l'entreprise
-        $logo = $_SESSION['logo'];
-        //renommer le logo
-        $logo = "Upload/".$logo;
+        //get the info from entreprise table
+        $id=$_SESSION['id'];
+        $sql="SELECT * FROM entreprise WHERE id='$id'";
+        $result=mysqli_query($conn,$sql);
+        $row=mysqli_fetch_assoc($result);
+        //get the name of the entreprise
+        $name=$row['Name'];
+        //get the logo of the entreprise
+        $logo='Upload/'.$row['logo'];
+        $_SESSION['type']='entreprise';
     }
+    $_SESSION['type']='entreprise';
 ?>
 <!-- html page de l'entreprise  -->
 <!DOCTYPE html>
@@ -58,8 +61,21 @@
 
             <!--  lien pour modifier les infomations de l'entreprise -->
 
-            <li><a href=""><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+            <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
             </li><br>
+            <!-- send a request to the admin to delete ur accont  -->
+            <li><a href="delete.php"><i class="fa fa-trash"></i> Delete Account</a>
+            </li><br>
+            <!-- lien pour contactez l'admin -->
+            <li>
+            <a href="contact.php"><i class="fa fa-envelope"></i> Contact</a>
+            </li><br>
+            <!-- lien pour voir les messages recu -->
+            <li>
+                <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
+            </li><br>
+            
+
             
         </ul>
 
@@ -170,17 +186,21 @@ if(isset($_POST['message'])) {
 
 // Ajouter du JavaScript pour basculer l'affichage du formulaire d'offre
 echo "<script>
-document.querySelectorAll('.offer-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const form = button.parentElement.querySelector('.offer-form');
-        form.style.display = form.style.display === 'none' ? 'block' : 'none';
-    });
-});
-</script>";
+    var offerBtn = document.querySelectorAll('.offer-btn');
+    var form = document.querySelectorAll('.form');
+    for(var i = 0; i < offerBtn.length; i++) {
+        offerBtn[i].addEventListener('click', function() {
+            this.nextElementSibling.style.display = 'block';
+        });
+    }";
+echo "</script>";
+
+
+
 //Recuperer la suggestion de l'influenceur
 echo "<h1><center>SUGGESTION</center></h1>";
 //Afficher les suggestions de l'influenceur sous forme de tableau et ajouter un bouton pour accepter ou refuser la suggestion lorsque l'état est en attente.
-$sql = "SELECT * FROM suggestion WHERE state = 'waiting'";
+$sql = "SELECT * FROM suggestion WHERE state = 'waiting' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
 echo "<table>";
 echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Accept</th><th>Refuse</th></tr>";
@@ -245,7 +265,7 @@ if(isset($_POST['refuse'])) {
     }
 }
 //Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted'";
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
 echo "<h1>ACCEPTED SUGGESTION</h1>";
 echo "<table>";
@@ -262,7 +282,7 @@ foreach ($result as $row) {
 }
 echo "</table>";
 //Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused'";
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
 echo "<h1>REFUSED SUGGESTION</h1>";
 echo "<table>";

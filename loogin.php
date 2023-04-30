@@ -68,6 +68,7 @@
             </form>
         </div>
 </section>
+
 <!-- script to show the forum  -->
 <script>
 		function showEntrepriseSection() {
@@ -81,11 +82,6 @@
 			document.getElementById("influenceur").style.display = "block";
             document.getElementById("admin").style.display = "none";
 
-		}
-        function showadminSection() {
-			document.getElementById("entreprise").style.display = "none";
-			document.getElementById("influenceur").style.display = "none";
-            document.getElementById("admin").style.display = "block";
 		}
 	</script>
  </div>
