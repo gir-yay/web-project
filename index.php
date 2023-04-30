@@ -28,9 +28,9 @@
 				 d'influence, vous devez travailler avec des
 				  influenceurs expérimentés, qui partagent 
 				  les valeurs de votre marque. </p>
-			<a  href="ssignup.php" class ="btn anim">Join Now</a> </div> 
+			<a  href="s.php" class ="btn anim">Join Now</a> </div> 
 			<img src="head3.png" width="750px" class="features-img anim"></section>
-				
+			</div>	
 	                       <!-- about -->
 			<section id="about"> 
 	    <div class="about-left-col"> 
@@ -59,33 +59,36 @@
 							<div class="feature-col">
 								<img src="feature1.png" alt="">
 								<h4> Partenariat de qualité</h4>
-								<p> petit texte</p>
-								<br> <br> <br><br> <br> <br>
+								<p> Collab : <br> Les influenceurs et marques que vous trouverez 
+								chez nous  garantissent des partenariats de qualité !</p>
+								
 							</div>
 							<div class="feature-col"> 
 							<img src="feature2.png" alt="">
 							<h4> Gratuit</h4>
-							<p> petit texte</p>
-							<br> <br> <br><br> <br> <br>
+							<p> Collab : <br> Des collaborations réussies, sans frais ! Trouvez rapidement des partenaires pertinents et commencez dès maintenant !</p>
+							
 							</div>
 							<div class="feature-col"> 
 							<img src="feature3.png" alt="">
 							<h4> securite</h4>
-							<p> petit texte </p>
-							<br> <br> <br><br> <br> <br>
+							<p>Collab : <br> Garantit la sécurité de vos données personnelles pour des collaborations en toute confiance. </p>
+						
 							</div>
 						</div>
-                        <div class="feature-btn"> <a href="signup.php" class ="btn anim"> Join Now </a> </div>
+                        <div class="feature-btn"> <a href="s.php" class ="btn anim"> Join Now </a>
+		
 					 </section>
+				
 
 
             <!-- why -->
 <section id="why"> 
-	<div class="qst"> <h1> Pourquoi <br> Nous choisir ?</h1></div>
+	  <div class="qst"> <h1> Pourquoi <br> Nous choisir ?</h1></div>
 
 	<div class="why1">
              <p> Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
-	</div>
+	</div> <!-- 
 	<div class="why-left">
 		<h4> Vous êtes une marque…</h4>
 		<p>Offrez vous une solution personnalisée pour 
@@ -100,8 +103,26 @@
 			l'argent en répondant à des projets soumis
 			 par les top marques présentes sur Natividi</p>
 
+	</div> -->
+	<div class="container">
+		<div class="card">
+		 <img src="infl.jpg" alt="">
+		 <div class="intro">
+		        <h1>Vous êtes un influenceur</h1>
+				<p> <br>  Monétisez votre audience et gagnez de 
+			       l'argent </p>	
+		 </div>
+		</div>
+		<div class="card">
+		 <img src="marque.jpg" alt="">
+		 <div class="intro">
+		        <h1>Vous êtes une marque</h1>
+				<p> <br> Offrez vous une solution personnalisée pour 
+		        	votre stratégie d'influence </p>
+		 </div>
+		</div>
 	</div>
-	<br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
+	
 	</section> 
 	<div class="avis1">
 		<span class="avis">

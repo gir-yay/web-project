@@ -21,34 +21,35 @@
         <section id="influenceur">
     <div class="container">
         <header>Bienvenue !</header>
-        <form action="">
+        <form  action="submitinf.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
+                    <div class="erreur-msg">Un message d'erreur !</div>
 
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Nom</label>
-                        <input type="text" placeholder="Entrez votre nom" required>
+                        <input type="text" name="nom" placeholder="Entrez votre nom" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Prénom</label>
-                        <input type="text" placeholder="Entrez votre prénom" required>
+                        <input type="text" name="prenom" placeholder="Entrez votre prénom" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Age</label>
-                        <input type="text" placeholder="Entrez votre Age" required>
+                        <input type="text" name="age" placeholder="Entrez votre Age" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Téléphone</label>
-                        <input type="phone" placeholder="Entrez votre numéro de téléphone" required>
+                        <input type="phone" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Email</label>
-                        <input type="email" placeholder="Entrez votre email" required>
+                        <input type="email"  name="email"placeholder="Entrez votre email" required>
                         </div>
                         <div class="input-boxss">
                         <label >Genre</label>
@@ -67,17 +68,17 @@
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Instagramm</label>
-                        <input type="text" placeholder="Votre compte Instagramm "required>
+                        <input type="text" name="insta" placeholder="Votre compte Instagramm "required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Facebook</label>
-                        <input type="text" placeholder="Votre compte Facebook" required>
+                        <input type="text" name="fcbk" placeholder="Votre compte Facebook" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Youtube</label>
-                        <input type="text" placeholder="Votre chaine Youtube" required>
+                        <input type="text" name="ytb" placeholder="Votre chaine Youtube" required>
                         </div>
             
                         <div class="input-boxss">
@@ -92,7 +93,7 @@
                         </div>
 
                         <div class="input-boxss">
-                        <label >Abonnées</label> <select name="" id="follower">
+                        <label >Abonnées</label> <select name="followers" id="follower">
                             <option value="">30k-60k Abonné</option>
                             <option value="">60k-90k Abonné</option>
                             <option value="">90k-150k Abonné</option>
@@ -101,57 +102,63 @@
                         </div> 
                         <div class="input-boxss">
                         <label >Mot de passe</label>
-                        <input type="phone" placeholder=" mot de passe" required>
+                        <input type="phone" name="password" placeholder=" mot de passe" required>
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input type="phone" placeholder="un mot de passe" required>
+                        <input type="password" name="password-confirm" placeholder="un mot de passe" required>
                         </div>
                     </div>
                 </div>
 
                 <button>Sauvegarder</button>
+                <span class="btn">
+                    <button >Cancel</button></span>
+                <div class="loginlink">
+                <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
+                </div>
         </form>
     </div>
     </section>
    <section id="entreprise">
       <div class="container">
         <header>Bienvenue !</header>
-        <form action="">
+        <form action="submit.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
+                    <div class="erreur-msg">Un message d'erreur !</div>
 
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Nom</label>
-                        <input type="text" placeholder="Entrez votre nom" required>
+                        <input type="text" name="nom" placeholder="Entrez votre nom" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Téléphone</label>
-                        <input type="phone" placeholder="Entrez votre numéro de téléphone" required>
+                        <input type="phone" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Email</label>
-                        <input type="email" placeholder="Entrez votre email" required>
+                        <input type="email"name="email" placeholder="Entrez votre email" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Logo</label>
-                        <input type="file" required>
+                        <input type="file" name="logo" required>
                         </div>
                         
                   
                         <div class="input-boxss">
                         <label >Site Web </label>
-                        <input type="text" placeholder="Lien de Votre site web "required>
+                        <input type="text"name="site" placeholder="Lien de Votre site web "required>
                         </div>
                         
                     
                         <div class="input-boxss">
                         <label >Chiffre d'affaire</label>
-                        <input type="text" placeholder="en MAD "required>
+                        <input type="text" name="ca" placeholder="en MAD "required>
                         </div>
                         <div class="input-boxss">
                         <label >Domaine</label>
@@ -165,11 +172,11 @@
                         </div>
                         <div class="input-boxss">
                         <label >Mot de passe</label>
-                        <input type="phone" placeholder=" mot de passe" required>
+                        <input type="phone" name="password" placeholder=" mot de passe" required>
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input type="phone" placeholder="un mot de passe" required>
+                        <input type="phone"name="password-confirm" placeholder="un mot de passe" required>
                         </div>
                     </div>
                 </div>
