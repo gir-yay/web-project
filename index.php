@@ -11,7 +11,7 @@
 </head>
 <body> <section><div class="home"> 
 	<nav>
-			<img src="logo1.png" class="logo">
+			<img src="./images/logo1.png" class="logo">
 			<ul>
 				<li> <a href="#about"> About as</a></li>
 				<li> <a href="#"> Services</a></li>
@@ -28,12 +28,12 @@
 				  influenceurs expérimentés, qui partagent 
 				  les valeurs de votre marque. </p>
 			<a  href="signup.php" class ="btn anim">Join Now</a> </div> 
-			<img src="head3.png" width="750px" class="features-img anim"></section>
+			<img src="./images/head3.png" width="750px" class="features-img anim"></section>
 				
 	                       <!-- about -->
 			<section id="about"> 
 	    <div class="about-left-col"> 
-	       <img src="header-bg.jpg" ></div>
+	       <img src="./images/header-bg.jpg" ></div>
 	  <div class="about-right-col"> 
 	    <div class="about-text"> 
            <h1> About us</h1>
@@ -56,19 +56,19 @@
 					 <section id="features"> 
 						<div class="feature-row">
 							<div class="feature-col">
-								<img src="feature1.png" alt="">
+								<img src="./images/feature1.png" alt="">
 								<h4> Partenariat de qualité</h4>
 								<p> petit texte</p>
 								
 							</div>
 							<div class="feature-col"> 
-							<img src="feature2.png" alt="">
+							<img src="./images/feature2.png" alt="">
 							<h4> Gratuit</h4>
 							<p> petit texte</p>
 							
 							</div>
 							<div class="feature-col"> 
-							<img src="feature3.png" alt="">
+							<img src="./images/feature3.png" alt="">
 							<h4> securité</h4>
 							<p> petit texte </p>
 						
@@ -103,7 +103,7 @@
 	</section> 
 	<div class="avis1">
 		<span class="avis">
-        <img src="quotes.png" alt="">
+        <img src="./images/quotes.png" alt="">
 		<h2> Fati</h2>
 		<p> Dovozo est un formidable outil, simple d'utilisation qui facilite les contacts entre influenceurs et marques. 
 			Pour les entreprises comme la nôtre cela nous fait gagner un temps précieux dans la recherche de collaborations. 
@@ -112,7 +112,7 @@
 			fluide et les échanges rapides. Je recommande donc à toute marque souhaitant développer son marketing d'influence.</p>
 </span>
 		<span class="avis">
-        <img src="quotes.png" alt="">
+        <img src="./images/quotes.png" alt="">
 		<h2> Riyad</h2>
 		<p> Dovozo est un excellent outil pour entrer rapidement en relation avec de nombreux influenceurs qualifiés.
 			 Dans le cadre du développement de Mon Petit Coin Vert nous avons pu faire découvrir notre offre à plus de
@@ -121,7 +121,7 @@
 </span>
 		
 		<span class="avis">
-        <img src="quotes.png" alt="">
+        <img src="./images/quotes.png" alt="">
 		<h2> abdo</h2>
 		<p> La plateforme Dovozo a grandement facilité le quotidien de l'équipe en charge des partenariats sur
 			Commentseruiner.com. Il devient très simple de contacter et créer de nouveaux partenariat avec des influenceurs. 
