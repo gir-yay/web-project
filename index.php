@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>My Homepage</title>
+	<title>Collab</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 	<link rel="stylesheet" href="./css/style.css">
@@ -13,8 +13,8 @@
 	<nav>
 			<img src="./images/logo1.png" class="logo">
 			<ul>
-				<li> <a href="#about"> About as</a></li>
-				<li> <a href="#"> Services</a></li>
+				<li> <a href="#about"> About Us</a></li>
+				<li> <a href="#why"> Services</a></li>
 				<li> <a href="#contacte"> Contact</a></li>
 			</ul>
 			<div>
@@ -37,14 +37,13 @@
 	  <div class="about-right-col"> 
 	    <div class="about-text"> 
            <h1> About us</h1>
-           <p> Collab est une plateforme innovante qui vise à connecter les influenceurs et 
-			   les marques pour faciliter les collaborations. Notre mission est de créer des 
-			   partenariats authentiques et réussis entre les deux parties, en mettant l'accent sur
-			    la pertinence et la qualité des collaborations. Nous croyons que chaque collaboration devrait
-				 être unique et personnalisée pour répondre aux besoins spécifiques de chaque marque et de chaque
-				  influenceur. Notre équipe expérimentée travaille en étroite collaboration avec les marques et les 
-				  influenceurs pour les aider à atteindre leurs objectifs de marketing et à maximiser leur potentiel sur
-				   les réseaux sociaux. Nous sommes fiers d'offrir une expérience fluide, efficace et agréable pour tous nos utilisateurs. 
+           <p>Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.
+
+Nous sommes convaincus que la clé du succès des collaborations réside dans la compréhension des besoins spécifiques de chaque marque et de chaque influenceur. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour élaborer des stratégies efficaces de marketing d'influence et maximiser leur potentiel sur les réseaux sociaux.
+
+Notre équipe expérimentée est composée d'experts en marketing d'influence qui ont une connaissance approfondie des tendances et des meilleures pratiques en matière de marketing numérique. Nous sommes fiers d'offrir une expérience utilisateur fluide, efficace et agréable à tous nos utilisateurs, qu'ils soient des marques ou des influenceurs.
+
+En choisissant Collab, vous pouvez être sûr de travailler avec une équipe engagée, compétente et passionnée qui est déterminée à aider votre entreprise à atteindre ses objectifs de marketing d'influence. Contactez-nous dès aujourd'hui pour en savoir plus sur la manière dont nous pouvons vous aider à réussir votre prochaine collaboration.
 				   <br> <br>
 				  <strong>  Rejoignez-nous dès maintenant.<strong\> <br> <br> <br> 
 				</p>
@@ -58,36 +57,33 @@
 							<div class="feature-col">
 								<img src="./images/feature1.png" alt="">
 								<h4> Partenariat de qualité</h4>
-								<p> petit texte</p>
+								<p>Nous travaillons avec des marques de qualité et des influenceurs reconnus dans leur domaine, afin de vous offrir des partenariats de qualité qui répondent à vos besoins spécifiques.</p>
 								
 							</div>
 							<div class="feature-col"> 
 							<img src="./images/feature2.png" alt="">
-							<h4> Gratuit</h4>
-							<p> petit texte</p>
+							<h4> Gratuité</h4>
+							<p>Notre service est gratuit pour les influenceurs, ce qui signifie que vous n'aurez pas à payer pour accéder à des opportunités de collaboration avec des marques de qualité. Nous facturons uniquement les marques pour les services que nous leur fournissons.</p>
 							
 							</div>
 							<div class="feature-col"> 
 							<img src="./images/feature3.png" alt="">
 							<h4> securité</h4>
-							<p> petit texte </p>
+							<p>Nous prenons la sécurité et la protection de vos données très au sérieux. Nous avons des politiques de confidentialité strictes en place et nous utilisons des outils de sécurité de pointe pour garantir que vos informations personnelles sont protégées à tout moment.</p>
 						
 							</div>
 						</div>
                         <div class="feature-btn"> <a href="signup.php" class ="btn anim"> Join Now </a> </div>
 					 </section>
-
-
+<!--
+        <p id="why1"> Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
+-->
             <!-- why -->
 <section id="why"> 
-	<div> <h1> Pourquoi <br> nous choisir ?</h1></div>
-
-	<div class="why1">
-             <p> Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
-	</div>
-	<div class="why-left">
+		<div class="why-left">
 		<h4> Vous êtes une marque…</h4>
-		<p>Offrez vous une solution personnalisée pour 
+		<p>Si vous êtes une marque cherchant à améliorer votre stratégie de marketing d'influence, il est important de trouver le bon service pour vous aider à collaborer avec des influenceurs de manière efficace et pertinente.
+			<br>Offrez vous une solution personnalisée pour 
 			votre stratégie d'influence grâce à nos outils
 			 innovants de recherche, d'analyse et de lancement 
 			 de campagnes  </p>
@@ -95,9 +91,9 @@
 	</div>
 	<div class="why-right">
 		<h4>Vous êtes un influenceur…</h4>
-		<p> Monétisez votre audience et gagnez de 
+		<p>Si vous êtes un influenceur cherchant à collaborer avec des marques pour votre contenu, il est important de trouver un service qui peut vous aider à trouver les meilleures opportunités de collaboration et à établir des relations durables avec les marques. Nous avons établi des relations solides avec de nombreuses marques de qualité dans différents secteurs. Nous pouvons vous aider à trouver des marques qui sont adaptées à votre public cible et à votre domaine d'expertise. <br> Monétisez votre audience et gagnez de 
 			l'argent en répondant à des projets soumis
-			 par les top marques présentes sur Natividi</p>
+			 par les top marques présentes sur Collab</p>
 
 	</div>
 	</section> 
