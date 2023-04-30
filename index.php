@@ -14,7 +14,7 @@
 			<img src="./images/logo1.png" class="logo">
 			<ul>
 				<li> <a href="#about"> About Us</a></li>
-				<li> <a href="#why"> Services</a></li>
+				<li> <a href="#features"> Services</a></li>
 				<li> <a href="#contacte"> Contact</a></li>
 			</ul>
 			<div>
@@ -37,7 +37,7 @@
 	  <div class="about-right-col"> 
 	    <div class="about-text"> 
            <h1> About us</h1>
-           <p>Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.
+           <p class="para">Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.
 
 Nous sommes convaincus que la clé du succès des collaborations réside dans la compréhension des besoins spécifiques de chaque marque et de chaque influenceur. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour élaborer des stratégies efficaces de marketing d'influence et maximiser leur potentiel sur les réseaux sociaux.
 
