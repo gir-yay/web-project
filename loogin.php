@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login </title>
-    <link rel="stylesheet" href="loogin.css">
+    <link rel="stylesheet" href="./css/loogin.css">
     <!-- link for icons from "font Awesome" website -->
     <script src="https://kit.fontawesome.com/8b4b4337c0.js" crossorigin="anonymous"></script>
 </head>

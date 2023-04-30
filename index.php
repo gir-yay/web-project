@@ -7,7 +7,7 @@
 	<title>My Homepage</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body> <section><div class="home"> 
 	<nav>
@@ -59,19 +59,19 @@
 								<img src="feature1.png" alt="">
 								<h4> Partenariat de qualité</h4>
 								<p> petit texte</p>
-								<br> <br> <br><br> <br> <br>
+								
 							</div>
 							<div class="feature-col"> 
 							<img src="feature2.png" alt="">
 							<h4> Gratuit</h4>
 							<p> petit texte</p>
-							<br> <br> <br><br> <br> <br>
+							
 							</div>
 							<div class="feature-col"> 
 							<img src="feature3.png" alt="">
-							<h4> securite</h4>
+							<h4> securité</h4>
 							<p> petit texte </p>
-							<br> <br> <br><br> <br> <br>
+						
 							</div>
 						</div>
                         <div class="feature-btn"> <a href="signup.php" class ="btn anim"> Join Now </a> </div>

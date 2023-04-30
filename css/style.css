@@ -9,7 +9,7 @@
 .home {
     width: 100%;
     min-height: 100vh;
-    background-image: url(Sans\ titre\ \(1\).png);
+    background-image: url(../images/bg.png);
     background-position: center;
     background-size: cover;
     padding: 10px 10%;
@@ -34,6 +34,7 @@ nav ul li {
     margin: 10px 15px;
     letter-spacing: 2px;
     font-family: 'Advent Pro', sans-serif;
+    font-size: 1.2rem;
 }
 
 nav ul li a {
@@ -282,7 +283,7 @@ section#about {
 #features {
     padding-top: 50px;
     padding-bottom: 50px;
-    background-image: url(wave2.png);
+    background-image: url(../images/wave2.png);
     background-position: center;
     background-size: cover;
 }
@@ -320,14 +321,15 @@ section#about {
 
 #why {
 
-    padding: 100px 0;
+    /* padding: 100px 0;*/
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     padding-top: 0px;
-    background-image: url(wave.png);
+    background-image: url(../images/wave.png);
     background-position: center;
     background-size: cover;
+    min-height: 80vh;
 
 
 }
