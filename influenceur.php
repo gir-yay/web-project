@@ -151,7 +151,7 @@ echo "<h2>Entreprises</h2>";
         $_SESSION['type'] = "inf";
         $_SESSION['id']= $id;
         //redirect to the message page
-        header("Location: message.php");
+        header("Location: message_inf.php");
         exit();
     }
 
