@@ -1,228 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: "poppins",sans-serif;
+}
 /*ajouter une background image (filgrane du logo du site web)*/
-body {
-  background-image: url("../images/bacg.png");
-  background-size: cover;
-
+body{
+    background-image: url("bacg.png");
+    background-size: cover;
+    
 }
-
 /*styler la barre de navigation*/
-nav {
-  height: 100%;
-  /*une hauteur de 100%*/
-  width: 300px;
-  /*une largeur de 300px*/
-  position: fixed;
-  /*ne position fixe sur la page*/
-  z-index: 1;
-  /**/
-  top: 0;
-  /**/
-  left: 0;
-  /**/
-  background-color: #33033e;
-  /*couleur de fond : violet foncé */
-  overflow: hidden;
-  /**/
-  transition: 0.5s;
-  /**/
-  padding-top: 30px;
-  /**/
-
+nav{
+    height: 100%;/*une hauteur de 100%*/
+    width: 300px;/*une largeur de 300px*/
+    position: fixed;/*ne position fixe sur la page*/
+    z-index: 1;/**/
+    top: 0;/**/
+    left: 0;/**/
+    background-color: #33033e; /*couleur de fond : violet foncé */
+    overflow: hidden;/**/
+    transition: 0.5s;/**/
+    padding-top: 30px;/**/
+    
 }
-
 /*styler le lien*/
-nav li a {
-  color: white;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+nav li a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 /*style de la liste lors du survol */
-nav li:hover * {
-  color: #f1f1f1;
-  background-color: #531d61;
+nav li:hover *{
+    color: #f1f1f1;
+    background-color:#531d61 ;
+    cursor: pointer;
 }
-
-input {
-  color: #f1f1f1;
-  background-color: #33033e;
-  border: none;
-  font-size: 19px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-main {
-  padding: 70px;
-}
-
-.main {
-
-  transition: margin-left .5s;
-  padding: 16px;
-  margin-left: 300px;
-
-}
-
-/*styler les titres du main*/
-.main h1 {
-  transition: left .5s;
-  padding: 16px;
-  margin-left: 30px;
-  font-size: 30px;
-  text-align: center;
-}
-
-/*styler les textes des li*/
-li {
-  color: #f1f1f1;
-  font-size: 19px;
-}
-
-/*enlever les puces de la listes*/
-ul {
-  list-style-type: none;
-}
-
-/*la mise en forme des tableaux*/
-table {
-  border-collapse: collapse;
-  /*bordures effacées*/
-  width: 100%;
-  /*la largeur est fixée à 100%*/
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  /*bordure de 1px solide de couleur grise*/
-  border-collapse: separate;
-  /**/
-  border-color: #787475;
-  /*bordure de couleur grise*/
-  border-radius: 5px;
-  /*une bordure arrondie de 5px*/
-  margin-top: 20px;
-}
-
-/*styler le tableau*/
-td,
-th {
-  border: 1px solid #c2bbbb;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-
-}
-
-/*styler les lignes impaires et paires du tableau*/
-tr:nth-child(odd) {
-  background: linear-gradient(to right, #b573b7, #787475);
-}
-
-tr:nth-child(even) {
-  background: linear-gradient(to right, #bebcbe, #a283a2);
-}
-
-/*style des lignes lors du survol */
-tr:hover {
-  background: linear-gradient(to right, #a579ae, #eabbe7);
-  color: #110d0d;
-  animation: highlight 0.3s ease-in-out;
-}
-
-/*keyframe pour le changement de couleurs avec un effet de zoom*/
-@keyframes highlight {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Styler la form d'offre */
-.offer-form {
-  display: none;
+/*styler les input de l'offre*/
+input.offer-options{
+  background-color: #e7e2e8;
+  color: #060606;
   margin-top: 10px;
 }
-
-/*Styler le bouton d'offre*/
-.offer-btn {
-  background-color: #23a6ca;
+/*styler le bouton d'envoi*/
+button.submit-offer{
+  background-color: #409f40;
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 12px 30px;
+  padding: 10px 17px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  cursor: pointer;
-  margin-left: 30px;
   margin-top: 10px;
+  cursor: pointer;
+}
+input{
+    color: #f1f1f1;
+    background-color:#33033e ;
+    border: none;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+main {
+    padding: 70px; 
+}
+/*styler la div de class main */
+.main {
+
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 300px;
+
+}
+/*styler les titres du main*/
+.main h1 {
+    transition: left .5s;
+    padding: 16px;
+    margin-left: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+/*styler les textes des li*/
+li{
+    color: #f1f1f1;
+    font-size: 19px;
+}
+/*enlever les puces de la listes*/
+ul{
+    list-style-type: none;
+}
+/*la mise en forme des tableaux*/
+table {
+    border-collapse: collapse; /*bordures effacées*/ 
+    width: 100%; /*la largeur est fixée à 100%*/
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);/*bordure de 1px solide de couleur grise*/
+    border-collapse: separate;/**/
+    border-color: #787475;/*bordure de couleur grise*/
+    border-radius: 5px;/*une bordure arrondie de 5px*/
+    margin-top: 20px;
+}
+  /*styler le tableau*/
+  td, th {
+    border: 1px solid #c2bbbb;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    
+  }
+  /*styler les lignes impaires et paires du tableau*/
+  tr:nth-child(odd) {
+    background: linear-gradient(to right, #b573b7, #787475);
+  }
+  tr:nth-child(even) {
+    background: linear-gradient(to right, #bebcbe, #a283a2);
+  }
+  /*style des lignes lors du survol */
+  table tr:first-child:hover {
+    background: linear-gradient(to right, #a579ae, #eabbe7);
+    color: #110d0d;
+    animation: highlight 0.4s ease-in-out;
+  }
+  /*keyframe pour le changement de couleurs avec un effet de zoom*/
+  @keyframes highlight {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+/* Styler la form d'offre */
+.offer-form {
+    display: none;
+    margin-top: 10px;
+}
+/*Styler le bouton d'offre*/
+.offer-btn {
+    background-color: #23a6ca;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 10px;
+}
 /*Style du bouton d'offre lors du survol*/
-.offer-btn:hover {
-  background-color: #187993;
+.offer-btn:hover{
+    background-color: #187993;
 }
 
 /*Styler le bouton de refus*/
 
 .refuse-btn {
-  background-color: #f51505;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 12px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 40px;
-  margin-top: 10px;
+    background-color: #f51505;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
 }
-
 /*Styler le bouton de refus lors du survol*/
 .refuse-btn:hover {
-  background-color: #e60000;
-  /* rouge foncé lors du survol */
-}
-
+    background-color: #e60000; /* rouge foncé lors du survol */
+  }
 /*Styler le bouton de refus lors du click*/
 .refuse-btn:active {
-  background-color: #cc0000;
-  /* rouge encore plus foncé lors du click */
-}
-
+    background-color: #cc0000; /* rouge encore plus foncé lors du click */
+  }
 /*Styler le bouton d'acceptation */
 .accept-btn {
-  background-color: #37d83c;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 12px 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 30px;
-  margin-top: 10px;
-  margin-right: 0px;
+    background-color: #37d83c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-right: 0px;
 }
-
 /*Styler le bouton d'acceptation lors du survol*/
-.accept-btn:hover {
-  background-color: #139618;
+.accept-btn:hover{
+    background-color: #139618;
 }
 
 /*Styler le bouton des offres acceptés*/
 td.accepted {
-  background-color: #95c895;
+background-color: #95c895;
 }
 
 /*Styler le bouton des offres refusés*/
@@ -231,57 +216,56 @@ td.refused {
 }
 
 /*Styler le bouton des messages*/
-.message-btn {
-  background-color: #215ee0;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 40px;
-  margin-top: 10px;
+.message-btn{
+    background-color: #215ee0; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  /*Styler le bouton des messages lors du survol*/
+  
+  .message-btn:hover {
+    background-color: #2d4373; 
+  }
+  /* styler la partie profil contenant les infos de l"entreprise*/
+  .profile{
+	display: inline-block;
+	float: left;
+  margin-left: 310px;
+	width: 220px;
 }
-
-/*Styler le bouton des messages lors du survol*/
-
-.message-btn:hover {
-  background-color: #2d4373;
-}
-
-/* styler la partie profil contenant les infos de l"entreprise*/
-.profile {
-  display: inline-block;
-  float: right;
-  width: 220px;
-}
-
 /*redimensioner l'image du logo*/
-.pro-img {
-  float: right;
-  width: 100px;
-  margin-top: 5px;
+.pro-img{
+	float: left;
+	width: 100px;
+	margin-top: 5px;
 }
-
+.pro-img:hover {
+  transform: scale(1.1);
+}
 /*styler le nom de l'entreprise*/
-.profile p {
-  color: black;
-  font-weight: 500;
-  margin-right: 55px;
-  margin-top: 10px;
-  font-size: 18px;
+.profile p{
+	color: black;
+	font-weight: 500;
+	margin-left: 130px;
+	margin-top: 10px;
+	font-size: 18px;
 }
-
 /*styler l'id de l'entreprise*/
-.profile p span {
-  font-weight: 400;
-  font-size: 20px;
-  display: block;
-  color: #262525;
+.profile p span{
+	font-weight: 400;
+    font-size: 20px;
+    display: block;
+    color: #262525;
 }
-
-.col-div-3 {
-  width: 25%;
-  float: left;
+/*styler la div contenant le profil de l'entreprise*/
+.col-div-3{
+	width: 25%;
+	float: left;
 }
