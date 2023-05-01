@@ -292,18 +292,19 @@ td.refused {
 .pro-img {
   float: left;
   width: 100px;
-  margin-top: 5px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .pro-img:hover {
-  transform: scale(1.1);
+  transform: scale(1.3);
 }
 
 /*styler le nom de l'entreprise*/
 .profile p {
   color: black;
   font-weight: 500;
-  margin-left: 130px;
+  margin-left: 100px;
   margin-top: 10px;
   font-size: 18px;
 }
