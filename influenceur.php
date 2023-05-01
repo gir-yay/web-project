@@ -4,9 +4,12 @@
     //check if the session is set
     if(!isset($_SESSION['email'])){
         //if not set redirect to the login page
-        header("Location: login.php");
+       ?>
+      <script type="text/javascript">window.location="loogin.php";</script>
+<?php
         exit();
-    }else{
+
+}else{
         //if set get the name of the entreprise
         $email=$_SESSION['email'];
         $name= $_SESSION['firstname'].' ' .$_SESSION['Lastname'];
@@ -65,8 +68,6 @@
   </nav>
   <main>
     </main>
-</body>
-</html>
 <div class="main">
 <?php 
 include 'database.php';
@@ -134,7 +135,9 @@ echo "<h2>Entreprises</h2>";
         //check if the result is true
         if($result) {
             //if true redirect to the same page
-            header("Location: influenceur.php");
+           ?>
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php
             exit();
     }else{
         //if false show an error message
@@ -151,8 +154,10 @@ echo "<h2>Entreprises</h2>";
         $_SESSION['type'] = "inf";
         $_SESSION['id']= $id;
         //redirect to the message page
-        header("Location: message.php");
-        exit();
+       ?>
+      <script type="text/javascript">window.location="message_inf.php";</script>
+<?php
+exit();
     }
 
     echo "<script>
@@ -219,7 +224,9 @@ echo "<h2>Entreprises</h2>";
         //check if the request is successful
         if($result) {
             //if successful redirect to the influencer page
-            header("Location: influenceur.php");
+           ?>
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php
             exit();
         } else {
             //if not successful show an error message
@@ -238,8 +245,10 @@ echo "<h2>Entreprises</h2>";
         //check if the request is successful
         if($result) {
             //if successful redirect to the influencer page
-            header("Location: influenceur.php");
-            exit();
+          ?>
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php            
+exit();
         } else {
             //if not successful show an error message
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -277,5 +286,7 @@ echo "<h2>Entreprises</h2>";
 ?>
 </div>
 
+</body>
+</html>
 
 

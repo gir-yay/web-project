@@ -14,9 +14,6 @@
 	<nav>
 			<img src="./images/logo1.png" class="logo">
 			<ul>
-
-				<li> <a href="#"> Home</a></li>
-				<li> <a href="admin.php"> Admin</a></li>
 				<li> <a href="#about"> About Us</a></li>
 				<li> <a href="#features"> Services</a></li>
 				<li> <a href="#contacte"> Contact</a></li>
@@ -31,15 +28,9 @@
 				 d'influence, vous devez travailler avec des
 				  influenceurs expérimentés, qui partagent 
 				  les valeurs de votre marque. </p>
-
-			 <!-- <a  href="s.php" class ="btn anim">Join Now</a> </div> 
-			<img src="head3.png" width="750px" class="features-img anim"></section>
-			</div> -->	
-
 			<a  href="signup.php" class ="btn anim">Join Now</a> </div> 
 			<img src="./images/head3.png" width="750px" class="features-img anim"></section>
 				
-
 	                       <!-- about -->
 			<section id="about"> 
 	    <div class="about-left-col"> 
@@ -57,7 +48,7 @@ En choisissant Collab, vous pouvez être sûr de travailler avec une équipe eng
 				   <br> <br>
 				  <strong>  Rejoignez-nous dès maintenant.<strong\> <br> <br> <br> 
 				</p>
-				<a  href="s.php" class ="btn anim">Join Now</a>
+				<a  href="signup.php" class ="btn anim">Join Now</a>
       </div>
       </div>
 </section>
@@ -67,7 +58,6 @@ En choisissant Collab, vous pouvez être sûr de travailler avec une équipe eng
 							<div class="feature-col">
 								<img src="./images/feature1.png" alt="">
 								<h4> Partenariat de qualité</h4>
-
 								<p>Nous travaillons avec des marques de qualité et des influenceurs reconnus dans leur domaine, afin de vous offrir des partenariats de qualité qui répondent à vos besoins spécifiques.</p>
 								
 							</div>
@@ -81,21 +71,17 @@ En choisissant Collab, vous pouvez être sûr de travailler avec une équipe eng
 							<img src="./images/feature3.png" alt="">
 							<h4> securité</h4>
 							<p>Nous prenons la sécurité et la protection de vos données très au sérieux. Nous avons des politiques de confidentialité strictes en place et nous utilisons des outils de sécurité de pointe pour garantir que vos informations personnelles sont protégées à tout moment.</p>
-
 						
 							</div>
 						</div>
-                        <div class="feature-btn"> <a href="s.php" class ="btn anim"> Join Now </a>
-		
+                        <div class="feature-btn"> <a href="signup.php" class ="btn anim"> Join Now </a> </div>
 					 </section>
-
 <!--
         <p id="why1"> Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
 -->
             <!-- why -->
 <section id="why"> 
 		<div class="why-left">
-
 		<h4> Vous êtes une marque…</h4>
 		<p>Si vous êtes une marque cherchant à améliorer votre stratégie de marketing d'influence, il est important de trouver le bon service pour vous aider à collaborer avec des influenceurs de manière efficace et pertinente.
 			<br>Offrez vous une solution personnalisée pour 
@@ -110,26 +96,7 @@ En choisissant Collab, vous pouvez être sûr de travailler avec une équipe eng
 			l'argent en répondant à des projets soumis
 			 par les top marques présentes sur Collab</p>
 
-	</div> -->
-	<div class="container">
-		<div class="card">
-		 <img src="infl.jpg" alt="">
-		 <div class="intro">
-		        <h1>Vous êtes un influenceur</h1>
-				<p> <br>  Monétisez votre audience et gagnez de 
-			       l'argent </p>	
-		 </div>
-		</div>
-		<div class="card">
-		 <img src="marque.jpg" alt="">
-		 <div class="intro">
-		        <h1>Vous êtes une marque</h1>
-				<p> <br> Offrez vous une solution personnalisée pour 
-		        	votre stratégie d'influence </p>
-		 </div>
-		</div>
 	</div>
-	
 	</section> 
 	<div class="avis1">
 		<span class="avis">

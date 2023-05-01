@@ -17,7 +17,6 @@
 </head>
 <body>
 <div class="container">
-
 <div class="error">
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
@@ -28,7 +27,6 @@
 		<p> Je suis :</p>
         <button onclick="showEntrepriseSection()">Entreprise</button>
 		<button onclick="showInfluenceurSection()">Influenceur</button>		   
-
         </div>
 <section id="entreprise" style="display: block;">
         <div class="forme">
@@ -76,7 +74,6 @@
             </form>
         </div>
 </section>
-
 <!-- script to show the forum  -->
 <script>
     //make the entreprise section visible by default and the influenceur section hidden ,on click on the influenceur button the influenceur section will be visible and the entreprise section hidden and the button will be disabled

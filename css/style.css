@@ -5,9 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    width: 100%;
-}
 
 .home {
     width: 100%;
@@ -283,10 +280,8 @@ section#about {
 /*   features  */
 #features {
     padding-top: 50px;
-
     padding-bottom: 50px;
     background-image: url(../images/wave2.png);
-
     background-position: center;
     background-size: cover;
 }
@@ -321,25 +316,8 @@ section#about {
     align-items: flex-end;
     justify-content: center;
 }
+
 #why {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url(wave.png);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    margin-top: 0;
-    padding-top: 0;
-  }
-  
-  .qst {
-   
-    margin: 0;
-  }
-  
-  .why1 {
 
     /* padding: 100px 0;*/
     display: flex;
@@ -360,82 +338,8 @@ section#about {
 }
 
 .why1 h1 {
-
     text-align: center;
-    margin-bottom: 50px;
-  }
-  #why h4 {
-    color: #36025f;
-  }
-  .why-left,
-  .why-right {
-    width: 45%;
-    padding: 20px;
-    border: 1px solid rgb(48, 3, 88);
-    border-radius: 5px;
-    margin: 10px;
-  }
-  .card img{
-     height: 2500px;
-     width:400px;
-     border-radius: 3px;
-  }
-  .container {
-    display: flex;
-    position: relative;
-  }
-  .card {
-    height: 250px;
-    margin: 50px;
-    margin-top: 0;
-    box-shadow: 5px 5px 20px black;
-    overflow: hidden;
-    width: calc(40% - 10px);
-   
-  }
-  .intro {
-    height: 100px;
-    width: 390px;
-    padding: 6px;
-    position: absolute;
-    bottom: 50px;
-    background: rgb(27, 27, 27,.5);
-    color: #fff;
-  }
-  .intro h1 {
-    margin: 10px;
-    font-size: 40px;
-  }
-  .intro p {
-    font-size: 20px;
-    margin: 20px;
-    margin-top: 0;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .card:hover{
-    cursor: pointer;
-  }
-  .card:hover .intro{
-    height: 200px;
-    bottom: 50px;
-    background-color: #210059;
-    opacity: 0.5;
-  }
-  .card:hover .intro p{
-    opacity: 1;
-    visibility: visible;
-  }
-  .cadr:hover img{
-    transform: scale(1.1) rotate(-3deg);
-  }
-  
-  @media screen and (max-width: 768px) {
-    .why-left,
-    .why-right {
-      width: 80%;
-    }
-  }
+}
 
 .why-left {
     flex-basis: 45%;
