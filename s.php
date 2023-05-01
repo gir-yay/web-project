@@ -8,17 +8,7 @@
     <link rel="stylesheet" href="s.css">
 </head>
 <body>
-        <nav>
-           <div class="logo">
-            <p>Collab</p>
-           </div>
-           <ul>
-            <li> <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis Influenceur</a></li>
-            <li> <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis Entreprise</a></li>
-           </ul>
-        </nav>
-        <div class="main"> 
-        <section id="influenceur">
+    <section id="influenceur">
     <div class="container">
         <header>Bienvenue !</header>
         <form  action="submitinf.php" method="post" enctype="multipart/form-data">
@@ -111,9 +101,11 @@
                     </div>
                 </div>
 
-                <button>Sauvegarder</button>
-                <span class="btn">
-                    <button >Cancel</button></span>
+                <div class="btn"> 
+                <button id="save"> <a href="#"></a> Sauvegarder</button>
+                <button id="cancel"> <a href="index.php"> Cancel</a></button>
+                </div>
+                <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis Entreprise</a>
                 <div class="loginlink">
                 <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
                 </div>
@@ -179,24 +171,21 @@
                         <input type="phone"name="password-confirm" placeholder="un mot de passe" required>
                         </div>
                     </div>
+                </div> 
+                <div class="btn"> 
+                <button id="save">Sauvegarder</button>
+                <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
-                <button>Sauvegarder</button>
+                 <div class="change">
+                 <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis Influenceur</a>
+                 </div>
+                <div class="loginlink">
+                <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
+                </div>
         </form>
     </div>
    </section>
 
-        </div>
-   
-
-
-
-
-
-
-
-
-
-   
 	<script>
 		function showEntrepriseSection() {
 			document.getElementById("entreprise").style.display = "block";

@@ -12,6 +12,8 @@
         $name= $_SESSION['firstname'].' ' .$_SESSION['Lastname'];
         $id=$_SESSION['id'];
     }
+    $_SESSION['type'] = "influencer";
+
 ?>
 
 
@@ -22,6 +24,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>influenceur </title>
 </head>
 <body>
@@ -30,11 +33,46 @@
     <h2> <?php echo $email; ?> </h2>
     <h2> <?php echo $id; ?> </h2>
     <!-- A Buton to logout -->
-    <a href="logout.php">Logout</a>
+    <nav>
+        <ul>
+            <li>&#9776; MENU </li><br><br>
+            
+            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
+            </li><br>
+            
+        
+            <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
+            <li>
+            <i class="fa fa-sign-out"></i>
+                <input type="submit" value="Logout" onclick="window.location.href='logout.php'">
+            </li><br>
+
+            <!--  lien pour modifier les infomations de l'entreprise -->
+
+            <li><a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+            </li><br>
+            <!-- send a request to the admin to delete ur accont  -->
+            <li><a href="delete.php"><i class="fa fa-trash"></i> Delete Account</a>
+            </li><br>
+            <!-- lien pour contactez l'admin -->
+            <li>
+            <a href="contact.php"><i class="fa fa-envelope"></i> Contact</a>
+            </li><br>
+            <!-- lien pour voir les messages recu -->
+            <li>
+                <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
+            </li><br>
+            
+
+            
+        </ul>
+
+    </nav>
 
     
 </body>
 </html>
+<div class="main">
 <?php 
 include 'database.php';
 // show all the entreprise as a table
@@ -241,114 +279,248 @@ $result = $conn->query($sql);
     }
     echo "</table>";
 ?>
+</body>
+</html>
+</div>
 <style>
-    /* Body styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+ /*ajouter une background image (filgrane du logo du site web)*/
+body{
+    background-image: url("bacg.png");
+    background-size: cover;
+    
+}
+/*styler la barre de navigation*/
+nav{
+    height: 100%;/*une hauteur de 100%*/
+    width: 300px;/*une largeur de 300px*/
+    position: fixed;/*ne position fixe sur la page*/
+    z-index: 1;/**/
+    top: 0;/**/
+    left: 0;/**/
+    background-color: #33033e; /*couleur de fond : violet foncé */
+    overflow: hidden;/**/
+    transition: 0.5s;/**/
+    padding-top: 30px;/**/
+    
+}
+/*styler le lien*/
+nav li a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*style de la liste lors du survol */
+nav li:hover *{
+    color: #f1f1f1;
+    background-color:#531d61 ;
 }
 
-/* Header styles */
-h1 {
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
+input{
+    color: #f1f1f1;
+    background-color:#33033e ;
+    border: none;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Table styles */
+main {
+    padding: 70px; 
+}
+.main {
+
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 300px;
+
+}
+/*styler les titres du main*/
+.main h1 {
+    transition: left .5s;
+    padding: 16px;
+    margin-left: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+/*styler les textes des li*/
+li{
+    color: #f1f1f1;
+    font-size: 19px;
+}
+/*enlever les puces de la listes*/
+ul{
+    list-style-type: none;
+}
+/*la mise en forme des tableaux*/
 table {
-  border-collapse: collapse;
-  margin: 20px auto;
-  width: 100%;
+    border-collapse: collapse; /*bordures effacées*/ 
+    width: 100%; /*la largeur est fixée à 100%*/
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);/*bordure de 1px solide de couleur grise*/
+    border-collapse: separate;/**/
+    border-color: #787475;/*bordure de couleur grise*/
+    border-radius: 5px;/*une bordure arrondie de 5px*/
+    margin-top: 20px;
 }
-
-table td,
-table th {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-
-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Button styles */
-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #3e8e41;
-}
-
-button[name=refuse] {
-  background-color: #f44336;
-}
-
-
-
-/* Form styles */
+  /*styler le tableau*/
+  td, th {
+    border: 1px solid #c2bbbb;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    
+  }
+  /*styler les lignes impaires et paires du tableau*/
+  tr:nth-child(odd) {
+    background: linear-gradient(to right, #b573b7, #787475);
+  }
+  tr:nth-child(even) {
+    background: linear-gradient(to right, #bebcbe, #a283a2);
+  }
+  /*style des lignes lors du survol */
+  tr:hover {
+    background: linear-gradient(to right, #a579ae, #eabbe7);
+    color: #110d0d;
+    animation: highlight 0.3s ease-in-out;
+  }
+  /*keyframe pour le changement de couleurs avec un effet de zoom*/
+  @keyframes highlight {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+/* Styler la form d'offre */
 .offer-form {
-  margin-top: 10px;
+    display: none;
+    margin-top: 10px;
+}
+/*Styler le bouton d'offre*/
+.suggestion-btn {
+    background-color: #23a6ca;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+/*Style du bouton d'offre lors du survol*/
+.suggestion-btn:hover {
+    background-color: #187993;
+}
+/*Styler le bouton de refus*/
+
+.refuse-btn {
+    background-color: #f51505;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+/*Styler le bouton de refus lors du survol*/
+.refuse-btn:hover {
+    background-color: #e60000; /* rouge foncé lors du survol */
+  }
+/*Styler le bouton de refus lors du click*/
+.refuse-btn:active {
+    background-color: #cc0000; /* rouge encore plus foncé lors du click */
+  }
+/*Styler le bouton d'acceptation */
+.accept-btn {
+    background-color: #37d83c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 0px;
+}
+/*Styler le bouton d'acceptation lors du survol*/
+.accept-btn:hover{
+    background-color: #139618;
 }
 
-.offer-form input[type=text],
-.offer-form button[type=submit] {
-  border-radius: 5px;
-  padding: 8px;
-  margin: 5px;
-  width: 100%;
-  font-size: 16px;
-  box-sizing: border-box;
+/*Styler le bouton des offres acceptés*/
+td.accepted {
+background-color: #95c895;
 }
 
-.offer-form button[type=submit] {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  cursor: pointer;
-  transition-duration: 0.4s;
+/*Styler le bouton des offres refusés*/
+td.refused {
+  background-color: #ffc9c9;
 }
 
-.offer-form button[type=submit]:hover {
-  background-color: #3e8e41;
+/*Styler le bouton des messages*/
+td.message-btn{
+    background-color: #215ee0; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+  /*Styler le bouton des messages lors du survol*/
+  td.message-btn:hover {
+    background-color: #0d3e9a;
+  }
+  /* styler la partie profil contenant les infos de l"entreprise*/
+  .profile{
+	display: inline-block;
+	float: right;
+	width: 220px;
+}
+/*redimensioner l'image du logo*/
+.pro-img{
+	float: right;
+	width: 100px;
+	margin-top: 5px;
+}
+/*styler le nom de l'entreprise*/
+.profile p{
+	color: black;
+	font-weight: 500;
+	margin-right: 55px;
+	margin-top: 10px;
+	font-size: 18px;
+}
+/*styler l'id de l'entreprise*/
+.profile p span{
+	font-weight: 400;
+    font-size: 20px;
+    display: block;
+    color: #262525;
 }
 
-/* Logout link styles */
-a {
-  display: block;
-  margin: 20px auto;
-  width: 120px;
-  text-align: center;
-  padding: 8px 16px;
-  background-color: #f44336;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
+.col-div-3{
+	width: 25%;
+	float: left;
 }
-
-a:hover {
-  background-color: #da190b;
-}
-
-
-
-
-
-
 </style>

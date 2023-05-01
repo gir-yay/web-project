@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($result){
             echo "Post submitted successfully!";
             //go the login page
-            header("Location: LOGIN.php");
+            header("Location: loogin.php");
         }else{
             echo "Error submitting post: " . mysqli_error($conn);
         }

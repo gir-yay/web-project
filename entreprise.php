@@ -30,7 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entreprise</title>
-    <link rel="stylesheet" href="entreprise.css">
+    <link rel="stylesheet" href="./css/entreprise.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -88,18 +88,25 @@
 </body>
 
 <div class="main">
-<<?php 
+<?php 
 //Afficher tous les influenceurs sous forme d'une table  
 //Recuperer la bd connection
 include 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
-//Recuperer le nom de l'entreprise
-$name = $_SESSION['name'];
-//Recuperer ca de l'entreprise
-$ca = $_SESSION['ca'];
-//Recuperer l'email de l'entreprise
-$email = $_SESSION['email'];
+// //Recuperer le nom de l'entreprise
+// $name = $_SESSION['name'];
+// //Recuperer ca de l'entreprise
+// $ca = $_SESSION['ca'];
+// //Recuperer l'email de l'entreprise
+// $email = $_SESSION['email'];
+// GET THE INFO FROM THE DATABASE
+$sql = "SELECT * FROM entreprise WHERE id='$id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['Name'];
+$ca = $row['ca'];
+$email = $row['email'];
 //Envoyer une demande à la bd pour recuperer tous les influenceurs 
 echo "<h1 style='font-size:30px; padding: 16px;'><strong><center>INFLUENCER </center></strong></h1>";
 $sql = "SELECT * FROM influencer";
@@ -264,39 +271,49 @@ if(isset($_POST['refuse'])) {
         echo "Error: ". $sql ."<br>".mysqli_error($conn);
     }
 }
-//Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
+//SHOW RUNNING collaboration (accepted offer and accepted suggestion) of the entreprise the state is accepted and the id_entreprise is the id of the entreprise inner join with the influencer table to get the id of the influencer
+echo "<h1><center>RUNNING COLLABORATION</center></h1>";
+//Afficher les collaborations en cours sous forme de tableau
+$sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id WHERE offer.state = 'accepted' AND offer.id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>ACCEPTED SUGGESTION</h1>";
 echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+echo "<t>";
+echo "<tr><th>Terms</th><th>Amount</th><th>Duration</th><th>Influencer</th><th>State</th><th>Message</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" .$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
+    //Afficher le nom de l'influenceur = lastname + firstname
+    echo "<td>".$row['lastname']." ".$row['firstname']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
     echo "</tr>";
 }
-echo "</table>";
-//Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
+//afficher les suggestions en cours dans le meme tableau
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE suggestion.state = 'accepted' AND suggestion.id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>REFUSED SUGGESTION</h1>";
-echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>".$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['lastname']." ".$row['firstname']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
     echo "</tr>";
 }
 echo "</table>";
+
 ?>
 </div>

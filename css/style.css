@@ -12,7 +12,7 @@ body {
 .home {
     width: 100%;
     min-height: 100vh;
-    background-image: url(Sans\ titre\ \(1\).png);
+    background-image: url(../images/bg.png);
     background-position: center;
     background-size: cover;
     padding: 10px 10%;
@@ -37,6 +37,7 @@ nav ul li {
     margin: 10px 15px;
     letter-spacing: 2px;
     font-family: 'Advent Pro', sans-serif;
+    font-size: 1.2rem;
 }
 
 nav ul li a {
@@ -58,7 +59,7 @@ nav ul li a {
     padding: 14px 40px;
     color: #fff;
     background-image: linear-gradient(45deg, #a348df, #4c047b);
-    font-size: 14px;
+    font-size: 1.3em;
     border-radius: 30px;
     border-top-right-radius: 0;
 }
@@ -70,7 +71,7 @@ nav ul li a {
 }
 
 .content h1 {
-    font-size: 70px;
+    font-size: 3.8em;
     color: #36025f;
 }
 
@@ -82,7 +83,7 @@ nav ul li a {
 
 .content .btn {
     padding: 15px 80px;
-    font-size: 16px;
+    font-size: 1.3em;
     animation-delay: 1s;
 }
 
@@ -139,7 +140,7 @@ button {
     width: 55%;
     padding: 15px 10px;
     margin: 1px 0;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-family: 'Advent Pro', sans-serif;
     border-radius: 8px;
 
@@ -200,22 +201,6 @@ textarea {
     transition: 0.1s;
 }
 
-/*
-.why {
- background-image:url(wave.png);
- background-position:center;
- background-size:cover;
- text-align: center;
- margin-bottom: 30px;
-}
-.why h1 {
-    padding-bottom: 15px;
-    justify-content:center;
-    font-size:2rem;
-}
-.why p {
-    font-size: 1.8rem;
-}*/
 .avis1 {
     display: flex;
     padding: 2px;
@@ -261,6 +246,7 @@ section#about {
 .about-left-col {
     flex-basis: 50%;
     justify-items: right;
+
 }
 
 .about-left-col img {
@@ -279,13 +265,16 @@ section#about {
     max-width: 500px;
     margin-right: 100px;
     display: inline-block;
+    text-align: justify;
 }
 
 /*   features  */
 #features {
     padding-top: 50px;
-    padding-bottom: 80px;
-    background-image: url(wave2.png);
+
+    padding-bottom: 50px;
+    background-image: url(../images/wave2.png);
+
     background-position: center;
     background-size: cover;
 }
@@ -320,8 +309,6 @@ section#about {
     align-items: flex-end;
     justify-content: center;
 }
-
-
 #why {
     display: flex;
     flex-direction: column;
@@ -341,6 +328,27 @@ section#about {
   }
   
   .why1 {
+
+    /* padding: 100px 0;*/
+    display: flex;
+    /*align-items: center;*/
+    flex-wrap: wrap;
+    padding-top: 0px;
+    background-image: url(../images/wave.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 50vh;
+
+
+}
+
+.why1 {
+    display: flex;
+    justify-content: center;
+}
+
+.why1 h1 {
+
     text-align: center;
     margin-bottom: 50px;
   }
@@ -382,7 +390,6 @@ section#about {
     background: rgb(27, 27, 27,.5);
     color: #fff;
   }
-
   .intro h1 {
     margin: 10px;
     font-size: 40px;
@@ -418,3 +425,14 @@ section#about {
     }
   }
 
+.why-left {
+    flex-basis: 45%;
+    text-align: left;
+    margin-left: 3%;
+}
+
+.why-right {
+    flex-basis: 45%;
+    text-align: left;
+    margin-left: 5%;
+}
