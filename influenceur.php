@@ -40,20 +40,25 @@
   </ul><hr>
   <ul>
              <!--  lien pour modifier les infomations de l'entreprise -->
-             <li><a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+             <li>
+                <a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
             </li><br>
-            <!-- envoyer une demande de suppression du compte  -->
-            <li><a href="delete.php"><i class="fa fa-trash"></i>Supprimer mon compte</a>
+                <!-- lien pour voir les messages recus -->
+            <li>
+                <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
             <a href="contact.php"><i class="fa fa-envelope"></i> Contact</a>
             </li><br>
-            <!-- lien pour voir les messages recus -->
+            <!-- envoyer une demande de suppression du compte  -->
             <li>
-                <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
+                <a href="delete.php"><i class="fa fa-trash"></i>Supprimer mon compte</a>
             </li><br>
-            <br>
+            <li>
+                <a href="logout.php"><i class="fa fa-sign-out"></i>Logout</a>
+        </li><br>
+        
     
             
         </ul>
@@ -271,4 +276,5 @@ echo "<h2>Entreprises</h2>";
     echo "</table>";
 ?>
 </div>
+
 
