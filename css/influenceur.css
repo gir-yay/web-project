@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: "poppins",sans-serif;
+}
+body{
+    background-image: url("bacg.png");
+    background-size: cover;
+    
+}
+/*styler la barre de navigation*/
+nav{
+    height: 100%;/*une hauteur de 100%*/
+    width: 310px;/*une largeur de 300px*/
+    position: fixed;/*ne position fixe sur la page*/
+    z-index: 1;/**/
+    top: 0;/**/
+    left: 0;/**/
+    background-color: #13083a; /*couleur de fond : bleu foncé */
+    overflow: hidden;/**/
+    transition: 0.5s;/**/
+    padding-top: 30px;/**/
+    
+}
+/*styler le lien*/
+nav li a{
+    color: white;
+    background-color: #13083a;
+    text-decoration: none;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*style de la liste lors du survol */
+nav li:hover *{
+    color: #f1f1f1;
+    background-color:#141492 ;
+}
+
+input.sug-options{
+  background-color: #e7e2e8;
+  color: #060606;
+  margin-top: 10px;
+
+}
+
+.main {
+
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 300px;
+
+}
+.main h2{
+    transition: left .5s;
+    padding: 16px;
+
+    font-size: 30px;
+    text-align: center;
+
+}
+hr{
+  margin-left:  30px;
+  margin-right: 30px;
+}
+ul hr{
+  width: 100%;
+}
+
+/*styler les textes des li*/
+li{
+    color: #f1f1f1;
+    font-size: 19px;
+}
+.icon {
+  font-size: 80px;
+  margin-left: 120px;
+  margin-bottom: 20px;
+  color: white;
+  
+}
+/*enlever les puces de la listes*/
+ul{
+    list-style-type: none;
+}
+/*la mise en forme des tableaux*/
+table {
+    border-collapse: collapse; /*bordures effacées*/ 
+    width: 100%; /*la largeur est fixée à 100%*/
+    box-shadow: 0 1px 3px rgba(47, 5, 103, 0.2);/*bordure de 1px solide de couleur grise*/
+    border-collapse: separate;/**/
+    border-color: #787475;/*bordure de couleur grise*/
+    margin-top: 20px;
+}
+  /*styler le tableau*/
+  td, th {
+    border: 1px solid #1b1919;
+    padding: 10px;
+    text-align: center;
+    
+  }
+  /*styler les lignes impaires et paires du tableau*/
+  tr:first-child {
+    background: linear-gradient(to right, #53476e, #787475);
+  }
+  tr:not(:first-child){
+    background: linear-gradient(to right, #85cade, #48457c);
+  }
+  /*style des lignes lors du survol */
+  tr:first-child:hover {
+    background: linear-gradient(to right, #acb3d2, #eabbe7);
+    color: #110d0d;
+    animation: highlight 0.3s ease-in-out;
+  }
+  /*keyframe pour le changement de couleurs avec un effet de zoom*/
+  @keyframes highlight {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+/*Styler le bouton d'offre*/
+.suggestion-btn {
+    background-color: #2c48d8;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+/*Style du bouton de suggestions lors du survol*/
+.suggestion-btn:hover{
+    background-color: #181956;
+}
+/*styler le bouton d'envoi*/
+button.submit-sug{
+  background-color: #409f40;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/*Styler le bouton des messages*/
+.message-btn{
+    background-color: #bc24ca; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  /*Styler le bouton des messages lors du survol*/
+  
+  .message-btn:hover {
+    background-color: #741970; 
+  }
+  /*Styler le bouton de refus*/
+
+  .refuse-btn {
+    background-color: #f51505;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+/*Styler le bouton de refus lors du survol*/
+.refuse-btn:hover {
+  background-color: #e60000; /* rouge foncé lors du survol */
+}
+/*Styler le bouton de refus lors du click*/
+.refuse-btn:active {
+  background-color: #cc0000; /* rouge encore plus foncé lors du click */
+}
+/*Styler le bouton d'acceptation */
+.accept-btn {
+  background-color: #37d83c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 12px 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-right: 0px;
+}
+/*Styler le bouton d'acceptation lors du survol*/
+.accept-btn:hover{
+  background-color: #139618;
+}
+ 
+main {
+  padding: 20px; 
+}
+.menu{
+  background-color: #2c48d8;
+}

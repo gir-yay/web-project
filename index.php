@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Collab</title>
+	<link rel="icon" href="./images/logocollab1.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 	<link rel="stylesheet" href="./css/style.css">
@@ -17,8 +18,7 @@
 				<li> <a href="#"> Home</a></li>
 				<li> <a href="admin.php"> Admin</a></li>
 				<li> <a href="#about"> About Us</a></li>
-				<li> <a href="#why"> Services</a></li>
-
+				<li> <a href="#features"> Services</a></li>
 				<li> <a href="#contacte"> Contact</a></li>
 			</ul>
 			<div>
@@ -47,7 +47,7 @@
 	  <div class="about-right-col"> 
 	    <div class="about-text"> 
            <h1> About us</h1>
-           <p>Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.
+           <p class="para">Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.
 
 Nous sommes convaincus que la clé du succès des collaborations réside dans la compréhension des besoins spécifiques de chaque marque et de chaque influenceur. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour élaborer des stratégies efficaces de marketing d'influence et maximiser leur potentiel sur les réseaux sociaux.
 

@@ -1,13 +1,14 @@
-<!-- creer une page pour une entreprise connectée -->
 <?php   
-    include 'database.php';
+    include_once 'database.php';
     //get the session
     session_start();
     //verifier si la session est définie
     if(!isset($_SESSION['email'])){
         //if not set redirect to the login page
-        header("Location: loogin.php");
-        exit();
+    ?>
+      <script type="text/javascript">window.location="loogin.php";</script>
+<?php
+    exit();
     }else{
         //get the info from entreprise table
         $id=$_SESSION['id'];
@@ -49,8 +50,6 @@
         <ul>
             <li>&#9776; MENU </li><br><br>
             
-            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
-            </li><br>
             
         
             <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
@@ -74,24 +73,17 @@
             <li>
                 <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
             </li><br>
-            
-
-            
+                
         </ul>
-
     </nav>
-
-   
     <main>
     </main>
-
-</body>
 
 <div class="main">
 <?php 
 //Afficher tous les influenceurs sous forme d'une table  
 //Recuperer la bd connection
-include 'database.php';
+include_once 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
 // //Recuperer le nom de l'entreprise
@@ -127,11 +119,11 @@ foreach ($result as $row) {
     echo "<button type='button' class='offer-btn'>Offer</button>";
 
     echo "<div clas-form' style='display:none;'>";
-    // ajouter une form pour executer un offre: Les termes d'un accord entre deux parties, le montant payé par une marque à un influenceur et la durée du contrat.
-    echo "<input type='text' name='terms' placeholder='Terms'>";
-    echo "<input type='text' name='amount' placeholder='Amount'>";
-    echo "<input type='text' name='duration' placeholder='Duration'>";
-    echo "<button type='submit' name='submit'>Submit</button>";
+    // ajouter un formulaire pour executer un offre: Les termes d'un accord entre deux parties, le montant payé par une marque à un influenceur et la durée du contrat.
+    echo "<input type='text' class='offer-options' name='terms' placeholder='Terms'>";
+    echo "<input type='text' class='offer-options' name='amount' placeholder='Amount'>";
+    echo "<input type='text' class='offer-options' name='duration' placeholder='Duration'>";
+    echo "<button type='submit' class='submit-offer' name='submit'>Submit</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</div>";
     echo "</form>";
@@ -168,8 +160,11 @@ if(isset($_POST['submit'])) {
     // Vérifier si la demande a réussi
     if($result) {
         // Si la connexion réussit, rediriger vers la page de l'entreprise.
-        header("Location: entreprise.php");
-        exit();
+        ?>
+      <script type="text/javascript">window.location="entreprise.php";</script>
+<?php
+
+    exit();
     } else {
         // Si cela n'a pas réussi, afficher un message d'erreur
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -185,7 +180,9 @@ if(isset($_POST['message'])) {
     //ajouter une  variable type pour savoir si l'utilisateur est une entreprise ou un influenceur
     $_SESSION['type'] = "ent";
     //rediriger vers la page des message
-    header("Location: message.php");
+   ?>
+      <script type="text/javascript">window.location="message_ent.php";</script>
+<?php
     exit();
 }
 
@@ -245,8 +242,11 @@ if(isset($_POST['accept'])) {
     // Vérifier si la requête est réussie
     if($result) {
         // Si réussi, rediriger vers la page de l'entreprise.
-        header("Location: entreprise.php");
-        exit();
+       
+        ?>
+      <script type="text/javascript">window.location="entreprise.php";</script>
+<?php
+    exit();
     } else {
         // si cela n'a pas réussi, afficher un message d'erreur
         echo "Error: ".$sql."<br>".mysqli_error($conn);
@@ -264,56 +264,51 @@ if(isset($_POST['refuse'])) {
     // Vérifier si la requête a réussi
     if($result) {
         // Si la connexion réussit, rediriger vers la page de l'entreprise.
-        header("Location: entreprise.php");
-        exit();
+       ?>
+      <script type="text/javascript">window.location="entreprise.php";</script>
+<?php        
+exit();
+
     } else {
         // si cela n'est pas réussi, afficher un message d'erreur
         echo "Error: ". $sql ."<br>".mysqli_error($conn);
     }
 }
-//SHOW RUNNING collaboration (accepted offer and accepted suggestion) of the entreprise the state is accepted and the id_entreprise is the id of the entreprise inner join with the influencer table to get the id of the influencer
-echo "<h1><center>RUNNING COLLABORATION</center></h1>";
-//Afficher les collaborations en cours sous forme de tableau
-$sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id WHERE offer.state = 'accepted' AND offer.id_entreprise = '$id'";
+//Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
+echo "<h1>ACCEPTED SUGGESTION</h1>";
 echo "<table>";
-echo "<t>";
-echo "<tr><th>Terms</th><th>Amount</th><th>Duration</th><th>Influencer</th><th>State</th><th>Message</th></tr>";
+echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
+    echo "<td>" .$row['id']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
-    //Afficher le nom de l'influenceur = lastname + firstname
-    echo "<td>".$row['lastname']." ".$row['firstname']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>";
-    echo "<form method='post'>";
-    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
-    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "</form>";
-    echo "</td>";
-    echo "</tr>";
-}
-//afficher les suggestions en cours dans le meme tableau
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE suggestion.state = 'accepted' AND suggestion.id_entreprise = '$id'";
-$result = mysqli_query($conn, $sql);
-foreach ($result as $row) {
-    echo "<tr>";
-    echo "<td>".$row['terms']."</td>";
-    echo "<td>".$row['amount']."</td>";
-    echo "<td>".$row['duration']."</td>";
-    echo "<td>".$row['lastname']." ".$row['firstname']."</td>";
-    echo "<td>".$row['state']."</td>";
-    echo "<td>";
-    echo "<form method='post'>";
-    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
-    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "</form>";
-    echo "</td>";
+    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
     echo "</tr>";
 }
 echo "</table>";
-
+//Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.
+$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
+$result = mysqli_query($conn, $sql);
+echo "<h1>REFUSED SUGGESTION</h1>";
+echo "<table>";
+echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+foreach ($result as $row) {
+    echo "<tr>";
+    echo "<td>".$row['id']."</td>";
+    echo "<td>".$row['terms']."</td>";
+    echo "<td>".$row['amount']."</td>";
+    echo "<td>".$row['duration']."</td>";
+    echo "<td>".$row['state']."</td>";
+    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
 ?>
 </div>
+</body>
+</html>

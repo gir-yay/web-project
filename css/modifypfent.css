@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: "poppins",sans-serif;
+}
+body{
+    background-color: #d1d3e2;
+    font-size: 19px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+.logo {
+  height: 90px;
+  width: 70px;
+  margin-right: 30px;
+  margin-top: 20px;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+ 
+  /* style for form */
+.container {
+    width: 30%;
+    height: 750px;
+    margin: 0 auto;
+    border: 1px solid #393539; 
+    background-color: #fff;
+    box-shadow: 0px 10px 10px #f503f9;
+    padding: 30px; 
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #070707;
+    margin-bottom: 0px;
+    margin-top: 7px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4d4242;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  .signupbtn{
+    background-color: #bd0be1;
+    color: white;
+    margin-right: 129px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 16px 23px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    text-transform: uppercase;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #811087;
+  }
+.cancelbtn{
+ background-color: #da0be1;
+ display: inline-block;
+ margin-top: 50px;
+  margin-left: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  border: none;
+  align-items: center;
+}

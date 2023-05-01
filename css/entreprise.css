@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: "poppins", sans-serif;
+}
+
 /*ajouter une background image (filgrane du logo du site web)*/
 body {
   background-image: url("../images/bacg.png");
@@ -41,6 +47,29 @@ nav li a {
 nav li:hover * {
   color: #f1f1f1;
   background-color: #531d61;
+  cursor: pointer;
+}
+
+/*styler les input de l'offre*/
+input.offer-options {
+  background-color: #e7e2e8;
+  color: #060606;
+  margin-top: 10px;
+}
+
+/*styler le bouton d'envoi*/
+button.submit-offer {
+  background-color: #409f40;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 input {
@@ -55,6 +84,7 @@ main {
   padding: 70px;
 }
 
+/*styler la div de class main */
 .main {
 
   transition: margin-left .5s;
@@ -120,10 +150,10 @@ tr:nth-child(even) {
 }
 
 /*style des lignes lors du survol */
-tr:hover {
+table tr:first-child:hover {
   background: linear-gradient(to right, #a579ae, #eabbe7);
   color: #110d0d;
-  animation: highlight 0.3s ease-in-out;
+  animation: highlight 0.4s ease-in-out;
 }
 
 /*keyframe pour le changement de couleurs avec un effet de zoom*/
@@ -159,7 +189,7 @@ tr:hover {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 15px;
   margin-top: 10px;
 }
 
@@ -181,7 +211,7 @@ tr:hover {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 40px;
+  margin-left: 20px;
   margin-top: 10px;
 }
 
@@ -210,7 +240,7 @@ tr:hover {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 15px;
   margin-top: 10px;
   margin-right: 0px;
 }
@@ -240,7 +270,7 @@ td.refused {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: 40px;
+  margin-left: 20px;
   margin-top: 10px;
 }
 
@@ -253,22 +283,28 @@ td.refused {
 /* styler la partie profil contenant les infos de l"entreprise*/
 .profile {
   display: inline-block;
-  float: right;
+  float: left;
+  margin-left: 310px;
   width: 220px;
 }
 
 /*redimensioner l'image du logo*/
 .pro-img {
-  float: right;
+  float: left;
   width: 100px;
-  margin-top: 5px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.pro-img:hover {
+  transform: scale(1.3);
 }
 
 /*styler le nom de l'entreprise*/
 .profile p {
   color: black;
   font-weight: 500;
-  margin-right: 55px;
+  margin-left: 100px;
   margin-top: 10px;
   font-size: 18px;
 }
@@ -281,6 +317,7 @@ td.refused {
   color: #262525;
 }
 
+/*styler la div contenant le profil de l'entreprise*/
 .col-div-3 {
   width: 25%;
   float: left;

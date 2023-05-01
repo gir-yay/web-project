@@ -79,6 +79,7 @@ nav ul li a {
     margin: 10px 0 30px;
     color: #000000;
     animation-delay: 0.5s;
+    font-size: 1.3rem;
 }
 
 .content .btn {
@@ -102,7 +103,9 @@ nav ul li a {
     opacity: 0;
     transform: translateY(30px);
     animation: moveup 0.5s linear forwards;
+
 }
+
 
 @keyframes moveup {
     100% {
@@ -239,30 +242,39 @@ textarea {
     padding-top: 0px;
 }
 
+.para {
+    font-size: 1.3rem;
+}
+
 section#about {
     padding-top: 0px;
+    position: relative;
 }
 
 .about-left-col {
-    flex-basis: 50%;
+    flex-basis: 40%;
     justify-items: right;
+
 
 }
 
 .about-left-col img {
     width: 100%;
-    max-width: 500px;
+    max-width: 35vw;
     margin-top: 0;
-    justify-content: top;
+    position: absolute;
+    top: 0;
+    /*justify-content: left;*/
+
 }
 
 .about-right-col {
-    flex-basis: 50%;
+    flex-basis: 60%;
     text-align: right;
 }
 
 .about-text {
-    max-width: 500px;
+    max-width: 150vw;
     margin-right: 100px;
     display: inline-block;
     text-align: justify;
