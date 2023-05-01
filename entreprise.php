@@ -76,6 +76,8 @@
                 
         </ul>
     </nav>
+    <main>
+    </main>
 
 <div class="main">
 <?php 
