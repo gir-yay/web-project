@@ -1,14 +1,15 @@
-<!-- creer une page pour une entreprise connectée -->
 <?php   
-    include 'database.php';
+    include_once 'database.php';
     //get the session
     session_start();
     //verifier si la session est définie
     if(!isset($_SESSION['email'])){
         //if not set redirect to the login page
-        header("Location: loogin.php");
-        exit();
-    }else{
+?>
+      <script type="text/javascript">window.location="loogin.php";</script>
+<?php
+    exit();
+}else{
         //get the info from entreprise table
         $id=$_SESSION['id'];
         $sql="SELECT * FROM entreprise WHERE id='$id'";
@@ -48,10 +49,6 @@
     <nav>
         <ul>
             <li>&#9776; MENU </li><br><br>
-            
-            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
-            </li><br>
-            
         
             <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
             <li>
@@ -80,18 +77,11 @@
         </ul>
 
     </nav>
-
-   
-    <main>
-    </main>
-
-</body>
-
 <div class="main">
 <?php 
 //Afficher tous les influenceurs sous forme d'une table  
 //Recuperer la bd connection
-include 'database.php';
+include_once 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
 // //Recuperer le nom de l'entreprise
@@ -168,9 +158,12 @@ if(isset($_POST['submit'])) {
     // Vérifier si la demande a réussi
     if($result) {
         // Si la connexion réussit, rediriger vers la page de l'entreprise.
-        header("Location: entreprise.php");
-        exit();
-    } else {
+?>
+      <script type="text/javascript">window.location="entreprise.php";</script>
+<?php
+
+    exit();
+} else {
         // Si cela n'a pas réussi, afficher un message d'erreur
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
@@ -185,7 +178,9 @@ if(isset($_POST['message'])) {
     //ajouter une  variable type pour savoir si l'utilisateur est une entreprise ou un influenceur
     $_SESSION['type'] = "ent";
     //rediriger vers la page des message
-    header("Location: message.php");
+?>
+      <script type="text/javascript">window.location="message_ent.php";</script>
+<?php
     exit();
 }
 
@@ -245,9 +240,11 @@ if(isset($_POST['accept'])) {
     // Vérifier si la requête est réussie
     if($result) {
         // Si réussi, rediriger vers la page de l'entreprise.
-        header("Location: entreprise.php");
-        exit();
-    } else {
+?>
+      <script type="text/javascript">window.location="entreprise.php";</script>
+<?php
+    exit();
+} else {
         // si cela n'a pas réussi, afficher un message d'erreur
         echo "Error: ".$sql."<br>".mysqli_error($conn);
     }
@@ -264,9 +261,11 @@ if(isset($_POST['refuse'])) {
     // Vérifier si la requête a réussi
     if($result) {
         // Si la connexion réussit, rediriger vers la page de l'entreprise.
-        header("Location: entreprise.php");
-        exit();
-    } else {
+?>
+      <script type="text/javascript">window.location="entreprise.php";</script>
+<?php        
+exit();
+} else {
         // si cela n'est pas réussi, afficher un message d'erreur
         echo "Error: ". $sql ."<br>".mysqli_error($conn);
     }
@@ -317,3 +316,5 @@ echo "</table>";
 
 ?>
 </div>
+</body>
+</html>

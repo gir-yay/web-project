@@ -221,12 +221,12 @@ tr:hover {
 }
 
 /*Styler le bouton des offres acceptés*/
-td.accepted {
+.accepted {
   background-color: #95c895;
 }
 
 /*Styler le bouton des offres refusés*/
-td.refused {
+.refused {
   background-color: #ffc9c9;
 }
 

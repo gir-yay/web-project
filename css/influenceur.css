@@ -220,17 +220,17 @@ tr:hover {
 }
 
 /*Styler le bouton des offres acceptés*/
-td.accepted {
+.accepted {
     background-color: #95c895;
 }
 
 /*Styler le bouton des offres refusés*/
-td.refused {
+.refused {
     background-color: #ffc9c9;
 }
 
 /*Styler le bouton des messages*/
-td.message-btn {
+.message-btn {
     background-color: #215ee0;
     color: white;
     border: none;
@@ -244,7 +244,7 @@ td.message-btn {
 }
 
 /*Styler le bouton des messages lors du survol*/
-td.message-btn:hover {
+.message-btn:hover {
     background-color: #0d3e9a;
 }
 

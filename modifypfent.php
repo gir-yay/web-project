@@ -18,8 +18,7 @@ $logo='Upload/'.$row['logo'];
 <head>
     <title>Modifier profil entreprise</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/modifypfent.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/modifypfent.css">
 </head>
 <!-- make a forum with all the info as default -->
 <body>
@@ -28,13 +27,7 @@ $logo='Upload/'.$row['logo'];
         <img src="<?php echo $logo; ?>" alt="logo" class="logo">
         <h1><?php echo $name; ?></h1>
     </div>
-   
     <form action="modifypfent.php" method="post" enctype="multipart/form-data">
-       <!-- add a cancel button to go back to entreprise.php -->
-    <div class="clearfix">
-                <button type="submit" class="cancelbtn" name="cancel" >
-                  <i class="fa fa-arrow-left"></i></button>
-    </div>
         <div class="container">
             <h1>Modifier profil entreprise</h1>
             <p>Remplissez ce formulaire pour modifier votre profil.</p>
@@ -50,16 +43,77 @@ $logo='Upload/'.$row['logo'];
     <!-- make the current logo a placeholder  -->
             <label for="logo"><b>Logo</b></label>
             <input type="file" placeholder="Entrer le logo" name="logo" value="<?php echo $logo; ?>">
-            
+            <hr>
 
             <div class="clearfix">
-                <button type="submit" class="signupbtn" name="submit">Enregistrer</button>
+                <button type="submit" class="signupbtn" name="submit">Modifier</button>
             </div>
-        </div>
-</form>
+            <!-- add a cancel button to go back to entreprise.php -->
+            <div class="clearfix">
+                <button type="submit" class="cancelbtn" name="cancel">Annuler</button>
+            </div>
 
+        </div>
 </body>
 </html>
+<style>
+
+
+    /* style for header and logo */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  margin-right: 20px;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* style for form */
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+</style>
+
 <?php
 //if the user click on cancel button
 if(isset($_POST['cancel'])){

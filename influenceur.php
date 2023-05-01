@@ -4,7 +4,9 @@
     //check if the session is set
     if(!isset($_SESSION['email'])){
         //if not set redirect to the login page
-        header("Location: loogin.php");
+?>
+      <script type="text/javascript">window.location="loogin.php";</script>
+<?php
         exit();
     }else{
         //if set get the name of the entreprise
@@ -37,11 +39,6 @@
     <nav>
         <ul>
             <li>&#9776; MENU </li><br><br>
-            
-            <li><i class="fa fa-home"></i> <input type="button" value="Home"  onclick="window.location.href='Home.php'">
-            </li><br>
-            
-        
             <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
             <li>
             <i class="fa fa-sign-out"></i>
@@ -73,7 +70,7 @@
     
 <div class="main">
 <?php 
-include 'database.php';
+include_once 'database.php';
 // show all the entreprise as a table
 
 $sql = "SELECT * FROM entreprise";
@@ -110,7 +107,7 @@ $result = $conn->query($sql);
         echo "<td>";
         //add a button to go to the massage.php page
         echo "<form method='post'>";
-        echo "<button type='submit' name='message'>Message</button>";
+    echo "<button type='submit' name='message' class='message-btn' id='message'>Message</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</form>";
         echo "</td>";
@@ -137,9 +134,11 @@ $result = $conn->query($sql);
         //check if the result is true
         if($result) {
             //if true redirect to the same page
-            header("Location: influenceur.php");
+?>
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php
             exit();
-    }else{
+}else{
         //if false show an error message
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -154,9 +153,11 @@ $result = $conn->query($sql);
         $_SESSION['type'] = "inf";
         $_SESSION['id']= $id;
         //redirect to the message page
-        header("Location: message.php");
-        exit();
-    }
+?>
+      <script type="text/javascript">window.location="message_inf.php";</script>
+<?php
+exit();
+}
 
     echo "<script>
     document.querySelectorAll('.suggestion-btn').forEach(item => {
@@ -195,14 +196,14 @@ $result = $conn->query($sql);
             echo "<td>";
             echo "<form method='post'>";
             //add a button to accept the offer
-            echo "<button type='submit' name='accept'>Accept</button>";
+            echo "<button type='submit' name='accept'class='accept-btn' id='accept'>Accept</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
             echo "</td>";
             echo "<td>";
             echo "<form method='post'>";
             //add a button to refuse the offer WITH Adiffernt name
-            echo "<button type='submit' name='refuse'>Refuse</button>";
+            echo "<button type='submit' name='refuse' class='refuse-btn' id='refuse'>Refuse</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
             echo "</td>";
@@ -222,9 +223,11 @@ $result = $conn->query($sql);
         //check if the request is successful
         if($result) {
             //if successful redirect to the influencer page
-            header("Location: influenceur.php");
-            exit();
-        } else {
+?>
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php            
+exit();
+} else {
             //if not successful show an error message
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -241,9 +244,11 @@ $result = $conn->query($sql);
         //check if the request is successful
         if($result) {
             //if successful redirect to the influencer page
-            header("Location: influenceur.php");
-            exit();
-        } else {
+?>
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php
+exit();
+} else {
             //if not successful show an error message
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
