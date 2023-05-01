@@ -25,14 +25,18 @@ $age = $row['age'];
     <head>
         <title>Modifier profil influenceur</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/modifypfinf.css">
+        <link rel="stylesheet" type="text/css" href="modifypfinf.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
     <!-- make a forum with all the info as default -->
     <body>
-        <div class="header">
-            <h1>Modifier profil influenceur</h1>
-        </div>
+    
         <form action="modifypfinf.php" method="post" enctype="multipart/form-data">
+             <!-- add a cancel button to go back to influencer.php -->
+        <div class="clearfix">
+                    <button type="submit" class="cancelbtn" name="cancel"><i class="fa fa-arrow-left"></i></button>
+                </div>
             <div class="container">
                 <h1>Modifier profil influenceur</h1>
                 <p>Remplissez ce formulaire pour modifier votre profil.</p>
@@ -48,32 +52,21 @@ $age = $row['age'];
 
                 <label for="age"><b>Age</b></label>
                 <input type="text" placeholder="Entrer l'age" name="age" value="<?php echo $age; ?>" required>
-                <hr>
 
                 <div class="clearfix">
                     <button type="submit" class="signupbtn" name="submit">Modifier</button>
                 </div>
-                <!-- add a cancel button to go back to influencer.php -->
-                <div class="clearfix">
-                    <button type="submit" class="cancelbtn" name="cancel">Annuler</button>
-                </div>
+                
 
             </div>
         </form>
     </body>
 </html>
-<style>
-    body {
-        background-image: url('img/background.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-</style>
+
 <?php
 //check if the user clicked on the cancel button
 if (isset($_POST['cancel'])) {
-    header('Location: influencer.php');
+    header("Location:influenceur.php");
     exit;
 }
 //check if the user clicked on the submit button
@@ -95,5 +88,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
 
