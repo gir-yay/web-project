@@ -48,11 +48,11 @@
             </li><br>
                 <!-- lien pour voir les messages recus -->
             <li>
-                <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
+                <a href="conversations_inf.php"><i class="fa fa-envelope"></i> Messages recu</a>
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
-            <a href="contact.php"><i class="fa fa-envelope"></i> Contact</a>
+            <a href="message_admin.php"><i class="fa fa-envelope"></i> Contact</a>
             </li><br>
             <!-- envoyer une demande de suppression du compte  -->
             <li>

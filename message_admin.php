@@ -12,8 +12,9 @@ include_once 'database.php';
 $sender = $_SESSION['id'];
 //check the type 
 $type = $_SESSION['type'];
-//the receiver id
+
 $receiver = $_SESSION['id2'];
+
 //if the type is ent then check in the entreprise table if not check in the influenceur table
 if ($type == 'ent') {
     $sql = "SELECT * FROM entreprise WHERE id = '$sender'";
@@ -21,24 +22,16 @@ if ($type == 'ent') {
     //get the name of the sender
     $row = mysqli_fetch_assoc($result);
     $senderName = $row['Name'];
-    //get the id of the receiver from influenceur table
-    $sql = "SELECT * FROM influencer WHERE id = '$receiver'";
-    $result = mysqli_query($conn, $sql);
-    //get the full name of the receiver (lastname + firstname)
-    $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['lastname'] . " " . $row['firstname'];
+    $receiverName = 'admin';
+
+    
 } else {
     $sql = "SELECT * FROM influencer WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
     //get the name of the sender
     $row = mysqli_fetch_assoc($result);
-    $senderName = $row['lastname'] . " " . $row['firstname'];
-    //get the id of the receiver from entreprise table
-    $sql = "SELECT * FROM entreprise WHERE id = '$receiver'";
-    $result = mysqli_query($conn, $sql);
-    //get the name of the receiver
-    $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['Name'];
+    $senderName = $row['email'];
+    $receiverName = 'admin';
 }
 ?>
 
@@ -57,12 +50,12 @@ if ($type == 'ent') {
      <?php
             //get the messages from the database
             //show all the messages between the sender and the receiver in the conversation div
-                $sql = "SELECT * FROM messages WHERE (sender = '$sender' AND receiver = '$receiver') OR (sender = '$receiver' AND receiver = '$sender') ORDER BY timestamp ASC";
+                $sql = "SELECT * FROM admin_messages WHERE (senderName like '$senderName' AND receiverName like 'admin') OR (senderName like 'admin' AND receiverName like '$senderName') ORDER BY timestamp ASC";
                 $result = mysqli_query($conn, $sql); ?>
     
     <section class="wrapper">
         <header>
-            <a href="influenceur.php" class="back-icon" ><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
+            <a href="entreprise.php" class="back-icon"><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
                 
                     <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>
                 
@@ -78,7 +71,7 @@ if ($type == 'ent') {
                         $message = $row['message'];
                         $timestamp = $row['timestamp'];
                         //if the sender is the current user
-                        if($row['sender'] == $sender){
+                        if($row['senderName'] == $senderName){
                             //display the message in the right side of the conversation div
                              echo '<div class="chat outgoing">';
                             echo '<div class="details"><p>'.$message.'<br>'.$timestamp.'</p></div>';
@@ -123,16 +116,16 @@ if(isset($_POST['send'])){
     $message = $_POST['message'];
     //get the current date and time
     $date = date('Y-m-d H:i:s');
-    $read = 0;
+    $read=0;
     //insert the message into the message table
-    $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `type`, `timestamp`, `read`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
+      $sql = "INSERT INTO admin_messages (`sender`, `receiver`,`senderName`,`receiverName` , `message`, `type`, `timestamp`, `read`) VALUES ('$sender', '$receiver',`$sender`,`$receiver` ,'$message', '$type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){
         //refresh the page
         
 ?>
-      <script type="text/javascript">window.location="message_ent.php";</script>
+      <script type="text/javascript">window.location="message_admin.php";</script>
 <?php
 
 }else{

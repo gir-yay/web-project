@@ -8,7 +8,7 @@ if (!isset($_SESSION['id'])) {
 }
 // Connect to the database
 
-include'database.php';
+include_once 'database.php';
 $sender = $_SESSION['id'];
 //check the type 
 $type = $_SESSION['type'];
@@ -62,10 +62,10 @@ if ($type == 'ent') {
     
     <section class="wrapper">
         <header>
-            <a href="entreprise.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-                <div class="details">
-                    <span><?php echo $receiverName ?></span>
-                </div>
+            <a href="entreprise.php" class="back-icon"><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
+                
+                    <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>
+                
             </header>
 
         <div class="chat-area">
@@ -123,8 +123,9 @@ if(isset($_POST['send'])){
     $message = $_POST['message'];
     //get the current date and time
     $date = date('Y-m-d H:i:s');
+    $read=0;
     //insert the message into the message table
-    $sql = "INSERT INTO messages (sender, receiver, message, type,timestamp) VALUES ('$sender', '$receiver', '$message', '$type','$date')";
+      $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `type`, `timestamp`, `read`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){

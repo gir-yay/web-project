@@ -67,11 +67,11 @@
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
-            <a href="contact.php"><i class="fa fa-envelope"></i> Contact</a>
+            <a href="message_admin.php"><i class="fa fa-envelope"></i> Contact</a>
             </li><br>
             <!-- lien pour voir les messages recu -->
             <li>
-                <a href="messagerec.php"><i class="fa fa-envelope"></i> Messages recu</a>
+                <a href="conversations_ent.php"><i class="fa fa-envelope"></i> Messages recu</a>
             </li><br>
                 
         </ul>
