@@ -18,7 +18,7 @@ try {
 } catch(Exception $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-// Check connection
+// cas de connection n'est pas etabli
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }else{
