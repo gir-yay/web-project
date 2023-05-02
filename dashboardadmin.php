@@ -1,27 +1,27 @@
 <?php 
-// connect to database
+// connection avec la base de données
 include 'database.php';
-// the session starts
+//la session commence
 session_start();
-// check if the session variable is set
+// verifier les variables de la session
 if (isset($_SESSION['username'])) {
-    // if the session variable is set, redirect to dashboard.php
+    // if the session variable are set 
     $name=$_SESSION['username'];
-    echo "<h3>WELCOME $name</h3>";
+    echo "<h3>BIENVENUE $name</h3>";
 } else {
-    // if the session variable is not set, redirect to admin.php
+    // if the session variable are not set, redirect to admin.php
     header('Location: admin.php');
 }
-//add a nav bar for home and logout
+//barre de navigation
 echo "<nav>";
 echo "<a href='logout.php'>Logout</a>";
 echo "</nav>";
-// show all the influencer from the database as a table
-echo "<h1>INFLUENCER</h1>";
+// recuperer les données des influenceurs
+echo "<h1>INFLUENCEURS</h1>";
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql);  
 
-//print the result in a table format
+//on montre les information sous forme de tableau
 echo "<div class='container'>";
 echo "<table>";
 echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Action</th></tr>";
@@ -44,19 +44,20 @@ foreach ($result as $row) {
 echo "</table>";
 echo "</div>";
 
-// check if the delete button for influencer has been clicked
+// si le bouton delete_influenceur est cliqué:
 if(isset($_POST['delete_influencer'])){
     $id = $_POST['id'];
+    /*on supprime l'influenceur de la base de données */
     $sql = "DELETE FROM influencer WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        echo "Record deleted successfully.";
+        echo "Bien Supprimé.";
     } else {
-        echo "Error deleting record: " . mysqli_error($conn);
+        echo "Erreur: " . mysqli_error($conn);
     }
 }
 
-echo "<h1>BRAND</h1>";
+echo "<h1>Marques</h1>";
 $sql = "SELECT * FROM entreprise";
 $result = mysqli_query($conn, $sql);
 echo "<div class='container'>";
@@ -79,22 +80,26 @@ foreach ($result as $row) {
 echo "</table>";
 echo "</div>";
 
-// check if the delete button for brand has been clicked
+// si le bouton delete_brand est cliqué:
 if(isset($_POST['delete_brand'])){
     $id = $_POST['id'];
     $sql = "DELETE FROM entreprise WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        echo "Record deleted successfully.";
+        echo "Bien supprimé.";
     } else {
-        echo "Error deleting record: " . mysqli_error($conn);
+        echo "Erreur: " . mysqli_error($conn);
     }
 }
-//show all collab from the offer table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
-echo "<h1>Offered COLLAB</h1>";
+
+echo "<h1>Offere de COLLABORATION</h1>";
+/*on recupere les colaboration en joignant la table des offres avec la table des influenceurs et la tables des entreprises */
 $sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id INNER JOIN entreprise ON offer.id_entreprise = entreprise.id ";
 $result = mysqli_query($conn, $sql);
-//show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the collab
+
+/*montrer toutes les colaboration entre influenceur et entreprise dans un tableau */
+/*show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the <collab></collab>*/
+
 echo "<div class='container'>";
 echo "<table>";
 echo "<th>Brand Name</th><th>Influencer Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>state</th><th>Action</th></tr>";
@@ -118,7 +123,7 @@ foreach ($result as $row) {
 echo "</table>";
 echo "</div>";
 
-// check if the delete button for collab has been clicked
+// si bouton delete_collab est cliqué
 if(isset($_POST['delete_collab'])){
     $id = $_POST['id'];
     $sql = "DELETE FROM offer WHERE id = '$id'";
@@ -156,18 +161,18 @@ foreach ($result as $row) {
 }
 echo "</table>";
 echo "</div>";
-// check if the delete button for suggested collab has been clicked
+// si  delete_suggested_collab est cliqué
 if(isset($_POST['delete_suggested_collab'])){
   $id = $_POST['id'];
   $sql = "DELETE FROM suggestion WHERE id = '$id'";
   $result = mysqli_query($conn, $sql);
   if ($result) {
-      echo "Record deleted successfully.";
+      echo "Bien supprimé.";
   } else {
-      echo "Error deleting record: " . mysqli_error($conn);
+      echo "Erreur: " . mysqli_error($conn);
   }
 }
-//make a table for the request : id ,user_id , type ,state, the button need to be delete 
+//tableau de requetes: id ,user_id , type ,state, delete button 
 echo "<h1>REQUEST</h1>";
 $sql = "SELECT * FROM request";
 $result = mysqli_query($conn, $sql);
@@ -188,13 +193,13 @@ foreach ($result as $row) {
     echo "</td>";
     echo "</tr>";
 }
-// check if the delete button for request has been clicked
+// si delete_request est cliqué
 if(isset($_POST['delete_request'])){
   $id = $_POST['id'];
-  //change the state to deleted 
+  //changer 'state' à 'deleted' dans la base de données 
   $sql = "UPDATE request SET state = 'deleted' WHERE id = '$id'";
   $result = mysqli_query($conn, $sql);
-  //depend of the type delte the user from the table
+  //selon si l'utilisateur est un influenceur ou marque
   if($result){
     $sql = "SELECT * FROM request WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
@@ -204,7 +209,8 @@ if(isset($_POST['delete_request'])){
     if($type == 'influencer'){
       $sql = "DELETE FROM influencer WHERE id = '$user_id'";
       $result = mysqli_query($conn, $sql);
-      //delete evey collab that the influencer has
+      //supprimer les collaborations de l'influenceur
+
       $sql = "DELETE FROM offer WHERE id_influencer = '$user_id'";
       $result = mysqli_query($conn, $sql);
       $sql = "DELETE FROM suggestion WHERE id_influencer = '$user_id'";
@@ -215,25 +221,25 @@ if(isset($_POST['delete_request'])){
         echo "Error deleting record: " . mysqli_error($conn);
       }
     }else{
-      //delte the logo 
+      //supprimer le logo
       $sql = "SELECT * FROM entreprise WHERE id = '$user_id'";
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
       $logo = $row['logo'];
       unlink($logo);
-      //delete the entreprise
+      //supprimer l'entreprise
       $sql = "DELETE FROM entreprise WHERE id = '$user_id'";
       $result = mysqli_query($conn, $sql);
-      //delete evey collab that the influencer has
+      //supprimer les collaborations de l'entreprise
       $sql = "DELETE FROM offer WHERE id_entreprise = '$user_id'";
       $result = mysqli_query($conn, $sql);
       $sql = "DELETE FROM suggestion WHERE id_entreprise = '$user_id'";
       $result = mysqli_query($conn, $sql);
 
       if($result){
-        echo "Record deleted successfully.";
+        echo "Bien supprimé.";
       }else{
-        echo "Error deleting record: " . mysqli_error($conn);
+        echo "Erreur: " . mysqli_error($conn);
       }
     }
 }
