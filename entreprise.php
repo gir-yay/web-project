@@ -62,14 +62,14 @@
 
             <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
             </li><br>
-            <!-- send a request to the admin to delete ur accont  -->
+            <!-- envoyer une demande a l'admin pour supprimer le compte -->
             <li><a href="delete.php"><i class="fa fa-trash"></i> Delete Account</a>
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
             <a href="message_admin.php"><i class="fa fa-envelope"></i> Contact</a>
             </li><br>
-            <!-- lien pour voir les messages recu -->
+            <!-- lien pour voir les messages recu et tous les conversations -->
             <li>
                 <a href="conversations_ent.php"><i class="fa fa-envelope"></i> Messages recu</a>
             </li><br>
@@ -291,7 +291,7 @@ foreach ($result as $row) {
     echo "</tr>";
 }
 echo "</table>";
-//Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.
+/*Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.*/
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
 echo "<h1>REFUSED SUGGESTION</h1>";

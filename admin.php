@@ -9,10 +9,11 @@
 </head>
 <body>
 
-<!-- create a form to login username and password -->
+<!-- formulaire pour l'identification -->
 <h1><center>WELCOME ADMIN</center></h1>
 <form action="admin.php" method="post">
   <div class="inputBox">
+    <!--icon -->
   <ion-icon name="person-outline"></ion-icon>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
@@ -28,34 +29,36 @@
 
 </form>
 </body>
+<!--pour utiliser ion-icon il faut ajouter:  -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
 
 <?php 
-// connect to database
+// connecter à la base de donnees
 include 'database.php';
 
-// check if the button is clicked
+// verifier si le bouton est cliqué
 if (isset($_POST['username'])) {
-    // get the username and password
+    // recuperer le nom d'utilisateur et le mot de passe
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // check if the username and password is correct
+    // authentification
+    // recupere les donnees du tableau admins
     $sql = "SELECT * FROM admins WHERE username = '$username' AND password = '$password'";
     $result = mysqli_query($conn, $sql);
 
-    // if the username and password is correct
+    // authentifié  ?oui
     if (mysqli_num_rows($result) > 0) {
-        //start the session
+        //commence une session
         session_start();
-        // set the session variable
+        // les variables de las session
         $_SESSION['username'] = $username;
-        // redirect to the admin dashboard
+        // direction vers le tableau de bord de l'admin
         header('Location: dashboardadmin.php');
     } else {
-        // show error message
+        // message d'erreur
         echo 'Username or password is incorrect';
     }
 }

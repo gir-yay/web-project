@@ -59,6 +59,7 @@
                 <a href="delete.php"><i class="fa fa-trash"></i>Supprimer mon compte</a>
             </li><br>
             <li>
+                <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
                 <a href="logout.php"><i class="fa fa-sign-out"></i>Logout</a>
         </li><br>
         
