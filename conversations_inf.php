@@ -72,7 +72,7 @@ include_once 'database.php';
 //Recuperer l'id de l'influenceur
 $id = $_SESSION['id'];
 
-$sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `type` like 'ent'and `read`=0 group by sender order by timestamp ";
+$sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `type` like 'ent'and read_ =0 group by sender order by timestamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -125,7 +125,7 @@ foreach ($result2 as $row2) {
         //add a variable type to know if the user is an entreprise or an influencer
         $_SESSION['type'] = "inf";
         $_SESSION['id']= $id;
-        mysqli_query($conn, "UPDATE `messages` set `read`=1 where receiver='$id' and `type` like 'ent'and `read`=0  ");
+        mysqli_query($conn, "UPDATE `messages` set read_ =1 where receiver='$id' and `type` like 'ent'and read_ =0  ");
 
         //redirect to the message page
        ?>

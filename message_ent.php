@@ -125,7 +125,7 @@ if(isset($_POST['send'])){
     $date = date('Y-m-d H:i:s');
     $read=0;
     //insert the message into the message table
-      $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `type`, `timestamp`, `read`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
+      $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `type`, `timestamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){

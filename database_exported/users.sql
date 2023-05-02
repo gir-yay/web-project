@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 02 mai 2023 à 18:52
+-- Généré le : mar. 02 mai 2023 à 20:02
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -136,30 +136,32 @@ CREATE TABLE `messages` (
   `message` text NOT NULL,
   `type` varchar(255) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
-  `read` int(1) DEFAULT NULL
+  `read_` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `messages`
 --
 
-INSERT INTO `messages` (`id`, `sender`, `receiver`, `message`, `type`, `timestamp`, `read`) VALUES
-(1, 11, 6, 'hey', 'ent', '2023-04-25 20:06:50', 0),
-(2, 11, 6, 'hello', 'ent', '2023-04-25 20:06:56', 0),
-(3, 14, 6, 'HEELLO MR ', 'ent', '2023-04-27 22:00:06', 0),
-(4, 14, 6, 'HOW ARE U \r\n', 'ent', '2023-04-27 22:00:12', 0),
-(5, 6, 14, 'HELLO FUCKER \r\n', 'inf', '2023-04-27 22:01:15', 0),
-(6, 14, 6, 'ACCEPT PLZ\r\n', 'ent', '2023-04-27 22:03:06', 0),
-(7, 14, 6, 'mom help\r\n', 'ent', '2023-04-28 09:51:21', 0),
-(9, 6, 14, 'hhhh working ', 'inf', '2023-04-29 23:56:34', 0),
-(10, 6, 14, '', 'inf', '2023-04-29 23:56:35', 0),
+INSERT INTO `messages` (`id`, `sender`, `receiver`, `message`, `type`, `timestamp`, `read_`) VALUES
+(1, 11, 6, 'hey', 'ent', '2023-04-25 20:06:50', 1),
+(2, 11, 6, 'hello', 'ent', '2023-04-25 20:06:56', 1),
+(3, 14, 6, 'HEELLO MR ', 'ent', '2023-04-27 22:00:06', 1),
+(4, 14, 6, 'HOW ARE U \r\n', 'ent', '2023-04-27 22:00:12', 1),
+(5, 6, 14, 'HELLO FUCKER \r\n', 'inf', '2023-04-27 22:01:15', 1),
+(6, 14, 6, 'ACCEPT PLZ\r\n', 'ent', '2023-04-27 22:03:06', 1),
+(7, 14, 6, 'mom help\r\n', 'ent', '2023-04-28 09:51:21', 1),
+(9, 6, 14, 'hhhh working ', 'inf', '2023-04-29 23:56:34', 1),
+(10, 6, 14, '', 'inf', '2023-04-29 23:56:35', 1),
 (11, 7, 15, 'heey', 'inf', '2023-04-30 16:09:30', 1),
-(12, 15, 7, 'hi\r\n', 'ent', '2023-05-01 03:08:48', 0),
-(13, 15, 7, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'ent', '2023-05-01 05:42:25', 0),
-(14, 15, 7, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'ent', '2023-05-01 06:49:39', 0),
-(15, 7, 15, 'hhhhhhhhhhhhhhhhhhhhhhhhh', 'inf', '2023-05-01 07:08:47', 0),
+(12, 15, 7, 'hi\r\n', 'ent', '2023-05-01 03:08:48', 1),
+(13, 15, 7, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'ent', '2023-05-01 05:42:25', 1),
+(14, 15, 7, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'ent', '2023-05-01 06:49:39', 1),
+(15, 7, 15, 'hhhhhhhhhhhhhhhhhhhhhhhhh', 'inf', '2023-05-01 07:08:47', 1),
 (16, 15, 7, 'hu hu', 'ent', '2023-05-01 23:29:21', 1),
-(17, 15, 7, 'hoooooooooooooooooooooooooooooooo', 'ent', '2023-05-02 00:05:20', 1);
+(17, 15, 7, 'hoooooooooooooooooooooooooooooooo', 'ent', '2023-05-02 00:05:20', 1),
+(18, 15, 7, 'hp', 'ent', '2023-05-02 18:54:17', 1),
+(19, 7, 15, 'ok', 'inf', '2023-05-02 18:55:44', 0);
 
 -- --------------------------------------------------------
 
@@ -336,7 +338,7 @@ ALTER TABLE `influencer`
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `offer`
