@@ -8,13 +8,21 @@
     <link rel="stylesheet" href="./css/s.css">
 </head>
 <body>
+    <!-- ERROR HANDLING  -->
+<div class="erreur-msg">
+                        <?php
+                        if(isset($_GET['error'])){
+                            echo $_GET['error'];
+                        }
+                        ?>
+</div>
     <section id="influenceur">
     <div class="container">
         <header>Bienvenue !</header>
         <form  action="submitinf.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
-                    <div class="erreur-msg">Un message d'erreur !</div>
+                    
 
                     <div class="boxs">
                         <div class="input-boxss">
@@ -102,7 +110,7 @@
                 </div>
 
                 <div class="btn"> 
-                <button id="save"> <a href="#"></a> Sauvegarder</button>
+                <button type="submit" name="submit">S'inscrire</button>
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
                 <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis Entreprise</a>
@@ -173,7 +181,7 @@
                     </div>
                 </div> 
                 <div class="btn"> 
-                <button id="save">Sauvegarder</button>
+                <button type="submit" name="submit">S'inscrire</button>
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
                  <div class="change">
