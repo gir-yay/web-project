@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 02 mai 2023 à 11:55
+-- Généré le : mar. 02 mai 2023 à 18:19
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -36,8 +37,8 @@ CREATE TABLE `admins` (
 -- Déchargement des données de la table `admins`
 --
 
-INSERT INTO `admins` (`username`, `password`) VALUES
-('admin', 'admin');
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -46,16 +47,25 @@ INSERT INTO `admins` (`username`, `password`) VALUES
 --
 
 CREATE TABLE `admin_messages` (
-  `id` int(11) NOT NULL,
-  `sender` int(11) DEFAULT NULL,
-  `receiver` int(11) DEFAULT NULL,
-  `senderName` varchar(100) NOT NULL,
-  `receiverName` varchar(100) NOT NULL,
-  `message` text NOT NULL,
-  `type` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
-  `read` int(1) DEFAULT NULL
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_type` varchar(255) NOT NULL,
+  `sender_type` varchar(255) NOT NULL,
+  `message_text` text NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `read_` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `admin_messages`
+--
+
+INSERT INTO `admin_messages` (`message_id`, `user_id`, `user_type`, `sender_type`, `message_text`, `timestamp`, `read_`) VALUES
+(3, 15, 'entreprise', 'entreprise', 'hhhhhhhhhhhhhhhh', '2023-05-02 15:38:09', 1),
+(4, 15, 'entreprise', 'entreprise', 'kkkkk', '2023-05-02 15:39:44', 1),
+(5, 7, 'influenceur', 'influenceur', 'hohoooohooo', '2023-05-02 15:51:25', 1),
+(6, 7, 'influenceur', 'influenceur', 'hhhhhhhhhhhhhhhhhhhhhhhhh', '2023-05-02 15:51:34', 1),
+(8, 7, 'influenceur', 'admin', 'heehee', '2023-05-02 18:10:08', 1);
 
 -- --------------------------------------------------------
 
@@ -237,6 +247,18 @@ INSERT INTO `suggestion` (`id`, `id_entreprise`, `id_influencer`, `terms`, `amou
 --
 
 --
+-- Index pour la table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `admin_messages`
+--
+ALTER TABLE `admin_messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
 -- Index pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
@@ -276,6 +298,18 @@ ALTER TABLE `suggestion`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `admin_messages`
+--
+ALTER TABLE `admin_messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `entreprise`
