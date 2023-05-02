@@ -17,6 +17,7 @@
     position: relative;
 }
 
+
 nav {
     padding: 10px 0;
     display: flex;
@@ -332,6 +333,7 @@ section#about {
 
 }
 
+/*
 .why1 {
     display: flex;
     justify-content: center;
@@ -340,6 +342,7 @@ section#about {
 .why1 h1 {
     text-align: center;
 }
+*/
 
 .why-left {
     flex-basis: 45%;
