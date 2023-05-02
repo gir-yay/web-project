@@ -66,7 +66,7 @@ if ($type === 'entreprise') {
             // the table of the admin_messages is CREATE TABLE messages (message_id INT PRIMARY KEY AUTO_INCREMENT,user_id INT NOT NULL,user_type VARCHAR(255) NOT NULL,sender_type VARCHAR(255) NOT NULL,message_text TEXT NOT NULL,timestamp DATETIME NOT NULL);
 
             //select all the messages where the sender_type is entreprise or influencer in the admin_messages table on the right side
-            $sql = "SELECT * FROM admin_messages WHERE (sender_type = 'entreprise' OR sender_type = 'influenceur') AND user_id = '$sender' AND user_type = '$type' ORDER BY timestamp ASC";
+            $sql = "SELECT * FROM admin_messages WHERE (sender_type = 'entreprise' OR sender_type = 'influenceur' OR sender_type='admin') AND user_id = '$sender' AND user_type = '$type' ORDER BY timestamp ASC";
             $result = mysqli_query($conn, $sql);
             //if there are results,determine the sender and display the message
             if (mysqli_num_rows($result) > 0) {
@@ -77,12 +77,19 @@ if ($type === 'entreprise') {
                                     <p>' . $row['message_text'] . '</p>
                                 </div>
                             </div>';
-                    } else {
+                    } else if($row['sender_type'] === 'entreprise') {
                         echo '<div class="chat outgoing">
                                 <div class="details">
                                     <p>' . $row['message_text'] . '</p>
                                 </div>
                             </div>';
+                    }else{
+
+                    echo '<div class="chat incoming">
+                            <div class="details">
+                                <p>' . $row['message_text'] . '</p>
+                            </div>
+                        </div>';
                     }
                 }
             }else{
@@ -93,26 +100,7 @@ if ($type === 'entreprise') {
                         </div>
                     </div>';
             }
-            // select all the message where the sender is the admin on the left side
-            $sql = "SELECT * FROM admin_messages WHERE sender_type = 'admin' AND user_id = '$sender' AND user_type = '$type' ORDER BY message_id DESC";
-            $result = mysqli_query($conn, $sql);
-            //if there are results,display the message in th eleft 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="chat incoming">
-                            <div class="details">
-                                <p>' . $row['message_text'] . '</p>
-                            </div>
-                        </div>';
-                }
-            }else{
-                // no messages sent yet , send a message 
-                // echo '<div class="chat incoming">
-                //         <div class="details">
-                //             <p>Hi, how can we help you?</p>
-                //         </div>
-                //     </div>';
-            }
+           
             ?>   
         </div>
 

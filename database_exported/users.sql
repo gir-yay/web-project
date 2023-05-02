@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 02 mai 2023 à 18:19
+-- Généré le : mar. 02 mai 2023 à 18:52
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -65,7 +65,16 @@ INSERT INTO `admin_messages` (`message_id`, `user_id`, `user_type`, `sender_type
 (4, 15, 'entreprise', 'entreprise', 'kkkkk', '2023-05-02 15:39:44', 1),
 (5, 7, 'influenceur', 'influenceur', 'hohoooohooo', '2023-05-02 15:51:25', 1),
 (6, 7, 'influenceur', 'influenceur', 'hhhhhhhhhhhhhhhhhhhhhhhhh', '2023-05-02 15:51:34', 1),
-(8, 7, 'influenceur', 'admin', 'heehee', '2023-05-02 18:10:08', 1);
+(8, 7, 'influenceur', 'admin', 'heehee', '2023-05-02 18:10:08', 1),
+(9, 15, 'entreprise', 'entreprise', 'hello admin', '2023-05-02 18:22:34', 1),
+(10, 7, 'influenceur', 'influenceur', 'thanks', '2023-05-02 18:23:13', 1),
+(11, 15, 'entreprise', 'admin', 'ok i ll see', '2023-05-02 18:25:18', 1),
+(12, 15, 'entreprise', 'admin', 'really?', '2023-05-02 18:25:29', 1),
+(13, 7, 'influenceur', 'influenceur', 'heeeeellp', '2023-05-02 18:26:20', 1),
+(14, 7, 'influenceur', 'influenceur', 'hhhhhhhhhhhhhhhhhhhhhhhhh', '2023-05-02 18:27:14', 0),
+(15, 7, 'influenceur', 'influenceur', 'what is wrong', '2023-05-02 18:30:56', 0),
+(16, 15, 'entreprise', 'entreprise', 'hhhhhhhhhhhhhhhhhhhhhhhhhhhh', '2023-05-02 18:32:27', 0),
+(17, 7, 'influenceur', 'admin', 'ops', '2023-05-02 18:33:09', 1);
 
 -- --------------------------------------------------------
 
@@ -309,7 +318,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT pour la table `admin_messages`
 --
 ALTER TABLE `admin_messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `entreprise`
