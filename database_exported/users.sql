@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 30 avr. 2023 à 15:21
+-- Généré le : mar. 02 mai 2023 à 11:55
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -38,6 +38,24 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`username`, `password`) VALUES
 ('admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin_messages`
+--
+
+CREATE TABLE `admin_messages` (
+  `id` int(11) NOT NULL,
+  `sender` int(11) DEFAULT NULL,
+  `receiver` int(11) DEFAULT NULL,
+  `senderName` varchar(100) NOT NULL,
+  `receiverName` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `read` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -83,7 +101,8 @@ CREATE TABLE `influencer` (
 
 INSERT INTO `influencer` (`id`, `lastname`, `firstname`, `email`, `password`, `age`) VALUES
 (6, 'Mo', 'LASTNAME', 'ezzouak2001@gmail.com', 'HEY', 26),
-(7, 'Ra', 'Gigg', 'ghi@gmail.com', '555', 20);
+(7, 'Ra', 'Gigg', 'ghi@gmail.com', '555', 20),
+(8, 'l', 'l', 'no@gmail.com', '123', 20);
 
 -- --------------------------------------------------------
 
@@ -97,23 +116,31 @@ CREATE TABLE `messages` (
   `receiver` int(11) NOT NULL,
   `message` text NOT NULL,
   `type` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `read` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `messages`
 --
 
-INSERT INTO `messages` (`id`, `sender`, `receiver`, `message`, `type`, `timestamp`) VALUES
-(1, 11, 6, 'hey', 'ent', '2023-04-25 20:06:50'),
-(2, 11, 6, 'hello', 'ent', '2023-04-25 20:06:56'),
-(3, 14, 6, 'HEELLO MR ', 'ent', '2023-04-27 22:00:06'),
-(4, 14, 6, 'HOW ARE U \r\n', 'ent', '2023-04-27 22:00:12'),
-(5, 6, 14, 'HELLO FUCKER \r\n', 'inf', '2023-04-27 22:01:15'),
-(6, 14, 6, 'ACCEPT PLZ\r\n', 'ent', '2023-04-27 22:03:06'),
-(7, 14, 6, 'mom help\r\n', 'ent', '2023-04-28 09:51:21'),
-(9, 6, 14, 'hhhh working ', 'inf', '2023-04-29 23:56:34'),
-(10, 6, 14, '', 'inf', '2023-04-29 23:56:35');
+INSERT INTO `messages` (`id`, `sender`, `receiver`, `message`, `type`, `timestamp`, `read`) VALUES
+(1, 11, 6, 'hey', 'ent', '2023-04-25 20:06:50', 0),
+(2, 11, 6, 'hello', 'ent', '2023-04-25 20:06:56', 0),
+(3, 14, 6, 'HEELLO MR ', 'ent', '2023-04-27 22:00:06', 0),
+(4, 14, 6, 'HOW ARE U \r\n', 'ent', '2023-04-27 22:00:12', 0),
+(5, 6, 14, 'HELLO FUCKER \r\n', 'inf', '2023-04-27 22:01:15', 0),
+(6, 14, 6, 'ACCEPT PLZ\r\n', 'ent', '2023-04-27 22:03:06', 0),
+(7, 14, 6, 'mom help\r\n', 'ent', '2023-04-28 09:51:21', 0),
+(9, 6, 14, 'hhhh working ', 'inf', '2023-04-29 23:56:34', 0),
+(10, 6, 14, '', 'inf', '2023-04-29 23:56:35', 0),
+(11, 7, 15, 'heey', 'inf', '2023-04-30 16:09:30', 1),
+(12, 15, 7, 'hi\r\n', 'ent', '2023-05-01 03:08:48', 0),
+(13, 15, 7, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'ent', '2023-05-01 05:42:25', 0),
+(14, 15, 7, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'ent', '2023-05-01 06:49:39', 0),
+(15, 7, 15, 'hhhhhhhhhhhhhhhhhhhhhhhhh', 'inf', '2023-05-01 07:08:47', 0),
+(16, 15, 7, 'hu hu', 'ent', '2023-05-01 23:29:21', 1),
+(17, 15, 7, 'hoooooooooooooooooooooooooooooooo', 'ent', '2023-05-02 00:05:20', 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +166,13 @@ CREATE TABLE `offer` (
 INSERT INTO `offer` (`id`, `id_influencer`, `id_entreprise`, `terms`, `amount`, `duration`, `reg_date`, `state`) VALUES
 (6, 12, 6, 'ONE INSTA POST PAIR DAY', '2300 MAD', '2MOIS', '2023-04-18 16:44:37', 'waiting'),
 (9, 6, 14, 'LMAO', '87777', '30 MONTH', '2023-04-28 16:19:36', 'accepted'),
-(11, 6, 14, 'hello 2 insta pic per day', '6942022', '69 day', '2023-04-29 18:06:34', 'accepted');
+(11, 6, 14, 'hello 2 insta pic per day', '6942022', '69 day', '2023-04-29 18:06:34', 'accepted'),
+(12, 7, 15, 'hhhh', 'hhhhh', 'hhhh', '2023-04-30 20:57:39', 'accepted'),
+(13, 7, 15, 'hhhh', 'hhhhh', 'hhhh', '2023-04-30 20:57:41', 'refused'),
+(14, 7, 15, 'k', 'm', 'mmm', '2023-04-30 21:28:10', 'refused'),
+(15, 7, 15, 'o', 'oo', 'o', '2023-05-01 02:19:20', 'refused'),
+(16, 7, 15, 'lll', 'lll', 'lll', '2023-05-01 02:23:04', 'accepted'),
+(17, 7, 15, 'mmmmm', 'lll', 'hhhh', '2023-05-01 20:50:45', 'refused');
 
 -- --------------------------------------------------------
 
@@ -191,7 +224,13 @@ INSERT INTO `suggestion` (`id`, `id_entreprise`, `id_influencer`, `terms`, `amou
 (1, 11, 6, 'ONE INSTA POST PAIR DAY', 29881, 2, 'accepted', '2023-04-26 22:04:19'),
 (2, 11, 6, 'ONE INSTA POST PAIR DAY', 2245678, 30, 'refused', '2023-04-26 22:04:19'),
 (4, 11, 6, 'LMAO', 87777, 30, 'refused', '2023-04-26 22:06:47'),
-(5, 14, 6, 'This is a suggestion', 69420, 29, 'accepted', '2023-04-27 21:03:43');
+(5, 14, 6, 'This is a suggestion', 69420, 29, 'accepted', '2023-04-27 21:03:43'),
+(6, 14, 7, 'hhhh', 0, 0, 'waiting', '2023-04-30 20:54:07'),
+(7, 15, 7, 'hhhh', 0, 0, 'accepted', '2023-04-30 20:54:25'),
+(8, 14, 7, 'k', 0, 0, 'waiting', '2023-04-30 21:27:10'),
+(9, 15, 7, 'mmmmm', 0, 0, 'accepted', '2023-05-01 02:19:40'),
+(10, 15, 7, 'kkk', 0, 0, 'accepted', '2023-05-01 02:23:15'),
+(11, 15, 7, 'hhhh', 0, 0, 'accepted', '2023-05-01 02:51:42');
 
 --
 -- Index pour les tables déchargées
@@ -248,19 +287,19 @@ ALTER TABLE `entreprise`
 -- AUTO_INCREMENT pour la table `influencer`
 --
 ALTER TABLE `influencer`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `request`
@@ -272,7 +311,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT pour la table `suggestion`
 --
 ALTER TABLE `suggestion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
