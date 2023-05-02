@@ -14,7 +14,12 @@
         $email=$_SESSION['email'];
         $name= $_SESSION['firstname'].' ' .$_SESSION['Lastname'];
         $id=$_SESSION['id'];
+        $_SESSION['type']='influenceur';
+
     }
+
+    $_SESSION['type']='influenceur';
+
 ?>
 
 

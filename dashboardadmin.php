@@ -12,8 +12,23 @@ if (isset($_SESSION['username'])) {
     // if the session variable are not set, redirect to admin.php
     header('Location: admin.php');
 }
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/admindash.css">
+  <title>Admin</title>
+</head>
+<body>
+
+<?php
 //barre de navigation
 echo "<nav>";
+echo "<a href='mess.php'>Message</a>";
 echo "<a href='logout.php'>Logout</a>";
 echo "</nav>";
 // recuperer les données des influenceurs
@@ -248,60 +263,6 @@ echo "</table>";
 echo "</div>";
 
 ?>
-<style>
-  /* style for table */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-th, td {
-  text-align: left;
-  padding: 8px;
-  font-size: 16px;
-}
-
-th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-tr:nth-child(even){
-  background-color: #f2f2f2
-}
-
-/* style for delete button */
-input[type=submit] {
-  background-color: #f44336;
-  color: white;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-input[type=submit]:hover {
-  background-color: #f44336;
-  opacity: 0.8;
-}
-
-/* style for headings */
-h1, h3 {
-  text-align: center;
-  color: #2F4F4F;
-  margin-bottom: 20px;
-}
-
-/* style for table container */
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-</style>
+  
+</body>
+</html>

@@ -81,7 +81,7 @@ foreach ($result as $row) {
                echo "<td>";
      
         echo "<form method='post'>";
-        echo "<button type='submit' class='message-btn' name='message'>Message</button>";
+        echo "<button type='submit' class='message-btn' name='message'>Read</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</form>";
         echo "</td>";

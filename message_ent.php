@@ -71,7 +71,7 @@ if ($type == 'ent') {
         <div class="chat-area">
             <!-- Messages will be displayed here -->
            <?php
-                                       echo '<div class="chat-box">';
+                echo '<div class="chat-box">';
 
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){

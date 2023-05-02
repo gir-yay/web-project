@@ -69,7 +69,7 @@
 //Afficher tous les influenceurs sous forme d'une table  
 //Recuperer la bd connection
 include_once 'database.php';
-//Recuperer l'id de l'entreprise
+//Recuperer l'id de l'influenceur
 $id = $_SESSION['id'];
 
 $sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `type` like 'ent'and `read`=0 group by sender order by timestamp ";
