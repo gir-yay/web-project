@@ -20,20 +20,17 @@
 		<img src="./images/logo1.png" class="logo">
 		<!--listes -->
 		<ul>
-			<li> <a href="#about"> About Us</a></li>
+			<li> <a href="#about"> Qui sommes nous?</a></li>
 			<li> <a href="#features"> Services</a></li>
 			<li> <a href="#contacte"> Contact</a></li>
 		</ul>
 		<div>
-			<a href="loogin.php" class="btn">Login</a>
+			<a href="loogin.php" class="btn">Se connecter</a>
 		</div>
-
 	</nav>
 		<div class="content">
-
-			<h1 class="anim"> Collab for <br> Influencer & Brand</h1>
-			<p class="anim"> Pour réussir votre campagne de marketing d'influence, vous devez travailler avec des influenceurs expérimentés, qui partagent les valeurs de votre marque. </p>
-
+			<h1 class="anim"> Marques et influenceurs : <br> Créez la correspondance parfaite.</h1>
+			<p class="anim"> Pour aider les professionnels à optimiser leurs campagnes de marketing de A à Z, nous avons construit Collab, une solution complète qui permet aux marques de profiter pleinement de la puissance de l'économie des créateurs.</p>
 			<a href="signup.php" class ="btn anim">Rejoignez maintenant!</a> </div> 
 			<img src="./images/head3.png" width="750px" class="features-img anim"></section>
 				
@@ -42,10 +39,9 @@
 			<div class="about-left-col"> 
 				<img src="./images/header-bg.jpg" >
 			</div>
-
 			<div class="about-right-col"> 
 				<div class="about-text"> 
-					<h1> About us</h1>
+					<h1> Qui sommes nous?</h1>
 					<p class="para">Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.<br>Nous sommes convaincus que la clé du succès des collaborations réside dans la compréhension des besoins spécifiques de chaque marque et de chaque influenceur. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour élaborer des stratégies efficaces de marketing d'influence et maximiser leur potentiel sur les réseaux sociaux.<br>Notre équipe expérimentée est composée d'experts en marketing d'influence qui ont une connaissance approfondie des tendances et des meilleures pratiques en matière de marketing numérique. Nous sommes fiers d'offrir une expérience utilisateur fluide, efficace et agréable à tous nos utilisateurs, qu'ils soient des marques ou des influenceurs.<br>En choisissant Collab, vous pouvez être sûr de travailler avec une équipe engagée, compétente et passionnée qui est déterminée à aider votre entreprise à atteindre ses objectifs de marketing d'influence. Contactez-nous dès aujourd'hui pour en savoir plus sur la manière dont nous pouvons vous aider à réussir votre prochaine collaboration.
 					<br><br>
 					<strong>  Rejoignez-nous dès maintenant!<strong\><br><br><br> 
