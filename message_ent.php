@@ -24,15 +24,15 @@ if ($type == 'ent') {
     //get the id of the receiver from influenceur table
     $sql = "SELECT * FROM influencer WHERE id = '$receiver'";
     $result = mysqli_query($conn, $sql);
-    //get the full name of the receiver (lastname + firstname)
     $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['nom'] . " " . $row['prenom'];
+    //get the name of the receiver
+    $receiverName = $row['nom']." ".$row['prenom'];
 } else {
     $sql = "SELECT * FROM influencer WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
     //get the name of the sender
     $row = mysqli_fetch_assoc($result);
-    $senderName = $row['nom'] . " " . $row['prenom'];
+    $senderName = $row['nom']." ".$row['prenom'];
     //get the id of the receiver from entreprise table
     $sql = "SELECT * FROM entreprise WHERE id = '$receiver'";
     $result = mysqli_query($conn, $sql);
@@ -40,6 +40,7 @@ if ($type == 'ent') {
     $row = mysqli_fetch_assoc($result);
     $receiverName = $row['nom'];
 }
+
 ?>
 
 

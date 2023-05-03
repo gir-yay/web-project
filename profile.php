@@ -38,16 +38,18 @@ $nom = $row['nom'].' '.$row['prenom'];
   <p>Domaine : <?php echo $row['domaine']; ?></p>
   <p>Nombre d'abonnés : <?php echo $row['abonne']; ?></p>
   <!-- show the button to message and a boton to go back to the entreprise page -->
-  <form action="message.php" method="post">
+  <form action="" method="post">
     <input type="submit" name="message" value="Message">
   </form>
-  <form action="entreprise.php" method="post">
+  <form action="" method="post">
     <input type="submit" name="retour" value="Retour">
   </form>
   <!-- a logout buotton  -->
-  <form action="logout.php" method="post">
+  <form action="" method="post">
     <input type="submit" name="logout" value="Logout">
   </form>
+  <!-- a hidden id of the influencer -->
+  <input type="hidden" name="id" value="<?php echo $profile_id; ?>">
 </body>
 </html>
 <?php
@@ -57,6 +59,7 @@ if(isset($_POST['message'])) {
   $id = $_POST['id'];
   //Envoyer l'identifiant dans la variable de session
   $_SESSION['id2'] = $id;
+  $_SESSION['id2'] = $profile_id;
   //ajouter une  variable type pour savoir si l'utilisateur est une entreprise ou un influenceur
   $_SESSION['type'] = "ent";
   //rediriger vers la page des message
