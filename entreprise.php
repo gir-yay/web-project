@@ -86,12 +86,6 @@
 include_once 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
-// //Recuperer le nom de l'entreprise
-// $name = $_SESSION['name'];
-// //Recuperer ca de l'entreprise
-// $ca = $_SESSION['ca'];
-// //Recuperer l'email de l'entreprise
-// $email = $_SESSION['email'];
 // GET THE INFO FROM THE DATABASE
 $sql = "SELECT * FROM entreprise WHERE id='$id'";
 $result = mysqli_query($conn, $sql);
@@ -105,7 +99,7 @@ $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql); 
 //
 echo "<table>";
-echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make an offer</th><th>Message</th></tr>";
+echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make an offer</th><th>Message</th><th>Profil</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['id'] . "</td>";
@@ -135,7 +129,15 @@ foreach ($result as $row) {
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</form>";
     echo "</td>";
+    // a button to visit the profile of the influencer
+    echo "<td>";
+    echo "<form method='post'>";
+    echo "<button type='submit' class='profile-btn' name='profile'>Profile</button>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "</form>";
+    echo "</td>";
     echo "</tr>";
+
 }
 echo "</table>";
 // Vérifier si le bouton d'offre a été cliqué
@@ -185,6 +187,19 @@ if(isset($_POST['message'])) {
 <?php
     exit();
 }
+//si le bouton de profil a été cliqué
+if(isset($_POST['profile'])) {
+    //Recuperer l'ID du profil
+    $id = $_POST['id'];
+    //Envoyer l'identifiant dans la variable de session
+    $_SESSION['id2'] = $id; 
+    //rediriger vers la page du profil
+   ?>
+      <script type="text/javascript">window.location="profile.php";</script>
+<?php
+    exit();
+}
+
 
 
 
