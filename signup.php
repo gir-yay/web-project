@@ -12,21 +12,30 @@
 </head>
 <body>
     <!-- ERROR HANDLING  -->
-<div class="erreur-msg">
-                        <?php
-                        if(isset($_GET['error'])){
-                            echo $_GET['error'];
-                        }
 
-                        ?>
-</div>
     <section id="influenceur">
     <div class="container">
         <header>Bienvenue !</header>
         <form  action="submitinf.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
-                    
+                    <div class="erreur-msg" id="inf">
+                        
+                        <?php
+                        if(isset($_GET['error'])){
+                            echo $_GET['error'];
+
+                              ?>
+                            <script>
+                                document.getElementById("inf").style.display = "flex";
+                            </script>
+                            <?php
+
+                        }
+
+                        ?>
+                        
+                </div>
 
                     <div class="boxs">
                         <div class="input-boxss">
@@ -134,13 +143,20 @@
         <form action="submit.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
-                    <div class="erreur-msg">
-
+                    <div class="erreur-msg" id="ent">
+                            
                      <?php
+
                         if(isset($_GET['error'])){
                             echo $_GET['error'];
+                             ?>
+                            <script>
+                                document.getElementById("ent").style.display = "flex";
+                            </script>
+                            <?php
                         }
                         ?>
+                        
 
                     </div>
 

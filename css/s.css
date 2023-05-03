@@ -143,7 +143,7 @@ input[type="file"] {
 
 #cancel a {
     color: #000;
-    background-color: #aca8a8;
+    /*background-color: #aca8a8;*/
     text-decoration: none;
 }
 
