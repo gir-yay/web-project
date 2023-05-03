@@ -114,13 +114,13 @@
                         <div class="input-boxss">
                         <label >Mot de passe</label>
                         <input id="pw1" type="password" name="password" placeholder=" mot de passe" required>
-                         <i class="fas fa-eye eye" onclick="showpw('#pw1')"></i>
+                         <i class="fas fa-eye eye" id="eye1" onclick="showpw('#pw1' , '#eye1')"></i>
 
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
                         <input id="pw2" type="password" name="password-confirm" placeholder="un mot de passe" required>
-                         <i class="fas fa-eye eye" onclick="showpw('#pw2')"></i>
+                         <i class="fas fa-eye eye" id="eye2" onclick="showpw('#pw2' , '#eye2')"></i>
 
                         </div>
                     </div>
@@ -205,13 +205,13 @@
                         <div class="input-boxss">
                         <label >Mot de passe</label>
                         <input id="pw3" type="password" name="password" placeholder=" mot de passe" required>
-                         <i class="fas fa-eye eye" onclick="showpw('#pw3')"></i>
+                         <i class="fas fa-eye eye" id="eye3" onclick="showpw('#pw3' , '#eye3')"></i>
 
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
                         <input id="pw4" type="password" name="password-confirm" placeholder="un mot de passe" required>
-                         <i class="fas fa-eye eye" onclick="showpw('#pw4')"></i>
+                         <i class="fas fa-eye eye" id="eye4" onclick="showpw('#pw4' , '#eye4')"></i>
                         </div>
                     </div>
                 </div> 
@@ -244,14 +244,17 @@
 
        <script>
 
-function showpw(id) {
+function showpw(id , id2) {
      
     let pwfield = document.querySelector(id);
+    let eyefield= document.querySelector(id2);
 
 	if (pwfield.type == "password") {
 		pwfield.type = "text";
+        eyefield.className = "fas fa-eye-slash eye";
 	} else {
 		pwfield.type = "password";
+        eyefield.className = "fas fa-eye eye";
 	}
 };
 
