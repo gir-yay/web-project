@@ -59,7 +59,7 @@ input.offer-options {
 
 /*styler le bouton d'envoi*/
 button.submit-offer {
-  background-color: #409f40;
+  background-color: #26a326;
   border: none;
   border-radius: 4px;
   color: white;
@@ -142,11 +142,11 @@ th {
 
 /*styler les lignes impaires et paires du tableau*/
 tr:nth-child(odd) {
-  background: linear-gradient(to right, #b573b7, #787475);
+  background: linear-gradient(to right, #b573b7, #e0aab7);
 }
 
 tr:nth-child(even) {
-  background: linear-gradient(to right, #bebcbe, #a283a2);
+  background: linear-gradient(to right, #b6a0b6, #e8d5e8);
 }
 
 /*style des lignes lors du survol */
@@ -179,7 +179,7 @@ table tr:first-child:hover {
 
 /*Styler le bouton d'offre*/
 .offer-btn {
-  background-color: #23a6ca;
+  background-color: #30c5ee;
   border: none;
   border-radius: 4px;
   color: white;
@@ -189,13 +189,52 @@ table tr:first-child:hover {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-top: 10px;
 }
 
 /*Style du bouton d'offre lors du survol*/
 .offer-btn:hover {
   background-color: #187993;
+}
+/*Styler le bouton des messages*/
+.message-btn {
+  background-color: #0752f4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+/*Styler le bouton des messages lors du survol*/
+
+.message-btn:hover {
+  background-color: #2d4373;
+}
+
+/*Styler le bouton de redirection vers le profil de l'influenceur */
+.profile-btn {
+  background-color: #f50ca7;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+/*Styler le bouton de redirection vers le profil de l'influenceur lors du survol par curseur */
+.profile-btn:hover{
+  background-color: #a21473;
 }
 
 /*Styler le bouton de refus*/
@@ -229,7 +268,7 @@ table tr:first-child:hover {
 
 /*Styler le bouton d'acceptation */
 .accept-btn {
-  background-color: #37d83c;
+  background-color: #2cea32;
   border: none;
   border-radius: 4px;
   color: white;
@@ -260,25 +299,6 @@ td.refused {
   background-color: #ffc9c9;
 }
 
-/*Styler le bouton des messages*/
-.message-btn {
-  background-color: #215ee0;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-/*Styler le bouton des messages lors du survol*/
-
-.message-btn:hover {
-  background-color: #2d4373;
-}
 
 /* styler la partie profil contenant les infos de l"entreprise*/
 .profile {
@@ -304,9 +324,10 @@ td.refused {
 .profile p {
   color: black;
   font-weight: 500;
-  margin-left: 100px;
-  margin-top: 10px;
-  font-size: 18px;
+  margin-left: 170px;
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /*styler l'id de l'entreprise*/
