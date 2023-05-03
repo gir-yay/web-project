@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
     //move the logo to the upload folder
     move_uploaded_file($tmp_name, "Upload/$logo");
     //update the entreprise table with the new data
-    $sql="UPDATE entreprise SET Name='$name',email='$email',ca='$ca',logo='$logo' WHERE id='$id'";
+    $sql="UPDATE entreprise SET nom='$name',email='$email',ca='$ca',logo='$logo' WHERE id='$id'";
     $result=mysqli_query($conn,$sql);
     //go back to entreprise.php
     header("Location:entreprise.php");

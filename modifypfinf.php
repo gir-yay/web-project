@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $age = $_POST['age'];
     //update the data in the database
-    $sql = "UPDATE influencer SET lastname='$lastname',firstname='$firstname',email='$email',age='$age' WHERE id='$id'";
+    $sql = "UPDATE influencer SET nom='$lastname',prenom='$firstname',email='$email',age='$age' WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
     //check if the data is updated
     if ($result) {
