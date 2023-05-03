@@ -17,17 +17,24 @@
 </head>
 <body>
 <div class="container">
-<div class="error">
-                <?php if (isset($_GET['error'])) { ?>
-                    <p class="error"><?php echo $_GET['error']; ?></p>
-                <?php } ?>
-                </div> <br>
+
   
         <div class="choice">
 		<p> Je suis :</p>
         <button onclick="showEntrepriseSection()">Entreprise</button>
 		<button onclick="showInfluenceurSection()">Influenceur</button>		   
         </div>
+<br>
+<center>
+<div id="error" >
+                <?php if (isset($_GET['error'])) {?>
+
+                    <p><?php echo $_GET['error']; ?></p>
+                    <script>document.getElementById("error").style.display = "flex";</script>
+                <?php } ?>
+</div> 
+</center>
+<br>
 <section id="entreprise" style="display: block;">
         <div class="forme">
             <h1> Entreprise</h1>

@@ -47,6 +47,21 @@ header {
     position: relative;
 }
 
+#error {
+    background-color: rgb(188, 148, 168);
+    height: 40px;
+    width: 450px;
+    border-radius: 10px;
+    display: none;
+
+}
+
+#error p {
+    text-align: center;
+    padding: 2%;
+    font-size: 1.1rem;
+}
+
 section {
     display: none;
 }
