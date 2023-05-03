@@ -82,7 +82,7 @@ if(isset($_POST['logout'])) {
   session_destroy();
   // redirect to the login page
  ?>
-    <script type="text/javascript">window.location="login.php";</script>
+    <script type="text/javascript">window.location="loogin.php";</script>
 <?php
   exit();
 }

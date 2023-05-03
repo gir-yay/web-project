@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <title>Sign Up</title>
-    <link rel="stylesheet" href="./css/s.css">
-    <script src="./eye.js" ></script>
+    <link rel="stylesheet" href="s.css">
 
 </head>
 <body>
@@ -105,14 +104,14 @@
                         </div> 
                         <div class="input-boxss">
                         <label >Mot de passe</label>
-                        <input class="pw" type="password" name="password" placeholder=" mot de passe" required>
-                         <i class="fas fa-eye e"></i>
+                        <input id="pw1" type="password" name="password" placeholder=" mot de passe" required>
+                         <i class="fas fa-eye eye" onclick="showpw('#pw1')"></i>
 
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input class="pw" type="password" name="password-confirm" placeholder="un mot de passe" required>
-                         <i class="fas fa-eye e"></i>
+                        <input id="pw2" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                         <i class="fas fa-eye eye" onclick="showpw('#pw2')"></i>
 
                         </div>
                     </div>
@@ -189,14 +188,14 @@
                         </div>
                         <div class="input-boxss">
                         <label >Mot de passe</label>
-                        <input class="pw" type="password" name="password" placeholder=" mot de passe" required>
-                         <i class="fas fa-eye e"></i>
+                        <input id="pw3" type="password" name="password" placeholder=" mot de passe" required>
+                         <i class="fas fa-eye eye" onclick="showpw('#pw3')"></i>
 
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input class="pw" type="password" name="password-confirm" placeholder="un mot de passe" required>
-                         <i class="fas fa-eye e"></i>
+                        <input id="pw4" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                         <i class="fas fa-eye eye" onclick="showpw('#pw4')"></i>
                         </div>
                     </div>
                 </div> 
@@ -227,6 +226,20 @@
 		}
 	</script>
 
-   
+       <script>
+
+function showpw(id) {
+     
+    let pwfield = document.querySelector(id);
+
+	if (pwfield.type == "password") {
+		pwfield.type = "text";
+	} else {
+		pwfield.type = "password";
+	}
+};
+
+       </script>
+
 </body>
 </html>

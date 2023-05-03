@@ -90,21 +90,16 @@ form .boxs .input-boxss {
 }
 
 
-.e {
+.eye {
     position: absolute;
     right: 15px;
-    color: #ccc;
+    color: #615959fa;
     top: 60%;
     transform: translateY(-50%);
     cursor: pointer;
 }
 
 
-.e.active::before {
-    content: "\f070";
-    color: #333;
-
-}
 
 
 .input-boxss label {
