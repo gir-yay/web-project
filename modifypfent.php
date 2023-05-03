@@ -8,7 +8,7 @@ $sql="SELECT * FROM entreprise WHERE id='$id'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 
-$name=$row['Name'];
+$name=$row['nom'];
 $email=$row['email'];
 $ca=$row['ca'];
 $logo='Upload/'.$row['logo'];

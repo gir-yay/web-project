@@ -15,8 +15,8 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 //get the data of the user
 $email = $row['email'];
-$lastname = $row['lastname'];
-$firstname = $row['firstname'];
+$lastname = $row['nom'];
+$firstname = $row['prenom'];
 $age = $row['age'];
 
 ?>

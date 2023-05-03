@@ -95,7 +95,7 @@ echo "<h2>Entreprises</h2>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
-        echo "<td>" . $row['Name'] . "</td>";
+        echo "<td>" . $row['nom'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['ca'] . "</td>";
         echo "<td>";
@@ -174,7 +174,7 @@ exit();
     })
     </script>";
     //show all the offers as a table
-    $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.name FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'waiting'";
+    $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'waiting'";
     $result=mysqli_query($conn, $sql);
     // output data of each row
     //add the option to accept or refuse the offer
@@ -263,7 +263,7 @@ exit();
     //show accepted offers
     echo "<h2>Accepted offers</h2>";
     //get all the accepted offers for the influencer
-    $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.name FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'accepted'";
+    $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'accepted'";
     $result=mysqli_query($conn, $sql);
     // output data of each row
     echo "<table border='1'>

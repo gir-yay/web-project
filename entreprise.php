@@ -16,7 +16,7 @@
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
         //get the name of the entreprise
-        $name=$row['Name'];
+        $name=$row['nom'];
         //get the logo of the entreprise
         $logo='Upload/'.$row['logo'];
         $_SESSION['type']='entreprise';
@@ -96,7 +96,7 @@ $id = $_SESSION['id'];
 $sql = "SELECT * FROM entreprise WHERE id='$id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-$name = $row['Name'];
+$name = $row['nom'];
 $ca = $row['ca'];
 $email = $row['email'];
 //Envoyer une demande à la bd pour recuperer tous les influenceurs 

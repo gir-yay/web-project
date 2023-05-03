@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               //check if the data has been inserted
               if($result){
                   //redirect to the login page
-                  header("location:login.php");
+                  header("location:loogin.php");
               }
               else{
                   //redirect to the signup page and display an error message
@@ -46,4 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       else{
           header("location:signup.php?error=passwords are not the same");
       }
+    }
+}
+?>
 
