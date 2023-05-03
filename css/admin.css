@@ -7,31 +7,59 @@
     font-family: "poppins", sans-serif;
     box-sizing: border-box;
 }
+
 /*Ajouter une image comme arrière plan de la page*/
 body {
     background-image: linear-gradient(rgba(55, 38, 48, 0.5), rgba(45, 37, 44, 0.5)), url("https://cdn.wallpapersafari.com/83/54/b9KGv4.jpg");
     font-family: Arial, sans-serif;
     background-size: cover;
 }
+
 /*Styler les titres h1 de la page*/
 h1 {
-    margin-top: 30px;
+    margin: 5%;
     color: white;
 }
-/**/
+
+/* div pour montrer les erreurs */
+#error {
+    background-color: rgb(188, 148, 168);
+    height: 40px;
+    width: 450px;
+    border-radius: 10px;
+    /*invisible*/
+    display: none;
+    margin-top: 40px;
+
+}
+
+#error p {
+    text-align: center;
+    padding: 2%;
+    font-size: 1.1rem;
+}
+
 form {
-    background-color: white;     /*définit la couleur de fond du formulaire*/
-    opacity: 80%;       /*définit l'opacité du formulaire à 80% */
-    border-radius: 5px;      /*arrondir les coins du formulaire avec un rayon de 5 pixels*/
-    box-shadow: 0 0 20px rgba(87, 178, 230, 0.2);    /*ajouter une ombre autour du formulaire*/
-    margin: 50px auto;     /*définir la marge autour du formulaire avec 50 pixels en haut et en bas, et centré horizontalement*/
+    background-color: white;
+    /*définit la couleur de fond du formulaire*/
+    opacity: 80%;
+    /*définit l'opacité du formulaire à 80% */
+    border-radius: 5px;
+    /*arrondir les coins du formulaire avec un rayon de 5 pixels*/
+    box-shadow: 0 0 20px rgba(87, 178, 230, 0.2);
+    /*ajouter une ombre autour du formulaire*/
+    margin: 2% auto 5% auto;
+    /*définir la marge autour du formulaire avec 50 pixels en haut et en bas, et centré horizontalement*/
     /*définir les dimensions maximales du formulaire*/
     max-width: 400px;
     max-height: 450px;
-    padding: 20px;   /*définir l'espacement intérieur du formulaire*/
-    text-align: center;   /* centrer le contenu du formulaire*/
-   
+    padding: 20px;
+    /*définir l'espacement intérieur du formulaire*/
+    text-align: center;
+    /* centrer le contenu du formulaire*/
+
 }
+
 /*Styler le bouton de connexion*/
 .bouton {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -39,44 +67,59 @@ form {
     color: white;
     padding: 15px 30px;
     text-align: center;
-    display: inline-block;   /*définir le bouton en tant qu'élément en ligne*/
-    font-weight: bold;    /*définir l'épaisseur de la police à gras*/
-    margin-top: 20px;    /*définir la marge au-dessus du bouton*/
-    margin-bottom: 30px;   /*définit la marge en-dessous du bouton*/
-    cursor: pointer;    /*définir le curseur de la souris en forme de main lorsqu'on survole le bouton*/
+    display: inline-block;
+    /*définir le bouton en tant qu'élément en ligne*/
+    font-weight: bold;
+    /*définir l'épaisseur de la police à gras*/
+    margin-top: 20px;
+    /*définir la marge au-dessus du bouton*/
+    margin-bottom: 30px;
+    /*définit la marge en-dessous du bouton*/
+    cursor: pointer;
+    /*définir le curseur de la souris en forme de main lorsqu'on survole le bouton*/
     border-radius: 20px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;  /*Transformer le texte en majuscules*/
+    text-transform: uppercase;
+    /*Transformer le texte en majuscules*/
     background: #005D7E;
 
 
 }
+
 /*style du bouton lors du survol par curseur*/
 .bouton:hover {
-    transform: scale(1.1); /*agrandir légèrement le bouton lorsqu'on survole avec la souris*/
+    transform: scale(1.1);
+    /*agrandir légèrement le bouton lorsqu'on survole avec la souris*/
     box-shadow: 6px 6px 9px #005D7E;
     background-color: #005D7E;
 }
+
 /*styler la boite de saisie (inputBox)*/
 .inputBox {
-    position: relative; /*définir la position relative de la boîte de saisie*/
+    position: relative;
+    /*définir la position relative de la boîte de saisie*/
     margin: 30px 0;
     width: 310px;
     border-bottom: 2px solid rgb(15, 15, 15);
 }
 
 .inputBox label {
-    position: absolute; /*positionner l'élément de manière absolue par rapport à son conteneur.*/
+    position: absolute;
+    /*positionner l'élément de manière absolue par rapport à son conteneur.*/
     font-weight: bolder;
     top: 10%;
     left: 5px;
-    transform: translateY(-50%); /*définir la position de l'élément verticalement en le déplaçant de 50% vers le haut par rapport à sa position d'origine*/
+    transform: translateY(-50%);
+    /*définir la position de l'élément verticalement en le déplaçant de 50% vers le haut par rapport à sa position d'origine*/
     color: black;
     font-size: 1em;
-    pointer-events: none;  /*désactiver les événements de pointage pour l'élément label de inputBox*/
-    transition: .5s; /*définir la durée de l'animation lorsqu'un evenement se produit*/
+    pointer-events: none;
+    /*désactiver les événements de pointage pour l'élément label de inputBox*/
+    transition: .5s;
+    /*définir la durée de l'animation lorsqu'un evenement se produit*/
 
 }
+
 /*sélectionner un élément de balise label qui suit immédiatement un élément de balise input qui a le focus*/
 .inputBox input:focus~label,
 .inputBox input:focus~ :valid {
@@ -91,12 +134,15 @@ form {
     padding: 20px 10px 10px;
     background: transparent;
     border: none;
-    outline: none; /*supprimer la bordure d'aspect visuel lorsque l'élément est sélectionné.*/
+    outline: none;
+    /*supprimer la bordure d'aspect visuel lorsque l'élément est sélectionné.*/
     color: #01030e;
     font-size: 1em;
-    letter-spacing: 0.05em; /*définir l'espacement entre les lettres en pixels*/
+    letter-spacing: 0.05em;
+    /*définir l'espacement entre les lettres en pixels*/
 
 }
+
 /*styler les icones */
 .inputBox ion-icon {
     position: absolute;

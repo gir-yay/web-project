@@ -11,6 +11,16 @@
 
 <!-- formulaire pour l'identification -->
 <h1><center>WELCOME ADMIN</center></h1>
+<center>
+<div id="error">
+      <?php if (isset($_GET['error'])) {?>
+                    <!-- ecrire l'erreur dans la balise p -->
+                    <p><?php echo $_GET['error']; ?></p>
+                    <!-- changer display:none à display:flex -->
+                    <script>document.getElementById("error").style.display = "flex";</script>
+                <?php } ?>
+</div>
+</center>
 <form action="admin.php" method="post">
   <div class="inputBox">
     <!--icon -->
@@ -60,7 +70,7 @@ if (isset($_POST['username'])) {
         header('Location: dashboardadmin.php');
     } else {
         // message d'erreur
-        echo 'Username or password is incorrect';
+        header("Location: admin.php?error=Incorect User name or password");
     }
 }
 
