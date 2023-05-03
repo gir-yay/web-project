@@ -7,7 +7,7 @@ session_start();
 if (isset($_SESSION['username'])) {
     // if the session variable are set 
     $name=$_SESSION['username'];
-    echo "<h3>BIENVENUE $name</h3>";
+    echo "<h1>BIENVENUE $name</h1>";
 } else {
     // if the session variable are not set, redirect to admin.php
     header('Location: admin.php');
@@ -32,7 +32,7 @@ echo "<a href='mess.php'>Message</a>";
 echo "<a href='logout.php'>Logout</a>";
 echo "</nav>";
 // recuperer les données des influenceurs
-echo "<h1>INFLUENCEURS</h1>";
+echo "<h2>INFLUENCEURS</h2>";
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql);  
 
@@ -66,13 +66,13 @@ if(isset($_POST['delete_influencer'])){
     $sql = "DELETE FROM influencer WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        echo "Bien Supprimé.";
+        echo  '<center><p class="done">Bien Supprimé!</p></center>';
     } else {
-        echo "Erreur: " . mysqli_error($conn);
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
 }
 
-echo "<h1>Marques</h1>";
+echo "<h2>Marques</h2>";
 $sql = "SELECT * FROM entreprise";
 $result = mysqli_query($conn, $sql);
 echo "<div class='container'>";
@@ -100,14 +100,14 @@ if(isset($_POST['delete_brand'])){
     $id = $_POST['id'];
     $sql = "DELETE FROM entreprise WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
-    if ($result) {
-        echo "Bien supprimé.";
+      if ($result) {
+        echo  '<center><p class="done">Bien Supprimé!</p></center>';
     } else {
-        echo "Erreur: " . mysqli_error($conn);
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
 }
 
-echo "<h1>Offere de COLLABORATION</h1>";
+echo "<h2>OFFRE DE COLLABORATION</h2>";
 /*on recupere les colaboration en joignant la table des offres avec la table des influenceurs et la tables des entreprises */
 $sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id INNER JOIN entreprise ON offer.id_entreprise = entreprise.id ";
 $result = mysqli_query($conn, $sql);
@@ -143,14 +143,14 @@ if(isset($_POST['delete_collab'])){
     $id = $_POST['id'];
     $sql = "DELETE FROM offer WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
-    if ($result) {
-        echo "Bien supprimé.";
+      if ($result) {
+        echo  '<center><p class="done">Bien Supprimé!</p></center>';
     } else {
-        echo "Erreur" . mysqli_error($conn);
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
 }
 //make a tabe  to show all the suggested collab from the suggestion table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
-echo "<h1>SUGGESTED COLLAB</h1>";
+echo "<h2>SUGGESTED COLLAB</h2>";
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id ";
 $result = mysqli_query($conn, $sql);
 //show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the collab
@@ -181,14 +181,14 @@ if(isset($_POST['delete_suggested_collab'])){
   $id = $_POST['id'];
   $sql = "DELETE FROM suggestion WHERE id = '$id'";
   $result = mysqli_query($conn, $sql);
-  if ($result) {
-      echo "Bien supprimé.";
-  } else {
-      echo "Erreur: " . mysqli_error($conn);
-  }
+   if ($result) {
+        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+    } else {
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
+    }
 }
 //tableau de requetes: id ,user_id , type ,state, delete button 
-echo "<h1>REQUEST</h1>";
+echo "<h2>REQUEST</h2>";
 $sql = "SELECT * FROM request";
 $result = mysqli_query($conn, $sql);
 echo "<div class='container'>";
@@ -230,11 +230,11 @@ if(isset($_POST['delete_request'])){
       $result = mysqli_query($conn, $sql);
       $sql = "DELETE FROM suggestion WHERE id_influencer = '$user_id'";
       $result = mysqli_query($conn, $sql);
-      if($result){
-        echo "Bien supprimé.";
-      }else{
-        echo "Erreur: " . mysqli_error($conn);
-      }
+       if ($result) {
+        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+    } else {
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
+    }
     }else{
       //supprimer le logo
       $sql = "SELECT * FROM entreprise WHERE id = '$user_id'";
@@ -251,11 +251,11 @@ if(isset($_POST['delete_request'])){
       $sql = "DELETE FROM suggestion WHERE id_entreprise = '$user_id'";
       $result = mysqli_query($conn, $sql);
 
-      if($result){
-        echo "Bien supprimé.";
-      }else{
-        echo "Erreur: " . mysqli_error($conn);
-      }
+       if ($result) {
+        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+    } else {
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
+    }
     }
 }
 }

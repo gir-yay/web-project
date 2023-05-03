@@ -38,6 +38,7 @@ $sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id =
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+echo "<div class='container'>";
 echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
@@ -55,6 +56,8 @@ foreach ($result as $row) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+
     echo "<br><br>";
 
         echo "<h1><center>ALL CONVERSATIONS: Influenceur</center></h1>";
@@ -64,6 +67,7 @@ $sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id =
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+echo "<div class='container'>";
 echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
@@ -81,6 +85,8 @@ foreach ($result as $row) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+
 echo "<br><br>";
 
     echo "<h1>Non Encore Lu : Entreprise</h1>";
@@ -89,6 +95,8 @@ $sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id =
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+
+echo "<div class='container'>";
 echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
@@ -106,6 +114,8 @@ foreach ($result as $row) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+
 echo "<br><br>";
     
     echo "<h1><center>ALL CONVERSATIONS: Entreprise</center></h1>";
@@ -114,6 +124,8 @@ $sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id =
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+
+echo "<div class='container'>";
 echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
@@ -131,6 +143,8 @@ foreach ($result as $row) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+
 echo "<br><br>";
     
 
