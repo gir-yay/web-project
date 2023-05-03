@@ -28,7 +28,7 @@ if($receiver_type == "entreprise"){
 $sql_ = "SELECT * FROM entreprise  WHERE id = '$receiver' ";
 $result_ = mysqli_query($conn, $sql_);
 $row_ = mysqli_fetch_assoc($result_);
-$receiverName = $row_['Name'];
+$receiverName = $row_['nom'];
 
 }else if($receiver_type == "influenceur"){
 $sql_ = "SELECT * FROM influencer  WHERE id = '$receiver' ";
@@ -62,7 +62,7 @@ $receiverName = $row_['email'];
             <!-- create a conversation where the receiver is the admin -->
             <?php
                 echo '<div class="chat-box">';
-                 $sql = "SELECT * FROM admin_messages WHERE (user_type = '$receiver_type') AND user_id = '$receiver' ORDER BY timestamp ASC";
+                 $sql = "SELECT * FROM admin_messages WHERE (user_type = '$receiver_type') AND user_id = '$receiver' ORDER BY time_stamp ASC";
             $result = mysqli_query($conn, $sql);
 
 
@@ -107,7 +107,7 @@ if (isset($_POST['send'])) {
     //if the message is not empty
     if (!empty($message)) {
         //insert the message in the admin_messages table
-        $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `timestamp` , `read_`) VALUES ('$receiver','$receiver_type','$type','$message' ,'$date', '$read')";
+        $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `time_stamp` , `read_`) VALUES ('$receiver','$receiver_type','$type','$message' ,'$date', '$read')";
         $result = mysqli_query($conn, $sql);
         //if the message is inserted
         if ($result) {

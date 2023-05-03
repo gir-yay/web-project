@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Sign Up</title>
     <link rel="stylesheet" href="./css/s.css">
+    <script src="./eye.js" ></script>
+
 </head>
 <body>
     <!-- ERROR HANDLING  -->
@@ -14,6 +18,7 @@
                         if(isset($_GET['error'])){
                             echo $_GET['error'];
                         }
+
                         ?>
 </div>
     <section id="influenceur">
@@ -65,7 +70,7 @@
 
                     <div class="boxs">
                         <div class="input-boxss">
-                        <label >Instagramm</label>
+                        <label >Instagram</label>
                         <input type="text" name="insta" placeholder="Votre compte Instagramm "required>
                         </div>
 
@@ -100,11 +105,15 @@
                         </div> 
                         <div class="input-boxss">
                         <label >Mot de passe</label>
-                        <input type="phone" name="password" placeholder=" mot de passe" required>
+                        <input class="pw" type="password" name="password" placeholder=" mot de passe" required>
+                         <i class="fas fa-eye e"></i>
+
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input type="password" name="password-confirm" placeholder="un mot de passe" required>
+                        <input class="pw" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                         <i class="fas fa-eye e"></i>
+
                         </div>
                     </div>
                 </div>
@@ -126,12 +135,20 @@
         <form action="submit.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
-                    <div class="erreur-msg">Un message d'erreur !</div>
+                    <div class="erreur-msg">
+
+                     <?php
+                        if(isset($_GET['error'])){
+                            echo $_GET['error'];
+                        }
+                        ?>
+
+                    </div>
 
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Nom</label>
-                        <input type="text" name="nom" placeholder="Entrez votre nom" required>
+                        <input type="text" name="nom" placeholder="Entrez le nom de votre marque" required>
                         </div>
 
                         <div class="input-boxss">
@@ -141,7 +158,7 @@
 
                         <div class="input-boxss">
                         <label >Email</label>
-                        <input type="email"name="email" placeholder="Entrez votre email" required>
+                        <input type="email" name="email" placeholder="Entrez votre email" required>
                         </div>
 
                         <div class="input-boxss">
@@ -172,11 +189,14 @@
                         </div>
                         <div class="input-boxss">
                         <label >Mot de passe</label>
-                        <input type="phone" name="password" placeholder=" mot de passe" required>
+                        <input class="pw" type="password" name="password" placeholder=" mot de passe" required>
+                         <i class="fas fa-eye e"></i>
+
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input type="phone"name="password-confirm" placeholder="un mot de passe" required>
+                        <input class="pw" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                         <i class="fas fa-eye e"></i>
                         </div>
                     </div>
                 </div> 
@@ -193,6 +213,7 @@
         </form>
     </div>
    </section>
+   
 
 	<script>
 		function showEntrepriseSection() {
@@ -205,5 +226,7 @@
 			document.getElementById("influenceur").style.display = "block";
 		}
 	</script>
+
+   
 </body>
 </html>

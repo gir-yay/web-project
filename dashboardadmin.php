@@ -43,8 +43,8 @@ echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age<
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['id'] . "</td>";
-    echo "<td>".$row['lastname']."</td>";
-    echo "<td>".$row['firstname']."</td>";
+    echo "<td>".$row['nom']."</td>";
+    echo "<td>".$row['prenom']."</td>";
     echo "<td>".$row['email']."</td>";
     echo "<td>".$row['age']."</td>";
     echo "<td>";
@@ -81,7 +81,7 @@ echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>CA</th><th>Action</th></tr>"
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['id'] . "</td>";
-    echo "<td>".$row['Name']."</td>";
+    echo "<td>".$row['nom']."</td>";
     echo "<td>".$row['email']."</td>";
     echo "<td>".$row['ca']."</td>";
     echo "<td>";
@@ -120,8 +120,8 @@ echo "<table>";
 echo "<th>Brand Name</th><th>Influencer Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>state</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" . $row['Name'] . "</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>" . $row['nom'] . "</td>";
+    echo "<td>".$row['prenom']." ".$row['nom']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['state']."</td>";
     echo "<td>".$row['amount']."</td>";
@@ -144,9 +144,9 @@ if(isset($_POST['delete_collab'])){
     $sql = "DELETE FROM offer WHERE id = '$id'";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        echo "Record deleted successfully.";
+        echo "Bien supprimé.";
     } else {
-        echo "Error deleting record: " . mysqli_error($conn);
+        echo "Erreur" . mysqli_error($conn);
     }
 }
 //make a tabe  to show all the suggested collab from the suggestion table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
@@ -159,8 +159,8 @@ echo "<table>";
 echo "<th>Influencer Name</th><th>Brand Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
-    echo "<td>".$row['Name']."</td>";
+    echo "<td>" . $row['prenom'] . " " . $row['nom'] . "</td>";
+    echo "<td>".$row['nom']."</td>";
     echo "<td>".$row['terms']."</td>";
     echo "<td>".$row['state']."</td>";
     echo "<td>".$row['amount']."</td>";
@@ -231,9 +231,9 @@ if(isset($_POST['delete_request'])){
       $sql = "DELETE FROM suggestion WHERE id_influencer = '$user_id'";
       $result = mysqli_query($conn, $sql);
       if($result){
-        echo "Record deleted successfully.";
+        echo "Bien supprimé.";
       }else{
-        echo "Error deleting record: " . mysqli_error($conn);
+        echo "Erreur: " . mysqli_error($conn);
       }
     }else{
       //supprimer le logo

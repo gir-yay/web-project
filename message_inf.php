@@ -20,25 +20,25 @@ if ($type == 'ent') {
     $result = mysqli_query($conn, $sql);
     //get the name of the sender
     $row = mysqli_fetch_assoc($result);
-    $senderName = $row['Name'];
+    $senderName = $row['nom'];
     //get the id of the receiver from influenceur table
     $sql = "SELECT * FROM influencer WHERE id = '$receiver'";
     $result = mysqli_query($conn, $sql);
     //get the full name of the receiver (lastname + firstname)
     $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['lastname'] . " " . $row['firstname'];
+    $receiverName = $row['nom'] . " " . $row['prenom'];
 } else {
     $sql = "SELECT * FROM influencer WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
     //get the name of the sender
     $row = mysqli_fetch_assoc($result);
-    $senderName = $row['lastname'] . " " . $row['firstname'];
+    $senderName = $row['nom'] . " " . $row['prenom'];
     //get the id of the receiver from entreprise table
     $sql = "SELECT * FROM entreprise WHERE id = '$receiver'";
     $result = mysqli_query($conn, $sql);
     //get the name of the receiver
     $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['Name'];
+    $receiverName = $row['nom'];
 }
 ?>
 
@@ -57,12 +57,12 @@ if ($type == 'ent') {
      <?php
             //get the messages from the database
             //show all the messages between the sender and the receiver in the conversation div
-                $sql = "SELECT * FROM messages WHERE (sender = '$sender' AND receiver = '$receiver') OR (sender = '$receiver' AND receiver = '$sender') ORDER BY timestamp ASC";
+                $sql = "SELECT * FROM messages WHERE (sender = '$sender' AND receiver = '$receiver') OR (sender = '$receiver' AND receiver = '$sender') ORDER BY time_stamp ASC";
                 $result = mysqli_query($conn, $sql); ?>
     
     <section class="wrapper">
         <header>
-            <a href="influenceur.php" class="back-icon" ><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
+            <a href="conversations_inf.php" class="back-icon" ><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
                 
                     <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>
                 
@@ -71,14 +71,14 @@ if ($type == 'ent') {
         <div class="chat-area">
             <!-- Messages will be displayed here -->
            <?php
-                                       echo '<div class="chat-box">';
+                    echo '<div class="chat-box">';
 
                 if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
                         $message = $row['message'];
-                        $timestamp = $row['timestamp'];
+                        $timestamp = $row['time_stamp'];
                         //if the sender is the current user
-                        if($row['sender'] == $sender){
+                        if($row['sender'] == $sender && $row['receiver_type'] != "inf"){
                             //display the message in the right side of the conversation div
                              echo '<div class="chat outgoing">';
                             echo '<div class="details"><p>'.$message.'<br>'.$timestamp.'</p></div>';
@@ -125,7 +125,7 @@ if(isset($_POST['send'])){
     $date = date('Y-m-d H:i:s');
     $read = 0;
     //insert the message into the message table
-    $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `type`, `timestamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
+    $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){

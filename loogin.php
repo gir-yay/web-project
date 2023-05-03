@@ -31,7 +31,7 @@
 <section id="entreprise" style="display: block;">
         <div class="forme">
             <h1> Entreprise</h1>
-            <form action="longinentre.php" method="POST">
+            <form action="loginentre.php" method="POST">
                 <div class="input-group">
                     <div class="input-field">
                     <i class="fa-solid fa-envelope"></i>

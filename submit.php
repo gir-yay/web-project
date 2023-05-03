@@ -26,8 +26,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $result = mysqli_query($conn,$sql);
           $num = mysqli_num_rows($result);
           if($num == 0){
+                $pw = sha1($password);
               //insert the data into the database
-              $sql = "INSERT INTO entreprise (nom,telephone,email,logo,site,ca,domaine,password) VALUES ('$nom','$telephone','$email','$logo','$site','$ca','$domaine','$password')";
+              $sql = "INSERT INTO entreprise (nom,telephone,email,logo,site,ca,domaine,password) VALUES ('$nom','$telephone','$email','$logo','$site','$ca','$domaine','$pw')";
               $result = mysqli_query($conn,$sql);
               //check if the data has been inserted
               if($result){
@@ -46,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       else{
           header("location:signup.php?error=passwords are not the same");
       }
-    }
-}
-?>
 
+    }
+
+}

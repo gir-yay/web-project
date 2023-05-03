@@ -43,10 +43,11 @@ if (isset($_POST['username'])) {
     // recuperer le nom d'utilisateur et le mot de passe
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $pw=sha1($password);
 
     // authentification
     // recupere les donnees du tableau admins
-    $sql = "SELECT * FROM admins WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM admins WHERE username = '$username' AND password = '$pw'";
     $result = mysqli_query($conn, $sql);
 
     // authentifié  ?oui

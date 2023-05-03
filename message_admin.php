@@ -20,7 +20,7 @@ if ($type === 'entreprise') {
     $result = mysqli_query($conn, $sql);
     //get the name of the sender
     $row = mysqli_fetch_assoc($result);
-    $senderName = $row['Name'];
+    $senderName = $row['nom'];
     $receiverName="admin";
     $return='entreprise.php';
 
@@ -66,7 +66,7 @@ if ($type === 'entreprise') {
             // the table of the admin_messages is CREATE TABLE messages (message_id INT PRIMARY KEY AUTO_INCREMENT,user_id INT NOT NULL,user_type VARCHAR(255) NOT NULL,sender_type VARCHAR(255) NOT NULL,message_text TEXT NOT NULL,timestamp DATETIME NOT NULL);
 
             //select all the messages where the sender_type is entreprise or influencer in the admin_messages table on the right side
-            $sql = "SELECT * FROM admin_messages WHERE (sender_type = 'entreprise' OR sender_type = 'influenceur' OR sender_type='admin') AND user_id = '$sender' AND user_type = '$type' ORDER BY timestamp ASC";
+            $sql = "SELECT * FROM admin_messages WHERE (sender_type = 'entreprise' OR sender_type = 'influenceur' OR sender_type='admin') AND user_id = '$sender' AND user_type = '$type' ORDER BY time_stamp ASC";
             $result = mysqli_query($conn, $sql);
             //if there are results,determine the sender and display the message
             if (mysqli_num_rows($result) > 0) {
@@ -124,7 +124,7 @@ if (isset($_POST['send'])) {
     //if the message is not empty
     if (!empty($message)) {
         //insert the message in the admin_messages table
-        $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `timestamp` , `read_`) VALUES ('$sender','$type','$type','$message' ,'$date', '$read')";
+        $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `time_stamp` , `read_`) VALUES ('$sender','$type','$type','$message' ,'$date', '$read')";
         $result = mysqli_query($conn, $sql);
         //if the message is inserted
         if ($result) {

@@ -28,12 +28,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $num = mysqli_num_rows($result);
             if($num == 0){
                 //insert the data into the database
-                $sql = "INSERT INTO influencer (nom,prenom,age,telephone,email,genre,insta,fcbk,youtube,domaine,abonne,password) VALUES ('$nom','$prenom','$age','$telephone','$email','$genre','$insta','$fcbk','$youtube','$domaine','$abonne','$password')";
+                $pw = sha1($password);
+                $sql = "INSERT INTO influencer (nom,prenom,age,telephone,email,genre,insta,fcbk,youtube,domaine,abonne,password) VALUES ('$nom','$prenom','$age','$telephone','$email','$genre','$insta','$fcbk','$youtube','$domaine','$abonne','$pw')";
                 $result = mysqli_query($conn,$sql);
                 //check if the data has been inserted
                 if($result){
                     //redirect to the login page
-                    header("location:loOgin.php");
+                    header("location:loogin.php");
                 }
                 else{
                     //redirect to the signup page and display an error message

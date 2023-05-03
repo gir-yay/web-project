@@ -199,7 +199,7 @@ exit();
             echo "<td>" . $row['amount'] . "</td>";
             echo "<td>" . $row['duration'] . "</td>";
             echo "<td>" . $row['state'] . "</td>";
-            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['nom'] . "</td>";
             echo "<td>";
             echo "<form method='post'>";
             //add a button to accept the offer
@@ -284,7 +284,7 @@ exit();
             echo "<td>" . $row['amount'] . "</td>";
             echo "<td>" . $row['duration'] . "</td>";
             echo "<td>" . $row['state'] . "</td>";
-            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['nom'] . "</td>";
             echo "</tr>";
         }
     }

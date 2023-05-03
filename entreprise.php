@@ -109,8 +109,8 @@ echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age<
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['id'] . "</td>";
-    echo "<td>".$row['lastname']."</td>";
-    echo "<td>".$row['firstname']."</td>";
+    echo "<td>".$row['nom']."</td>";
+    echo "<td>".$row['prenom']."</td>";
     echo "<td>".$row['email']."</td>";
     echo "<td>".$row['age']."</td>";
     echo "<td>";

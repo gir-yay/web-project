@@ -34,7 +34,7 @@ echo "<a href='dashboardadmin.php'>Return</a>";
 echo "</nav>";
 echo "<h1>Non Encore Lu : Influenceur</h1>";
 
-$sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE read_ =0  and user_type='influenceur' group by user_id  order by timestamp ";
+$sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE read_ =0  and user_type like 'influenceur' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -43,7 +43,7 @@ echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['email'] . "</td>";
-    echo "<td>".$row['timestamp']."</td>";
+    echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page
                echo "<td>";
      
@@ -60,7 +60,7 @@ foreach ($result as $row) {
         echo "<h1><center>ALL CONVERSATIONS: Influenceur</center></h1>";
 
         
-$sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE user_type='influenceur' group by user_id  order by timestamp ";
+$sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE user_type='influenceur' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -69,7 +69,7 @@ echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['email'] . "</td>";
-    echo "<td>".$row['timestamp']."</td>";
+    echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page
                echo "<td>";
      
@@ -85,7 +85,7 @@ echo "<br><br>";
 
     echo "<h1>Non Encore Lu : Entreprise</h1>";
 
-$sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id = entreprise.id WHERE read_ =0 and user_type like 'entreprise' group by user_id  order by timestamp ";
+$sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id = entreprise.id WHERE read_ =0 and user_type like 'entreprise' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -93,8 +93,8 @@ echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" .$row['Name'] . "</td>";
-    echo "<td>".$row['timestamp']."</td>";
+    echo "<td>" .$row['nom'] . "</td>";
+    echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page
                echo "<td>";
      
@@ -110,7 +110,7 @@ echo "<br><br>";
     
     echo "<h1><center>ALL CONVERSATIONS: Entreprise</center></h1>";
 
-$sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id = entreprise.id WHERE  user_type like 'entreprise' group by user_id  order by timestamp ";
+$sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id = entreprise.id WHERE  user_type like 'entreprise' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -118,8 +118,8 @@ echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>" .$row['Name'] . "</td>";
-    echo "<td>".$row['timestamp']."</td>";
+    echo "<td>" .$row['nom'] . "</td>";
+    echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page
                echo "<td>";
      

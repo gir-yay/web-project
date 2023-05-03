@@ -16,7 +16,7 @@
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
         //get the name of the entreprise
-        $name=$row['Name'];
+        $name=$row['nom'];
     }
    
 ?>
@@ -67,7 +67,7 @@ include_once 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
 
-$sql = "SELECT * FROM messages join influencer on messages.sender = influencer.id WHERE receiver='$id' and `type` like 'inf'and read_ =0 group by sender order by timestamp ";
+$sql = "SELECT * FROM messages join influencer on messages.sender = influencer.id WHERE receiver='$id' and `receiver_type` like 'ent' and read_ =0 group by sender order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -76,7 +76,7 @@ echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['email'] . "</td>";
-    echo "<td>".$row['timestamp']."</td>";
+    echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page
                echo "<td>";
      
@@ -91,7 +91,7 @@ foreach ($result as $row) {
 
     echo "<h1><center>ALL CONVERSATIONS</center></h1>";
 
-    $sql2 = "SELECT * FROM messages join influencer on messages.sender = influencer.id WHERE receiver='$id' and `type` like 'inf' group by sender order by timestamp ";
+    $sql2 = "SELECT * FROM messages join influencer on messages.sender = influencer.id WHERE receiver='$id' and `receiver_type` like 'ent' group by sender order by time_stamp ";
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_assoc($result2);
 
@@ -100,7 +100,7 @@ echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result2 as $row2) {
     echo "<tr>";
     echo "<td>" .$row2['email'] . "</td>";
-    echo "<td>".$row2['timestamp']."</td>";
+    echo "<td>".$row2['time_stamp']."</td>";
             //add a button to go to the massage.php page
                echo "<td>";
      
@@ -123,7 +123,7 @@ foreach ($result2 as $row2) {
     //ajouter une  variable type pour savoir si l'utilisateur est une entreprise ou un influenceur
     $_SESSION['type'] = "ent";
     
-    mysqli_query($conn, "UPDATE `messages` set read_ =1 where receiver='$id' and `type` like 'inf'and read_=0  ");
+    mysqli_query($conn, "UPDATE `messages` set read_ =1 where receiver='$id' and `receiver_type` like 'ent' and read_=0  ");
 
     //rediriger vers la page des message
        ?>
