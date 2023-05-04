@@ -1,147 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Collab</title>
-	<!-- icon pres du nom de l'onglet -->
-	<link rel="icon" href="./images/logocollab1.png">
-
-	<!--pour importer les icons: -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-	<link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/test.css">
+    <script src="https://kit.fontawesome.com/8b4b4337c0.js" crossorigin="anonymous"></script>
 </head>
-<body> 
-	<section><div class="home"> 
-	<nav>
-		<!-- le logo collab -->
-		<img src="./images/logo1.png" class="logo">
-		<!--listes -->
-		<ul>
-			<li> <a href="#about"> Qui sommes nous?</a></li>
-			<li> <a href="#features"> Services</a></li>
-			<li> <a href="#contacte"> Contact</a></li>
-		</ul>
-		<div>
-			<a href="loogin.php" class="btn">Se connecter</a>
-		</div>
-	</nav>
-		<div class="content">
-			<h1 class="anim"> Marques et influenceurs : <br> Créez la correspondance parfaite.</h1>
-			<p class="anim"> Pour aider les professionnels à optimiser leurs campagnes de marketing de A à Z, nous avons construit Collab, une solution complète qui permet aux marques de profiter pleinement de la puissance de l'économie des créateurs.</p>
-			<a href="signup.php" class ="btn anim">Rejoignez maintenant!</a> </div> 
-			<img src="./images/head3.png" width="750px" class="features-img anim"></section>
-				
-		<!-- about -->
-		<section id="about"> 
-			<div class="about-left-col"> 
-				<img src="./images/header-bg.jpg" >
-			</div>
-			<div class="about-right-col"> 
-				<div class="about-text"> 
-					<h1> Qui sommes nous?</h1>
-					<p class="para">Collab est bien plus qu'une simple plateforme de mise en relation entre les marques et les influenceurs. Nous sommes une équipe de professionnels passionnés qui s'engagent à créer des partenariats authentiques et durables entre les deux parties. Notre objectif est de permettre à chaque collaboration d'être unique et personnalisée, en veillant à ce qu'elle soit pertinente et de qualité supérieure.<br>Nous sommes convaincus que la clé du succès des collaborations réside dans la compréhension des besoins spécifiques de chaque marque et de chaque influenceur. C'est pourquoi nous travaillons en étroite collaboration avec nos clients pour élaborer des stratégies efficaces de marketing d'influence et maximiser leur potentiel sur les réseaux sociaux.<br>Notre équipe expérimentée est composée d'experts en marketing d'influence qui ont une connaissance approfondie des tendances et des meilleures pratiques en matière de marketing numérique. Nous sommes fiers d'offrir une expérience utilisateur fluide, efficace et agréable à tous nos utilisateurs, qu'ils soient des marques ou des influenceurs.<br>En choisissant Collab, vous pouvez être sûr de travailler avec une équipe engagée, compétente et passionnée qui est déterminée à aider votre entreprise à atteindre ses objectifs de marketing d'influence. Contactez-nous dès aujourd'hui pour en savoir plus sur la manière dont nous pouvons vous aider à réussir votre prochaine collaboration.
-					<br><br>
-					<strong>  Rejoignez-nous dès maintenant!<strong\><br><br><br> 
-					</p>
-					<a href="signup.php" class ="btn anim">Rejoignez maintenant!</a>
-				</div>
-			</div>
-		</section>
-        <!-- features -->
-		<section id="features"> 
-			<div class="feature-row">
-				<div class="feature-col">
-					<img src="./images/feature1.png" alt="">
-					<h4> Partenariat de qualité</h4>
-					<p>
-						Nous travaillons avec des marques de qualité et des influenceurs reconnus dans leur domaine, afin de vous offrir des partenariats de qualité qui répondent à vos besoins spécifiques.
-					</p>
-								
-				</div>
-				<div class="feature-col"> 
-					<img src="./images/feature2.png" alt="">
-					<h4> Gratuité</h4>
-					<p>Notre service est gratuit pour les influenceurs, ce qui signifie que vous n'aurez pas à payer pour accéder à des opportunités de collaboration avec des marques de qualité. Nous facturons uniquement les marques pour les services que nous leur fournissons.
-					</p>
-							
-				</div>
-				<div class="feature-col"> 
-					<img src="./images/feature3.png" alt="">
-					<h4> securité</h4>
-					<p>Nous prenons la sécurité et la protection de vos données très au sérieux. Nous avons des politiques de confidentialité strictes en place et nous utilisons des outils de sécurité de pointe pour garantir que vos informations personnelles sont protégées à tout moment.
-					</p>
-				</div>
-			</div>
-            <div class="feature-btn"> <a href="signup.php" class ="btn anim"> Join Now </a> </div>
-		</section>
+<body>
+    <section class="header">
+    <nav> <!-- crée une barre de navigation-->
+        <a href="#" class="logo"><img src="./images/collab.png" style="width: 180px; height: 140px;" alt=""></a>
+        <div class="nav-links"> <!--  crée une liste d'éléments de navigation.-->
+            <ul> <!--  crée une liste à puces-->
+                <li> <a href="#">Home</a></li> <!-- crée un lien vers la page d'accueil.-->
+                <li> <a href="#Aboutus">About Us</a></li> <!-- : crée un lien vers la section "About Us"-->
+                <li> <a href="#services">Services</a></li> <!--  crée un lien vers la section "Services"-->
+                <li> <a href="admin.php">Admin</a></li> <!--  crée un lien vers une page admin-->
+                <li> <a href="#contactus">Contact</a></li> <!-- crée un lien vers la section "Contact"-->
+            </ul>
+        </div>
+    </nav>
+    <div class="text-box">
+        <h1>Bienvenue sur Collab</h1>
+        <p>
+            la plateforme qui facilite la création de partenariats entre les marques et les influenceurs.
+            Que vous soyez une marque cherchant à établir des relations avec des influenceurs pour promouvoir 
+            vos produits ou services, ou un influenceur cherchant des marques pour collaborer et développer votre 
+            audience, Collab est là pour vous aider à trouver des partenariats rentables et durables
+           
+        </p>
+        <a href="signup.php" class="btnn">Je suis une Marque</a> <!--  ajoute un bouton pour les marques.-->
+        <a href="signup.php" class="btnn">Je suis un influenceur</a><!-- ajoute un bouton pour les influenceurs.-->
+    </div>
+    </section>
+                     <!--         About-Us       -->
+    <section id="Aboutus" > <!-- crée une section pour la section "About Us".-->
+        <div class="heading"> <!-- crée un en-tête pour la section "About Us".-->
+            <h1>About Us</h1>
+            <p>Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
+        </div>
+        <div class="container"> <!-- crée une boîte de contenu pour la section "About Us".-->
+            <section class="about"> <!-- crée une sous-section "about" pour la section "About Us".-->
+               <div class="about-image"> <!--  crée une boîte d'image-->
+                 <img src="./images/bacg1.png" alt="">
+               </div>
+               <div class="about-content">
+                <h2>Collab</h2>
+                <p> Nous sommes une plateforme de marketing d'influence qui met en relation 
+                    les marques et les influenceurs pour des collaborations authentiques et durables. Notre mission est de 
+                    simplifier et d'améliorer le processus de marketing d'influence en offrant une expérience utilisateur fluide,
+                    efficace et agréable à tous nos utilisateurs
+                    Grâce à notre plateforme, les marques peuvent trouver rapidement des influenceurs pertinents pour leur marque
+                    et collaborer avec eux de manière transparente et efficace.
+                    les influenceurs peuvent être connectés à des marques pertinentes pour leur niche, ce qui leur permet de
+                    découvrir de nouvelles opportunités de collaboration et d'augmenter leur visibilité auprès de leur communauté. 
+                    Contactez-nous dès aujourd'hui pour en savoir plus sur la manière dont nous pouvons vous aider à réussir votre 
+                    prochaine collaboration. <br>
+                    <strong>  Rejoignez-nous dès maintenant !<strong\></p>
+                    <a href="signup.php" class="join-btn">Rejoindre nous !</a>
+               </div>
+            </section>
+    </section>
 
-<!--
-        <p id="why1"> Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
--->
-    <!-- pourquoi nous choisir -->
-		<section id="why"> 
-			<div class="why-left">
-				<h4> Vous êtes une marque…</h4>
-				<p>Si vous êtes une marque cherchant à améliorer votre stratégie de marketing d'influence, il est important de trouver le bon service pour vous aider à collaborer avec des influenceurs de manière efficace et pertinente.<br>Offrez vous une solution personnalisée pour votre stratégie d'influence grâce à nos outils innovants de recherche, d'analyse et de lancement de campagnes.</p>
-			</div>
+                    <!--__________services__________ -->
+      <section id="services"> 
+        <div class="titre">
+            <h1>Nos services</h1>
+        </div>
+        <div class="service-row">
+            <div class="service-col">
+                <img src="./images/feature1.png" alt="">
+                <h4> Partenariat de qualité</h4>
+                <p>Nous travaillons avec des marques de qualité et des influenceurs reconnus dans leur domaine, afin de vous offrir des partenariats de qualité qui répondent à vos besoins spécifiques.
+                    ghjkllmmxmmcùsmcmmsqvlm!slvmldlv
+                </p>
+                
+            </div>
+            <div class="service-col"> 
+            <img src="./images/feature2.png" alt="">
+            <h4> Gratuité</h4>
+            <p>Notre service est gratuit pour les influenceurs, ce qui signifie que vous n'aurez pas à payer pour accéder à des opportunités de collaboration avec des marques de qualité. Nous facturons uniquement les marques pour les services que nous leur fournissons.</p>
+            
+            </div>
+            <div class="service-col"> 
+            <img src="./images/feature3.png" alt="">
+            <h4> securité</h4>
+            <p>Nous prenons la sécurité et la protection de vos données très au sérieux. Nous avons des politiques de confidentialité strictes en place et nous utilisons des outils de sécurité de pointe pour garantir que vos informations personnelles sont protégées à tout moment.</p>
+        
+            </div>
+        </div>
+        <div class="service-btn"> <a href="signup.php" class ="join-btn"> S'inscrire maintenant ! </a> </div>
+     </section>
+      <!--  _______________Pour quoi nous choisir_________________  -->
+      <section id="pourquoi-nous">
+        <div class="why">
+            <div class="titre">
+                <h1>Pourquoi nous choisir ?</h1>
+            </div>
+            <div class="choix">
+                <div class="card">
+                    <div class="icon">
+                        
+                    </div>
+                     <h2> Marque ?</h2>
+                      <p>Si vous êtes une marque, vous savez à quel point il est important d'élargir votre audience
+						 et d'augmenter votre visibilité en ligne. Pour atteindre ces objectifs, trouver les bons influenceurs et établir
+						 des collaborations fructueuses peut être un véritable défi. C'est là que notre plateforme Collab entre en jeu. 
+						 nous pouvons vous aider à trouver les influenceurs qui correspondent le mieux .
+                        </p>
+                        <a href="signup.php" class="join-btn">Rejoindre nous !</a>
+                </div>
+                <div class="card">
+                   
+                     <h2> Influenceur ?</h2>
+                      <p> Si vous êtes un influenceur cherchant à améliorer votre présence en ligne et à collaborer
+						 avec des marques de manière efficace, Collab est l'outil parfait pour vous. Avec notre
+						  plateforme facile à utiliser, vous pouvez accéder à une grande variété de marques et de campagnes, 
+						  et même trouver des opportunités de collaboration personnalisées qui correspondent à vos intérêts et à votre audience</p>
+                        <a href="signup.php" class="join-btn">Rejoindre nous !</a>
+                </div>
+            </div>
+        </div>
+      </section>
 
-		<div class="why-right">
-			<h4>Vous êtes un influenceur…</h4>
-			<p>Si vous êtes un influenceur cherchant à collaborer avec des marques pour votre contenu, il est important de trouver un service qui peut vous aider à trouver les meilleures opportunités de collaboration et à établir des relations durables avec les marques. Nous avons établi des relations solides avec de nombreuses marques de qualité dans différents secteurs. Nous pouvons vous aider à trouver des marques qui sont adaptées à votre public cible et à votre domaine d'expertise. <br> Monétisez votre audience et gagnez de l'argent en répondant à des projets soumis par les top marques présentes sur Collab.</p>
-		</div>
-
-	</section> 
-
-	<!--les avis -->
-
-	<div class="avis1">
-		<span class="avis">
-        	<img src="./images/quotes.png" alt="">
-			<h2> Fati</h2>
-			<p> Collab est un formidable outil, simple d'utilisation qui facilite les contacts entre influenceurs et marques. Pour les entreprises comme la nôtre cela nous fait gagner un temps précieux dans la recherche de collaborations. De plus, l'offre est particulièrement qualitative. Quel que soit votre budget, vous trouverez des influenceurs de toutes audiences et évoluant dans tous types de domaines, mais toujours très professionnels. La communication est fluide et les échanges rapides. Je recommande donc à toute marque souhaitant développer son marketing d'influence.
-			</p>
-		</span>
-
-		<span class="avis">
-        	<img src="./images/quotes.png" alt="">
-			<h2> Riyad</h2>
-			<p> Collab est un excellent outil pour entrer rapidement en relation avec de nombreux influenceurs qualifiés. Dans le cadre du développement de Mon Petit Coin Vert nous avons pu faire découvrir notre offre à plus de 50 influenceurs Instagram et Youtube en quelques semaines seulement. L'outil nous permet également d'améliorer notre référencement naturel en ciblant des blogs et sites de contenus de qualités.
-			</p>
-		</span>
-		
-		<span class="avis">
-        <img src="./images/quotes.png" alt="">
-		<h2> abdo</h2>
-		<p> La plateforme Collab a grandement facilité le quotidien de l'équipe en charge des partenariats sur
-			Commentseruiner.com. Il devient très simple de contacter et créer de nouveaux partenariat avec des influenceurs. De plus, l'outil permet de suivre les objectifs et incite les deux parties à clôturer le partenariat en bonne entente.En quelques mots : gain de temps, efficacité et rentabilité.</p>
-		</span>
-	</div>
-
-
-
+                              <!--__________Témoignages__________ -->
+      <section id="avis">
+           <div class="first"> <h1>Témoignages</h1></div>
+           <div class="wrapper">
+            <div class="container">
+                <div class="profile">
+                    <div class="imagebox">
+                        <img src="./images/kiko.jpg" alt="">
+                    </div>
+                    <h2>Kiko</h2>
+                </div>
+                <p> <i class="fa-solid fa-quote-left left"></i>
+                     Nous pouvons explorer différents profils et trouver les influenceurs qui correspondent le mieux 
+                    à notre image de marque, tout en entrant en contact directement avec eux sur la plateforme pour discuter 
+                    des détails de la collaboration.
+                    <i class="fa-solid fa-quote-right right"></i>
+                </p>
+            </div>
+            <div class="container">
+                <div class="profile">
+                    <div class="imagebox">
+                        <img src="./images/inluenceur1.jpg" alt="">
+                    </div>
+                    <h2>Mounia Jad</h2>
+                </div>
+                <p> <i class="fa-solid fa-quote-left left"></i>
+                    Collab offre un espace centralisé pour la communication avec les marques. Je peux maintenant discuter 
+                    avec les marques directement sur la plateforme, ce qui facilite grandement la communication. Nous pouvons 
+                    discuter de tous les détails de la collaboration, y compris la portée, le contenu, le calendrier de publication
+                     et les modalités de paiement, en un seul et même endroit. Cela a réduit le temps que je passais à chercher des 
+                     informations dans différentes plateformes, ce qui me permet de me concentrer sur la création de contenu de qualité.
+                    <i class="fa-solid fa-quote-right right"></i>
+                </p>
+            </div>
+            <div class="container">
+                <div class="profile">
+                    <div class="imagebox">
+                        <img src="./images/influenceur2.png" alt="">
+                    </div>
+                    <h2>Outhman Yazan</h2>
+                </div>
+                <p> <i class="fa-solid fa-quote-left left"></i>
+                    Collab nous a permis de discuter ouvertement de nos attentes et de la portée de notre collaboration,
+                     grâce à un espace sécurisé pour les échanges de messages et les discussions. Cette communication efficace 
+                     nous a permis de travailler ensemble de manière productive et d'atteindre nos objectifs communs.
+                    <i class="fa-solid fa-quote-right right"></i>
+                </p>
+            </div>
+           </div>
+      </section>
+                    <!--__________Contacter nous__________ -->
 <footer>
 	<div>
-		<h2 id="contacte" > Contacter nous</h2>
-	</div>
-	<form method="post" action="https://formsubmit.co/no22one20@gmail.com">
-		<input type="text" placeholder="Nom" name="nom">
-		<input type="email" placeholder="E-mail" name="email" required >
-		<textarea name="message" placeholder=" Votre message ici" required></textarea>
-		<input class="but" type="submit" name="envoyer" value="envoyer"  >
+         <h2 id="contactus" > Contacter nous</h2>
+    </div>
+	<form method="post" action="https://formsubmit.co/no22one20@gmail.com"> 
+        <!--Début du formulaire avec la méthode 'post' 
+        et l'action qui va envoyer les données saisies dans le formulaire à l'adresse email indiquée-->
+    	<input type="text" placeholder="Nom" name="nom"><!--  Zone de texte pour le nom -->
+    	<input type="email" placeholder="E-mail" name="email" required > <!-- Zone de texte pour l'email de l'utilisateur, avec une indication que ce champ est obligatoire-->
+    	<textarea name="message" placeholder=" Votre message ici" required></textarea><!--Zone de texte pour le message de l'utilisateur, avec une indication que ce champ est obligatoire-->
+	    <input class="but" type="submit" name="envoyer" value="envoyer"  > <!-- : Bouton pour envoyer le formulaire-->
 	</form>
-
-	<div id="trait"> </div>
-	<div id="copyrighticon"> 
-		<div id="copyright"> <span> ©2023 </span></div>
-		<div id="icons">
-			<a href="http://www.twitter.fr"> <i class="fa fa-twitter">  </i></a>
-			<a href="http://www.facebook.fr"> <i class="fa fa-facebook">  </i></a>
-			<a href="http://www.instagram.fr"> <i class="fa fa-instagram">  </i></a>
-		</div>
-	</div>
+<div id="trait"> </div> <!--  div qui contient rien sert comme Ligne de séparation-->
+<div id="copyrighticon"> 
+    <div id="copyright"> <span> ©2023 </span></div>
+    <div id="icons"> <!-- Balise pour les icônes des réseaux sociaux-->
+        <a href="http://www.twitter.fr"> <i class="fa fa-twitter">  </i></a> <!-- Lien vers Twitter avec l'icône de Twitter.-->
+        <a href="http://www.facebook.fr"> <i class="fa fa-facebook">  </i></a><!-- Lien vers Facebook avec l'icône de Facebook-->
+        <a href="http://www.instagram.fr"> <i class="fa fa-instagram">  </i></a><!-- Lien vers Instagram avec l'icône de Instagram.-->
+    </div>
+</div>
 </footer>
 </body>
 </html>

@@ -20,36 +20,56 @@ $nom = $row['nom'].' '.$row['prenom'];
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale= ">
+  <script src="https://kit.fontawesome.com/8b4b4337c0.js" crossorigin="anonymous"></script>
   <title>Profil</title>
 </head>
 
 <body>
   <!-- nom , prenom ,email,age ,telephone,genre,insta, fcbk,youtube,domaine,abonne -->
-  <h1><?php echo $nom; ?></h1>
-  <p>Nom : <?php echo $row['nom']; ?></p>
-  <p>Prenom : <?php echo $row['prenom']; ?></p>
-  <p>Email : <?php echo $row['email']; ?></p>
-  <p>Age : <?php echo $row['age']; ?></p>
-  <p>Telephone : <?php echo $row['telephone']; ?></p>
-  <p>Genre : <?php echo $row['genre']; ?></p>
-  <p>Instagram : <?php echo $row['insta']; ?></p>
-  <p>Facebook : <?php echo $row['fcbk']; ?></p>
-  <p>Youtube : <?php echo $row['youtube']; ?></p>
-  <p>Domaine : <?php echo $row['domaine']; ?></p>
-  <p>Nombre d'abonnés : <?php echo $row['abonne']; ?></p>
-  <!-- show the button to message and a boton to go back to the entreprise page -->
-  <form action="" method="post">
-    <input type="submit" name="message" value="Message">
-  </form>
-  <form action="" method="post">
-    <input type="submit" name="retour" value="Retour">
-  </form>
-  <!-- a logout buotton  -->
-  <form action="" method="post">
-    <input type="submit" name="logout" value="Logout">
-  </form>
-  <!-- a hidden id of the influencer -->
-  <input type="hidden" name="id" value="<?php echo $profile_id; ?>">
+  
+
+
+  <div class="container">
+        <div class="profils">
+            <div class="profil-card">
+                <div class="image">
+                    <img src="bacg1.png" alt="" class="profile-img">
+                </div>
+                <div class="text-data">
+                    <span class="name"> <?php echo $row['nom']; ?> <?php echo $row['prenom']; ?></span>
+                    <span class="genre"> <?php echo $row['genre']; ?> </span>
+                    <span>  <?php echo $row['age']; ?> ans</span>
+                    <span class="domaine"><?php echo $row['domaine']; ?></span>
+                    <span  > <?php echo $row['email']; ?> </span>
+                    <span  > <?php echo $row['telephone']; ?> </span>
+                    <span  ></i> <?php echo $row['abonne']; ?> abonnés</span>
+                     <span >   Instagram : <?php echo $row['insta']; ?></span> 
+                     <span>  Facebook : <?php echo $row['fcbk']; ?></span>
+                     <span >    Youtube : <?php echo $row['youtube']; ?></span>
+                     </div>
+ 
+                <div class="buttons">
+                   
+                    <!-- button retour à la page précedente  -->
+                    <form action="" method="post">
+                        <input type="submit" name="retour" value="Retour"  class="button">
+                    </form>
+                      <!-- button message  -->
+                      <form action="" method="post">
+                       <input type="submit" name="message" value="Message"  class="button">
+                    </form>
+                     <!-- a logout buotton  -->
+                    <form action="" method="post">
+                       <input type="submit" name="logout" value="Logout" class="button">
+                     </form>
+                      <!-- a hidden id of the influencer -->
+                       <input type="hidden" name="id" value="<?php echo $profile_id; ?>">
+                </div>
+               </div>
+        </div>
+</div>
+
+  
 </body>
 </html>
 <?php
@@ -88,63 +108,109 @@ if(isset($_POST['logout'])) {
 }
 ?>
 <style>
-  /* Add a background color to the body */
-body {
-  background-color: #f2f2f2;
+ 
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Style the header */
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin: 0;
-  padding: 20px 0;
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4ff;
+    
+}
+.profil-card{
+    display: flex;
+    flex-direction: column; /*----*/
+    align-items: center;
+    max-width: 370px;
+    width: 100%;
+    background: #fff;
+    border-radius: 24px;
+    padding:25px ;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+}
+.profils{
+    margin: 0 20px;
+}
+.image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: rgb(86, 20, 114);
+    padding: 3px;
+    margin-bottom: 10px;
+}
+.image .profile-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+.profil-card .text-data{
+    display: flex;
+    flex-direction: column; /*----*/
+    align-items: center;
+    color: #333;
+}
+.text-data .name{
+    font-size: 22px;
+    font-weight: 600;
+    color:#000;
+}
+.text-data .domaine{
+    font-size: 15px;
+    font-weight: 400;
 }
 
-/* Style the form buttons */
-input[type=submit] {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 5px;
+.text-data .follower{
+    font-size: 15px;
+    font-weight: 500;
+}
+.text-data a{
+    color: #333;
 }
 
-input[type=submit]:hover {
-  background-color: #3e8e41;
+.fa-brands,.fa-solid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size:10px;
+    height: 20px;
+    width: 20px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color:  rgb(86, 20, 114);
+    text-decoration: none;
+    margin-left: 0px;
+}
+.profil-card .buttons{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+.button{
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    margin: 0 10px;
+    padding: 8px 24px;
+    background-color: rgb(86, 20, 114);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background-color: rgb(44, 11, 58);
 }
 
-/* Style the form labels */
-p {
-  font-size: 1.2em;
-  color: #333;
-  margin: 10px;
-  padding: 0;
-}
-
-/* Center the form */
-form {
-  text-align: center;
-  margin-top: 50px;
-}
-/* Style the logout button */
-form:last-of-type {
-  margin-top: 20px;
-}
-/* Style the page title */
-title {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin: 20px 0;
-}
 </style>
