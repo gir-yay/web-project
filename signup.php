@@ -126,7 +126,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="btn"> 
                 <button type="submit" name="submit">S'inscrire</button>
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>

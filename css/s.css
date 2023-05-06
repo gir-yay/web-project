@@ -142,9 +142,15 @@ input[type="file"] {
 }
 
 #cancel a {
-    color: #000;
-    /*background-color: #aca8a8;*/
+    color: #fff;
+    background-color: #4b097d;
     text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
 }
 
 #save {
@@ -165,6 +171,13 @@ input[type="file"] {
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #4b097d;
+    outline: none;
+    transition: all 0.3s ease;
+
 
 }
 
@@ -173,4 +186,7 @@ input[type="file"] {
         width: calc(100% / 2 - 15px);
     }
 
+}
+.btn button:hover {
+    transform: scale(1.1);
 }
