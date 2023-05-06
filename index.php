@@ -21,6 +21,11 @@
                 <li> <a href="#contactus">Contact</a></li> <!-- crée un lien vers la section "Contact"-->
             </ul>
         </div>
+        
+        <div>
+			<a href="loogin.php" class="join-btn">Se connecter</a>
+		</div>
+
     </nav>
     <div class="text-box">
         <h1>Bienvenue sur Collab</h1>

@@ -20,6 +20,8 @@ $nom = $row['nom'].' '.$row['prenom'];
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale= ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <script src="https://kit.fontawesome.com/8b4b4337c0.js" crossorigin="anonymous"></script>
   <title>Profil</title>
 </head>
@@ -28,9 +30,8 @@ $nom = $row['nom'].' '.$row['prenom'];
   <!-- nom , prenom ,email,age ,telephone,genre,insta, fcbk,youtube,domaine,abonne -->
   
 
-
   <div class="container">
-        <div class="profils">
+        
             <div class="profil-card">
                 <div class="image">
                     <img src="bacg1.png" alt="" class="profile-img">
@@ -42,11 +43,20 @@ $nom = $row['nom'].' '.$row['prenom'];
                     <span class="domaine"><?php echo $row['domaine']; ?></span>
                     <span  > <?php echo $row['email']; ?> </span>
                     <span  > <?php echo $row['telephone']; ?> </span>
-                    <span  ></i> <?php echo $row['abonne']; ?> abonnés</span>
-                     <span >   Instagram : <?php echo $row['insta']; ?></span> 
-                     <span>  Facebook : <?php echo $row['fcbk']; ?></span>
-                     <span >    Youtube : <?php echo $row['youtube']; ?></span>
-                     </div>
+                    <span class="follower" ></i> <?php echo $row['abonne']; ?> abonnés</span>
+                </div>
+                <div class="media-buttons">
+                     <a href="https://<?php echo $row['insta']; ?>" target="_blank" class="link">
+                    <i class="fa-brands fa-instagram"></i>
+                    </a> 
+                     <a href="https://<?php echo $row['fcbk']; ?>" target="_blank" class="link">
+                    <i class="fa-brands fa-facebook"></i>
+                    </a> 
+                     <a href="https://<?php echo $row['youtube']; ?>" target="_blank" class="link">
+                    <i class="fa-brands fa-youtube"></i>
+                    </a> 
+                     
+                </div>
  
                 <div class="buttons">
                    
@@ -58,15 +68,13 @@ $nom = $row['nom'].' '.$row['prenom'];
                       <form action="" method="post">
                        <input type="submit" name="message" value="Message"  class="button">
                     </form>
-                     <!-- a logout buotton  -->
-                    <form action="" method="post">
-                       <input type="submit" name="logout" value="Logout" class="button">
-                     </form>
+                    
                       <!-- a hidden id of the influencer -->
                        <input type="hidden" name="id" value="<?php echo $profile_id; ?>">
                 </div>
                </div>
-        </div>
+               
+        
 </div>
 
   
@@ -96,17 +104,8 @@ if(isset($_POST['retour'])) {
 <?php
   exit();
 }
-// if the button logout is clicked
-if(isset($_POST['logout'])) {
-  // destroy the session
-  session_destroy();
-  // redirect to the login page
- ?>
-    <script type="text/javascript">window.location="loogin.php";</script>
-<?php
-  exit();
-}
 ?>
+
 <style>
  
  *{
@@ -127,7 +126,7 @@ if(isset($_POST['logout'])) {
     display: flex;
     flex-direction: column; /*----*/
     align-items: center;
-    max-width: 370px;
+    max-width: 500px;
     width: 100%;
     background: #fff;
     border-radius: 24px;
@@ -135,9 +134,7 @@ if(isset($_POST['logout'])) {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
 }
-.profils{
-    margin: 0 20px;
-}
+
 .image{
     position: relative;
     height: 150px;
@@ -178,20 +175,7 @@ if(isset($_POST['logout'])) {
     color: #333;
 }
 
-.fa-brands,.fa-solid{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size:10px;
-    height: 20px;
-    width: 20px;
-    margin: 0 8px;
-    border-radius: 50%;
-    background-color:  rgb(86, 20, 114);
-    text-decoration: none;
-    margin-left: 0px;
-}
+
 .profil-card .buttons{
     display: flex;
     align-items: center;
@@ -212,5 +196,24 @@ if(isset($_POST['logout'])) {
 .button:hover{
     background-color: rgb(44, 11, 58);
 }
+.profil-card .media-buttons{
+    display: flex;
+    align-items: center;
+    margin-top:15px ;
+}
+.media-buttons .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size:18px;
+    height: 34px;
+    width: 34px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color:  rgb(86, 20, 114);
+    text-decoration: none;
+}
+
 
 </style>
