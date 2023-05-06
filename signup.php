@@ -94,7 +94,7 @@
             
                         <div class="input-boxss">
                         <label >Domaine</label>
-                        <select name="domaine" id="">
+                        <select name="domaine" id="domaine">
                            <option value="Fashion">Fashion</option>
                            <option value="Sport">Sport</option>
                            <option value="Art">Art</option>
@@ -104,11 +104,12 @@
                         </div>
 
                         <div class="input-boxss">
-                        <label >Abonnées</label> <select name="followers" id="follower">
-                            <option value="">30k-60k Abonné</option>
-                            <option value="">60k-90k Abonné</option>
-                            <option value="">90k-150k Abonné</option>
-                            <option value="">+150k Abonné</option>
+                        <label >Abonnées</label> 
+                        <select name="follower" id="follower">
+                            <option value="30k-60k">30k-60k Abonné</option>
+                            <option value="60k-90k">60k-90k Abonné</option>
+                            <option value="90k-150k">90k-150k Abonné</option>
+                            <option value="+150k">+150k Abonné</option>
                         </select>
                         </div> 
                         <div class="input-boxss">

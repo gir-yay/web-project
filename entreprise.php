@@ -67,7 +67,7 @@
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
-            <a href="message_admin.php"><i class="fa fa-envelope"></i> Contact</a>
+            <a href="message_admin.php"><i class="fa fa-envelope"></i> Contacter l'Admin</a>
             </li><br>
             <!-- lien pour voir les messages recu et tous les conversations -->
             <li>
@@ -302,7 +302,7 @@ foreach ($result as $row) {
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>".$row['prenom']." ".$row['nom']."</td>";
     echo "</tr>";
 }
 echo "</table>";
@@ -319,7 +319,7 @@ foreach ($result as $row) {
     echo "<td>".$row['amount']."</td>";
     echo "<td>".$row['duration']."</td>";
     echo "<td>".$row['state']."</td>";
-    echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+    echo "<td>".$row['prenom']." ".$row['nom']."</td>";
     echo "</tr>";
 }
 echo "</table>";

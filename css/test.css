@@ -1,45 +1,52 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 /* __________________CSS Page-Principale_________________*/
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(../images/bacg3.png) ;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/bacg3.png);
     background-position: center;
     background-size: cover;
     position: relative;
 }
-.logo{
+
+.logo {
     margin-top: 0;
 }
+
 nav {
     display: flex;
     padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
 }
-.nav-links{
+
+.nav-links {
     flex: 1;
     text-align: center;
- 
+
 }
-.nav-links ul li{
+
+.nav-links ul li {
     list-style: none;
     display: inline-block;
     padding: 8px 12px;
     position: relative;
 }
-.nav-links ul li a{
+
+.nav-links ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
 }
+
 /* if u wanna add hover ..with after */
 
-.text-box{
+.text-box {
     width: 90%;
     color: #fff;
     position: absolute;
@@ -49,15 +56,18 @@ nav {
     text-align: center;
 
 }
-.text-box h1{
-    font-size:62px ;
+
+.text-box h1 {
+    font-size: 62px;
 }
+
 .text-box p {
     margin: 10px 0 40px;
     font-size: 18px;
     color: #fff;
 }
-.btnn{
+
+.btnn {
     display: inline-block;
     text-decoration: none;
     color: #fff;
@@ -68,24 +78,27 @@ nav {
     font-size: 1.3em;
     margin-top: 30px;
     cursor: pointer;
-    margin: 20px; 
+    margin: 20px;
 }
-.btnn:hover{
-    border: 1px solid  #4c047b;
+
+.btnn:hover {
+    border: 1px solid #4c047b;
     border-radius: 10px;
-    background:  #4c047b;
+    background: #4c047b;
     transition: 1s;
 }
+
 /*________________ CSS About-Us______________ */
-#Aboutus{
-   background-image: url(../images/bg.png);
-   background-position: center;
-   background-size: cover;
-   margin-bottom: 50px;
-   padding-top: 50px;
-  
+#Aboutus {
+    background-image: url(../images/bg.png);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 50px;
+    padding-top: 50px;
+
 }
-.heading{
+
+.heading {
     width: 90%;
     display: flex;
     justify-content: center;
@@ -93,13 +106,15 @@ nav {
     flex-direction: column;
     text-align: center;
 }
-.heading h1{
+
+.heading h1 {
     font-size: 50px;
     color: #000;
     margin-bottom: 25px;
     position: relative;
 }
-.heading h1::after{
+
+.heading h1::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -108,44 +123,53 @@ nav {
     margin: 0 auto;
     background: #4c047b;
 }
-.heading p{
+
+.heading p {
     font-size: 18px;
     color: #666;
     margin-bottom: 35px;
 }
-.container{
+
+.container {
     width: 90%;
     margin: 0 auto;
-    padding:10px 20px ;
+    padding: 10px 20px;
 }
-.about{
+
+.about {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
-.about-image{
+
+.about-image {
     flex: 1;
     margin-right: 40px;
     overflow: hidden;
 }
-.about-image img{
+
+.about-image img {
     max-width: 100%;
     height: auto;
     display: block;
 }
-.about-image:hover img{
+
+.about-image:hover img {
     transform: scale(1.2);
 }
-.about-content{
+
+.about-content {
     flex: 1;
 }
-.about-content h2{
+
+.about-content h2 {
     font-size: 23px;
     margin-bottom: 15px;
     color: #333;
 }
-.about-content p{
+
+.about-content p {
     font-size: 18px;
     line-height: 1.5;
     color: #666;
@@ -161,11 +185,13 @@ nav {
     background-position: center;
     background-size: cover;
 }
-#services .titre h1{
+
+#services .titre h1 {
     text-align: center;
     padding-top: 50px;
     font-size: 42px;
 }
+
 .service-row {
     width: 80%;
     margin: auto;
@@ -179,10 +205,12 @@ nav {
     flex-basis: 25%;
     text-align: center;
 }
+
 .service-col img {
     width: 300px;
 }
-.service-col:hover img{
+
+.service-col:hover img {
     transform: scale(1.2);
 }
 
@@ -198,7 +226,8 @@ nav {
     align-items: flex-end;
     justify-content: center;
 }
-.join-btn{
+
+.join-btn {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
@@ -209,22 +238,25 @@ nav {
     background-color: #4c047b;
     transition: 0.3s ease;
 }
-.join-btn:hover{
+
+.join-btn:hover {
     background-color: #5d0256;
 }
+
 /* _____________________CSS Section pourquoi-nous-choisir_________________  */
-#pourquoi-nous{
+#pourquoi-nous {
     width: 100%;
     background-color: #eee4f6;
     padding: 20px;
 }
-.why .titre h1{
+
+.why .titre h1 {
     text-align: center;
     padding-top: 50px;
     font-size: 42px;
 }
 
-.why .choix{
+.why .choix {
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -232,7 +264,8 @@ nav {
     margin: 75px auto;
     text-align: center;
 }
-.choix .card{
+
+.choix .card {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -242,40 +275,45 @@ nav {
     padding: 20px 20px;
     border: 3px solid #4c047b;
     border-radius: 50px;
-    
-    border-bottom-left-radius:0;
+
+    border-bottom-left-radius: 0;
     cursor: pointer;
 }
-.choix .card:hover{
+
+.choix .card:hover {
     background-color: #680b575a;
 }
-.choix .card h2{
+
+.choix .card h2 {
     font-size: 28px;
     color: #2b0346;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
-.choix .card p{
+
+.choix .card p {
     font-size: 17px;
     margin-bottom: 30px;
     line-height: 1.5;
     color: #333;
 }
+
 /* _____________________CSS section Avis_________________  */
-#avis{
+#avis {
     position: relative;
     min-height: 100vh;
     width: 100%;
     background: #eee4f6;
     overflow: hidden;
 }
-#avis .first{
+
+#avis .first {
     display: inline-block;
     position: relative;
     font-size: 32px;
     padding: 60px;
     width: 100%;
     text-align: center;
- 
+
 }
 
 .wrapper {
@@ -285,6 +323,7 @@ nav {
     flex-wrap: wrap;
     text-align: center;
 }
+
 .wrapper .container {
     position: relative;
     width: 350px;
@@ -294,7 +333,8 @@ nav {
     padding: 30px 20px;
     border-radius: 15px;
 }
-.wrapper .container .profile{
+
+.wrapper .container .profile {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -302,7 +342,8 @@ nav {
     width: 100%;
     display: block;
 }
-.wrapper .container .profile .imagebox{
+
+.wrapper .container .profile .imagebox {
     position: relative;
     height: 100px;
     width: 100px;
@@ -311,7 +352,8 @@ nav {
     border-radius: 50%;
     overflow: hidden;
 }
-.wrapper .container .profile .imagebox img{
+
+.wrapper .container .profile .imagebox img {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -322,17 +364,20 @@ nav {
     object-fit: cover;
     transition: 0.3s ease;
 }
-.wrapper .container .profile .imagebox:hover img{
+
+.wrapper .container .profile .imagebox:hover img {
     transform: scale(1.2);
 
 }
-.wrapper .container .profile h2{
+
+.wrapper .container .profile h2 {
     padding: 5px 0;
     text-transform: capitalize;
     color: #fff;
     letter-spacing: 1px;
     text-align: center;
 }
+
 .wrapper .container p {
     margin-top: 50px;
     color: #fff;
@@ -340,13 +385,15 @@ nav {
     font-size: 15px;
     opacity: 0.8;
 }
-.wrapper .container .left{
+
+.wrapper .container .left {
     font-size: 30px;
     display: block;
     text-align: left;
     color: #cd61c4;
 }
-.wrapper .container .right{
+
+.wrapper .container .right {
     font-size: 30px;
     display: block;
     text-align: right;
@@ -356,12 +403,15 @@ nav {
 /* _____________________CSS footer-contact_________________  */
 
 footer {
-    background-color: #36025f; 
-    color: #FFFAE1; 
-    padding: 20px 0 10px 0;/* la taille de la police */
-    text-align: center; /* la taille de la police */
+    background-color: #36025f;
+    color: #FFFAE1;
+    padding: 20px 0 10px 0;
+    /* la taille de la police */
+    text-align: center;
+    /* la taille de la police */
 }
-#contactus{
+
+#contactus {
     margin-bottom: 20px;
 }
 
@@ -369,12 +419,15 @@ form {
     margin: 0 auto;
     max-width: 900px;
 }
-input,textarea {
+
+input,
+textarea {
     border: none;
     width: 55%;
     padding: 15px 10px;
     margin: 1px 0;
-    font-size: 1.3em; /* la taille de la police */
+    font-size: 1.3em;
+    /* la taille de la police */
     font-family: 'Advent Pro', sans-serif;
     border-radius: 8px;
 }
@@ -385,12 +438,14 @@ input,textarea {
     background-color: #b89ddc;
 
 }
+
 /* applique ces styles lorsqu'on survole la classe "but" avec la souris*/
 .but:hover {
     background-color: #410342;
     color: #fff;
     cursor: pointer;
-    transition: 0.3s ease-in-out;/* la durée 0.3s et le type d'animation lorsqu'on survole l'élément*/
+    transition: 0.3s ease-in-out;
+    /* la durée 0.3s et le type d'animation lorsqu'on survole l'élément*/
 }
 
 #trait {
@@ -431,42 +486,52 @@ input,textarea {
 }
 
 
-@media screen  and (max-width:768px){
+@media screen and (max-width:768px) {
+
     /* ___________________About-us Responsive__________________*/
-    .heading{
+    .heading {
         padding: 0px 20px;
     }
-    .heading h1{
+
+    .heading h1 {
         font-size: 36px;
     }
-    .heading p{
+
+    .heading p {
         font-size: 17px;
         margin-bottom: 0px;
     }
-    .container{
+
+    .container {
         padding: 0px;
     }
-    .about{
-       padding: 20px;
-       flex-direction: column;
+
+    .about {
+        padding: 20px;
+        flex-direction: column;
     }
-    .about-image{
+
+    .about-image {
         margin-right: 0px;
         margin-bottom: 20px;
     }
-    .about-content p{
+
+    .about-content p {
         padding: 0px;
         font-size: 16px;
     }
-    .about-content .join-btn{
+
+    .about-content .join-btn {
         font-size: 16px;
     }
+
     /* ___________________Pourquoi-nous choisir Responsive__________________*/
-    .why .choix{
+    .why .choix {
         display: flex;
         flex-direction: column;
     }
-    .choix .card{
+
+    .choix .card {
         width: 85%;
         display: flex;
         margin: 20px 0;

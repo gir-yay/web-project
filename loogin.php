@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login </title>
     <link rel="stylesheet" href="./css/loogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- link for icons from "font Awesome" website -->
     <script src="https://kit.fontawesome.com/8b4b4337c0.js" crossorigin="anonymous"></script>
 </head>
@@ -46,7 +48,9 @@
                     </div>
                     <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password"  name="password" placeholder="Password" required>
+                    <input id="pw1" type="password"  name="password" placeholder="Password" required>
+                    <i class="fas fa-eye" id="eye1" onclick="showpw('#pw1' , '#eye1')"></i>
+
                     </div>
                 </div>
                 <div class="btn-field">
@@ -69,7 +73,8 @@
                     </div>
                     <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password"  name="password" placeholder="Password" required>
+                    <input id="pw2" type="password"  name="password" placeholder="Password" required>
+                     <i class="fas fa-eye" id="eye2" onclick="showpw('#pw2' , '#eye2')"></i>
                     </div>
                 </div>
                 <div class="btn-field">
@@ -99,5 +104,23 @@
     }	
 	</script>
  </div>
+   <script>
+
+function showpw(id , id2) {
+     
+    let pwfield = document.querySelector(id);
+    let eyefield= document.querySelector(id2);
+
+	if (pwfield.type == "password") {
+		pwfield.type = "text";
+        eyefield.className = "fas fa-eye-slash";
+	} else {
+		pwfield.type = "password";
+        eyefield.className = "fas fa-eye";
+	}
+};
+
+       </script>
+
 </body>
 </html>

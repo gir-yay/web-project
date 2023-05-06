@@ -12,6 +12,7 @@ include_once 'database.php';
 $sender = $_SESSION['id'];
 //check the type 
 $type = $_SESSION['type'];
+$receiver_type="inf";
 //the receiver id
 $receiver = $_SESSION['id2'];
 //if the type is ent then check in the entreprise table if not check in the influenceur table
@@ -27,19 +28,7 @@ if ($type == 'ent') {
     $row = mysqli_fetch_assoc($result);
     //get the name of the receiver
     $receiverName = $row['nom']." ".$row['prenom'];
-} else {
-    $sql = "SELECT * FROM influencer WHERE id = '$sender'";
-    $result = mysqli_query($conn, $sql);
-    //get the name of the sender
-    $row = mysqli_fetch_assoc($result);
-    $senderName = $row['nom']." ".$row['prenom'];
-    //get the id of the receiver from entreprise table
-    $sql = "SELECT * FROM entreprise WHERE id = '$receiver'";
-    $result = mysqli_query($conn, $sql);
-    //get the name of the receiver
-    $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['nom'];
-}
+} 
 
 ?>
 
@@ -126,7 +115,7 @@ if(isset($_POST['send'])){
     $date = date('Y-m-d H:i:s');
     $read=0;
     //insert the message into the message table
-      $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
+      $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$receiver_type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){

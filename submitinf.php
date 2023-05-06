@@ -15,9 +15,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $genre = $_POST['genre'];
         $insta = $_POST['insta'];
         $fcbk = $_POST['fcbk'];
-        $youtube = $_POST['youtube'];
+        $youtube = $_POST['ytb'];
         $domaine = $_POST['domaine'];
-        $abonne = $_POST['abonne'];
+        $abonne = $_POST['follower'];
         $password = $_POST['password'];
         $password2 = $_POST['password-confirm'];
         //check if the password and the password confirmation are the same
