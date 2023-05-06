@@ -12,22 +12,11 @@ include_once 'database.php';
 $sender = $_SESSION['id'];
 //check the type 
 $type = $_SESSION['type'];
+$receiver_type="ent";
 //the receiver id
 $receiver = $_SESSION['id2'];
-//if the type is ent then check in the entreprise table if not check in the influenceur table
-if ($type == 'ent') {
-    $sql = "SELECT * FROM entreprise WHERE id = '$sender'";
-    $result = mysqli_query($conn, $sql);
-    //get the name of the sender
-    $row = mysqli_fetch_assoc($result);
-    $senderName = $row['nom'];
-    //get the id of the receiver from influenceur table
-    $sql = "SELECT * FROM influencer WHERE id = '$receiver'";
-    $result = mysqli_query($conn, $sql);
-    //get the full name of the receiver (lastname + firstname)
-    $row = mysqli_fetch_assoc($result);
-    $receiverName = $row['nom'] . " " . $row['prenom'];
-} else {
+
+if ($type == 'inf') {
     $sql = "SELECT * FROM influencer WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
     //get the name of the sender
@@ -78,7 +67,7 @@ if ($type == 'ent') {
                         $message = $row['message'];
                         $timestamp = $row['time_stamp'];
                         //if the sender is the current user
-                        if($row['sender'] == $sender && $row['receiver_type'] != "inf"){
+                        if($row['sender'] == $sender && $row['receiver_type'] == "ent"){
                             //display the message in the right side of the conversation div
                              echo '<div class="chat outgoing">';
                             echo '<div class="details"><p>'.$message.'<br>'.$timestamp.'</p></div>';
@@ -125,14 +114,14 @@ if(isset($_POST['send'])){
     $date = date('Y-m-d H:i:s');
     $read = 0;
     //insert the message into the message table
-    $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$type','$date', '$read')";
+    $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$receiver_type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){
         //refresh the page
         
 ?>
-      <script type="text/javascript">window.location="message_ent.php";</script>
+      <script type="text/javascript">window.location="message_inf.php";</script>
 <?php
 
 }else{

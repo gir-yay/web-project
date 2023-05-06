@@ -24,6 +24,6 @@ if (mysqli_num_rows($result) == 1) {
 
     header("Location: influenceur.php");
 } else {
-    header("Location: loogin.php?error=Incorect User name or password");
+    header("Location: loogin.php?error=Incorect email or password");
 }
 ?>

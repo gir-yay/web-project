@@ -57,7 +57,7 @@
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
-            <a href="message_admin.php"><i class="fa fa-envelope"></i> Contact</a>
+            <a href="message_admin.php"><i class="fa fa-envelope"></i> Contacter l'Admin</a>
             </li><br>
             <!-- envoyer une demande de suppression du compte  -->
             <li>
