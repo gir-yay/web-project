@@ -30,11 +30,6 @@ if ($type == 'inf') {
     $receiverName = $row['nom'];
 }
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>

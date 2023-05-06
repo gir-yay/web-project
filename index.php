@@ -17,7 +17,7 @@
                 <li> <a href="#">Home</a></li> <!-- crée un lien vers la page d'accueil.-->
                 <li> <a href="#Aboutus">About Us</a></li> <!-- : crée un lien vers la section "About Us"-->
                 <li> <a href="#services">Services</a></li> <!--  crée un lien vers la section "Services"-->
-                <li> <a href="admin.php">Admin</a></li> <!--  crée un lien vers une page admin-->
+                <!-- <li> <a href="admin.php">Admin</a></li>  crée un lien vers une page admin -->
                 <li> <a href="#contactus">Contact</a></li> <!-- crée un lien vers la section "Contact"-->
             </ul>
         </div>

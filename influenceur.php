@@ -19,6 +19,14 @@
     }
 
     $_SESSION['type']='influenceur';
+    //connect to the database
+    include 'database.php';
+    // get the row of the influenceur from the database
+    $sql = "SELECT * FROM influencer WHERE id='$id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+
 
 ?>
 
@@ -43,9 +51,15 @@
         <ul> 
             <li> <?php echo $name; ?></li><br>
             <li><i class="fa fa-envelope"></i>  <?php echo $email; ?> </li><br>
-            <li>ID: <?php echo $id; ?> </li>
             <br>
-  </ul><hr>
+            <!-- show the social media if it exist -->
+            <!-- <li><i class="fa fa-facebook"></i> <?php echo $row['fcbk']; ?></li><br>
+            <li><i class="fa fa-instagram"></i> <?php echo $row['insta']; ?></li><br>
+            <li><i class="fa fa-youtube"></i> <?php echo $row['youtube']; ?></li><br> -->
+
+
+        </ul>
+  <hr>
   <ul>
              <!--  lien pour modifier les infomations de l'entreprise -->
              <li>
@@ -85,7 +99,6 @@ echo "<h2>Entreprises</h2>";
     // output data of each row
     echo "<table border='1'>
     <tr>
-    <th>id</th>
     <th>name</th>
     <th>email</th>
     <th>ca</th>
@@ -94,7 +107,6 @@ echo "<h2>Entreprises</h2>";
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['nom'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['ca'] . "</td>";
@@ -181,7 +193,6 @@ exit();
     echo "<h2>Offers</h2>";
     echo "<table border='1'>
     <tr>
-    <th>id</th>
     <th>terms</th>
     <th>amount</th>
     <th>duration</th>
@@ -194,7 +205,6 @@ exit();
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
             echo "<td>" . $row['terms'] . "</td>";
             echo "<td>" . $row['amount'] . "</td>";
             echo "<td>" . $row['duration'] . "</td>";
@@ -268,7 +278,6 @@ exit();
     // output data of each row
     echo "<table border='1'>
     <tr>
-    <th>id</th>
     <th>terms</th>
     <th>amount</th>
     <th>duration</th>
@@ -279,7 +288,6 @@ exit();
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
             echo "<td>" . $row['terms'] . "</td>";
             echo "<td>" . $row['amount'] . "</td>";
             echo "<td>" . $row['duration'] . "</td>";

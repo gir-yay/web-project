@@ -48,11 +48,15 @@ header {
 }
 
 #error {
-    background-color: rgb(188, 148, 168);
+    background-color: rgb(189, 133, 161);
     height: 40px;
-    width: 450px;
     border-radius: 10px;
     display: none;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: #fff;
 
 }
 

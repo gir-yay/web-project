@@ -27,19 +27,17 @@
 		<button onclick="showInfluenceurSection()">Influenceur</button>		   
         </div>
 <br>
-<center>
-<div id="error" >
+<br>
+<section id="entreprise" style="display: block;">
+        <div class="forme">
+            <h1> Entreprise</h1>
+            <div id="error" >
                 <?php if (isset($_GET['error'])) {?>
 
                     <p><?php echo $_GET['error']; ?></p>
                     <script>document.getElementById("error").style.display = "flex";</script>
                 <?php } ?>
-</div> 
-</center>
-<br>
-<section id="entreprise" style="display: block;">
-        <div class="forme">
-            <h1> Entreprise</h1>
+            </div>
             <form action="loginentre.php" method="POST">
                 <div class="input-group">
                     <div class="input-field">
@@ -65,6 +63,13 @@
 <section id="influenceur">
         <div class="forme">
             <h1>Influenceur</h1>
+            <div id="error" >
+                <?php if (isset($_GET['error'])) {?>
+
+                    <p><?php echo $_GET['error']; ?></p>
+                    <script>document.getElementById("error").style.display = "flex";</script>
+                <?php } ?>
+            </div>
             <form action="logininf.php" method="POST">
                 <div class="input-group">
                     <div class="input-field">
