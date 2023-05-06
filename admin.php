@@ -33,7 +33,7 @@
 <ion-icon name="lock-closed-outline"></ion-icon>
     <label for="password">Password:</label>
     <input type="password" name="password" id="password">
-    <i></i>
+    <i class="fas fa-eye" id="eye2" onclick="showpw('#pw2' , '#eye2')"></i>
 </div>
     <input type="submit"  class="bouton" value="Login">
 
@@ -70,10 +70,24 @@ if (isset($_POST['username'])) {
         header('Location: dashboardadmin.php');
     } else {
         // message d'erreur
-        header("Location: admin.php?error=Incorect User name or password");
+        header("Location: admin.php?error=Incorect Username or password");
     }
 }
-
-
-
 ?>
+ <script>
+
+function showpw(id , id2) {
+     
+    let pwfield = document.querySelector(id);
+    let eyefield= document.querySelector(id2);
+
+	if (pwfield.type == "password") {
+		pwfield.type = "text";
+        eyefield.className = "fas fa-eye-slash";
+	} else {
+		pwfield.type = "password";
+        eyefield.className = "fas fa-eye";
+	}
+};
+
+       </script>

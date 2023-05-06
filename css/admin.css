@@ -25,18 +25,25 @@ h1 {
 #error {
     background-color: rgb(188, 148, 168);
     height: 40px;
-    width: 450px;
     border-radius: 10px;
-    /*invisible*/
-    display: none;
     margin-top: 40px;
-
+    margin-left: 30%;
+    margin-right: 30%;
+    /* center the p in th emiddle  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* hide the error  */
+    display: none;
 }
 
 #error p {
     text-align: center;
-    padding: 2%;
     font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 form {
@@ -129,7 +136,6 @@ form {
 }
 
 .inputBox input {
-    position: relative;
     width: 100%;
     padding: 20px 10px 10px;
     background: transparent;

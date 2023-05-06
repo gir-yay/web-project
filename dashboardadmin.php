@@ -7,7 +7,6 @@ session_start();
 if (isset($_SESSION['username'])) {
     // if the session variable are set 
     $name=$_SESSION['username'];
-    echo "<h1>BIENVENUE $name</h1>";
 } else {
     // if the session variable are not set, redirect to admin.php
     header('Location: admin.php');
@@ -21,21 +20,21 @@ if (isset($_SESSION['username'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/admindash.css">
-  <title>Admin</title>
+  <title>Admin Dashboard</title>
 </head>
 <body>
-
+    <h1> 
+        <center>WELCOME <?php echo $name; ?></center>
+    </h1>
+    <!-- nav bar to logout and message -->
+        <a href="logout.php">Logout</a>
+        <a href="mess.php">Message</a>
+    
+    <h2>INFLUENCERS</h2>
 <?php
-//barre de navigation
-echo "<nav>";
-echo "<a href='mess.php'>Message</a>";
-echo "<a href='logout.php'>Logout</a>";
-echo "</nav>";
-// recuperer les données des influenceurs
-echo "<h2>INFLUENCEURS</h2>";
+// on recupere les influenceurs de la base de données
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql);  
-
 //on montre les information sous forme de tableau
 echo "<div class='container'>";
 echo "<table>";
@@ -72,7 +71,7 @@ if(isset($_POST['delete_influencer'])){
     }
 }
 
-echo "<h2>Marques</h2>";
+echo "<h2>Entreprises</h2>";
 $sql = "SELECT * FROM entreprise";
 $result = mysqli_query($conn, $sql);
 echo "<div class='container'>";
@@ -114,10 +113,9 @@ $result = mysqli_query($conn, $sql);
 
 /*montrer toutes les colaboration entre influenceur et entreprise dans un tableau */
 /*show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the <collab></collab>*/
-
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>Brand Name</th><th>Influencer Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>state</th><th>Action</th></tr>";
+echo "<th>Brand Name</th><th>Influencer Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['nom'] . "</td>";
@@ -135,9 +133,6 @@ foreach ($result as $row) {
     echo "</td>";
     echo "</tr>";
 }
-echo "</table>";
-echo "</div>";
-
 // si bouton delete_collab est cliqué
 if(isset($_POST['delete_collab'])){
     $id = $_POST['id'];
@@ -150,13 +145,9 @@ if(isset($_POST['delete_collab'])){
     }
 }
 //make a tabe  to show all the suggested collab from the suggestion table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
-echo "<h2>SUGGESTED COLLAB</h2>";
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id ";
 $result = mysqli_query($conn, $sql);
 //show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the collab
-echo "<div class='container'>";
-echo "<table>";
-echo "<th>Influencer Name</th><th>Brand Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" . $row['prenom'] . " " . $row['nom'] . "</td>";
@@ -261,8 +252,6 @@ if(isset($_POST['delete_request'])){
 }
 echo "</table>";
 echo "</div>";
-
 ?>
-  
 </body>
 </html>

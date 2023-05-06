@@ -106,3 +106,25 @@ h2 {
     margin-bottom: 2%;
 
 }
+/* style for navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
