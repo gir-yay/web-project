@@ -28,41 +28,48 @@ if (isset($_SESSION['username'])) {
 <body>
     
 <?php
-
+/*barre de navigation */
 echo "<nav>";
+/*retour au tableau de bord de l'admin */
 echo "<a href='dashboardadmin.php'>Return</a>";
 echo "</nav>";
+
+/*messages non lus des influenceurs */
 echo "<h1>Non Encore Lu : Influenceur</h1>";
 
+/*$read_ = 0 <=> non encore lu $user_type est un influenceur */
 $sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE read_ =0  and user_type like 'influenceur' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+/*tableau*/
 echo "<div class='container'>";
 echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
-foreach ($result as $row) {
+foreach ($result as $row)
+ {
     echo "<tr>";
+        /*email de l'influenceur*/
+
     echo "<td>" .$row['email'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
-            //add a button to go to the massage.php page
-               echo "<td>";
-     
-        echo "<form method='post'>";
-        echo "<button type='submit' class='message-btn' name='message'>Read</button>";
-        echo "<input type='hidden' name='id' value='".$row['message_id']."'>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
-    }
+    //add a button to go to the massage.php page
+    echo "<td>"; 
+    echo "<form method='post'>";
+    echo "<button type='submit' class='message-btn' name='message'>Read</button>";
+    /*id du message */
+    echo "<input type='hidden' name='id' value='".$row['message_id']."'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
     echo "</table>";
     echo "</div>";
 
     echo "<br><br>";
 
-        echo "<h1><center>ALL CONVERSATIONS: Influenceur</center></h1>";
-
-        
+    /*tous les messages envoyes par les influenceurs à l'admin */
+    echo "<h1><center>ALL CONVERSATIONS: Influenceur</center></h1>"; 
 $sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE user_type='influenceur' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
@@ -72,22 +79,25 @@ echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
+    /*email de l'influenceur*/
     echo "<td>" .$row['email'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
-            //add a button to go to the massage.php page
-               echo "<td>";
-     
-        echo "<form method='post'>";
-        echo "<button type='submit' class='message-btn' name='message'>Message</button>";
-        echo "<input type='hidden' name='id' value='".$row['message_id']."'>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
+    //add a button to go to the massage.php page
+    echo "<td>"; 
+    echo "<form method='post'>";
+    echo "<button type='submit' class='message-btn' name='message'>Message</button>";
+    /*id du message */
+    echo "<input type='hidden' name='id' value='".$row['message_id']."'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
     }
     echo "</table>";
     echo "</div>";
 
 echo "<br><br>";
+
+/*messages non lus des entreprises */
 
     echo "<h1>Non Encore Lu : Entreprise</h1>";
 
@@ -101,6 +111,7 @@ echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
+        /*nom de l'entreprise */
     echo "<td>" .$row['nom'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page
@@ -108,6 +119,7 @@ foreach ($result as $row) {
      
         echo "<form method='post'>";
         echo "<button type='submit' class='message-btn' name='message'>Read</button>";
+            /*id du message */
         echo "<input type='hidden' name='id' value='".$row['message_id']."'>";
         echo "</form>";
         echo "</td>";
@@ -117,7 +129,9 @@ foreach ($result as $row) {
     echo "</div>";
 
 echo "<br><br>";
-    
+
+        /*tous les messages envoyes par les entreprises à l'admin */
+
     echo "<h1><center>ALL CONVERSATIONS: Entreprise</center></h1>";
 
 $sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id = entreprise.id WHERE  user_type like 'entreprise' group by user_id  order by time_stamp ";
@@ -130,6 +144,7 @@ echo "<table>";
 echo "<th>From</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
+    /*nom de l'entreprise */
     echo "<td>" .$row['nom'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
             //add a button to go to the massage.php page

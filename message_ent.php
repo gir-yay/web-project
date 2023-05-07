@@ -1,39 +1,50 @@
 <?php
-// Start the session
+// commencer la session
 session_start();
+// if the session is not set
 if (!isset($_SESSION['id'])) {
 ?>
+<!-- rediriger vers loogin.php -->
       <script type="text/javascript">window.location="loogin.php";</script>
 <?php
 }
-// Connect to the database
+// Connecter à la database de données
 
 include_once 'database.php';
+
+
+//id de l'expediteur
 $sender = $_SESSION['id'];
-//check the type 
+
+//ent => entreprise
 $type = $_SESSION['type'];
+
+// influenceur
 $receiver_type="inf";
 //the receiver id
 $receiver = $_SESSION['id2'];
-//if the type is ent then check in the entreprise table if not check in the influenceur table
+
+
 if ($type == 'ent') {
+    /*recuperer les information de l'entreprise */
     $sql = "SELECT * FROM entreprise WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
-    //get the name of the sender
     $row = mysqli_fetch_assoc($result);
+
+    /*le nom de l'entreprise qui a envoyé le message */
     $senderName = $row['nom'];
-    //get the id of the receiver from influenceur table
+
+    /*recperer les infos de l'influenceur a qui l'entreprise veut envoyer le message */
+
     $sql = "SELECT * FROM influencer WHERE id = '$receiver'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    //get the name of the receiver
+
+    //le nom complet de l'influenceur
     $receiverName = $row['nom']." ".$row['prenom'];
 } 
 
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -41,20 +52,22 @@ if ($type == 'ent') {
 <head>
     <title>Message Exchange</title>
     <link rel="stylesheet" href="./css/message.css">
+    <!-- lien des icons online-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
      <?php
-            //get the messages from the database
-            //show all the messages between the sender and the receiver in the conversation div
+            /*recuperer tous les messages entre $sender et $receiver*/
                 $sql = "SELECT * FROM messages WHERE (sender = '$sender' AND receiver = '$receiver') OR (sender = '$receiver' AND receiver = '$sender') ORDER BY time_stamp ASC";
                 $result = mysqli_query($conn, $sql); ?>
     
     <section class="wrapper">
         <header>
+            <!-- icon de retour -->
             <a href="conversations_ent.php" class="back-icon"><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
                 
-                    <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>
+            <!-- nom du destinataire -->
+            <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>
                 
             </header>
 
@@ -83,35 +96,27 @@ if ($type == 'ent') {
                         }
                     }
                 }
-                                            echo '</div>';
+                echo '</div>';
 
                 ?>
         </div>
-
+            <!-- zone d'ecriture des messages -->
         <form class="typing-area" method="post" action="">
             <input type="text" name="message" placeholder="Type your message here...">
+            <!-- bouton d'envoi -->
             <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
         </form>
-            </section>
+    </section>
+
 </body>
 </html>
 
-<?php 
-/*
-echo "<br>the sender id is ".$sender."<br>";
-echo "the receiver id is ".$receiver."<br>";
-echo "the type is ".$type."<br>";
-echo "the sender name is ".$senderName."<br>";
-echo "the receiver name is ".$receiverName."<br>";
-*/
-?>
-
 <?php
-//if the send button is clicked
+//si le bouton 'send' est cliqué
 if(isset($_POST['send'])){
-    //get the message
+    //contenu du message
     $message = $_POST['message'];
-    //get the current date and time
+    //date de l'envoi
     $date = date('Y-m-d H:i:s');
     $read=0;
     //insert the message into the message table
@@ -119,7 +124,6 @@ if(isset($_POST['send'])){
     $result = mysqli_query($conn, $sql);
     //if the message is inserted
     if($result){
-        //refresh the page
         
 ?>
       <script type="text/javascript">window.location="message_ent.php";</script>

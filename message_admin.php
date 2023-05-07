@@ -1,24 +1,25 @@
 <?php
-// Start the session
+// commencer la session
 session_start();
-//if the user is not logged in
+//si l'utilisateur n'est pas authentifie 
 if(!isset($_SESSION['id'])){
-    //go to the login page
+    //retour a loogin.php
     header('Location: loogin.php');
     exit();
 }
-// Connect to the database
+// Connecter avec la base de données
 include_once 'database.php';
-//get the id of the sender
+//retenir l id de l'expediteur
 $sender = $_SESSION['id'];
+/*enreprise ou influenceur */
 $type = $_SESSION['type'];
 
 
-//if the type is ent then check in the entreprise table if not check in the influenceur table
+/*s'il s'agit d'une entrepise on prend les infos necessaires du tableau entreprise (dans la base de données) */
 if ($type === 'entreprise') {
     $sql = "SELECT * FROM entreprise WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
-    //get the name of the sender
+    //get the information of the sender
     $row = mysqli_fetch_assoc($result);
     $senderName = $row['nom'];
     $receiverName="admin";
@@ -27,9 +28,11 @@ if ($type === 'entreprise') {
 
     
 } else {
+/*s'il s'agit d'un influenceur on prend les infos necessaires du tableau influencer(dans la base de données) */
+
     $sql = "SELECT * FROM influencer WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
-    //get the name of the sender
+    //get the information of the sender
     $row = mysqli_fetch_assoc($result);
     $senderName = $row['email'];
     $receiverName="admin";
@@ -49,28 +52,29 @@ if ($type === 'entreprise') {
     
     <section class="wrapper">
         <header>
+            <!-- icon de retour -->
+            <!-- si $type=entreprise => $return=entreprise.php sinon $return=influenceur.php -->
             <a href="<?php echo "$return" ?>" class="back-icon"><i class="fas fa-arrow-left" style="font-size:1.5rem;"></i></a>
-                
-                    <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>  
+
+            <!-- nom ou email  du destinataire -->    
+            <span style="font-size:1.5rem;"><?php echo $receiverName ?></span>  
             </header>
 
         <div class="chat-area">
             <!-- create a conversation where the receiver is the admin -->
             <?php
                 echo '<div class="chat-box">';
-
-            // get the id of the users and the type of the user
+            /*l admin est le destinataire */
             $receiver = 'admin';
-            //$sender = $_SESSION['id'];
-            //$type = $_SESSION['type'];
-            // the table of the admin_messages is CREATE TABLE messages (message_id INT PRIMARY KEY AUTO_INCREMENT,user_id INT NOT NULL,user_type VARCHAR(255) NOT NULL,sender_type VARCHAR(255) NOT NULL,message_text TEXT NOT NULL,timestamp DATETIME NOT NULL);
+            
+            /*recuperer tous les messages de admin_messages ou notre utilisateur courant est l'expediteur */
 
-            //select all the messages where the sender_type is entreprise or influencer in the admin_messages table on the right side
             $sql = "SELECT * FROM admin_messages WHERE (sender_type = 'entreprise' OR sender_type = 'influenceur' OR sender_type='admin') AND user_id = '$sender' AND user_type = '$type' ORDER BY time_stamp ASC";
             $result = mysqli_query($conn, $sql);
-            //if there are results,determine the sender and display the message
+
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    /*entreprise ou l'influenceur qui envoient les messages */
                     if ($row['sender_type'] === 'entreprise') {
                         echo '<div class="chat outgoing">
                                 <div class="details">
@@ -84,6 +88,7 @@ if ($type === 'entreprise') {
                                 </div>
                             </div>';
                     }else{
+                    /*l'admin recoit */
 
                     echo '<div class="chat incoming">
                             <div class="details">
@@ -93,35 +98,37 @@ if ($type === 'entreprise') {
                     }
                 }
             }else{
-                // no messages sent yet , send a message 
+                /*si aucun message n'est envoyé a l'utilisateur courrant par l'admin*/
+                /*ce message va apparaitre */
                 echo '<div class="chat incoming">
                         <div class="details">
-                            <p> Contact a member of our team to help you</p>
+                            <p>Contacter un membre de notre equipe pour vous aider</p>
                         </div>
                     </div>';
             }
            
             ?>   
         </div>
-
+            <!-- zone d'ecriture du message -->
         <form class="typing-area" method="post" action="">
             <input type="text" name="message" placeholder="Type your message here...">
             <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
         </form>
-            </section>
+    </section>
 </body>
 </html>
 <?php
-//if the send button is clicked
+//bouton send est cliqué
 if (isset($_POST['send'])) {
-    //get the message
+    //contenu du messages
     $message = $_POST['message'];
-
+    // date de l'envoi
     $date = date('Y-m-d H:i:s');
+    // pas encore lu
     $read=0;
 
 
-    //if the message is not empty
+    //si le message est non vide
     if (!empty($message)) {
         //insert the message in the admin_messages table
         $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `time_stamp` , `read_`) VALUES ('$sender','$type','$type','$message' ,'$date', '$read')";

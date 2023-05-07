@@ -1,18 +1,21 @@
 <?php 
-    //get the session
+    //commencer la session
     session_start();
-    //check if the session is set
+    //si la session n'est pas defini
     if(!isset($_SESSION['email'])){
-        //if not set redirect to the login page
+        //rediriger vers loogin.php
        ?>
       <script type="text/javascript">window.location="loogin.php";</script>
 <?php
         exit();
 
 }else{
-        //if set get the name of the entreprise
+        //sinon
+        // email de l'influenceur
         $email=$_SESSION['email'];
+        //nom complet de l'influenceur
         $name= $_SESSION['firstname'].' ' .$_SESSION['Lastname'];
+        // id de l'influenceur
         $id=$_SESSION['id'];
     }
 ?>
@@ -26,7 +29,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>influenceur </title>
+    <!-- page css -->
     <link rel="stylesheet" href="./css/influenceur.css">
+    <!-- icon en ligne -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -36,13 +41,19 @@
         <i class="fa fa-user"></i> 
           </span><hr>
         <ul> 
+            <!-- nom complet de l'influenceur courant-->
             <li> <?php echo $name; ?></li><br>
+            <!--email de l'influenceur -->
+
             <li><i class="fa fa-envelope"></i>  <?php echo $email; ?> </li><br>
+
+            <!-- id de l'influenceur  -->
+
             <li>ID: <?php echo $id; ?> </li>
             <br>
   </ul><hr>
   <ul>
-             <!--  lien pour modifier les infomations de l'entreprise -->
+             <!--  lien pour modifier les infomations de l'influenceur -->
              <li>
                 <a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
             </li><br>
@@ -51,6 +62,9 @@
                 <a href="delete.php"><i class="fa fa-trash"></i>Supprimer mon compte</a>
             </li><br>
             <li>
+
+            <!--retour a influenceur.php -->
+
                 <a href="influenceur.php"><i class="fa fa-sign-out"></i>Return</a>
         </li><br>
         
@@ -67,10 +81,13 @@
 <?php
 
 //Afficher tous les influenceurs sous forme d'une table  
-//Recuperer la bd connection
+// connection a la bd
 include_once 'database.php';
 //Recuperer l'id de l'influenceur
 $id = $_SESSION['id'];
+
+
+/*recuperer tous les messages non lu envoyé a cet influenceur */
 
 $sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `receiver_type` like 'inf' and read_ =0 group by sender order by time_stamp ";
 $result = mysqli_query($conn, $sql);
@@ -92,7 +109,12 @@ foreach ($result as $row) {
         echo "</tr>";
     }
     echo "</table>";
+
+
       echo "<h1><center>ALL CONVERSATIONS</center></h1>";
+
+      /*recuperer tous les messages lu ou  non lu envoyé a cet influenceur */
+
 
     $sql2 = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `receiver_type` like 'inf' group by sender order by time_stamp ";
 
@@ -120,11 +142,17 @@ foreach ($result2 as $row2) {
     if(isset($_POST['message'])) {
         //get the id from thr row 
         $id_entreprise = $_POST['id'];
-        //send the i d in the session variable
+
+        //send the id in the session variable
         $_SESSION['id2'] = $id_entreprise;
+
         //add a variable type to know if the user is an entreprise or an influencer
-        $_SESSION['type'] = "inf";
+        $_SESSION['type'] = "inf";//influenceur
+        
         $_SESSION['id']= $id;
+
+        /*message est lu <=> modifier read_ a 1 au lieu de 0 */
+
         mysqli_query($conn, "UPDATE `messages` set read_ =1 where receiver='$id' and receiver_type like 'inf' and read_ =0  ");
 
         //redirect to the message page
