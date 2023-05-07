@@ -1,12 +1,13 @@
-<!-- connect to data base using include -->
 <?php
+/* connecter a la base de donnees  data avec include... */
 include 'database.php';
-//recieve data from the influencer section 
-//check if the form has been submitted
+
+//si le formulaire est envoyé:
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //check if the form has been submitted
     if(isset($_POST['submit'])){
-        //get the data from the influenceur section,some of them are optional
+        //recevoir les données de signup.php section influenceur
+
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $age = $_POST['age'];
@@ -20,35 +21,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $abonne = $_POST['follower'];
         $password = $_POST['password'];
         $password2 = $_POST['password-confirm'];
-        //check if the password and the password confirmation are the same
+
+        //verifier si le mot de passe et sa confirmation sont les memes
         if($password == $password2){
-            //check if the email is already used
+            //verifier si l'email n'est jamais utilisé
+            /*on cherche les emails = $email */
             $sql = "SELECT * FROM influencer WHERE email = '$email'";
             $result = mysqli_query($conn,$sql);
             $num = mysqli_num_rows($result);
+            //si rien n'est trouvé de similaire
             if($num == 0){
-                //insert the data into the database
+                //on encrypte le mot de passe
                 $pw = sha1($password);
+
+                /*on insert les informations de l'influenceur dans la table influenceur*/
+
                 $sql = "INSERT INTO influencer (nom,prenom,age,telephone,email,genre,insta,fcbk,youtube,domaine,abonne,password) VALUES ('$nom','$prenom','$age','$telephone','$email','$genre','$insta','$fcbk','$youtube','$domaine','$abonne','$pw')";
                 $result = mysqli_query($conn,$sql);
-                //check if the data has been inserted
+
+                //si les données sont insérées 
                 if($result){
-                    //redirect to the login page
+                    /*rediriger vers loogin.php*/
                     header("location:loogin.php");
                 }
                 else{
-                    //redirect to the signup page and display an error message
+                    /*sinon rediriger vers signup.php page et envoyer un msg d'erreur à recuperer avec GET*/
                     header("location:signup.php?error=error in the signup process");
                 }
             }
             else{
+                /*message d'erreur au cas d'un email qui dj existe */
                 header("location:signup.php?error=email already used");
             }
         }
         else{
+            /*message d'erreur au cas ou le mot de passe et sa confirmation ne sont pas les meme*/
+
             header("location:signup.php?error=passwords are not the same");
         }
     }else{
+        /*probleme dans la procedure du signup */
         header("location:signup.php?error=error in the signup process");
     }
     

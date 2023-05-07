@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--pour utiliser les icon de fontawsome en ligne -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Admin Login</title>
     <link rel="stylesheet" href="css/admin.css">
 </head>
@@ -21,6 +23,8 @@
                 <?php } ?>
 </div>
 </center>
+<!-- login form -->
+
 <form action="admin.php" method="post">
   <div class="inputBox">
     <!--icon -->
@@ -32,8 +36,9 @@
 <div class="inputBox">
 <ion-icon name="lock-closed-outline"></ion-icon>
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-    <i class="fas fa-eye" id="eye2" onclick="showpw('#pw2' , '#eye2')"></i>
+    <input  type="password" name="password" id="password">
+    <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->
+    <i class="fas fa-eye" id="eye1" onclick="showpw('#password' , '#eye1')"></i>
 </div>
     <input type="submit"  class="bouton" value="Login">
 
@@ -75,17 +80,24 @@ if (isset($_POST['username'])) {
 }
 ?>
  <script>
-
+/*de password a text et vice versa */
 function showpw(id , id2) {
      
-    let pwfield = document.querySelector(id);
-    let eyefield= document.querySelector(id2);
+    let pwfield = document.querySelector(id);// selectionner le input dont l'id est #password
+    let eyefield= document.querySelector(id2);// selectionner l icon don't l id est #eye1
 
-	if (pwfield.type == "password") {
+	if (pwfield.type == "password") { //si le type de l input est password
+        // change le à text
 		pwfield.type = "text";
+        // changer le nom de la classe de #eye 
         eyefield.className = "fas fa-eye-slash";
 	} else {
+        //si le type de l input est text
+        // change le à password
 		pwfield.type = "password";
+
+        // changer le nom de la classe de #eye 
+
         eyefield.className = "fas fa-eye";
 	}
 };

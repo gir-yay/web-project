@@ -4,28 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--pour utiliser les icon de fontawsome en ligne -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <title>Sign Up</title>
+    <!-- page de css -->
     <link rel="stylesheet" href="./css/s.css">
 
 </head>
 <body>
-    <!-- ERROR HANDLING  -->
+<!-- influenceur -->
 
     <section id="influenceur">
     <div class="container">
         <header>Bienvenue !</header>
+         <!-- les info seront envoyé à la page submitinf.php par POST-->
         <form  action="submitinf.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
+                        <!-- ERROR HANDLING  -->
+
                     <div class="erreur-msg" id="inf">
-                        
+                <!-- ecrire l'erreur s'il y a un erreur -->
+
                         <?php
                         if(isset($_GET['error'])){
+                            
                             echo $_GET['error'];
 
                               ?>
+            <!-- changer display:none à display:flex -->      
                             <script>
                                 document.getElementById("inf").style.display = "flex";
                             </script>
@@ -36,7 +46,7 @@
                         ?>
                         
                 </div>
-
+                    <!-- information personnel de l'influenceur -->
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Nom</label>
@@ -68,11 +78,11 @@
                            <option value="Homme">Homme</option>
                            <option value="Femme">Femme</option>
                            <option value="Autre">Autre</option>
-                           </select>
+                        </select>
                         </div>
                     </div>
                 </div>
-
+                        <!-- information sur les réseaux sociaux -->
                 <div class="details personnel">
                     <span class="titre">Resaux Sociaux</span>
 
@@ -93,6 +103,7 @@
                         </div>
             
                         <div class="input-boxss">
+                        <!-- niche -->
                         <label >Domaine</label>
                         <select name="domaine" id="domaine">
                            <option value="Fashion">Fashion</option>
@@ -103,6 +114,7 @@
                         </select>
                         </div>
 
+                        <!-- informations sur les abonnées-->
                         <div class="input-boxss">
                         <label >Abonnées</label> 
                         <select name="follower" id="follower">
@@ -112,15 +124,19 @@
                             <option value="+150k">+150k Abonné</option>
                         </select>
                         </div> 
+
+                        <!-- mot de passe et confirmation -->
                         <div class="input-boxss">
                         <label >Mot de passe</label>
                         <input id="pw1" type="password" name="password" placeholder=" mot de passe" required>
+          <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->
                          <i class="fas fa-eye eye" id="eye1" onclick="showpw('#pw1' , '#eye1')"></i>
 
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
                         <input id="pw2" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->          
                          <i class="fas fa-eye eye" id="eye2" onclick="showpw('#pw2' , '#eye2')"></i>
 
                         </div>
@@ -130,6 +146,7 @@
                 <button type="submit" name="submit">S'inscrire</button>
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
+                 <!-- si on clique montrer la section de l'entreprise-->
                 <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis Entreprise</a>
                 <div class="loginlink">
                 <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
@@ -137,19 +154,25 @@
         </form>
     </div>
     </section>
+
+    <!-- entreprise -->
+
    <section id="entreprise">
       <div class="container">
         <header>Bienvenue !</header>
+         <!-- les info seront envoyé à la page submit.php par POST-->
         <form action="submit.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
                     <span class="titre">Information Personnel</span>
                     <div class="erreur-msg" id="ent">
-                            
+            <!-- ecrire l'erreur s'il y a des erreurs -->
+ 
                      <?php
 
                         if(isset($_GET['error'])){
                             echo $_GET['error'];
                              ?>
+                    <!-- changer display:none à display:flex -->         
                             <script>
                                 document.getElementById("ent").style.display = "flex";
                             </script>
@@ -205,12 +228,15 @@
                         <div class="input-boxss">
                         <label >Mot de passe</label>
                         <input id="pw3" type="password" name="password" placeholder=" mot de passe" required>
+
+          <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->
                          <i class="fas fa-eye eye" id="eye3" onclick="showpw('#pw3' , '#eye3')"></i>
 
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
                         <input id="pw4" type="password" name="password-confirm" placeholder="un mot de passe" required>
+              <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->            
                          <i class="fas fa-eye eye" id="eye4" onclick="showpw('#pw4' , '#eye4')"></i>
                         </div>
                     </div>
@@ -220,6 +246,7 @@
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
                  <div class="change">
+                     <!-- si on clique montrer la section de l'influenceur-->
                  <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis Influenceur</a>
                  </div>
                 <div class="loginlink">
@@ -229,31 +256,55 @@
     </div>
    </section>
    
-
+<!-- script pour montrer la section entreprise ou influenceur  -->
 	<script>
 		function showEntrepriseSection() {
+         
+         /*l'element dont l'id est entreprise va etre visible */
+
 			document.getElementById("entreprise").style.display = "block";
-			document.getElementById("influenceur").style.display = "none";
+
+        
+            /*l'element dont l'id est influenceur va etre invisible */			
+            document.getElementById("influenceur").style.display = "none";
 		}
 
 		function showInfluenceurSection() {
+
+        /*l'element dont l'id est entreprise va etre invisible */
 			document.getElementById("entreprise").style.display = "none";
+
+        /*l'element dont l'id est influenceur va etre visible */    
 			document.getElementById("influenceur").style.display = "block";
 		}
 	</script>
 
        <script>
+/*de password a text et vice versa */
 
 function showpw(id , id2) {
-     
-    let pwfield = document.querySelector(id);
-    let eyefield= document.querySelector(id2);
+     // selectionner le input dont l'id est id    
 
+    let pwfield = document.querySelector(id);
+
+    // selectionner l icon don't l id est id2
+
+    let eyefield= document.querySelector(id2);
+//si le type de l input est password
+        // change le à text
 	if (pwfield.type == "password") {
 		pwfield.type = "text";
+
+        // changer le nom de la classe de id2
+
         eyefield.className = "fas fa-eye-slash eye";
 	} else {
+         //si le type de l input est text
+        // change le à password
 		pwfield.type = "password";
+
+        // changer le nom de la classe de id2
+
         eyefield.className = "fas fa-eye eye";
 	}
 };

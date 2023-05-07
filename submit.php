@@ -1,11 +1,13 @@
 <?php
+/* connecter a la base de donnees  data avec include... */
 include('database.php');
-//recieve data from the influencer section 
-//check if the form has been submitted
+
+//si le formulaire est envoyé:
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   //check if the form has been submitted
   if(isset($_POST['submit'])){
-      //get the data from the entreprise section 
+     //recevoir les données de signup.php section entreprise
+
       $nom = $_POST['nom'];
       $telephone = $_POST['telephone'];
       $email = $_POST['email'];
@@ -19,32 +21,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $domaine = $_POST['domaine'];
       $password = $_POST['password'];
       $password2 = $_POST['password-confirm'];
-      //check if the password and the password confirmation are the same
+      //verifier si le mot de passe et sa confirmation sont les memes
       if($password == $password2){
-          //check if the email is already used
-          $sql = "SELECT * FROM entreprise WHERE email = '$email'";
+         //verifier si l'email n'est jamais utilisé
+            /*on cherche les emails = $email */
+        $sql = "SELECT * FROM entreprise WHERE email = '$email'";
           $result = mysqli_query($conn,$sql);
           $num = mysqli_num_rows($result);
+         //si rien n'est trouvé de similaire
+
           if($num == 0){
+                //on encrypte le mot de passe
                 $pw = sha1($password);
-              //insert the data into the database
-              $sql = "INSERT INTO entreprise (nom,telephone,email,logo,site,ca,domaine,password) VALUES ('$nom','$telephone','$email','$logo','$site','$ca','$domaine','$pw')";
+
+       /*on insert les informations de l'influenceur dans la table entreprise*/
+         
+                $sql = "INSERT INTO entreprise (nom,telephone,email,logo,site,ca,domaine,password) VALUES ('$nom','$telephone','$email','$logo','$site','$ca','$domaine','$pw')";
               $result = mysqli_query($conn,$sql);
-              //check if the data has been inserted
+                //si les données sont insérées 
+
               if($result){
-                  //redirect to the login page
+                    /*rediriger vers loogin.php*/
                   header("location:loogin.php");
               }
               else{
-                  //redirect to the signup page and display an error message
+                 /*sinon rediriger vers signup.php page et envoyer un msg d'erreur à recuperer avec GET*/
                   header("location:signup.php?error=error in the signup process");
               }
           }
           else{
+            /*message d'erreur au cas d'un email qui dj existe */
               header("location:signup.php?error=email already used");
           }
       }
       else{
+         /*message d'erreur au cas ou le mot de passe et sa confirmation ne sont pas les meme*/
+
+
           header("location:signup.php?error=passwords are not the same");
       }
 

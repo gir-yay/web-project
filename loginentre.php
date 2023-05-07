@@ -1,19 +1,28 @@
 <?php 
-
+//commencer la session
 session_start(); 
-
+// connecter a la bd
 include "database.php";
 
-//the email and password from the form are not empty and stored in th e$_post array
+//recuperer l'email et le mot de passe a travers $_POST
 $email =$_POST['email'];
 $password =$_POST['password'];
+
+// encrypter le mot de passe
+
 $pw= sha1($password);
-// check if the email and password exist in the entreprise table
+
+/*recuperer les informations de l'entreprise dont l'email est $email et le mot de passe est $pw */
+/*les mots de passe sont encrypter dans la bd */
+
 $sql = "SELECT * FROM entreprise WHERE email='$email' AND password='$pw'";
 $result = mysqli_query($conn, $sql);
 
-//check if the result is not empty
+/*si le nbr de ligne recuperé > 0 , donc l email et le mot de passe sont corrects , redirection a influenceur.php*/
+/*sino redirection à loogin.php et apparution du message d'erreur */
+
 if (mysqli_num_rows($result) > 0) {
+    /*creer les variables de la session de l'entreprise courrante */
     //store the email in the session
     $_SESSION['email'] = $email;
     //add the id of the entreprise to the session
