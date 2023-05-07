@@ -1,15 +1,22 @@
+/*importer poppins font de googlefonts.com*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/*css par defaut*/
 * {
     margin: 0;
     padding: 0;
+
+    /*la taille et les proportions des éléments restent cohérentes,
+        même lorsque des bordures et du rembourrage sont ajoutés*/
     box-sizing: border-box;
+
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
 
-
+/*css pour body*/
 body {
+    /*flex permet de contrôler l'alignement, la distribution et l' ordre des éléments d'un conteneur*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +37,8 @@ body {
     padding: 25px 30px;
 }
 
-:is(.chat-box)::-webkit-scrollbar {
+/*pas de scrollbar*/
+.chat-box::-webkit-scrollbar {
     width: 0px;
 }
 
