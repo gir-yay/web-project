@@ -1,4 +1,5 @@
 <?php   
+    /*cette page est la liste des conversasions de l'entreprise */
     include_once 'database.php';
     //get the session
     session_start();

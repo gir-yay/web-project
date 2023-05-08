@@ -2,6 +2,7 @@
 // connecter avec mysql la base de donné
 //le nom du serveur
 $servername = "localhost";
+//cas de changement du port par defaut
 //$servername = "127.0.0.1:3308";
 //utilisateur
 $user="root";

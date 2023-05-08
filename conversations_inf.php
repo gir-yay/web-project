@@ -1,4 +1,6 @@
 <?php 
+    /*cette page est la liste des conversasions de l'influenceur */
+
     //commencer la session
     session_start();
     //si la session n'est pas defini

@@ -70,7 +70,7 @@
     </section>
 
                     <!--__________services__________ -->
-      <section id="services"> 
+      <section id="services"> <!-- creer une section pour les services-->
         <div class="titre">
             <h1>Nos services</h1>
         </div>
@@ -79,7 +79,6 @@
                 <img src="./images/feature1.png" alt="">
                 <h4> Partenariat de qualité</h4>
                 <p>Nous travaillons avec des marques de qualité et des influenceurs reconnus dans leur domaine, afin de vous offrir des partenariats de qualité qui répondent à vos besoins spécifiques.
-                    ghjkllmmxmmcùsmcmmsqvlm!slvmldlv
                 </p>
                 
             </div>
@@ -185,6 +184,7 @@
 	<div>
          <h2 id="contactus" > Contacter nous</h2>
     </div>
+    <!-- message sera envoyé à no22one20@gmail.com -->
 	<form method="post" action="https://formsubmit.co/no22one20@gmail.com"> 
         <!--Début du formulaire avec la méthode 'post' 
         et l'action qui va envoyer les données saisies dans le formulaire à l'adresse email indiquée-->

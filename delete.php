@@ -24,10 +24,12 @@ if($type==='entreprise'){
 <?php
 /*si l' utilisateur a voulu et a confirmé la suppression de son compte */
 if(isset($_POST['delete']) && isset($_POST['confirm'])) {
-    // on ajoute la requete au tableau request
+    // on ajoute la demande de suppression de compte au tableau request
     $sql="INSERT INTO `request`(`user_id`, `type`, `state`) VALUES ('$id','$type','pending')";
     $result = mysqli_query($conn, $sql);
     if(!$result){
+      /*si ce n'est pas bien inséré */
+      /*on affiche un message d'erreur */
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         exit();
     }

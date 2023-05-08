@@ -1,10 +1,11 @@
 <?php
-// start the session before any output
+// commencer la session
 session_start();
 
-// connect to mysql database
+// connecter à la base de donnéés
 include 'database.php';
-//print th esession variables
+
+//ecrire les variables de la session
 print_r($_SESSION);
 
 

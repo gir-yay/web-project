@@ -1,4 +1,5 @@
 <?php
+/*le chat box de l'admin */
 // Connect to the database
 include_once 'database.php';
 

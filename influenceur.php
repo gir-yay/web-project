@@ -1,19 +1,23 @@
 <?php 
-    //get the session
+    //la session commence
     session_start();
-    //check if the session is set
+    //verifier si la session est defini
     if(!isset($_SESSION['email'])){
-        //if not set redirect to the login page
+        //sinon rediriger vers loogin.php
        ?>
       <script type="text/javascript">window.location="loogin.php";</script>
 <?php
         exit();
 
 }else{
-        //if set get the name of the entreprise
+        //if set get the name of the influencer
+        /*email de l'influenceur */
         $email=$_SESSION['email'];
+        /*nom complet de l'influenceur */
         $name= $_SESSION['firstname'].' ' .$_SESSION['Lastname'];
+        /*l'id de l'influenceur */
         $id=$_SESSION['id'];
+        /*type de l'utillisateur = inflenceur */
         $_SESSION['type']='influenceur';
 
     }
@@ -22,15 +26,12 @@
     //connect to the database
     include 'database.php';
     // get the row of the influenceur from the database
+    /*recuperer tout les infos de l'influenceur courant de la base de données */
     $sql = "SELECT * FROM influencer WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +41,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>influenceur </title>
     <link rel="stylesheet" href="./css/influenceur.css">
+    <!-- lien pour utiliser les icons de fontawsome en ligne-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -91,8 +93,8 @@
 <div class="main">
 <?php 
 include 'database.php';
-// show all the entreprise as a table
-
+// afficher tous les entreprises dans un tableau
+/*requeste pour recuperer les information de l'entreprise */
 $sql = "SELECT * FROM entreprise";
 $result = $conn->query($sql);
 echo "<h2>Entreprises</h2>";
@@ -107,12 +109,15 @@ echo "<h2>Entreprises</h2>";
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
+        /*nom de l'entreprise */
         echo "<td>" . $row['nom'] . "</td>";
+        /*email de l'entreprise */
         echo "<td>" . $row['email'] . "</td>";
+        /*chiffre d'affaire de l'entreprise */
         echo "<td>" . $row['ca'] . "</td>";
         echo "<td>";
         echo "<form method='post'>";
-        // add a button to make an suggestion to the influencer
+        // add a button to make an suggestion to the entreprise
         echo "<button type='button' class='suggestion-btn'>suggestion</button>";
         echo "<div class='suggestion-form' style='display:none;'>";
         echo "<input type='text' class='sug-options' name='terms' placeholder='Terms'>";
