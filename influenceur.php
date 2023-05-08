@@ -117,8 +117,9 @@ echo "<h2>Entreprises</h2>";
         echo "<td>" . $row['ca'] . "</td>";
         echo "<td>";
         echo "<form method='post'>";
-        // add a button to make an suggestion to the entreprise
+        // bouton pour suggerer qqc à une entreprise
         echo "<button type='button' class='suggestion-btn'>suggestion</button>";
+        /*invisible  (display:none)*/
         echo "<div class='suggestion-form' style='display:none;'>";
         echo "<input type='text' class='sug-options' name='terms' placeholder='Terms'>";
         echo "<input type='text'class='sug-options'  name='amount' placeholder='Amount'>";
@@ -129,7 +130,7 @@ echo "<h2>Entreprises</h2>";
         echo "</form>";
         echo "</td>";
         echo "<td>";
-        //add a button to go to the massage.php page
+        //bouton pour envoyer un massage à une entreprise
         echo "<form method='post'>";
         echo "<button type='submit' class='message-btn' name='message'>Message</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
@@ -140,49 +141,50 @@ echo "<h2>Entreprises</h2>";
     echo "</table>";
     //check if the submit button is clicked
     if(isset($_POST['submit'])) {
-        //get the id of the entreprise
+        //recuperer l'id de l'entreprise
         $id_entreprise = $_POST['id'];
-        //get the terms of the offer
+        //recupererles termes de la suggestion
         $terms = $_POST['terms'];
-        //get the amount of the offer
+        //recuperer le prix
         $amount = $_POST['amount'];
-        //get the duration of the offer
+        //recuperer la durée
         $duration = $_POST['duration'];
-        //get the id of the influencer
+        //l'id de l'influenceur
         $id_influencer = $id;
         //set the state of the offer to waiting
         $state = "waiting";
-        //add the suggestion to the database
+        //ajouter ces informations à la bd (tableau: suggestion)
         $sql = "INSERT INTO suggestion (id_entreprise, id_influencer, terms, amount, duration, state) VALUES ('$id_entreprise', '$id_influencer', '$terms', '$amount', '$duration', '$state')";
         $result = $conn->query($sql);
-        //check if the result is true
+        //si c'est bien inséré
         if($result) {
-            //if true redirect to the same page
+            //rediriger vers la mm page
            ?>
       <script type="text/javascript">window.location="influenceur.php";</script>
 <?php
             exit();
     }else{
-        //if false show an error message
+        //sinon afficher un message d'erreur
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
   }
   //check if the message button is clicked
     if(isset($_POST['message'])) {
-        //get the id from thr row 
+        //recuperer l'id de l'entreprise
         $id_entreprise = $_POST['id'];
-        //send the i d in the session variable
+        //envoyer l'id dans la variable de session
         $_SESSION['id2'] = $id_entreprise;
-        //add a variable type to know if the user is an entreprise or an influencer
+        //l'utilisateur est un influenceur
         $_SESSION['type'] = "inf";
+        //l'id de l'influenceur
         $_SESSION['id']= $id;
-        //redirect to the message page
+        //rediriger vers message_inf.php
        ?>
       <script type="text/javascript">window.location="message_inf.php";</script>
 <?php
 exit();
     }
-
+    /*faire apparaitre ce qu avait display:none lorsque on clique sur le bouton de suggestion*/
     echo "<script>
     document.querySelectorAll('.suggestion-btn').forEach(item => {
         item.addEventListener('click', event => {
@@ -190,12 +192,12 @@ exit();
         })
     })
     </script>";
-    //show all the offers as a table
+    //afficher tous les offres en attente de l'influenceur dans un tableau
     $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'waiting'";
     $result=mysqli_query($conn, $sql);
     // output data of each row
-    //add the option to accept or refuse the offer
-    echo "<h2>Offers</h2>";
+    //ajouter une option pour accepter ou refuser l'offre
+    echo "<h2>Offeres</h2>";
     echo "<table border='1'>
     <tr>
     <th>terms</th>
@@ -210,9 +212,13 @@ exit();
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
+            /*terme de l'offre envoyé a l'influenceur  */
             echo "<td>" . $row['terms'] . "</td>";
+            /*prix */
             echo "<td>" . $row['amount'] . "</td>";
+            /*durée */
             echo "<td>" . $row['duration'] . "</td>";
+            /*etat: waiting */
             echo "<td>" . $row['state'] . "</td>";
             echo "<td>" . $row['nom'] . "</td>";
             echo "<td>";
@@ -224,7 +230,7 @@ exit();
             echo "</td>";
             echo "<td>";
             echo "<form method='post'>";
-            //add a button to refuse the offer WITH Adiffernt name
+            //add a button to refuse the offer 
             echo "<button type='submit' class='refuse-btn' name='refuse'>Refuse</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
@@ -233,51 +239,54 @@ exit();
         }
     }
     echo "</table>";
-    //check if the accept button is clicked
+    //si le bouton accept est cliqué
     if(isset($_POST['accept'])) {
-        //get the id of the offer
+        //recuperer l'id de l'offre
         $id_offer = $_POST['id'];
-        //change the state of the offer to accepted
+        //changer waiting à accepted
         $state = "accepted";
-        //send a request to the database to update the state of the offer
+        //modifier state dans la base de données
         $sql = "UPDATE offer SET state='$state' WHERE id=$id_offer";
         $result = mysqli_query($conn, $sql);
-        //check if the request is successful
+        //si c'est bien fait
         if($result) {
-            //if successful redirect to the influencer page
+            //diriger vers la meme page
            ?>
       <script type="text/javascript">window.location="influenceur.php";</script>
 <?php
             exit();
         } else {
-            //if not successful show an error message
+            //sinon afficher un message d'erreur
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
-    //check if the refuse button is clicked
+    //si le bouton refuse est cliqué
     if(isset($_POST['refuse'])) {
-        //get the id of the offer
+        //recuperer l'id de l'offre
         $id_offer = $_POST['id'];
-        //change the state of the offer to refused
+        //changer l'etat à refused
         $state = "refused";
-        //send a request to the database to update the state of the offer
+
+        //modifier state dans la base de données
+
         $sql = "UPDATE offer SET state='$state' WHERE id=$id_offer";
         $result = mysqli_query($conn, $sql);
         //check if the request is successful
         if($result) {
-            //if successful redirect to the influencer page
+            //diriger vers la meme page
+
           ?>
       <script type="text/javascript">window.location="influenceur.php";</script>
 <?php            
 exit();
         } else {
-            //if not successful show an error message
+            //sinon afficher un message d'erreur
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
-    //show accepted offers
-    echo "<h2>Accepted offers</h2>";
-    //get all the accepted offers for the influencer
+    //afficher les offres acceptés
+    echo "<h2> Offeres Acceptés </h2>";
+    //requete pour afficher tous les offres dont state= accepted de l'influenceur courant
     $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'accepted'";
     $result=mysqli_query($conn, $sql);
     // output data of each row
@@ -292,6 +301,7 @@ exit();
     //check if the result is not empty
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
+            //afficher les resultats dans un tableau
             echo "<tr>";
             echo "<td>" . $row['terms'] . "</td>";
             echo "<td>" . $row['amount'] . "</td>";
