@@ -1,24 +1,29 @@
 <?php   
     include_once 'database.php';
-    //get the session
+    //session commence
     session_start();
     //verifier si la session est définie
     if(!isset($_SESSION['email'])){
-        //if not set redirect to the login page
+        //si n'est pas defini deriger vers loogin.php
     ?>
       <script type="text/javascript">window.location="loogin.php";</script>
 <?php
     exit();
     }else{
-        //get the info from entreprise table
+
+        //recuperer l'id de l'entreprise courante
         $id=$_SESSION['id'];
+
+        //recuperer les information de l'entreprise courante
         $sql="SELECT * FROM entreprise WHERE id='$id'";
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
-        //get the name of the entreprise
+
+        //le nom de l'entreprise
         $name=$row['nom'];
-        //get the logo of the entreprise
+        //l'emplacement du logo de l'entreprise
         $logo='Upload/'.$row['logo'];
+        //type=entreprise
         $_SESSION['type']='entreprise';
     }
     $_SESSION['type']='entreprise';
@@ -32,6 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entreprise</title>
     <link rel="stylesheet" href="./css/entreprise.css">
+    <!-- lien pour pouvoir utiliser les icons de fontawsome en ligne -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -40,7 +46,6 @@
 <div class="col-div-6">
 <div class="profile">
     <!-- Le profil a le nom de l'entreprise le logo et  l'ID -->
-    <!-- Le logo de l'entreprise est une image et recuperer le chemin de la bd -->
 <img src="<?php echo $logo ?>" alt="logo" class="pro-img">
 <p><?php echo $name;?><span>ID:<?php echo $_SESSION['id'] ?></span></p>
 </div>
@@ -86,18 +91,21 @@
 include_once 'database.php';
 //Recuperer l'id de l'entreprise
 $id = $_SESSION['id'];
-// GET THE INFO FROM THE DATABASE
+// recuprer les informations de l'entreprise
 $sql = "SELECT * FROM entreprise WHERE id='$id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
+//nom de l'entreprise
 $name = $row['nom'];
+//chiffre d'affaire
 $ca = $row['ca'];
+//email
 $email = $row['email'];
-//Envoyer une demande à la bd pour recuperer tous les influenceurs 
 echo "<h1 style='font-size:30px; padding: 16px;'><strong><center>INFLUENCER </center></strong></h1>";
+//requete pour recuperer tous les influenceurs 
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql); 
-//
+//afficher les resultats dans un tableau
 echo "<table>";
 echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make an offer</th><th>Message</th><th>Profil</th></tr>";
 foreach ($result as $row) {
@@ -142,9 +150,9 @@ foreach ($result as $row) {
 echo "</table>";
 // Vérifier si le bouton d'offre a été cliqué
 if(isset($_POST['submit'])) {
-    // get the terms of the offer
+    // recuperer les termes de l'offre
     $terms = $_POST['terms'];
-    // Recuperer les termes de l'offre
+    // Recuperer le prix de l'offre
     $amount = $_POST['amount'];
     // Recuperer la durée de l'offre
     $duration = $_POST['duration'];
@@ -156,12 +164,12 @@ if(isset($_POST['submit'])) {
     $state = "waiting";
     //afficher toutes les données
     echo "terms: ".$terms." amount: ".$amount." duration: ".$duration." id_entreprise: ".$id_entreprise." id_influencer: ".$id_influencer." state: ".$state;
-    // Envoyer une demande à la base de données pour ajouter l'offre à la base de données
+    // requete pour ajouter l'offre à la base de données
     $sql = "INSERT INTO offer (terms, amount, duration, id_entreprise, id_influencer, state) VALUES ('$terms', '$amount', '$duration', '$id_entreprise', '$id_influencer', '$state')";
     $result = mysqli_query($conn, $sql);
-    // Vérifier si la demande a réussi
+    // si c'est bien inseré
     if($result) {
-        // Si la connexion réussit, rediriger vers la page de l'entreprise.
+        // rediriger vers la page de l'entreprise.
         ?>
       <script type="text/javascript">window.location="entreprise.php";</script>
 <?php
@@ -203,7 +211,7 @@ if(isset($_POST['profile'])) {
 
 
 
-// Ajouter du JavaScript pour basculer l'affichage du formulaire d'offre
+// Ajouter du JavaScript pour afficher le formulaire d'offre
 echo "<script>
     var offerBtn = document.querySelectorAll('.offer-btn');
     var form = document.querySelectorAll('.form');
@@ -216,8 +224,8 @@ echo "</script>";
 
 
 
-//Recuperer la suggestion de l'influenceur
-echo "<h1><center>SUGGESTION</center></h1>";
+//Recuperer les suggestion de l'influenceur à l'entreprise courante
+echo "<h1><center>SUGGESTIONS</center></h1>";
 //Afficher les suggestions de l'influenceur sous forme de tableau et ajouter un bouton pour accepter ou refuser la suggestion lorsque l'état est en attente.
 $sql = "SELECT * FROM suggestion WHERE state = 'waiting' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
@@ -245,7 +253,7 @@ foreach ($result as $row) {
     echo "</tr>";
 }
 echo "</table>";
-// Verifier si le bouton d'acceptation a été cliqué
+// si le bouton d'acceptation a été cliqué
 if(isset($_POST['accept'])) {
     // Recuperer l'ID de la suggestion
     $id = $_POST['id'];
@@ -278,7 +286,7 @@ if(isset($_POST['refuse'])) {
     $result = mysqli_query($conn, $sql);
     // Vérifier si la requête a réussi
     if($result) {
-        // Si la connexion réussit, rediriger vers la page de l'entreprise.
+        // Si c'est réussit, rediriger vers la page de l'entreprise.
        ?>
       <script type="text/javascript">window.location="entreprise.php";</script>
 <?php        
