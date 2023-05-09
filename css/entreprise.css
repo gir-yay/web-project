@@ -6,8 +6,56 @@
 
 /*ajouter une background image (filgrane du logo du site web)*/
 body {
-  background-image: url("../images/bacg.png");
+  background-image: url("../images/bg.png");
   background-size: cover;
+  background-attachment: fixed;
+
+}
+/*Lorsque la touche du menu est cochée, le menu s'affiche, sinon il est caché.*/
+#check{
+  display: none;/*les deux boutons sont cachés initialement.*/
+}
+
+label #btn, label #cancel{
+  position: absolute;
+  cursor: pointer;
+  background-color: #710771;
+  height: 45px;
+  width: 45px;
+  text-align: center; /*centrer le texte à l'intérieur des boutons.*/
+  line-height: 45px; /*la hauteur de ligne des boutons*/
+  color: white;
+  font-size: 29px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #e2aae6;
+  margin: 15px 30px;
+  transition: all .5s ease; /*transition animée de 5 secondes lorsque les boutons sont affichés ou cachés*/
+}
+label #cancel{
+  opacity: 0;
+  visibility: hidden;
+
+}
+/*lorsque l'élément #check est coché le bouton de menu doit être caché. */
+#check:checked ~ label #btn{
+  margin-left: 300px;/*déplacer le bouton de menu vers la droite (avec une marge de 300 pixels).*/
+  opacity: 0;/*On le cache en réduisant son opacité,*/
+  visibility: hidden;/*et en le rendant invisible.*/
+}
+/*lorsque l'élément #check est coché et que le bouton de fermeture doit être affiché*/
+#check:checked ~ label #cancel{
+  margin-left: 300px;
+  opacity: 1; /*on augmente son opacité pour le rendre bien visible*/
+  visibility: visible;
+}
+/*Affichage du menu apres avoir cliquer sur le bouton menu*/
+#check:checked ~ nav{
+  left: 0;
+
+}
+/*On deplace le contenu de la page 300px à gauche pour afficher le menu*/
+#check:checked ~ .main{
+margin-left: 300px;
 
 }
 
@@ -22,18 +70,18 @@ nav {
   z-index: 1;
   /**/
   top: 0;
-  /**/
-  left: 0;
-  /**/
+  /*Cacher la barre menu initialement en affectant la valeur negative de sa largeur*/
+  left: -300px;
+  /*Couleur du fond de la barre menu*/
   background-color: #33033e;
   /*couleur de fond : violet foncé */
   overflow: hidden;
-  /**/
+  /*transition animéée de 0.5secondes*/
   transition: 0.5s;
   /**/
   padding-top: 30px;
-  /**/
-
+  /*transition animée de 5s*/
+  transition: all .5s ease;
 }
 
 /*styler le lien*/
@@ -45,9 +93,8 @@ nav li a {
 
 /*style de la liste lors du survol */
 nav li:hover * {
-  color: #f1f1f1;
-  background-color: #531d61;
   cursor: pointer;
+  padding-left: 10px;
 }
 
 /*styler les input de l'offre*/
@@ -72,7 +119,7 @@ button.submit-offer {
   cursor: pointer;
 }
 
-input {
+input ,.menu{
   color: #f1f1f1;
   background-color: #33033e;
   border: none;
@@ -81,7 +128,7 @@ input {
 }
 
 main {
-  padding: 70px;
+  padding: 90px;
 }
 
 /*styler la div de class main */
@@ -89,7 +136,7 @@ main {
 
   transition: margin-left .5s;
   padding: 16px;
-  margin-left: 300px;
+  margin-left: 0px;
 
 }
 
@@ -303,17 +350,22 @@ td.refused {
 /* styler la partie profil contenant les infos de l"entreprise*/
 .profile {
   display: inline-block;
-  float: left;
-  margin-left: 310px;
+  float: right;
+  margin-right: 10px;
   width: 220px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgb(46, 1, 49);
+
 }
 
 /*redimensioner l'image du logo*/
 .pro-img {
-  float: left;
+  float: right;
   width: 100px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 3px #e89eed;
 }
 
 .pro-img:hover {
@@ -324,7 +376,7 @@ td.refused {
 .profile p {
   color: black;
   font-weight: 500;
-  margin-left: 170px;
+  margin-right: 170px;
   margin-top: 30px;
   font-size: 25px;
   font-weight: bold;
@@ -341,5 +393,6 @@ td.refused {
 /*styler la div contenant le profil de l'entreprise*/
 .col-div-3 {
   width: 25%;
-  float: left;
+  float: right;
+  
 }
