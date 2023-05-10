@@ -73,12 +73,8 @@
                         <input type="email"  name="email"placeholder="Entrez votre email" required>
                         </div>
                         <div class="input-boxss">
-                        <label >Genre</label>
-                        <select name="genre" id="">
-                           <option value="Homme">Homme</option>
-                           <option value="Femme">Femme</option>
-                           <option value="Autre">Autre</option>
-                        </select>
+                        <label >Logo</label>
+                        <input type="file" name="logo" required>
                         </div>
                     </div>
                 </div>

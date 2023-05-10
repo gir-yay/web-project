@@ -13,7 +13,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $age = $_POST['age'];
         $telephone = $_POST['telephone'];
         $email = $_POST['email'];
-        $genre = $_POST['genre'];
         $insta = $_POST['insta'];
         $fcbk = $_POST['fcbk'];
         $youtube = $_POST['ytb'];
@@ -21,7 +20,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $abonne = $_POST['follower'];
         $password = $_POST['password'];
         $password2 = $_POST['password-confirm'];
-
+        // get the logo name and store it in the Upload folder
+        $logo = $_FILES['logo']['name'];
+        $tmp_name = $_FILES['logo']['tmp_name'];
+        $path = "Upload/".$logo;
+        move_uploaded_file($tmp_name,$path);
         //verifier si le mot de passe et sa confirmation sont les memes
         if($password == $password2){
             //verifier si l'email n'est jamais utilisé
@@ -36,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 /*on insert les informations de l'influenceur dans la table influenceur*/
 
-                $sql = "INSERT INTO influencer (nom,prenom,age,telephone,email,genre,insta,fcbk,youtube,domaine,abonne,password) VALUES ('$nom','$prenom','$age','$telephone','$email','$genre','$insta','$fcbk','$youtube','$domaine','$abonne','$pw')";
+                $sql = "INSERT INTO influencer (nom,prenom,age,telephone,email,pfp,insta,fcbk,youtube,domaine,abonne,password) VALUES ('$nom','$prenom','$age','$telephone','$email','$logo','$insta','$fcbk','$youtube','$domaine','$abonne','$pw')";
                 $result = mysqli_query($conn,$sql);
 
                 //si les données sont insérées 
@@ -65,6 +68,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
 }
+
+
+
+
+
+
+
+
+
+
 ?>
 
 
