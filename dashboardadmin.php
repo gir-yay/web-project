@@ -19,50 +19,34 @@ if (isset($_SESSION['username'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--page css -->
-  <link rel="stylesheet" href="./css/admindash.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="./css/dashboardadmin.css">
+    <!-- lien pour pouvoir utiliser les icons de fontawsome en ligne -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- <input type="checkbox" id="check">
-    <label for="check">
-        <div id="btn">&#9776;</div>
-        <div id="cancel">&#x2716;</div>
-    </label>
-
-    <nav><!-- nav bar to logout and message -->
-    <!-- <ul>
-        <li></li><a href="logout.php">Logout</a></li>
-        <li><a href="mess.php">Message</a></li>
-    </ul>
-    <hr>
-    </nav> --> 
-    <input type="checkbox" id="check">
+<input type="checkbox" id="check">
 <label for="check">
     <div id="btn">&#9776;</div>
-    <div id="cancel">&#x2716;</div>
+    <div id="cancel" >&#x2716;</div>
 </label>
-
+    
+    <!-- nav bar to logout and message -->
+    
     <nav>
-  <hr>
-  <ul>
-    <li>
-        <a href="mess.php"><i class="fa fa-envelope"></i>Messages</a>
-    </li>
-            
-            <li>
-                <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
-                <a href="logout.php"><i class="fa fa-sign-out"></i>Déconnexion</a>
-        </li><br>
-        
+        <ul>
+       <li>
+        <a href="logout.php"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
+        <li>
+        <a href="mess.php"><i class="fa fa-envelope"></i> Messages </a></li>
+</ul>
+</nav>
     
-            
-        </ul>
-  </nav>
-    
-    
-    <h2>INFLUENCERS</h2>
+    <div class="main">
+    <h1> 
+        Bienvenu <?php echo $name; ?>
+    </h1><br>
+    <h2>INFLUENCEURS</h2>
 <?php
 // on recupere les influenceurs de la base de données
 $sql = "SELECT * FROM influencer";
@@ -88,7 +72,7 @@ foreach ($result as $row) {
     /*lorsque le bouton est cliqué on peut recuperer l'id de l'influenceur grace à: */
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' name='delete_influencer' value='Delete'>";
+    echo "<input type='submit' class='delete-btn' name='delete_influencer' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
@@ -123,7 +107,7 @@ $result = mysqli_query($conn, $sql);
 //on montre les information sous forme de tableau
 echo "<div class='container'>";
 echo "<table>";
-echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>CA</th><th>Action</th></tr>";
+echo "<tr><th>ID</th><th>Nom</th><th>Email</th><th>CA</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
         /*l'id de l'entreprise*/
@@ -138,7 +122,7 @@ foreach ($result as $row) {
     /*lorsque le bouton est cliqué on peut recuperer l'id de l'influenceur grace à: */
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' name='delete_brand' value='Delete'>";
+    echo "<input type='submit' class='delete-btn' name='delete_brand' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
@@ -156,7 +140,7 @@ if(isset($_POST['delete_brand'])){
 
       if ($result) {
         /*si c'est bien supprimeé afficher: */
-        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
         /*sinon afficher un message d'erreur  */
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
@@ -172,7 +156,7 @@ $result = mysqli_query($conn, $sql);
 /*show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the the collaboration*/
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>Brand Name</th><th>Influencer Name</th><th>Terms</th><th>Status</th><th>Amount</th><th>Duration</th><th>Reg Date</th><th>Action</th></tr>";
+echo "<th>Brand Name</th><th>Nom de l'influenceur</th><th>Conditions</th><th>Statuts</th><th>Montant</th><th>Durée</th><th>Reg Date</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     /*nom de l'entreprise */
@@ -195,7 +179,7 @@ foreach ($result as $row) {
 
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' name='delete_collab' value='Delete'>";
+    echo "<input type='submit' name='delete_collab' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
@@ -211,7 +195,7 @@ if(isset($_POST['delete_collab'])){
 
          /*si c'est bien supprimeé afficher: */
        
-        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
                 /*sinon afficher un message d'erreur  */
 
@@ -246,7 +230,7 @@ foreach ($result as $row) {
 
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' name='delete_suggested_collab' value='Delete'>";
+    echo "<input type='submit' class='delete-btn' name='delete_suggested_collab' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
@@ -263,20 +247,20 @@ if(isset($_POST['delete_suggested_collab'])){
    if ($result) {
             /*si c'est bien supprimeé afficher: */
 
-        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
 }
 /*request pour supprimer le compte */
 //tableau de requetes: id ,user_id , type ,state, delete button 
-echo "<h2>REQUEST</h2>";
+echo "<h2>Demandes</h2>";
 /*selectionner tout de la table request */
 $sql = "SELECT * FROM request";
 $result = mysqli_query($conn, $sql);
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>ID</th><th>User ID</th><th>Type</th><th>State</th><th>Action</th></tr>";
+echo "<th>ID</th><th>ID de l'utilisateur</th><th>Type</th><th>Etat</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     /*l'id */
@@ -290,7 +274,7 @@ foreach ($result as $row) {
     echo "<td>";
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' name='delete_request' value='Delete'>";
+    echo "<input type='submit' class='delete-btn' name='delete_request' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
@@ -319,7 +303,7 @@ if(isset($_POST['delete_request'])){
       $sql = "DELETE FROM suggestion WHERE id_influencer = '$user_id'";
       $result = mysqli_query($conn, $sql);
        if ($result) {
-        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
@@ -340,7 +324,7 @@ if(isset($_POST['delete_request'])){
       $result = mysqli_query($conn, $sql);
 
        if ($result) {
-        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
@@ -350,5 +334,6 @@ if(isset($_POST['delete_request'])){
 echo "</table>";
 echo "</div>";
 ?>
+</div>
 </body>
 </html>
