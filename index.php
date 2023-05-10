@@ -12,20 +12,16 @@
     <section class="header">
     <nav> <!-- crée une barre de navigation-->
         <a href="#" class="logo"><img src="./images/collab.png" style="width: 180px; height: 140px;" alt=""></a>
-        <div class="nav-links"> <!--  crée une liste d'éléments de navigation.-->
+        <div class="nav-links" > <!--  crée une liste d'éléments de navigation.-->
             <ul> <!--  crée une liste à puces-->
                 <li> <a href="#">Home</a></li> <!-- crée un lien vers la page d'accueil.-->
                 <li> <a href="#Aboutus">About Us</a></li> <!-- : crée un lien vers la section "About Us"-->
                 <li> <a href="#services">Services</a></li> <!--  crée un lien vers la section "Services"-->
                 <!-- <li> <a href="admin.php">Admin</a></li>  crée un lien vers une page admin -->
                 <li> <a href="#contactus">Contact</a></li> <!-- crée un lien vers la section "Contact"-->
+                <li> <a href="loogin.php" >Se connecter</a></li>
             </ul>
         </div>
-        
-        <div>
-			<a href="loogin.php" class="join-btn">Se connecter</a>
-		</div>
-
     </nav>
     <div class="text-box">
         <h1>Bienvenue sur Collab</h1>
@@ -40,6 +36,9 @@
         <a href="signup.php" class="btnn">Je suis un influenceur</a><!-- ajoute un bouton pour les influenceurs.-->
     </div>
     </section>
+
+
+
                      <!--         About-Us       -->
     <section id="Aboutus" > <!-- crée une section pour la section "About Us".-->
         <div class="heading"> <!-- crée un en-tête pour la section "About Us".-->
@@ -69,6 +68,7 @@
             </section>
     </section>
 
+
                     <!--__________services__________ -->
       <section id="services"> <!-- creer une section pour les services-->
         <div class="titre">
@@ -95,6 +95,7 @@
         
             </div>
         </div>
+                      <!-- le bouton d'inscription -->
         <div class="service-btn"> <a href="signup.php" class ="join-btn"> S'inscrire maintenant ! </a> </div>
      </section>
       <!--  _______________Pour quoi nous choisir_________________  -->
@@ -105,9 +106,6 @@
             </div>
             <div class="choix">
                 <div class="card">
-                    <div class="icon">
-                        
-                    </div>
                      <h2> Marque ?</h2>
                       <p>Si vous êtes une marque, vous savez à quel point il est important d'élargir votre audience
 						 et d'augmenter votre visibilité en ligne. Pour atteindre ces objectifs, trouver les bons influenceurs et établir
@@ -130,22 +128,26 @@
       </section>
 
                               <!--__________Témoignages__________ -->
-      <section id="avis">
-           <div class="first"> <h1>Témoignages</h1></div>
+
+      <section id="avis">  <!-- définit une section avec l'id "avis". -->
+           <div class="first">
+             <h1>Témoignages</h1></div>
            <div class="wrapper">
-            <div class="container">
-                <div class="profile">
+            <div class="container"> <!-- une division avec la classe "container". Cela servira de conteneur pour chaque témoignage individuel -->
+                <div class="profile"> <!-- une division avec la classe "profile". Cela servira de conteneur pour l'image et le nom de la personne donnant le témoignage -->
                     <div class="imagebox">
                         <img src="./images/kiko.jpg" alt="">
                     </div>
                     <h2>Kiko</h2>
                 </div>
-                <p> <i class="fa-solid fa-quote-left left"></i>
+               
+                <p> <i class="fa-solid fa-quote-left left"></i> <!-- afficher des icônes de guillemets à gauche -->
                      Nous pouvons explorer différents profils et trouver les influenceurs qui correspondent le mieux 
                     à notre image de marque, tout en entrant en contact directement avec eux sur la plateforme pour discuter 
                     des détails de la collaboration.
-                    <i class="fa-solid fa-quote-right right"></i>
+                    <i class="fa-solid fa-quote-right right"></i> <!-- afficher des icônes de guillemets à droite-->
                 </p>
+                 <!-- Le contenu du témoignage est placé entre ces icônes de guillemets -->
             </div>
             <div class="container">
                 <div class="profile">
@@ -195,7 +197,7 @@
 	</form>
 <div id="trait"> </div> <!--  div qui contient rien sert comme Ligne de séparation-->
 <div id="copyrighticon"> 
-    <div id="copyright"> <span> ©2023 </span></div>
+    <div id="copyright"> <span>&#169 2023 </span></div>
     <div id="icons"> <!-- Balise pour les icônes des réseaux sociaux-->
         <a href="http://www.twitter.fr"> <i class="fa fa-twitter">  </i></a> <!-- Lien vers Twitter avec l'icône de Twitter.-->
         <a href="http://www.facebook.fr"> <i class="fa fa-facebook">  </i></a><!-- Lien vers Facebook avec l'icône de Facebook-->

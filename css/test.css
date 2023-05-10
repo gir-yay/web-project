@@ -8,32 +8,30 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/bacg3.png);
-    background-position: center;
-    background-size: cover;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/bacg3.png);/*  un fond avec un dégradé linéaire semi-transparent superposé à l'image  */
+    background-position: center;/* l'image de fond doit être positionnée au centre de la classe header */
+    background-size: cover;  /*  l'image remplira complètement l'arrière-plan de la classe header */
     position: relative;
 }
 
-.logo {
-    margin-top: 0;
-}
-
 nav {
-    display: flex;
-    padding: 2% 6%;
+    display: flex; /*Définit l'élément <nav> comme un conteneur flexible
+                    Cela permet aux éléments enfants de <nav> de s'aligner horizontalement */
+    padding: 2% 6%; /*Définit un espace de rembourrage de 2% en haut et en bas, 
+                    et de 6% à gauche et à droite pour l'élément <nav>*/
     justify-content: space-between;
-    align-items: center;
+    align-items: center;/* les éléments sont centrés verticalement à l'intérieur de <nav> */
 }
 
 .nav-links {
-    flex: 1;
+    flex: 1; /*l'element  va s'étirer autant que possible pour occuper tout l'espace disponible dans son conteneur.*/
     text-align: center;
 
 }
 
 .nav-links ul li {
     list-style: none;
-    display: inline-block;
+    display: inline-block; /*affiche les éléments <li> comme des éléments en ligne avec des caractéristiques de bloc*/
     padding: 8px 12px;
     position: relative;
 }
@@ -43,15 +41,30 @@ nav {
     text-decoration: none;
     font-size: 16px;
 }
+/*
+::after: Cible le pseudo-élément ::after, 
+qui est utilisé pour ajouter du contenu après 
+le contenu de l'élément ciblé */
 
-/* if u wanna add hover ..with after */
-
+.nav-links ul li::after{
+    content:'';/*Définit le contenu du pseudo-élément ":after" comme étant vide*/
+    width: 0%; /* width 0 pour  qu'il ne sera pas visible initialement*/
+    height: 3px;
+    background-color: #4c047b;
+    display: block;/*Définit l'élément comme étant un élément de type "block" */
+    margin: auto;
+    transition: 0.5s;/* transition de durée de 0,5 seconde pour les propriétés qui changeront lorsque l'élément sera survolé. */
+}
+.nav-links ul li:hover::after{
+    width: 100%; /*Définit la largeur d'élément  à 100% lorsqu'il est survolé
+                  Cela le rendra visible */
+}
 .text-box {
     width: 90%;
     color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: absolute;/*Cela permet de le positionner librement dans son conteneur parent*/
+    top: 50%;/* Positionne l'élément  à 50% de la hauteur de son conteneur parent*/
+    left: 50%;/* Positionne l'élément  à 50% de la argeur  de son conteneur parent*/
     transform: translate(-50%, -50%);
     text-align: center;
 
@@ -62,9 +75,10 @@ nav {
 }
 
 .text-box p {
-    margin: 10px 0 40px;
+    margin: 10px 0 40px;  /* l'élément aura une marge de 10 pixels en haut, pas de marge à droite, une marge de 40 pixels en bas et pas de marge à gauche*/
     font-size: 18px;
     color: #fff;
+
 }
 
 .btnn {
@@ -140,23 +154,24 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* contrôler le comportement de disposition des éléments enfants flexibles, 
+                      en leur permettant de se répartir sur plusieurs lignes lorsque l'espace disponible est insuffisant */
 }
 
 .about-image {
     flex: 1;
     margin-right: 40px;
-    overflow: hidden;
+    overflow: hidden; /* masque tout contenu qui dépasse les limites de cet élément, en le coupant visuellement */
 }
 
 .about-image img {
-    max-width: 100%;
+    max-width: 100%;/* la largeur maximale de l'image doit être de 100% de la largeur de son conteneur parent */
     height: auto;
     display: block;
 }
 
 .about-image:hover img {
-    transform: scale(1.2);
+    transform: scale(1.2); /* l'image sera agrandi à 1,2 fois sa taille d'origine. */
 }
 
 .about-content {
@@ -197,12 +212,12 @@ nav {
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around;/*  répartir les éléments  flexibles avec un espace égal autour d'eux */
     flex-wrap: wrap;
 }
 
 .service-col {
-    flex-basis: 25%;
+    flex-basis: 25%;/*  taille de base de 25% */
     text-align: center;
 }
 
@@ -223,12 +238,12 @@ nav {
 .service-btn {
     margin: 80px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-end;  /*  l'élément sera aligné verticalement en bas du conteneur */
     justify-content: center;
 }
 
 .join-btn {
-    display: inline-block;
+    display: inline-block;/* l'élément est affiché en tant qu'élément en ligne, mais conserve les propriétés de bloc */
     padding: 10px 20px;
     color: #fff;
     font-size: 19px;
@@ -268,14 +283,13 @@ nav {
 .choix .card {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* aligne les éléments horizontalement avec un espacement équilibré entre eux */
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; /*  les éléments avec la classe "card" doivent être affichés en colonne plutôt qu'en ligne */
     margin: 0 20px;
     padding: 20px 20px;
     border: 3px solid #4c047b;
     border-radius: 50px;
-
     border-bottom-left-radius: 0;
     cursor: pointer;
 }
@@ -349,8 +363,8 @@ nav {
     width: 100px;
     margin: auto;
     border: 8px solid #eee4f6;
-    border-radius: 50%;
-    overflow: hidden;
+    border-radius: 50%;/* définit un rayon de bordure de 50% pour donner à la boîte d'image une forme circulaire. */
+    overflow: hidden; /*  permet de cacher les parties de l'image qui dépassent de la boîte */
 }
 
 .wrapper .container .profile .imagebox img {
@@ -361,7 +375,7 @@ nav {
     left: 0;
     border: 3px solid #4c047b;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover; /* Cela permet de recadrer ou d'ajuster automatiquement l'image pour qu'elle remplisse le conteneur sans déformation*/
     transition: 0.3s ease;
 }
 
@@ -374,7 +388,7 @@ nav {
     padding: 5px 0;
     text-transform: capitalize;
     color: #fff;
-    letter-spacing: 1px;
+    letter-spacing: 1px;/* applique un espacement de 1 pixel entre les lettres du texte concerné*/
     text-align: center;
 }
 
@@ -383,9 +397,9 @@ nav {
     color: #fff;
     padding: 0 8px;
     font-size: 15px;
-    opacity: 0.8;
+    opacity: 0.8; /* indique que l'élément aura un niveau de transparence de 0.8. */
 }
-
+ /*  Les icons quotes  */
 .wrapper .container .left {
     font-size: 30px;
     display: block;
@@ -406,9 +420,8 @@ footer {
     background-color: #36025f;
     color: #FFFAE1;
     padding: 20px 0 10px 0;
-    /* la taille de la police */
     text-align: center;
-    /* la taille de la police */
+    
 }
 
 #contactus {
@@ -427,8 +440,6 @@ textarea {
     padding: 15px 10px;
     margin: 1px 0;
     font-size: 1.3em;
-    /* la taille de la police */
-    font-family: 'Advent Pro', sans-serif;
     border-radius: 8px;
 }
 
@@ -444,8 +455,7 @@ textarea {
     background-color: #410342;
     color: #fff;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
-    /* la durée 0.3s et le type d'animation lorsqu'on survole l'élément*/
+    transition: 0.3s ease-in-out; /* la durée 0.3s et le type d'animation lorsqu'on survole l'élément*/
 }
 
 #trait {
@@ -487,6 +497,7 @@ textarea {
 
 
 @media screen and (max-width:768px) {
+
 
     /* ___________________About-us Responsive__________________*/
     .heading {
