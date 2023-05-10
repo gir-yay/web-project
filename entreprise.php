@@ -41,8 +41,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<input type="checkbox" id="check">
+<label for="check">
+    <div id="btn">&#9776;</div>
+    <div id="cancel" >&#x2716;</div>
+</label>
     
-
 <div class="col-div-6">
 <div class="profile">
     <!-- Le profil a le nom de l'entreprise le logo et  l'ID -->
@@ -50,25 +54,24 @@
 <p><?php echo $name;?><span>ID:<?php echo $_SESSION['id'] ?></span></p>
 </div>
 </div>
+   
 
     <nav>
+             
         <ul>
-            <li>&#9776; MENU </li><br><br>
-            
-            
-        
+             <div class="menu"> MENU </div><br><br>
             <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
             <li>
             <i class="fa fa-sign-out"></i>
-                <input type="submit" value="Logout" onclick="window.location.href='logout.php'">
+                <input type="submit" value="Déconnexion" onclick="window.location.href='logout.php'">
             </li><br>
 
             <!--  lien pour modifier les infomations de l'entreprise -->
 
-            <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+            <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modifier Mon Profil</a>
             </li><br>
             <!-- envoyer une demande a l'admin pour supprimer le compte -->
-            <li><a href="delete.php"><i class="fa fa-trash"></i> Delete Account</a>
+            <li><a href="delete.php"><i class="fa fa-trash"></i> Supprimer mon compte</a>
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
@@ -76,7 +79,7 @@
             </li><br>
             <!-- lien pour voir les messages recu et tous les conversations -->
             <li>
-                <a href="conversations_ent.php"><i class="fa fa-envelope"></i> Messages recu</a>
+                <a href="conversations_ent.php"><i class="fa fa-envelope"></i> Messages recus</a>
             </li><br>
                 
         </ul>
@@ -101,13 +104,13 @@ $name = $row['nom'];
 $ca = $row['ca'];
 //email
 $email = $row['email'];
-echo "<h1 style='font-size:30px; padding: 16px;'><strong><center>INFLUENCER </center></strong></h1>";
+echo "<h1 style='font-size:30px; padding: 16px;'><strong><center>INFLUENCEUR </center></strong></h1>";
 //requete pour recuperer tous les influenceurs 
 $sql = "SELECT * FROM influencer";
 $result = mysqli_query($conn, $sql); 
 //afficher les resultats dans un tableau
 echo "<table>";
-echo "<tr><th>ID</th><th>Last Name</th><th>First Name</th><th>Email</th><th>Age</th><th>Make an offer</th><th>Message</th><th>Profil</th></tr>";
+echo "<tr><th>ID</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Age</th><th>Ajouter un offre </th><th>Message</th><th>Profil</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['id'] . "</td>";
@@ -118,14 +121,14 @@ foreach ($result as $row) {
     echo "<td>";
     echo "<form method='post'>";
     // ajouter un bouton pour executer un offre pour l'influencer
-    echo "<button type='button' class='offer-btn'>Offer</button>";
+    echo "<button type='button' class='offer-btn'>Offre</button>";
 
     echo "<div clas-form' style='display:none;'>";
     // ajouter un formulaire pour executer un offre: Les termes d'un accord entre deux parties, le montant payé par une marque à un influenceur et la durée du contrat.
     echo "<input type='text' class='offer-options' name='terms' placeholder='Terms'>";
     echo "<input type='text' class='offer-options' name='amount' placeholder='Amount'>";
     echo "<input type='text' class='offer-options' name='duration' placeholder='Duration'>";
-    echo "<button type='submit' class='submit-offer' name='submit'>Submit</button>";
+    echo "<button type='submit' class='submit-offer' name='submit'>Envoyer</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</div>";
     echo "</form>";
@@ -140,7 +143,7 @@ foreach ($result as $row) {
     // a button to visit the profile of the influencer
     echo "<td>";
     echo "<form method='post'>";
-    echo "<button type='submit' class='profile-btn' name='profile'>Profile</button>";
+    echo "<button type='submit' class='profile-btn' name='profile'>Profil</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</form>";
     echo "</td>";
@@ -230,7 +233,7 @@ echo "<h1><center>SUGGESTIONS</center></h1>";
 $sql = "SELECT * FROM suggestion WHERE state = 'waiting' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
 echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Accept</th><th>Refuse</th></tr>";
+echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Accepter</th><th>Refuser</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>".$row['id']."</td>";
@@ -300,9 +303,9 @@ exit();
 //Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>ACCEPTED SUGGESTION</h1>";
+echo "<h1>SUGGESTIONS ACCEPTEES</h1>";
 echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Influenceur</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['id']."</td>";
@@ -317,9 +320,9 @@ echo "</table>";
 /*Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.*/
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>REFUSED SUGGESTION</h1>";
+echo "<h1> SUGGESTIONS REFUSEES</h1>";
 echo "<table>";
-echo "<tr><th>ID</th><th>Terms</th><th>Amount</th><th>Duration</th><th>State</th><th>Influencer</th></tr>";
+echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Influenceur</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>".$row['id']."</td>";
