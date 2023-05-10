@@ -143,9 +143,9 @@
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
                  <!-- si on clique montrer la section de l'entreprise-->
-                <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis Entreprise</a>
+                <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis une Entreprise</a>
                 <div class="loginlink">
-                <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
+                <p> Vous avez d&eacute;j&agrave; un compte ?<a href="loogin.php">Se connecter</a></p>
                 </div>
         </form>
     </div>
@@ -239,14 +239,14 @@
                 </div> 
                 <div class="btn"> 
                 <button type="submit" name="submit">S'inscrire</button>
-                <button id="cancel"> <a href="index.php"> Cancel</a></button>
+                <button id="cancel"> <a href="index.php">Annuler</a></button>
                 </div>
                  <div class="change">
                      <!-- si on clique montrer la section de l'influenceur-->
-                 <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis Influenceur</a>
+                 <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis un Influenceur</a>
                  </div>
                 <div class="loginlink">
-                <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
+                <p>Vous avez d&eacute;j&agrave; un compte ? <a href="loogin.php">Se connecter! </a></p>
                 </div>
         </form>
     </div>
