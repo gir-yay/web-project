@@ -21,15 +21,46 @@ if (isset($_SESSION['username'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--page css -->
   <link rel="stylesheet" href="./css/admindash.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Admin Dashboard</title>
 </head>
 <body>
-    <h1> 
-        <center>WELCOME <?php echo $name; ?></center>
-    </h1>
-    <!-- nav bar to logout and message -->
-        <a href="logout.php">Logout</a>
-        <a href="mess.php">Message</a>
+    <!-- <input type="checkbox" id="check">
+    <label for="check">
+        <div id="btn">&#9776;</div>
+        <div id="cancel">&#x2716;</div>
+    </label>
+
+    <nav><!-- nav bar to logout and message -->
+    <!-- <ul>
+        <li></li><a href="logout.php">Logout</a></li>
+        <li><a href="mess.php">Message</a></li>
+    </ul>
+    <hr>
+    </nav> --> 
+    <input type="checkbox" id="check">
+<label for="check">
+    <div id="btn">&#9776;</div>
+    <div id="cancel">&#x2716;</div>
+</label>
+
+    <nav>
+  <hr>
+  <ul>
+    <li>
+        <a href="mess.php"><i class="fa fa-envelope"></i>Messages</a>
+    </li>
+            
+            <li>
+                <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
+                <a href="logout.php"><i class="fa fa-sign-out"></i>Déconnexion</a>
+        </li><br>
+        
+    
+            
+        </ul>
+  </nav>
+    
     
     <h2>INFLUENCERS</h2>
 <?php
