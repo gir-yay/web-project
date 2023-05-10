@@ -19,7 +19,7 @@ body {
   label #btn, label #cancel{
     position: absolute;
     cursor: pointer;
-    background-color: #0f2d31;
+    background-color: #56111b;
     height: 45px;
     width: 45px;
     text-align: center; /*centrer le texte à l'intérieur des boutons.*/
@@ -27,7 +27,7 @@ body {
     color: white;
     font-size: 29px;
     border-radius: 5px;
-    box-shadow: 0 1px 3px #015f41;
+    box-shadow: 0 1px 3px #7b0232;
     margin: 10px 20px;
     transition: all .5s ease; /*transition animée de 5 secondes lorsque les boutons sont affichés ou cachés*/
   }
@@ -73,7 +73,7 @@ body {
     /*Cacher la barre menu initialement en affectant la valeur negative de sa largeur*/
     left: -250px;
     /*Couleur du fond de la barre menu*/
-    background-color: #0f2d31;
+    background-color: #4f092b;
     /*couleur de fond : violet foncé */
     overflow: hidden;
     /*transition animéée de 0.5secondes*/
@@ -124,7 +124,7 @@ body {
     margin-left: 30px;
     font-size: 30px;
     text-align: center;
-    color: #274040;
+    color: #080808;
   }
   .main h1 {
     transition: left .5s;
@@ -132,7 +132,7 @@ body {
     margin-left: 30px;
     font-size: 40px;
     text-align: center;
-    color: #182828;
+    color: #211010;
   }
   
   /*styler les textes des li*/
@@ -177,16 +177,16 @@ body {
   
   /*styler les lignes impaires et paires du tableau*/
   tr:nth-child(odd) {
-    background: linear-gradient(to right, #256629, #4CAF50);
+    background: linear-gradient(to right, #bf8ad2, #c15681);
   }
   
   tr:nth-child(even) {
-    background: linear-gradient(to right, #59756a, #b8e1cc);
+    background: linear-gradient(to right, #a56db6, #d1bac1);
   }
   
   /*style des lignes lors du survol */
   table tr:first-child:hover {
-    background: linear-gradient(to right, #09b366, #347c48);
+    background: linear-gradient(to right, #b3095e, #4f4b4d);
     color: #110d0d;
     animation: highlight 0.4s ease-in-out;
   }
