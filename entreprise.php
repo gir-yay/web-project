@@ -227,7 +227,7 @@ echo "<h1><center>SUGGESTIONS</center></h1>";
 $sql = "SELECT * FROM suggestion WHERE state = 'waiting' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
 echo "<table>";
-echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Accepter</th><th>Refuser</th></tr>";
+echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Dur&eacute;e</th><th>Etat</th><th>Accepter</th><th>Refuser</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>".$row['id']."</td>";
@@ -297,7 +297,7 @@ exit();
 //Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>SUGGESTIONS ACCEPTEES</h1>";
+echo "<h1>SUGGESTIONS ACCEPT&Eacute;ES</h1>";
 echo "<table>";
 echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Influenceur</th></tr>";
 foreach ($result as $row) {
@@ -314,7 +314,7 @@ echo "</table>";
 /*Afficher les suggestions refusées de l'influenceur sous forme de table jointe avec la table de l'influenceur pour obtenir le prénom et le nom de famille de l'influenceur.*/
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'refused' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1> SUGGESTIONS REFUSEES</h1>";
+echo "<h1> SUGGESTIONS REFUSé&Eacute;ES</h1>";
 echo "<table>";
 echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Influenceur</th></tr>";
 foreach ($result as $row) {
