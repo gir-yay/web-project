@@ -44,6 +44,11 @@
 </head>
 
 <body>
+<input type="checkbox" id="check">
+<label for="check">
+    <div id="btn">&#9776;</div>
+    <div id="cancel">&#x2716;</div>
+</label>
     
 
     <nav>
@@ -68,7 +73,6 @@
         </ul>
     </nav>
 
-    <main></main>
     <div class="main">
 
 <?php

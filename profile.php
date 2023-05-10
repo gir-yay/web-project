@@ -12,6 +12,10 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 // get the name of the influencer
 $nom = $row['nom'].' '.$row['prenom'];
+//get the pfp of the influenceur
+$pfp = $row['pfp'];
+//add the path to the pfp from Upload folder
+$pfp = "Upload/".$pfp;
 ?>
 <!-- create a html to present the information of the influenceur  -->
 <!DOCTYPE html>
@@ -34,11 +38,10 @@ $nom = $row['nom'].' '.$row['prenom'];
         
             <div class="profil-card">
                 <div class="image">
-                    <img src="bacg1.png" alt="" class="profile-img">
+                    <img src="<?php echo $pfp; ?>" alt="" class="profile-img">
                 </div>
                 <div class="text-data">
                     <span class="name"> <?php echo $row['nom']; ?> <?php echo $row['prenom']; ?></span>
-                    <span class="genre"> <?php echo $row['genre']; ?> </span>
                     <span>  <?php echo $row['age']; ?> ans</span>
                     <span class="domaine"><?php echo $row['domaine']; ?></span>
                     <span  > <?php echo $row['email']; ?> </span>
