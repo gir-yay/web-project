@@ -49,13 +49,13 @@ $pfp = "Upload/".$pfp;
                     <span class="follower" ></i> <?php echo $row['abonne']; ?> abonnés</span>
                 </div>
                 <div class="media-buttons">
-                     <a href="https://<?php echo $row['insta']; ?>" target="_blank" class="link">
+                     <a href="<?php echo $row['insta']; ?>" target="_blank" class="link">
                     <i class="fa-brands fa-instagram"></i>
                     </a> 
-                     <a href="https://<?php echo $row['fcbk']; ?>" target="_blank" class="link">
+                     <a href="<?php echo $row['fcbk']; ?>" target="_blank" class="link">
                     <i class="fa-brands fa-facebook"></i>
                     </a> 
-                     <a href="https://<?php echo $row['youtube']; ?>" target="_blank" class="link">
+                     <a href="<?php echo $row['youtube']; ?>" target="_blank" class="link">
                     <i class="fa-brands fa-youtube"></i>
                     </a> 
                      

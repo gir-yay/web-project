@@ -85,17 +85,17 @@
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Instagram</label>
-                        <input type="text" name="insta" placeholder="Votre compte Instagramm "required>
+                        <input type="text" name="insta" placeholder="Ex:https://www.instagram.com"required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Facebook</label>
-                        <input type="text" name="fcbk" placeholder="Votre compte Facebook" required>
+                        <input type="text" name="fcbk" placeholder="Ex:https://www.facebook.com" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Youtube</label>
-                        <input type="text" name="ytb" placeholder="Votre chaine Youtube" required>
+                        <input type="text" name="ytb" placeholder="Ex:https://www.youtube.com" required>
                         </div>
             
                         <div class="input-boxss">
@@ -203,7 +203,7 @@
                   
                         <div class="input-boxss">
                         <label >Site Web </label>
-                        <input type="text"name="site" placeholder="Lien de Votre site web "required>
+                        <input type="text"name="site" placeholder="Ex:https://www.companyName.com"required>
                         </div>
                         
                     
