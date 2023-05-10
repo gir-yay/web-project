@@ -25,15 +25,24 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
+<input type="checkbox" id="check">
+<label for="check">
+    <div id="btn">&#9776;</div>
+    <div id="cancel" >&#x2716;</div>
+</label>
     
     <!-- nav bar to logout and message -->
     
-   
-        <a href="logout.php"><i class="fa fa-sign-out"></i> Déconnexion</a>
-        
-        <a href="mess.php"><i class="fa fa-envelope"></i> Messages </a>
-
+    <nav>
+        <ul>
+       <li>
+        <a href="logout.php"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
+        <li>
+        <a href="mess.php"><i class="fa fa-envelope"></i> Messages </a></li>
+</ul>
+</nav>
+    
+    <div class="main">
     <h1> 
         Bienvenu <?php echo $name; ?>
     </h1><br>
@@ -325,5 +334,6 @@ if(isset($_POST['delete_request'])){
 echo "</table>";
 echo "</div>";
 ?>
+</div>
 </body>
 </html>
