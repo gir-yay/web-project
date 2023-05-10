@@ -39,37 +39,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>influenceur </title>
+    <title>Influenceur </title>
     <link rel="stylesheet" href="./css/influenceur.css">
     <!-- lien pour utiliser les icons de fontawsome en ligne-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
+<input type="checkbox" id="check">
+<label for="check">
+    <div id="btn">&#9776;</div>
+    <div id="cancel">&#x2716;</div>
+</label>
+
     <nav>
-    <span class="icon">
-        <i class="fa fa-user"></i> 
-          </span><hr>
+    
+    <img src="./images/influenceur2.png" alt="photo de profil">
+
         <ul> 
             <li> <?php echo $name; ?></li><br>
             <li><i class="fa fa-envelope"></i>  <?php echo $email; ?> </li><br>
-            <br>
-            <!-- show the social media if it exist -->
-            <!-- <li><i class="fa fa-facebook"></i> <?php echo $row['fcbk']; ?></li><br>
-            <li><i class="fa fa-instagram"></i> <?php echo $row['insta']; ?></li><br>
-            <li><i class="fa fa-youtube"></i> <?php echo $row['youtube']; ?></li><br> -->
-
+            
 
         </ul>
   <hr>
   <ul>
              <!--  lien pour modifier les infomations de l'entreprise -->
              <li>
-                <a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+                <a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modifier Mon Profil</a>
             </li><br>
                 <!-- lien pour voir les messages recus -->
             <li>
-                <a href="conversations_inf.php"><i class="fa fa-envelope"></i> Messages recu</a>
+                <a href="conversations_inf.php"><i class="fa fa-envelope"></i> Messages recus</a>
             </li><br>
             <!-- lien pour contactez l'admin -->
             <li>
@@ -81,7 +82,7 @@
             </li><br>
             <li>
                 <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
-                <a href="logout.php"><i class="fa fa-sign-out"></i>Logout</a>
+                <a href="logout.php"><i class="fa fa-sign-out"></i>Déconnexion</a>
         </li><br>
         
     
@@ -101,10 +102,10 @@ echo "<h2>Entreprises</h2>";
     // output data of each row
     echo "<table border='1'>
     <tr>
-    <th>name</th>
-    <th>email</th>
-    <th>ca</th>
-    <th>Make a suggestion </th>
+    <th>Nom</th>
+    <th>Email</th>
+    <th>CA</th>
+    <th> Envoyer une suggestion </th>
     <th>Message</th>
     </tr>";
     while($row = $result->fetch_assoc()) {
@@ -197,16 +198,16 @@ exit();
     $result=mysqli_query($conn, $sql);
     // output data of each row
     //ajouter une option pour accepter ou refuser l'offre
-    echo "<h2>Offeres</h2>";
+    echo "<h2>Offres</h2>";
     echo "<table border='1'>
     <tr>
-    <th>terms</th>
-    <th>amount</th>
-    <th>duration</th>
-    <th>state</th>
-    <th>entreprise</th>
-    <th>Accept</th>
-    <th>Refuse</th>
+    <th>Conditions</th>
+    <th>Montant</th>
+    <th>Durée</th>
+    <th>Etat</th>
+    <th>Entreprise</th>
+    <th>Accepter</th>
+    <th>Refuser</th>
     </tr>";
     //check if the result is not empty
     if($result->num_rows > 0) {
@@ -224,14 +225,14 @@ exit();
             echo "<td>";
             echo "<form method='post'>";
             //add a button to accept the offer
-            echo "<button type='submit' class='accept-btn' name='accept'>Accept</button>";
+            echo "<button type='submit' class='accept-btn' name='accept'>Accepter</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
             echo "</td>";
             echo "<td>";
             echo "<form method='post'>";
             //add a button to refuse the offer 
-            echo "<button type='submit' class='refuse-btn' name='refuse'>Refuse</button>";
+            echo "<button type='submit' class='refuse-btn' name='refuse'>Refuser</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
             echo "</td>";
@@ -285,18 +286,18 @@ exit();
         }
     }
     //afficher les offres acceptés
-    echo "<h2> Offeres Acceptés </h2>";
+    echo "<h2> Offres Acceptés </h2>";
     //requete pour afficher tous les offres dont state= accepted de l'influenceur courant
     $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'accepted'";
     $result=mysqli_query($conn, $sql);
     // output data of each row
     echo "<table border='1'>
     <tr>
-    <th>terms</th>
-    <th>amount</th>
-    <th>duration</th>
-    <th>state</th>
-    <th>entreprise</th>
+    <th>Conditions</th>
+    <th>Montant</th>
+    <th>Durée</th>
+    <th>Etat</th>
+    <th>Entreprise</th>
     </tr>";
     //check if the result is not empty
     if($result->num_rows > 0) {
@@ -317,5 +318,7 @@ exit();
 
 </body>
 </html>
+
+
 
 
