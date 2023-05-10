@@ -47,25 +47,19 @@
     <div id="cancel" >&#x2716;</div>
 </label>
     
-<div class="col-div-6">
-<div class="profile">
-    <!-- Le profil a le nom de l'entreprise le logo et  l'ID -->
-<img src="<?php echo $logo ?>" alt="logo" class="pro-img">
-<p><?php echo $name;?><span>ID:<?php echo $_SESSION['id'] ?></span></p>
-</div>
-</div>
-   
-
     <nav>
-             
+    
+  <div class="profile">
+    <!-- Le profil a le nom de l'entreprise le logo et  l'ID -->
+     <img src="<?php echo $logo ?>" alt="logo" class="pro-img"><br>
+         <p><?php echo $name;?></p><br>
+</div>
         <ul>
-             <div class="menu"> MENU </div><br><br>
+             
             <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
             <li>
-            <i class="fa fa-sign-out"></i>
-                <input type="submit" value="Déconnexion" onclick="window.location.href='logout.php'">
+            <i class="fa fa-sign-out"></i><input type="submit" value="Déconnexion" onclick="window.location.href='logout.php'">
             </li><br>
-
             <!--  lien pour modifier les infomations de l'entreprise -->
 
             <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modifier Mon Profil</a>
