@@ -186,7 +186,7 @@ body {
   
   /*style des lignes lors du survol */
   table tr:first-child:hover {
-    background: linear-gradient(to right, #b3095e, #4f4b4d);
+    background: linear-gradient(to right, #b3095e, #8a8286);
     color: #110d0d;
     animation: highlight 0.4s ease-in-out;
   }
