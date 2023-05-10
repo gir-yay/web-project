@@ -11,7 +11,7 @@ body {
   background-attachment: fixed;
 }
 h1 {
-    transition: left .5s;
+    transition: left .5s; /*transition animée de 5 secondes*/
     padding: 16px;
     margin-left: 30px;
     font-size: 40px;
@@ -79,37 +79,37 @@ table {
     }
   }
   .retour-btn{
-    background-color: #7d0839;
-    display: inline-block;
-    margin-top: 50px;
-     margin-left: 30px;
-     width: 60px;
-     height: 60px;
-     border-radius: 50%;
-     color: #fff;
-     text-align: center;
-     font-size: 20px;
-     line-height: 40px;
-     border: none;
-     align-items: center;
+    background-color: #7d0839;    /*définir la couleur de fond du bouton*/
+    display: inline-block;    /*définir le type d'affichage du bouton à inline-block*/
+    margin-top: 50px;      /*définir la marge supérieure du bouton*/
+     margin-left: 30px;  /*définir la marge gauche du bouton */
+     width: 60px;   /*définir la largeur du bouton*/
+     height: 60px;  /*définir la hauteur du bouton */
+     border-radius: 50%;    /*définir le rayon de la bordure du bouton pour le rendre circulaire*/
+     color: #fff;     /*définir la couleur du texte du bouton*/
+     text-align: center;    /*définir l'alignement du texte du bouton*/
+     font-size: 20px;     /*définir la taille de police du texte du bouton*/
+     line-height: 40px;     /*définir la hauteur de ligne du texte du bouton*/
+     border: none;    /*Aucune bordure.*/
+     align-items: center;       /*Centrer des éléments du bouton*/
    }
   
   /*Styler le bouton message */
 .message-btn {
-    background-color: #2590be;
+    background-color: #2590be; /*définir la couleur de fond du bouton*/
     border: none;
-    border-radius: 4px;
+    border-radius: 4px; /*définir le rayon de la bordure du bouton*/
     color: white;
     padding: 12px 24px;
-    cursor: pointer;
+    cursor: pointer; /*définir le curseur de la souris lorsqu'il passe sur le bouton*/
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-right: 0px;
+    margin-left: 15px; /*définir la marge gauche du bouton*/
+    margin-top: 10px; /*définir la marge supérieure du bouton*/
+    margin-right: 0px; /*définir la marge droite du bouton*/
   }
   
   /*Styler le bouton des messages lors du survol*/
