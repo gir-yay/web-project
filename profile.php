@@ -1,20 +1,19 @@
 <?php
-// start the session
 session_start();
-// connect to the database
 include 'database.php';
+// l'id de l'utilisateur courant
 $id=$_SESSION['id'];
-// get the id of the profile from the session
+// l'id du profile de l'influenceur 
 $profile_id = $_SESSION['id2'];
-// get the info from the influencer table
+//recuperer les informations de l'influenceur dont l'id est $profile_id
 $sql = "SELECT * FROM influencer WHERE id = '$profile_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-// get the name of the influencer
+// le nom complet de l'influenceur
 $nom = $row['nom'].' '.$row['prenom'];
-//get the pfp of the influenceur
+//la photo de profile de l'influenceur
 $pfp = $row['pfp'];
-//add the path to the pfp from Upload folder
+//l'emplacement
 $pfp = "Upload/".$pfp;
 ?>
 <!-- create a html to present the information of the influenceur  -->

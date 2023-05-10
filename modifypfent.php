@@ -1,13 +1,14 @@
 <?php 
-//a page to modify the profil of a entreprise 
+//page pour modifier le profile de l'entreprise 
 session_start();
 include 'database.php';
-//get all the data using the id  from th eentreprise table
+//l'id de l'entreprise
 $id=$_SESSION['id'];
+//recuperer tout les info de l'entreprise
 $sql="SELECT * FROM entreprise WHERE id='$id'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
-
+//stocker le nom , email, chiffre d'affaire et logo
 $name=$row['nom'];
 $email=$row['email'];
 $ca=$row['ca'];
@@ -23,15 +24,15 @@ $logo='Upload/'.$row['logo'];
 </head>
 <!-- make a forum with all the info as default -->
 <body>
-    <!-- show th ename of the entreprise with the logo  -->
+    
     <div class="header">
         <img src="<?php echo $logo; ?>" alt="logo" class="logo">
         <h1><?php echo $name; ?></h1>
     </div>
    
     <form action="modifypfent.php" method="post" enctype="multipart/form-data">
-       <!-- add a cancel button to go back to entreprise.php -->
     <div class="clearfix">
+        <!-- bouton cancel pour revenir à  influencer.php -->
                 <button type="submit" class="cancelbtn" name="cancel" >
                   <i class="fa fa-arrow-left"></i></button>
     </div>
@@ -40,12 +41,15 @@ $logo='Upload/'.$row['logo'];
             <p>Remplissez ce formulaire pour modifier votre profil.</p>
             <hr>
             <label for="name"><b>Nom</b></label>
+                 <!-- valeur par defaut: nom de l'entreprise-->
+           
             <input type="text" placeholder="Entrer le nom" name="name" value="<?php echo $name; ?>" required>
-
+<!-- valeur par defaut:email de l'entreprise-->
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Entrer l'email" name="email" value="<?php echo $email; ?>" required>
 
             <label for="ca"><b>Chiffre d'affaire</b></label>
+            <!-- valeur par defaut:chiffre d'affaire de l'entreprise-->
             <input type="text" placeholder="Entrer le chiffre d'affaire" name="ca" value="<?php echo $ca; ?>" required>
     <!-- make the current logo a placeholder  -->
             <label for="logo"><b>Logo</b></label>
@@ -64,25 +68,26 @@ $logo='Upload/'.$row['logo'];
 </body>
 </html>
 <?php
-//if the user click on cancel button
+//si l'influenceur clique sur cancel
 if(isset($_POST['cancel'])){
-    //go back to entreprise.php
+    //direction vers entreprise.php
     header("Location:entreprise.php");
 }
-//if the user click on submit button
-//get all the data from the form
+//si l'utilisateur clique sur submit
 if(isset($_POST['submit'])){
+        //recuperer les données du formulaire:
+
     $name=$_POST['name'];
     $email=$_POST['email'];
     $ca=$_POST['ca'];
     $logo=$_FILES['logo']['name'];
     $tmp_name=$_FILES['logo']['tmp_name'];
-    //move the logo to the upload folder
+    //deplacer le logo vers le dossier upload
     move_uploaded_file($tmp_name, "Upload/$logo");
-    //update the entreprise table with the new data
+    //modifier les anciennes informations dans la base de données
     $sql="UPDATE entreprise SET nom='$name',email='$email',ca='$ca',logo='$logo' WHERE id='$id'";
     $result=mysqli_query($conn,$sql);
-    //go back to entreprise.php
+    //retour à entreprise.php
     header("Location:entreprise.php");
 }
 ?>

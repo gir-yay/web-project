@@ -141,9 +141,12 @@ input[type="file"] {
     display: none;
 }
 
+#cancel {
+    background-color: rgba(229, 220, 220, 0.8);
+}
+
 #cancel a {
-    color: #fff;
-    background-color: #4b097d;
+    color: #333;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -187,6 +190,7 @@ input[type="file"] {
     }
 
 }
+
 .btn button:hover {
     transform: scale(1.1);
 }
