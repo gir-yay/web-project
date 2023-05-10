@@ -49,30 +49,30 @@
     <div id="btn">&#9776;</div>
     <div id="cancel">&#x2716;</div>
 </label>
-    
 
     <nav>
         <ul>
-            <li>&#9776; MENU </li><br><br>
+            <li> MENU </li><br><br>
             
             
         
             <!-- Bouton du logout pour detruire la session de l'utilisateur "on click log out" -->
             <li>
             <i class="fa fa-sign-out"></i>
-                <input type="submit" value="Return" onclick="window.location.href='entreprise.php'">
+                <input type="submit" value="Retour" onclick="window.location.href='entreprise.php'">
             </li><br>
 
             <!--  lien pour modifier les infomations de l'entreprise -->
 
-            <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+            <li><a href="modifypfent.php"><i class="fa fa-pencil-square-o"></i> Modifier Mon Profil</a>
             </li><br>
             <!-- send a request to the admin to delete ur accont  -->
-            <li><a href="delete.php"><i class="fa fa-trash"></i> Delete Account</a>
+            <li><a href="delete.php"><i class="fa fa-trash"></i> Supprimer mon compte</a>
             </li><br>
         </ul>
     </nav>
 
+    <main></main>
     <div class="main">
 
 <?php
@@ -102,7 +102,7 @@ foreach ($result as $row) {
                echo "<td>";
      
         echo "<form method='post'>";
-        echo "<button type='submit' class='message-btn' name='message'>Read</button>";
+        echo "<button type='submit' class='message-btn' name='message'>LIRE</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</form>";
         echo "</td>";
@@ -110,7 +110,7 @@ foreach ($result as $row) {
     }
     echo "</table>";
 
-    echo "<h1><center>ALL CONVERSATIONS</center></h1>";
+    echo "<h1><center>TOUTES LES CONVERSATIONS</center></h1>";
 
 /*recuperer tous les messages lu ou non lu envoyé a cette entreprise */
 
