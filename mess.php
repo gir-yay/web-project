@@ -23,7 +23,9 @@ if (isset($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Messages</title>
-    <link rel="stylesheet" href="./css/admindash.css">
+    <link rel="stylesheet" href="./css/mess.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     
@@ -31,7 +33,7 @@ if (isset($_SESSION['username'])) {
 /*barre de navigation */
 
 /*retour au tableau de bord de l'admin */
-echo '<a href="dashboardadmin.php">Return</a>';
+echo '<a href="dashboardadmin.php"><button class="retour-btn"><i class="fa fa-arrow-left"></i></button>';
 
 
 /*messages non lus des influenceurs */
@@ -45,7 +47,7 @@ $row = mysqli_fetch_assoc($result);
 /*tableau*/
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>From</th><th>Date</th><th>Action</th>";
+echo "<th>De</th><th>Date</th><th>Action</th>";
 foreach ($result as $row)
  {
     echo "<tr>";
@@ -69,14 +71,14 @@ foreach ($result as $row)
     echo "<br><br>";
 
     /*tous les messages envoyes par les influenceurs à l'admin */
-    echo "<h1><center>ALL CONVERSATIONS: Influenceur</center></h1>"; 
+    echo "<h1><center>TOUTES LES CONVERSATIONS: Influenceur</center></h1>"; 
 $sql = "SELECT * FROM admin_messages join influencer on admin_messages.user_id = influencer.id WHERE user_type='influenceur' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>From</th><th>Date</th><th>Action</th>";
+echo "<th>De</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
     /*email de l'influenceur*/
@@ -108,7 +110,7 @@ $row = mysqli_fetch_assoc($result);
 
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>From</th><th>Date</th><th>Action</th>";
+echo "<th>De</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
         /*nom de l'entreprise */
@@ -132,7 +134,7 @@ echo "<br><br>";
 
         /*tous les messages envoyes par les entreprises à l'admin */
 
-    echo "<h1><center>ALL CONVERSATIONS: Entreprise</center></h1>";
+    echo "<h1><center>TOUTES LES CONVERSATIONS: Entreprise</center></h1>";
 
 $sql = "SELECT * FROM admin_messages join entreprise on admin_messages.user_id = entreprise.id WHERE  user_type like 'entreprise' group by user_id  order by time_stamp ";
 $result = mysqli_query($conn, $sql);
@@ -141,7 +143,7 @@ $row = mysqli_fetch_assoc($result);
 
 echo "<div class='container'>";
 echo "<table>";
-echo "<th>From</th><th>Date</th><th>Action</th>";
+echo "<th>De</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
     /*nom de l'entreprise */
@@ -182,10 +184,6 @@ exit();
     }
 
 ?>
-
-
-
-
 
 </body>
 </html>
