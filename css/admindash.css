@@ -31,6 +31,7 @@ body {
     margin: 10px 20px;
     transition: all .5s ease; /*transition animée de 5 secondes lorsque les boutons sont affichés ou cachés*/
   }
+  /*Avant de cocher le bouton du menu , le bouton de fermeture est invisible*/
   label #cancel{
     opacity: 0;
     visibility: hidden;
@@ -68,7 +69,7 @@ body {
     position: fixed;
     /*ne position fixe sur la page*/
     z-index: 1;
-    /**/
+    /*afficher en premier plan*/
     top: 0;
     /*Cacher la barre menu initialement en affectant la valeur negative de sa largeur*/
     left: -250px;
@@ -205,6 +206,7 @@ body {
       transform: scale(1);
     }
   }
+  /*Styler les messages d'erreur*/
   #erreur {
     background-color: rgb(195, 135, 151);
     width: 200px;
@@ -216,6 +218,7 @@ body {
     margin-bottom: 2%;
 
 }
+/*Styler les messages de confirmation*/
 .done {
     background-color: rgba(0, 255, 0, 1);
     width: 200px;
