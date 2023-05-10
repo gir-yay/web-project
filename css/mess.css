@@ -4,6 +4,12 @@
   font-family: "poppins", sans-serif;
   text-decoration: none;
 }
+/*ajouter une background image (filgrane du logo du site web)*/
+body {
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
 h1 {
     transition: left .5s;
     padding: 16px;
