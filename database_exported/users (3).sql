@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 03 mai 2023 à 16:31
--- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: May 10, 2023 at 02:39 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -17,14 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+
+CREATE Database IF NOT EXISTS `users`;
 --
--- Base de données : `users`
+-- Database: `users`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
@@ -34,7 +36,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`) VALUES
@@ -43,7 +45,7 @@ INSERT INTO `admins` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin_messages`
+-- Table structure for table `admin_messages`
 --
 
 CREATE TABLE `admin_messages` (
@@ -56,10 +58,24 @@ CREATE TABLE `admin_messages` (
   `read_` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `admin_messages`
+--
+
+INSERT INTO `admin_messages` (`message_id`, `user_id`, `user_type`, `sender_type`, `message_text`, `time_stamp`, `read_`) VALUES
+(2, 3, 'entreprise', 'entreprise', 'HI i want to delete my account ', '2023-05-03 21:04:26', 1),
+(3, 3, 'entreprise', 'admin', 'sure hello i can help send a request using the website and i will delete in 3 days', '2023-05-03 21:05:19', 1),
+(4, 3, 'influenceur', 'influenceur', 'hello mr admin', '2023-05-03 21:07:56', 1),
+(5, 3, 'influenceur', 'admin', 'hello fucker ', '2023-05-03 21:08:47', 1),
+(6, 3, 'entreprise', 'entreprise', 'HELLO', '2023-05-06 18:28:23', 1),
+(7, 3, 'entreprise', 'entreprise', 'fucker ', '2023-05-06 18:28:29', 1),
+(8, 3, 'influenceur', 'influenceur', 'hello asshole', '2023-05-06 18:29:40', 1),
+(9, 3, 'influenceur', 'admin', 'hello asshole', '2023-05-06 18:30:51', 1);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `entreprise`
+-- Table structure for table `entreprise`
 --
 
 CREATE TABLE `entreprise` (
@@ -75,16 +91,17 @@ CREATE TABLE `entreprise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `entreprise`
+-- Dumping data for table `entreprise`
 --
 
 INSERT INTO `entreprise` (`id`, `nom`, `telephone`, `email`, `logo`, `site`, `ca`, `domaine`, `password`) VALUES
-(2, 'gushi', '066666***', 'gushi@gmail.com', 'hh.jpeg', 'www.google.com', '5000.00', 'Fashion', '1fbfbe3f88f29ffdf50e2caaacfa5d4857b1af64');
+(2, 'gushi', '066666***', 'gushi@gmail.com', 'hh.jpeg', 'www.google.com', 5000.00, 'Fashion', '1fbfbe3f88f29ffdf50e2caaacfa5d4857b1af64'),
+(3, 'pathetic otaku1king', '0602037451', 'swixagang@gmail.com', 'BB.jpg', 'www.google.com', 69420.00, 'Art', 'a880c390a6cf41f70f9a43af2b194442bbe8c615');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `influencer`
+-- Table structure for table `influencer`
 --
 
 CREATE TABLE `influencer` (
@@ -94,26 +111,28 @@ CREATE TABLE `influencer` (
   `age` int(11) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `genre` enum('Homme','Femme','Autre') DEFAULT NULL,
   `insta` varchar(50) DEFAULT NULL,
   `fcbk` varchar(50) DEFAULT NULL,
   `youtube` varchar(50) DEFAULT NULL,
   `domaine` varchar(50) DEFAULT NULL,
   `abonne` text DEFAULT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `pfp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `influencer`
+-- Dumping data for table `influencer`
 --
 
-INSERT INTO `influencer` (`id`, `nom`, `prenom`, `age`, `telephone`, `email`, `genre`, `insta`, `fcbk`, `youtube`, `domaine`, `abonne`, `password`) VALUES
-(2, 'ghizlane', 'ra', 20, '066666', 'ghi@gmail.com', 'Femme', 'www.instagram.com', 'www.facebook.com', '', 'Fashion', '', 'cfa1150f1787186742a9a884b73a43d8cf219f9b');
+INSERT INTO `influencer` (`id`, `nom`, `prenom`, `age`, `telephone`, `email`, `insta`, `fcbk`, `youtube`, `domaine`, `abonne`, `password`, `pfp`) VALUES
+(2, 'ghizlane', 'ra', 20, '066666', 'ghi@gmail.com', 'www.instagram.com', 'www.facebook.com', '', 'Fashion', '', 'cfa1150f1787186742a9a884b73a43d8cf219f9b', NULL),
+(4, 'cop', 'pathetic', 26, '0602037451', 'ezzouak2001@gmail.coma', 'https://www.instagram.com/ezzouakmohamed/', 'https://www.facebook.com/mohamed.c.ezzouak/', 'https://www.youtube.com/channel/UClzjz0b_U42besX_D', 'Sport', '+150k', 'a880c390a6cf41f70f9a43af2b194442bbe8c615', 'BB.jpg'),
+(7, 'test', 'test', 26, '0602037451', 'ezzouak2001@gmail.com', 'https://www.instagram.com/ezzouakmohamed/', 'https://www.facebook.com/mohamed.c.ezzouak/', 'https://www.youtube.com/channel/UClzjz0b_U42besX_D', 'Art', '90k-150k', '7f550a9f4c44173a37664d938f1355f0f92a47a7', 'cc.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -126,10 +145,17 @@ CREATE TABLE `messages` (
   `read_` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES
+(5, 3, 2, 'hey', 'ent', '2023-05-03 17:12:54', 0);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `offer`
+-- Table structure for table `offer`
 --
 
 CREATE TABLE `offer` (
@@ -144,16 +170,17 @@ CREATE TABLE `offer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `offer`
+-- Dumping data for table `offer`
 --
 
 INSERT INTO `offer` (`id`, `id_influencer`, `id_entreprise`, `terms`, `amount`, `duration`, `reg_date`, `state`) VALUES
-(1, 1, 1, 'post a day', '50', '1 month', '2023-05-03 13:38:40', 'accepted');
+(1, 1, 1, 'post a day', '50', '1 month', '2023-05-03 13:38:40', 'accepted'),
+(2, 3, 3, 'hello 2 insta pic per day', '6942022', '30 MONTH', '2023-05-06 22:51:34', 'accepted');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `request`
+-- Table structure for table `request`
 --
 
 CREATE TABLE `request` (
@@ -166,7 +193,7 @@ CREATE TABLE `request` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `suggestion`
+-- Table structure for table `suggestion`
 --
 
 CREATE TABLE `suggestion` (
@@ -181,116 +208,117 @@ CREATE TABLE `suggestion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `suggestion`
+-- Dumping data for table `suggestion`
 --
 
 INSERT INTO `suggestion` (`id`, `id_entreprise`, `id_influencer`, `terms`, `amount`, `duration`, `state`, `reg_date`) VALUES
-(1, 1, 1, 'two posts a day', 70, 2, 'waiting', '2023-05-03 13:39:28');
+(1, 1, 1, 'two posts a day', 70, 2, 'waiting', '2023-05-03 13:39:28'),
+(2, 2, 3, 'hello 2 insta pic per day', 69420, 30, 'waiting', '2023-05-06 22:49:15');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `admins`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `admin_messages`
+-- Indexes for table `admin_messages`
 --
 ALTER TABLE `admin_messages`
   ADD PRIMARY KEY (`message_id`);
 
 --
--- Index pour la table `entreprise`
+-- Indexes for table `entreprise`
 --
 ALTER TABLE `entreprise`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nom` (`nom`);
 
 --
--- Index pour la table `influencer`
+-- Indexes for table `influencer`
 --
 ALTER TABLE `influencer`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `messages`
+-- Indexes for table `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`message_id`);
 
 --
--- Index pour la table `offer`
+-- Indexes for table `offer`
 --
 ALTER TABLE `offer`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `request`
+-- Indexes for table `request`
 --
 ALTER TABLE `request`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `suggestion`
+-- Indexes for table `suggestion`
 --
 ALTER TABLE `suggestion`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `admins`
+-- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `admin_messages`
+-- AUTO_INCREMENT for table `admin_messages`
 --
 ALTER TABLE `admin_messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `entreprise`
+-- AUTO_INCREMENT for table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `influencer`
+-- AUTO_INCREMENT for table `influencer`
 --
 ALTER TABLE `influencer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `messages`
+-- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `offer`
+-- AUTO_INCREMENT for table `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `request`
+-- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `suggestion`
+-- AUTO_INCREMENT for table `suggestion`
 --
 ALTER TABLE `suggestion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

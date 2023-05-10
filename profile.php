@@ -1,17 +1,20 @@
 <?php
-// start the session
 session_start();
-// connect to the database
 include 'database.php';
+// l'id de l'utilisateur courant
 $id=$_SESSION['id'];
-// get the id of the profile from the session
+// l'id du profile de l'influenceur 
 $profile_id = $_SESSION['id2'];
-// get the info from the influencer table
+//recuperer les informations de l'influenceur dont l'id est $profile_id
 $sql = "SELECT * FROM influencer WHERE id = '$profile_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-// get the name of the influencer
+// le nom complet de l'influenceur
 $nom = $row['nom'].' '.$row['prenom'];
+//la photo de profile de l'influenceur
+$pfp = $row['pfp'];
+//l'emplacement
+$pfp = "Upload/".$pfp;
 ?>
 <!-- create a html to present the information of the influenceur  -->
 <!DOCTYPE html>
@@ -34,11 +37,10 @@ $nom = $row['nom'].' '.$row['prenom'];
         
             <div class="profil-card">
                 <div class="image">
-                    <img src="bacg1.png" alt="" class="profile-img">
+                    <img src="<?php echo $pfp; ?>" alt="" class="profile-img">
                 </div>
                 <div class="text-data">
                     <span class="name"> <?php echo $row['nom']; ?> <?php echo $row['prenom']; ?></span>
-                    <span class="genre"> <?php echo $row['genre']; ?> </span>
                     <span>  <?php echo $row['age']; ?> ans</span>
                     <span class="domaine"><?php echo $row['domaine']; ?></span>
                     <span  > <?php echo $row['email']; ?> </span>
@@ -46,13 +48,13 @@ $nom = $row['nom'].' '.$row['prenom'];
                     <span class="follower" ></i> <?php echo $row['abonne']; ?> abonnés</span>
                 </div>
                 <div class="media-buttons">
-                     <a href="https://<?php echo $row['insta']; ?>" target="_blank" class="link">
+                     <a href="<?php echo $row['insta']; ?>" target="_blank" class="link">
                     <i class="fa-brands fa-instagram"></i>
                     </a> 
-                     <a href="https://<?php echo $row['fcbk']; ?>" target="_blank" class="link">
+                     <a href="<?php echo $row['fcbk']; ?>" target="_blank" class="link">
                     <i class="fa-brands fa-facebook"></i>
                     </a> 
-                     <a href="https://<?php echo $row['youtube']; ?>" target="_blank" class="link">
+                     <a href="<?php echo $row['youtube']; ?>" target="_blank" class="link">
                     <i class="fa-brands fa-youtube"></i>
                     </a> 
                      

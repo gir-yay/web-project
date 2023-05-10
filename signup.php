@@ -73,12 +73,8 @@
                         <input type="email"  name="email"placeholder="Entrez votre email" required>
                         </div>
                         <div class="input-boxss">
-                        <label >Genre</label>
-                        <select name="genre" id="">
-                           <option value="Homme">Homme</option>
-                           <option value="Femme">Femme</option>
-                           <option value="Autre">Autre</option>
-                        </select>
+                        <label >Logo</label>
+                        <input type="file" name="logo" required>
                         </div>
                     </div>
                 </div>
@@ -89,17 +85,17 @@
                     <div class="boxs">
                         <div class="input-boxss">
                         <label >Instagram</label>
-                        <input type="text" name="insta" placeholder="Votre compte Instagramm "required>
+                        <input type="text" name="insta" placeholder="Ex:https://www.instagram.com"required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Facebook</label>
-                        <input type="text" name="fcbk" placeholder="Votre compte Facebook" required>
+                        <input type="text" name="fcbk" placeholder="Ex:https://www.facebook.com" required>
                         </div>
 
                         <div class="input-boxss">
                         <label >Youtube</label>
-                        <input type="text" name="ytb" placeholder="Votre chaine Youtube" required>
+                        <input type="text" name="ytb" placeholder="Ex:https://www.youtube.com" required>
                         </div>
             
                         <div class="input-boxss">
@@ -147,9 +143,9 @@
                 <button id="cancel"> <a href="index.php"> Cancel</a></button>
                 </div>
                  <!-- si on clique montrer la section de l'entreprise-->
-                <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis Entreprise</a>
+                <a onclick="showEntrepriseSection()" href="#entreprise" >Je suis une Entreprise</a>
                 <div class="loginlink">
-                <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
+                <p> Vous avez d&eacute;j&agrave; un compte ?<a href="loogin.php">Se connecter</a></p>
                 </div>
         </form>
     </div>
@@ -207,7 +203,7 @@
                   
                         <div class="input-boxss">
                         <label >Site Web </label>
-                        <input type="text"name="site" placeholder="Lien de Votre site web "required>
+                        <input type="text"name="site" placeholder="Ex:https://www.companyName.com"required>
                         </div>
                         
                     
@@ -243,14 +239,14 @@
                 </div> 
                 <div class="btn"> 
                 <button type="submit" name="submit">S'inscrire</button>
-                <button id="cancel"> <a href="index.php"> Cancel</a></button>
+                <button id="cancel"> <a href="index.php">Annuler</a></button>
                 </div>
                  <div class="change">
                      <!-- si on clique montrer la section de l'influenceur-->
-                 <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis Influenceur</a>
+                 <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis un Influenceur</a>
                  </div>
                 <div class="loginlink">
-                <p>Vous avez déjà un compte ? <a href="loogin.php"> Login</a></p>
+                <p>Vous avez d&eacute;j&agrave; un compte ? <a href="loogin.php">Se connecter! </a></p>
                 </div>
         </form>
     </div>

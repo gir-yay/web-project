@@ -14,11 +14,11 @@
         <a href="#" class="logo"><img src="./images/collab.png" style="width: 180px; height: 140px;" alt=""></a>
         <div class="nav-links" > <!--  crée une liste d'éléments de navigation.-->
             <ul> <!--  crée une liste à puces-->
-                <li> <a href="#">Home</a></li> <!-- crée un lien vers la page d'accueil.-->
-                <li> <a href="#Aboutus">About Us</a></li> <!-- : crée un lien vers la section "About Us"-->
+                <li> <a href="#">Page d'acceuil</a></li> <!-- crée un lien vers la page d'accueil.-->
+                <li> <a href="#Aboutus">&Agrave; propos de nous</a></li> <!-- : crée un lien vers la section "About Us"-->
                 <li> <a href="#services">Services</a></li> <!--  crée un lien vers la section "Services"-->
                 <!-- <li> <a href="admin.php">Admin</a></li>  crée un lien vers une page admin -->
-                <li> <a href="#contactus">Contact</a></li> <!-- crée un lien vers la section "Contact"-->
+                <li> <a href="#contactus">Contacter nous</a></li> <!-- crée un lien vers la section "Contact"-->
                 <li> <a href="loogin.php" >Se connecter</a></li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
                      <!--         About-Us       -->
     <section id="Aboutus" > <!-- crée une section pour la section "About Us".-->
         <div class="heading"> <!-- crée un en-tête pour la section "About Us".-->
-            <h1>About Us</h1>
+            <h1>&Agrave; propos de nous</h1>
             <p>Nous facilitons la création de partenariats qui bénéficient aux marques et aux influenceurs</p>
         </div>
         <div class="container"> <!-- crée une boîte de contenu pour la section "About Us".-->
@@ -197,7 +197,8 @@
 	</form>
 <div id="trait"> </div> <!--  div qui contient rien sert comme Ligne de séparation-->
 <div id="copyrighticon"> 
-    <div id="copyright"> <span>&#169 2023 </span></div>
+
+    <div id="copyright"> <span> &copy;2023 </span></div>
     <div id="icons"> <!-- Balise pour les icônes des réseaux sociaux-->
         <a href="http://www.twitter.fr"> <i class="fa fa-twitter">  </i></a> <!-- Lien vers Twitter avec l'icône de Twitter.-->
         <a href="http://www.facebook.fr"> <i class="fa fa-facebook">  </i></a><!-- Lien vers Facebook avec l'icône de Facebook-->

@@ -30,6 +30,11 @@
     $sql = "SELECT * FROM influencer WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
+    //get the pfp of the influenceur
+    $pfp = $row['pfp'];
+    //add the path to the pfp from Upload folder
+    $pfp = "Upload/".$pfp;
+
 
 ?>
 
@@ -53,8 +58,8 @@
 </label>
 
     <nav>
-    
-    <img src="./images/influenceur2.png" alt="photo de profil">
+    <!-- add the pfp of the inf -->
+    <img src="<?php echo $pfp; ?>" alt="profile picture" class="profile-pic">
 
         <ul> 
             <li> <?php echo $name; ?></li><br>

@@ -29,10 +29,10 @@ if (isset($_SESSION['username'])) {
     
 <?php
 /*barre de navigation */
-echo "<nav>";
+
 /*retour au tableau de bord de l'admin */
-echo "<a href='dashboardadmin.php'>Return</a>";
-echo "</nav>";
+echo '<a href="dashboardadmin.php">Return</a>';
+
 
 /*messages non lus des influenceurs */
 echo "<h1>Non Encore Lu : Influenceur</h1>";
