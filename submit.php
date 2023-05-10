@@ -46,19 +46,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               }
               else{
                  /*sinon rediriger vers signup.php page et envoyer un msg d'erreur à recuperer avec GET*/
-                  header("location:signup.php?error=error in the signup process");
+                  header("location:signup.php?error=erreur! Ressayer");
               }
           }
           else{
-            /*message d'erreur au cas d'un email qui dj existe */
-              header("location:signup.php?error=email already used");
+            /*message d'erreur au cas d'un email qui déjà existe */
+              header("location:signup.php?error=email existe déjà !");
           }
       }
       else{
          /*message d'erreur au cas ou le mot de passe et sa confirmation ne sont pas les meme*/
 
 
-          header("location:signup.php?error=passwords are not the same");
+          header("location:signup.php?error=les mots de passe ne sont pas identiques !");
       }
 
     }

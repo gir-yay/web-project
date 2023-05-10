@@ -73,7 +73,7 @@
                         <input type="email"  name="email"placeholder="Entrez votre email" required>
                         </div>
                         <div class="input-boxss">
-                        <label >Logo</label>
+                        <label >Profile</label>
                         <input type="file" name="logo" required>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input id="pw2" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                        <input id="pw2" type="password" name="password-confirm" placeholder=" mot de passe" required>
                 <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->          
                          <i class="fas fa-eye eye" id="eye2" onclick="showpw('#pw2' , '#eye2')"></i>
 
@@ -231,7 +231,7 @@
                         </div>
                         <div class="input-boxss">
                         <label >Répéter le mot de passe</label>
-                        <input id="pw4" type="password" name="password-confirm" placeholder="un mot de passe" required>
+                        <input id="pw4" type="password" name="password-confirm" placeholder=" mot de passe" required>
               <!-- si on clique sur l'oeil le mot de passe va apparaite on reclique et le mot de passe sera caché-->            
                          <i class="fas fa-eye eye" id="eye4" onclick="showpw('#pw4' , '#eye4')"></i>
                         </div>
@@ -246,7 +246,7 @@
                  <a onclick="showInfluenceurSection()" href="#influenceur" >Je suis un Influenceur</a>
                  </div>
                 <div class="loginlink">
-                <p>Vous avez d&eacute;j&agrave; un compte ? <a href="loogin.php">Se connecter! </a></p>
+                <p>Vous avez d&eacute;j&agrave; un compte ? <a href="loogin.php">Se connecter</a></p>
                 </div>
         </form>
     </div>

@@ -70,7 +70,7 @@
                 <button type="submit" name="login">Login</button>
                 </div>
                 <div class="signuplink">
-                <p>Don't have account ? <a href="signup.php"> Sign Up</a></p>
+                <p>Vous n'avez pas encore de compte ? <a href="signup.php"> Cr&eacuteez-en un</a></p>
                 </div>
             </form>
         </div>
@@ -107,7 +107,7 @@
                 <button type="submit" name="login">Login</button>
                 </div>
                 <div class="signuplink">
-                <p>Don't have account ? <a href="signup.php"> Sign Up</a></p>
+                <p>Vous n'avez pas encore de compte ? <a href="signup.php"> Cr&eacuteez-en un</a></p>
                 </div>
             </form>
         </div>

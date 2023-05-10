@@ -62,7 +62,7 @@
                     découvrir de nouvelles opportunités de collaboration et d'augmenter leur visibilité auprès de leur communauté. 
                     Contactez-nous dès aujourd'hui pour en savoir plus sur la manière dont nous pouvons vous aider à réussir votre 
                     prochaine collaboration. <br>
-                    <strong>  Rejoignez-nous dès maintenant !<strong\></p>
+                    <strong>  Rejoignez-nous d&eacutes maintenant !<strong\></p>
                     <a href="signup.php" class="join-btn">Rejoindre nous !</a>
                </div>
             </section>
@@ -77,20 +77,20 @@
         <div class="service-row">
             <div class="service-col">
                 <img src="./images/feature1.png" alt="">
-                <h4> Partenariat de qualité</h4>
+                <h4> Partenariat de qualit&eacute</h4>
                 <p>Nous travaillons avec des marques de qualité et des influenceurs reconnus dans leur domaine, afin de vous offrir des partenariats de qualité qui répondent à vos besoins spécifiques.
                 </p>
                 
             </div>
             <div class="service-col"> 
             <img src="./images/feature2.png" alt="">
-            <h4> Gratuité</h4>
+            <h4> Gratuit&eacute</h4>
             <p>Notre service est gratuit pour les influenceurs, ce qui signifie que vous n'aurez pas à payer pour accéder à des opportunités de collaboration avec des marques de qualité. Nous facturons uniquement les marques pour les services que nous leur fournissons.</p>
             
             </div>
             <div class="service-col"> 
             <img src="./images/feature3.png" alt="">
-            <h4> securité</h4>
+            <h4> securit&eacute</h4>
             <p>Nous prenons la sécurité et la protection de vos données très au sérieux. Nous avons des politiques de confidentialité strictes en place et nous utilisons des outils de sécurité de pointe pour garantir que vos informations personnelles sont protégées à tout moment.</p>
         
             </div>
@@ -131,7 +131,7 @@
 
       <section id="avis">  <!-- définit une section avec l'id "avis". -->
            <div class="first">
-             <h1>Témoignages</h1></div>
+             <h1>T&eacutemoignages</h1></div>
            <div class="wrapper">
             <div class="container"> <!-- une division avec la classe "container". Cela servira de conteneur pour chaque témoignage individuel -->
                 <div class="profile"> <!-- une division avec la classe "profile". Cela servira de conteneur pour l'image et le nom de la personne donnant le témoignage -->

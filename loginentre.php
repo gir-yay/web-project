@@ -33,6 +33,6 @@ if (mysqli_num_rows($result) > 0) {
     exit();
 } else {
     //redirect to the login page with an error message
-    header("Location: loogin.php?error=Incorect email or password");
+    header("Location: loogin.php?error=email et/ou mot de passe incorrect(s)");
     exit();
 }

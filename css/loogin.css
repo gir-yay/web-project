@@ -3,26 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 header {
     color: #fff;
 }
-
 .choice {
-
     flex-direction: column;
+    /* définit la direction des éléments enfants à être disposés en colonne, empilés verticalement les uns sur les autres. */
     justify-content: center;
     align-items: center;
     font-size: 30px;
     color: #fff;
-    /* blanc */
     padding: 20px;
     border-radius: 10px;
 }
 
 .choice button {
     background-color: #fff;
-    /* blanc */
     color: #3c00a0;
     padding: 10px 20px;
     border: none;
@@ -33,30 +29,31 @@ header {
 
 .choice button:hover {
     background-color: #3c00a0;
-    /* mauve */
     color: #fff;
-    /* blanc */
+   
 }
 
 .container {
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url(../images/loginbg.png);
+    /*  l'arrière-plan  sera un dégradé linéaire bleu foncé semi-transparent superposé par l'image loginbg.png */
     background-position: center;
     background-size: cover;
     position: relative;
 }
 
 #error {
-    background-color: rgb(189, 133, 161);
+    color: #721c24;
+    background: #f8d7da;
     height: 40px;
-    border-radius: 10px;
-    display: none;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    display: none;/* masque initialement l'élément, le rendant invisible. */
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     margin-top: 10px;
-    color: #fff;
 
 }
 
@@ -66,9 +63,7 @@ header {
     font-size: 1.1rem;
 }
 
-section {
-    display: none;
-}
+
 
 .forme {
     width: 90%;
@@ -84,8 +79,9 @@ section {
 }
 
 section form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /*  permet à la form d'utiliser la mise en page flexible */
+    flex-direction: column; /* spécifie que les éléments  de form doivent être disposés verticalement,
+                             un en dessous de l'autre, créant ainsi une disposition en colonne */
 }
 
 .forme h1 {
@@ -95,9 +91,8 @@ section form {
     position: relative;
 }
 
-/* trait */
 .forme h1::after {
-    content: '';
+    content: '';/*  définit le contenu  comme vide */
     width: 30px;
     height: 4px;
     border-radius: 3px;
@@ -105,7 +100,7 @@ section form {
     position: absolute;
     bottom: -12px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);  /*  déplace l'élément  horizontalement de -50% de sa propre largeur */
 }
 
 .input-field {
@@ -120,7 +115,7 @@ input {
     width: 100%;
     background: transparent;
     border: 0;
-    outline: 0;
+    outline: 0;  /*  supprime le contour de l'élément <input> lorsqu'il est en cours de focus */
     padding: 18px 15px;
 }
 
@@ -136,14 +131,14 @@ input {
 }
 
 .btn-field button {
-    flex-basis: 48%;
-    background: #3c00a0;
-    color: #fff;
-    height: 40px;
-    border-radius: 20px;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
+    flex-basis: 48%;/*  définit la taille initiale du bouton pour occuper 48% de l'espace disponible dans son conteneur. */
+    background: #3c00a0;/*  définit la couleur de fond du bouton  */
+    color: #fff;/* définit la couleur du texte du bouton à blanc */
+    height: 40px;/* définit la hauteur du bouton à 40 pixels. */
+    border-radius: 20px; /*  donner une forme arrondie a la button */
+    border: 0;/*  supprime la bordure autour du bouton */
+    outline: 0;/*  supprime l'effet d'outline lorsque le bouton est cliqué ou actif */
+    cursor: pointer;/* change le curseur de la souris en une main pointant vers le bouton, indiquant qu'il est cliquable. */
 }
 
 .btn-field button:hover {
