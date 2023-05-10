@@ -20,7 +20,7 @@ if (isset($_SESSION['username'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="./css/admindash.css">
+  <link rel="stylesheet" href="./css/dashboardadmin.css">
     <!-- lien pour pouvoir utiliser les icons de fontawsome en ligne -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -28,15 +28,15 @@ if (isset($_SESSION['username'])) {
 
     
     <!-- nav bar to logout and message -->
-       
-        <a href="logout.php"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
-      
-        <a href="mess.php"><i class="fa fa-envelope"></i> Messages </a></li>
+    
+   
+        <a href="logout.php"><i class="fa fa-sign-out"></i> Déconnexion</a>
+        
+        <a href="mess.php"><i class="fa fa-envelope"></i> Messages </a>
 
     <h1> 
         Bienvenu <?php echo $name; ?>
     </h1><br>
-
     <h2>INFLUENCEURS</h2>
 <?php
 // on recupere les influenceurs de la base de données
@@ -325,6 +325,5 @@ if(isset($_POST['delete_request'])){
 echo "</table>";
 echo "</div>";
 ?>
-</div>
 </body>
 </html>
