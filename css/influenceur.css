@@ -2,12 +2,12 @@
 *{
     font-family: "poppins",sans-serif;
 }
-/*ajouter une background image (filgrane du logo du site web)*/
 body{
     background-image: url("../images/bg.png");
     background-size: cover;
     background-attachment: fixed;
-       
+    
+    
 }
 #check{
   display: none;/*les deux boutons sont cachés initialement.*/
@@ -16,7 +16,7 @@ body{
 label #btn, label #cancel{
   position: absolute;
   cursor: pointer;
-  background-color: #235ede;
+  background-color: #640c49;
   height: 45px;
   width: 45px;
   text-align: center; /*centrer le texte à l'intérieur des boutons.*/
@@ -61,14 +61,15 @@ nav{
     height: 100%;/*une hauteur de 100%*/
     width: 300px;/*une largeur de 300px*/
     position: fixed;/*ne position fixe sur la page*/
-    z-index: 1;/*afficher en premier plan*/
-    top: 0;
-    left: -300px;/*la barre de nav est caché avant que le bouton menu est coché*/
-    background-color: #064384; /*couleur de fond : bleu foncé */
-    overflow: hidden;/*le débordement du contenu lorsque celui-ci dépasse la hauteur de l'élément est caché*/
-    transition: 0.5s;/*transition animée*/
-    padding-top: 30px;/*l'espacement intérieur de l'élément sur le dessus*/
-    transition: all .5s ease;/*transition animée de 5s*/
+    z-index: 1;/**/
+    top: 0;/**/
+    left: -300px;/**/
+    background-color: #450a3d; /*couleur de fond : bleu foncé */
+    overflow: hidden;/**/
+    transition: 0.5s;/**/
+    padding-top: 30px;/**/
+   /*transition animée de 5s*/
+    transition: all .5s ease;
     
 }
 /*styler le lien*/
@@ -83,15 +84,16 @@ nav li:hover * {
   cursor: pointer;
   padding-left: 10px;
 }
-/*Styler les input des suggestions*/
+
 input.sug-options{
   background-color: #e7e2e8;
   color: #060606;
   margin-top: 10px;
 
 }
-/*styler le contenu de la page */
+
 .main {
+
   transition: margin-left .5s;
   padding: 16px;
   margin-left: 0px;
@@ -105,10 +107,12 @@ input.sug-options{
     text-align: center;
 
 }
-/*styler la ligne qui sépare le profil des autres options*/
 hr{
   margin-left:  30px;
   margin-right: 30px;
+}
+ul hr{
+  width: 100%;
 }
 
 /*styler les textes des li*/
@@ -116,11 +120,11 @@ li{
     color: #f1f1f1;
     font-size: 19px;
 }
-
 img {
- height: 100px;
-margin-left: 55px;
-border-radius: 150px;
+height: 100px;
+margin-left: 90px;
+margin-bottom: 40px;
+border-radius: 200px;
 border: solid rgb(57, 4, 57);
 }
 /*enlever les puces de la listes*/
@@ -129,33 +133,47 @@ ul{
 }
 /*la mise en forme des tableaux*/
 table {
-    border-collapse: collapse; /*bordures effacées*/ 
-    width: 100%; /*la largeur est fixée à 100%*/
-    box-shadow: 0 1px 3px rgba(47, 5, 103, 0.2);/*bordure de 1px solide de couleur grise*/
-    border-collapse: separate;/**/
-    border-color: #787475;/*bordure de couleur grise*/
-    margin-top: 20px;
+  border-collapse: collapse;
+  /*bordures effacées*/
+  width: 100%;
+  /*la largeur est fixée à 100%*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  /*bordure de 1px solide de couleur grise*/
+  border-collapse: separate;
+  /**/
+  border-color: #787475;
+  /*bordure de couleur grise*/
+  border-radius: 5px;
+  /*une bordure arrondie de 5px*/
+  margin-top: 20px;
 }
-  /*styler le tableau*/
-  td, th {
-    border: 1px solid #1b1919;
-    padding: 10px;
-    text-align: center;
-    
-  }
-  /*styler les lignes impaires et paires du tableau*/
-  tr:first-child {
-    background: linear-gradient(to right, #965492, #90a8d1);
-  }
-  tr:not(:first-child){
-    background: linear-gradient(to right, #e4bbd6, #899bd5);
-  }
-  /*style des lignes lors du survol */
-  tr:first-child:hover {
-    background: linear-gradient(to right, #acb3d2, #eabbe7);
-    color: #110d0d;
-    animation: highlight 0.3s ease-in-out;
-  }
+
+/*styler le tableau*/
+td,
+th {
+  border: 1px solid #c2bbbb;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+
+}
+
+/*styler les lignes impaires et paires du tableau*/
+tr:nth-child(odd) {
+  background: linear-gradient(to right, #b86bbb, #db9caa);
+}
+
+tr:nth-child(even) {
+  background: linear-gradient(to right, #b6a0b6, #e8d5e8);
+}
+
+/*style des lignes lors du survol */
+table tr:first-child:hover {
+  background: linear-gradient(to right, #d464d4, #bcafbb);
+  color: #110d0d;
+  animation: highlight 0.4s ease-in-out;
+}
+
   /*keyframe pour le changement de couleurs avec un effet de zoom*/
   @keyframes highlight {
     0% {
@@ -171,7 +189,7 @@ table {
   
 /*Styler le bouton d'offre*/
 .suggestion-btn {
-    background-color: #a80d63;
+    background-color: #0d50a8;
     border: none;
     border-radius: 4px;
     color: white;
@@ -186,7 +204,7 @@ table {
 }
 /*Style du bouton de suggestions lors du survol*/
 .suggestion-btn:hover{
-    background-color: #61071f;
+    background-color: #10309b;
 }
 /*styler le bouton d'envoi*/
 button.submit-sug{
@@ -205,7 +223,7 @@ button.submit-sug{
 
 /*Styler le bouton des messages*/
 .message-btn{
-    background-color: #a109ae; 
+    background-color: #eb1b6e; 
     color: white;
     border: none;
     padding: 12px 24px;
@@ -219,7 +237,7 @@ button.submit-sug{
   /*Styler le bouton des messages lors du survol*/
   
   .message-btn:hover {
-    background-color: #741970; 
+    background-color: #930d50; 
   }
   /*Styler le bouton de refus*/
 
@@ -270,4 +288,6 @@ button.submit-sug{
 main {
   padding: 20px; 
 }
-
+.menu{
+  background-color: #2c48d8;
+}
