@@ -51,6 +51,22 @@ $logo='Upload/'.$row['logo'];
             <label for="ca"><b>Chiffre d'affaire</b></label>
             <!-- valeur par defaut:chiffre d'affaire de l'entreprise-->
             <input type="text" placeholder="Entrer le chiffre d'affaire" name="ca" value="<?php echo $ca; ?>" required>
+            <!-- valeur par defaut:Numero du telephone de l'entreprise-->
+            <label for="tel"><b>Numéro de téléphone</b></label>
+            <input type="text" placeholder="Entrer le numéro de téléphone" name="tel" value="<?php echo $row['telephone']; ?>" required>
+            <!-- valeur par defaut:Le site web de l'entreprise-->
+            <label for="site"><b>Site web</b></label>
+            <input type="text" placeholder="Entrer le site web" name="site" value="<?php echo $row['site']; ?>" required>
+            <!-- valeur par defaut:Le domaine de l'entreprise -->
+            <label for="domaine"><b>Domaine</b></label>
+            <select name="domaine" id="domaine" value="<?php echo $row['domaine']; ?>" required>
+                           <option value="Fashion">Fashion</option>
+                           <option value="Sport">Sport</option>
+                           <option value="Art">Art</option>
+                           <option value="Cuisine">Cuisine</option>
+                           <option value="autre">Autre</option>
+            </select>
+            
     <!-- make the current logo a placeholder  -->
             <label for="logo"><b>Logo</b></label>
             <input type="file" placeholder="Entrer le logo" name="logo" value="<?php echo $logo; ?>">
