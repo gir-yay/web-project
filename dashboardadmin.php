@@ -11,7 +11,6 @@ if (isset($_SESSION['username'])) {
     // if the session variable are not set, redirect to admin.php
     header('Location: admin.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,107 +147,90 @@ if(isset($_POST['delete_brand'])){
 }
 
 echo "<h2>OFFRE DE COLLABORATION</h2>";
-/*on recupere les colaboration en joignant la table des offres avec la table des influenceurs et la tables des entreprises */
-$sql = "SELECT * FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id INNER JOIN entreprise ON offer.id_entreprise = entreprise.id ";
-$result = mysqli_query($conn, $sql);
+// on recupere les offres de collaboration de la base de données depuis le tableau offer  inner join  le tableau influencer et entreprise sur id_influencer et id_entreprise
+$sql = "SELECT offer.*, influencer.nom AS influencer_nom, influencer.prenom AS influencer_prenom, entreprise.nom AS entreprise_nom FROM offer INNER JOIN influencer ON offer.id_influencer = influencer.id INNER JOIN entreprise ON offer.id_entreprise = entreprise.id";
 
-/*afficher toutes les colaboration entre influenceur et entreprise dans un tableau (offert par l'entreprise) */
-/*show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the the collaboration*/
-echo "<div class='container'>";
+
+$result = mysqli_query($conn, $sql);
+//on montre les information sous forme de tableau Nom entreprise , Nom influenceur ,Conditions,Montant,Durrée,statuts,Reg date ,Action
 echo "<table>";
-echo "<th>Brand Name</th><th>Nom de l'influenceur</th><th>Conditions</th><th>Statuts</th><th>Montant</th><th>Durée</th><th>Reg Date</th><th>Action</th></tr>";
+echo "<tr><th>Nom entreprise</th><th>Nom influenceur</th><th>Conditions</th><th>Montant</th><th>Durrée</th><th>Statuts</th><th>Reg date</th><th>Action</th></tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    /*nom de l'entreprise */
-    echo "<td>" . $row['nom'] . "</td>";
-    /*nom complet de l'influenceur */
-    echo "<td>".$row['prenom']." ".$row['nom']."</td>";
-    /*les termes de la collaboration */
+    /*le nom de l'entreprise */
+    echo "<td>".$row['entreprise_nom']."</td>";
+    // /*le nom de l'influenceur et son prenom + nom */
+    echo "<td>".$row['influencer_nom'].' '.$row['influencer_prenom']."</td>";
+    /*les conditions de l'offre */
     echo "<td>".$row['terms']."</td>";
-    /*etat: accepté ou refusé */
-    echo "<td>".$row['state']."</td>";
-    /*le prix de la collaboration */
+    /*le montant de l'offre */
     echo "<td>".$row['amount']."</td>";
-    /*duré de la collaboration */
+    /*la durrée de l'offre */
     echo "<td>".$row['duration']."</td>";
-    /*date de la collaboration */
+    /*le statut de l'offre */
+    echo "<td>".$row['state']."</td>";
+    /*la date de l'offre */
     echo "<td>".$row['reg_date']."</td>";
     echo "<td>";
-
-    /*lorsque le bouton est cliqué on peut recuperer l'id de cette collaboration grace à: */
-
+    /*lorsque le bouton est cliqué on peut recuperer l'id de l'influenceur grace à: */
     echo "<form method='post'>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' name='delete_collab' value='Supprimer'>";
+    echo "<input type='submit' class='delete-btn' name='delete_offer' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
     echo "</tr>";
 }
-// si bouton delete_collab est cliqué
-if(isset($_POST['delete_collab'])){
-    /*recupere l'id de la collaboration */
-    $id = $_POST['id'];
-    /*requete de suppression de la collaboration */
-    $sql = "DELETE FROM offer WHERE id = '$id'";
-    $result = mysqli_query($conn, $sql);
-      if ($result) {
-
-         /*si c'est bien supprimeé afficher: */
-       
-        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
-    } else {
-                /*sinon afficher un message d'erreur  */
-
-        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
-    }
-}
-//make a tabe  to show all the suggested collab from the suggestion table inner join with the influencer table and the entreprise table in id_influencer and id_entreprise
-
-/*affiché toutes les colaboration entre influenceur et entreprise dans un tableau (suggeré par l'influenceur) */
-
-$sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id ";
+// la meme chose pour le tableau suggestion , mais change la button suprimee pour distinguer les deux tableau 
+$sql = "SELECT suggestion.*, influencer.nom AS influencer_nom, influencer.prenom AS influencer_prenom, entreprise.nom AS entreprise_nom FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id";
 $result = mysqli_query($conn, $sql);
-//show the result in a table format brand name , influencer full name(firstname+lastname), terms, status,amount,duration ,reg_date,add a button to delete the collab
-foreach ($result as $row) {
+foreach($result as $row){
     echo "<tr>";
-    /*nom complet de l'influenceur */
-    echo "<td>" . $row['prenom'] . " " . $row['nom'] . "</td>";
-    /*nom de l'entreprise */
-    echo "<td>".$row['nom']."</td>";
-    /*termes de la collaboration */
+    echo "<td>".$row['entreprise_nom']."</td>";
+    echo "<td>".$row['influencer_nom'].' '.$row['influencer_prenom']."</td>";
     echo "<td>".$row['terms']."</td>";
-    /*etat: accepté ou refusé */
-    echo "<td>".$row['state']."</td>";
-    /*prix demandé */
     echo "<td>".$row['amount']."</td>";
-    /*durée */
     echo "<td>".$row['duration']."</td>";
-    /*date de la collaboration */
+    echo "<td>".$row['state']."</td>";
     echo "<td>".$row['reg_date']."</td>";
     echo "<td>";
-        /*lorsque le bouton est cliqué on peut recuperer l'id de cette collaboration grace à: */
-
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='id' value='".$row['id']."'>";
-        echo "<input type='submit' name='delete_collab' value='Supprimer'>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
+    echo "<form method='post'>";
+    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "<input type='submit' class='delete-btn' name='delete_suggestion' value='Supprimer'>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
 }
 echo "</table>";
 echo "</div>";
-// si  delete_suggested_collab est cliqué
-if(isset($_POST['delete_suggested_collab'])){
-    /*recuperer l'id de la collaboration */
-  $id = $_POST['id'];
-  /*requete de suppression */
-  $sql = "DELETE FROM suggestion WHERE id = '$id'";
-  $result = mysqli_query($conn, $sql);
-   if ($result) {
-            /*si c'est bien supprimeé afficher: */
+// si le bouton delete_offer est cliqué:
+if(isset($_POST['delete_offer'])){
+    /*recuperer l'id de l'offre à supprimer */
+    $id = $_POST['id'];
+    /*requete pour supprimer l'offre dont l'id est $id */
+    $sql = "DELETE FROM offer WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
 
+      if ($result) {
+        /*si c'est bien supprimeé afficher: */
         echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
+        /*sinon afficher un message d'erreur  */
+        echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
+    }
+}
+// si le bouton delete_suggestion est cliqué:
+if(isset($_POST['delete_suggestion'])){
+    /*recuperer l'id de la suggestion à supprimer */
+    $id = $_POST['id'];
+    /*requete pour supprimer la suggestion dont l'id est $id */
+    $sql = "DELETE FROM suggestion WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+
+      if ($result) {
+        /*si c'est bien supprimeé afficher: */
+        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
+    } else {
+        /*sinon afficher un message d'erreur  */
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
 }
@@ -337,3 +319,18 @@ echo "</div>";
 </div>
 </body>
 </html>
+<style>
+    /* style pour la button echo "<input type='submit' class='delete-btn' name='delete_request' value='Supprimer'>";
+    */
+    .delete-btn{
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+
+</style>
