@@ -52,7 +52,7 @@
   <div class="profile">
     <!-- Le profil a le nom de l'entreprise le logo et  l'ID -->
      <img src="<?php echo $logo ?>" alt="logo" class="pro-img"><br>
-         <p><?php echo $name;?></p><br>
+         <center> <p><?php echo $name;?></p></center><br>
 </div>
         <ul>
              
