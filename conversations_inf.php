@@ -37,11 +37,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <div id="btn">&#9776;</div>
+        <div id="cancel">&#x2716;</div>
+    </label>
 
     <nav>
-    <span class="icon">
-        <i class="fa fa-user"></i> 
-          </span><hr>
+    <hr>
         <ul> 
             <!-- nom complet de l'influenceur courant-->
             <li> <?php echo $name; ?></li><br>
@@ -51,7 +54,6 @@
 
             <!-- id de l'influenceur  -->
 
-            <li>ID: <?php echo $id; ?> </li>
             <br>
   </ul><hr>
   <ul>

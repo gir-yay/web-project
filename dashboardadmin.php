@@ -228,12 +228,12 @@ foreach ($result as $row) {
     echo "<td>";
         /*lorsque le bouton est cliqué on peut recuperer l'id de cette collaboration grace à: */
 
-    echo "<form method='post'>";
-    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-    echo "<input type='submit' class='delete-btn' name='delete_suggested_collab' value='Supprimer'>";
-    echo "</form>";
-    echo "</td>";
-    echo "</tr>";
+        echo "<form method='post'>";
+        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+        echo "<input type='submit' name='delete_collab' value='Supprimer'>";
+        echo "</form>";
+        echo "</td>";
+        echo "</tr>";
 }
 echo "</table>";
 echo "</div>";
