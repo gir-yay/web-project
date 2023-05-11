@@ -181,7 +181,8 @@ foreach ($result as $row) {
     echo "</tr>";
 }
 // la meme chose pour le tableau suggestion , mais change la button suprimee pour distinguer les deux tableau 
-$sql = "SELECT suggestion.*, influencer.nom AS influencer_nom, influencer.prenom AS influencer_prenom, entreprise.nom AS entreprise_nom FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id";
+$sql = "SELECT suggestion.*, suggestion.id AS ide, influencer.nom AS influencer_nom, influencer.prenom AS influencer_prenom, entreprise.nom AS entreprise_nom  FROM suggestion  INNER JOIN influencer ON suggestion.id_influencer = influencer.id  INNER JOIN entreprise ON suggestion.id_entreprise = entreprise.id";
+
 $result = mysqli_query($conn, $sql);
 foreach($result as $row){
     echo "<tr>";
@@ -194,7 +195,7 @@ foreach($result as $row){
     echo "<td>".$row['reg_date']."</td>";
     echo "<td>";
     echo "<form method='post'>";
-    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+    echo "<input type='hidden' name='id' value='".$row['ide']."'>";
     echo "<input type='submit' class='delete-btn' name='delete_suggestion' value='Supprimer'>";
     echo "</form>";
     echo "</td>";
@@ -236,7 +237,9 @@ if(isset($_POST['delete_suggestion'])){
 }
 /*request pour supprimer le compte */
 //tableau de requetes: id ,user_id , type ,state, delete button 
+echo "<center>";
 echo "<h2>Demandes</h2>";
+echo "</center>";
 /*selectionner tout de la table request */
 $sql = "SELECT * FROM request";
 $result = mysqli_query($conn, $sql);
@@ -284,6 +287,8 @@ if(isset($_POST['delete_request'])){
       $result = mysqli_query($conn, $sql);
       $sql = "DELETE FROM suggestion WHERE id_influencer = '$user_id'";
       $result = mysqli_query($conn, $sql);
+        // chenger le satut du request à 'deleted'
+        $sql = "UPDATE request SET state = 'deleted' WHERE id = '$id'";
        if ($result) {
         echo  '<center><p class="done">Supprimé avec succés!</p></center>';
     } else {
@@ -304,6 +309,9 @@ if(isset($_POST['delete_request'])){
       $result = mysqli_query($conn, $sql);
       $sql = "DELETE FROM suggestion WHERE id_entreprise = '$user_id'";
       $result = mysqli_query($conn, $sql);
+        //   chenger le satut du request à 'deleted'
+        $sql = "UPDATE request SET state = 'deleted' WHERE id = '$id'";
+
 
        if ($result) {
         echo  '<center><p class="done">Supprimé avec succés!</p></center>';
