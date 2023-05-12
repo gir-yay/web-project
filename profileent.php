@@ -66,18 +66,19 @@ $logo='Upload/'.$row['logo'];
 <?php
 // if the button message is clicked
 if(isset($_POST['message'])) {
-  //Recuperer l'ID du message
-  $id = $_POST['id'];
-  //Envoyer l'identifiant dans la variable de session
-  $_SESSION['id2'] = $id;
-  $_SESSION['id2'] = $profile_id;
-  //ajouter une  variable type pour savoir si l'utilisateur est une entreprise ou un influenceur
-  $_SESSION['type'] = "ent";
-  //rediriger vers la page des message
- ?>
-    <script type="text/javascript">window.location="message_inf.php";</script>
+    //recuperer l'id de l'entreprise
+    $id_entreprise = $_POST['id'];
+    //envoyer l'id dans la variable de session
+    $_SESSION['id2'] = $profile_id;
+    //l'utilisateur est un influenceur
+    $_SESSION['type'] = "inf";
+    //l'id de l'influenceur
+    $_SESSION['id']= $id;
+    //rediriger vers message_inf.php
+   ?>
+  <script type="text/javascript">window.location="message_inf.php";</script>
 <?php
-  exit();
+exit();
 }
 // if the button retour is clicked
 if(isset($_POST['retour'])) {
