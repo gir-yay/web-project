@@ -32,8 +32,8 @@
             audience, Collab est là pour vous aider à trouver des partenariats rentables et durables
            
         </p>
-        <a href="signup.php" class="btnn">Je suis une Marque</a> <!--  ajoute un bouton pour les marques.-->
-        <a href="signup.php" class="btnn">Je suis un influenceur</a><!-- ajoute un bouton pour les influenceurs.-->
+        <a href="signup.php" class="btnn">Devenir membre</a> <!--  ajoute un bouton pour les marques.-->
+      
     </div>
     </section>
 
