@@ -14,30 +14,25 @@ $email=$row['email'];
 $ca=$row['ca'];
 $logo='Upload/'.$row['logo'];
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Modifier profil entreprise</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/modifypfent.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier profile influenceur</title>
+    <link rel="stylesheet" href="css\modifypfent.css">
 </head>
-<!-- make a forum with all the info as default -->
 <body>
-    
-    <div class="header">
-        <img src="<?php echo $logo; ?>" alt="logo" class="logo">
-        <h1><?php echo $name; ?></h1>
-    </div>
-   
-    <form action="modifypfent.php" method="post" enctype="multipart/form-data">
-    <div class="clearfix">
-        <!-- bouton cancel pour revenir à  influencer.php -->
-                <button type="submit" class="cancelbtn" name="cancel" >
-                  <i class="fa fa-arrow-left"></i></button>
-    </div>
-        <div class="container">
-            <h1>Modifier profil entreprise</h1>
+      <center>
+
+      <div class="box">
+        <form method="post" action="" enctype="multipart/form-data">
+
+      <img src="<?php echo $logo; ?>" alt="logo">
+                   <input type="file" name="logo"  id="file" accept="image/*">
+                <h1>Modifier profil entreprise</h1>
             <p>Remplissez ce formulaire pour modifier votre profil.</p>
             <hr>
             <label for="name"><b>Nom</b></label>
@@ -66,44 +61,50 @@ $logo='Upload/'.$row['logo'];
                            <option value="Cuisine">Cuisine</option>
                            <option value="autre">Autre</option>
             </select>
+            <br>
             
-    <!-- make the current logo a placeholder  -->
-            <label for="logo"><b>Logo</b></label>
-            <input type="file" placeholder="Entrer le logo" name="logo" value="<?php echo $logo; ?>">
+    <!-- Your form fields here -->
+                    <button type="submit" class="signupbtn" name="submit" style="float: right; margin:10px 18.2% 0 0;">Enregistrer</button>
+                
+                    <button type="submit" name="cancel" value="cancel" style="float: left;margin:10px 0 0 18.2%;">Annuler</button>
             
-
-            <div class="clearfix">
-                <button type="submit" class="signupbtn" name="submit">Enregistrer</button>
-            </div>
-            
-            
-
-        </div>
-</form>
-
-</body>
+        </form>
+    </div>
+      </center>
+      </body>
 </html>
 <?php
-//si l'influenceur clique sur cancel
+// si on clique sur le bouton annuler
 if(isset($_POST['cancel'])){
-    //direction vers entreprise.php
-    header("Location:entreprise.php");
+    //rediriger vers la page d'accueil
+    header('Location: entreprise.php');
 }
-//si l'utilisateur clique sur submit
+// si on clique sur le bouton enregistrer
 if(isset($_POST['submit'])){
-        //recuperer les données du formulaire:
-
+    //recuperer les valeurs du formulaire
     $name=$_POST['name'];
     $email=$_POST['email'];
     $ca=$_POST['ca'];
+    $tel=$_POST['tel'];
+    $site=$_POST['site'];
+    $domaine=$_POST['domaine'];
+    //recuperer le nom du logo
     $logo=$_FILES['logo']['name'];
-    $tmp_name=$_FILES['logo']['tmp_name'];
-    //deplacer le logo vers le dossier upload
-    move_uploaded_file($tmp_name, "Upload/$logo");
-    //modifier les anciennes informations dans la base de données
-    $sql="UPDATE entreprise SET nom='$name',email='$email',ca='$ca',logo='$logo' WHERE id='$id'";
-    $result=mysqli_query($conn,$sql);
-    //retour à entreprise.php
-    header("Location:entreprise.php");
+    //recuperer le chemin du logo
+    $target="Upload/".basename($_FILES['logo']['name']);
+    //si on a choisi un logo
+    if($logo){
+        //modifier le logo
+        $sql="UPDATE entreprise SET logo='$logo' WHERE id='$id'";
+        mysqli_query($conn,$sql);
+        //deplacer le logo vers le dossier Upload
+        move_uploaded_file($_FILES['logo']['tmp_name'],$target);
+    }
+    //modifier les autres informations
+    $sql="UPDATE entreprise SET nom='$name',email='$email',ca='$ca',telephone='$tel',site='$site',domaine='$domaine' WHERE id='$id'";
+    mysqli_query($conn,$sql);
+    //rediriger vers la page d'accueil
+    header('Location: entreprise.php');
 }
+
 ?>
