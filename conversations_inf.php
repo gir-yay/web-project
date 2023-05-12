@@ -44,7 +44,6 @@
     </label>
 
     <nav>
-    <hr>
         <ul> 
             <!-- nom complet de l'influenceur courant-->
             <li> <?php echo $name; ?></li><br>
