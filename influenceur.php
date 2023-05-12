@@ -112,6 +112,7 @@ echo "<h2>Entreprises</h2>";
     <th>CA</th>
     <th> Envoyer une suggestion </th>
     <th>Message</th>
+    <th>Profil</th>
     </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -139,6 +140,13 @@ echo "<h2>Entreprises</h2>";
         //bouton pour envoyer un massage à une entreprise
         echo "<form method='post'>";
         echo "<button type='submit' class='message-btn' name='message'>Message</button>";
+        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+        echo "</form>";
+        echo "</td>";
+        echo "<td>";
+        // bouton pour voir le profil de l'entreprise
+        echo "<form method='post'>";
+        echo "<button type='submit' class='profile-btn' name='profile'>Profil</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</form>";
         echo "</td>";
@@ -190,6 +198,18 @@ echo "<h2>Entreprises</h2>";
 <?php
 exit();
     }
+    //si le bouton de profil a été cliqué
+if(isset($_POST['profile'])) {
+    //Recuperer l'ID du profil
+    $id = $_POST['id'];
+    //Envoyer l'identifiant dans la variable de session
+    $_SESSION['id2'] = $id; 
+    //rediriger vers la page du profil
+   ?>
+      <script type="text/javascript">window.location="profileent.php";</script>
+<?php
+    exit();
+}
     /*faire apparaitre ce qu avait display:none lorsque on clique sur le bouton de suggestion*/
     echo "<script>
     document.querySelectorAll('.suggestion-btn').forEach(item => {
