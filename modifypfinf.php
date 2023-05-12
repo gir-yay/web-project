@@ -70,6 +70,7 @@ $logo = 'Upload/' . $row['pfp'];
                 <label for="youtube"><b>Youtube</b></label>
                 <input type="text" placeholder="Entrer votre youtube" name="youtube" value="<?php echo $row['youtube']; ?>" >
                 <!-- Domaine ,valeur par defaut: domaine de l'influenceur-->
+                <br>
                 <label for="domaine"><b>Domaine</b></label>
                 <select name="domaine" id="domaine" value="<?php echo $row['domaine'];?>" required>
                            <option value="Fashion">Fashion</option>
@@ -78,6 +79,8 @@ $logo = 'Upload/' . $row['pfp'];
                            <option value="Cuisine">Cuisine</option>
                            <option value="autre">Autre</option>
                 </select>
+                <BR>
+                <br>
                 <!-- valeur par defaut:abonne de l'influenceur-->
                 <label for="abonne"><b>Abonnés</b></label>
                 <select name="follower" id="follower">
@@ -86,9 +89,7 @@ $logo = 'Upload/' . $row['pfp'];
                             <option value="90k-150k">90k-150k Abonné</option>
                             <option value="+150k">+150k Abonné</option>
                         </select> 
-                 <label for="logo"><b>Photo de profile</b></label>
                  <br>
-                <input type="file" placeholder="Entrer la photo de profile" name="logo" value="<?php echo $logo; ?>">
                 <button type="submit" class="signupbtn" name="submit" style="float: right; margin:10px 18.2% 0 0;">Enregistrer</button>
                 
                 <button type="submit" name="cancel" value="cancel" style="float: left;margin:10px 0 0 18.2%;">Annuler</button>
@@ -105,8 +106,10 @@ $logo = 'Upload/' . $row['pfp'];
 <?php
 //si l'influenceur clique sur cancel
 if(isset($_POST['cancel'])){
-    //rediriger vers la page d'accueil
-    header('Location: influenceur.php');
+    ?>
+        <!-- rediriger vers loogin.php -->
+      <script type="text/javascript">window.location="influenceur.php";</script>
+<?php
 }
 // si on clique sur le bouton enregistrer
 if(isset($_POST['submit'])){
@@ -142,7 +145,7 @@ if(isset($_POST['submit'])){
             mysqli_query($conn,$sql);
             //rediriger vers la page d'accueil
             ?>
-<!-- rediriger vers loogin.php -->
+        <!-- rediriger vers loogin.php -->
       <script type="text/javascript">window.location="influenceur.php";</script>
 <?php
      }else{
