@@ -42,7 +42,7 @@ $pfp = "Upload/".$pfp;
                 <div class="text-data">
                     <span class="name"> <?php echo $row['nom']; ?> <?php echo $row['prenom']; ?></span>
                     <span>  <?php echo $row['age']; ?> ans</span>
-                    <span class="domaine"><?php echo $row['domaine']; ?></span>
+                    <span class="domaine"> Domaine:<?php echo $row['domaine']; ?></span>
                     <span  > <?php echo $row['email']; ?> </span>
                     <span  > <?php echo $row['telephone']; ?> </span>
                     <span class="follower" ></i> <?php echo $row['abonne']; ?> abonnés</span>
@@ -172,9 +172,6 @@ if(isset($_POST['retour'])) {
 .text-data .follower{
     font-size: 15px;
     font-weight: 500;
-}
-.text-data a{
-    color: #333;
 }
 
 

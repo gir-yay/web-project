@@ -203,7 +203,7 @@
                   
                         <div class="input-boxss">
                         <label >Site Web </label>
-                        <input type="text"name="site" placeholder="Ex:https://www.companyName.com"required>
+                        <input type="text"name="site" placeholder="Ex:https://www.nomEntreprise.com"required>
                         </div>
                         
                     

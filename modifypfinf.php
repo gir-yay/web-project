@@ -37,10 +37,9 @@ $logo = 'Upload/' . $row['pfp'];
     <div class="box">
         <form action="" method="post" enctype="multipart/form-data">
                 <img src="<?php echo $logo; ?>" alt="logo">
+                <label for="pfp"><b>Choisir une photo</b></label>
                 <input type="file" name="pfp"  id="file" accept="image/*">
-                <h1>Modifier profil influenceur</h1>
-                <p>Remplissez ce formulaire pour modifier votre profil.</p>
-                <hr>
+                <hr> 
                 <label for="lastname"><b>Nom</b></label>
                 <!-- valeur par defaut: nom de l'influenceur-->
                 <input type="text" placeholder="Entrer votre nom" name="lastname" value="<?php echo $row['nom']; ?>" required>
@@ -57,18 +56,15 @@ $logo = 'Upload/' . $row['pfp'];
                 <label for="age"><b>Age</b></label>
                 <!-- valeur par defaut: age de l'influenceur -->
                 <input type="text" placeholder="Entrer votre age" name="age" value="<?php echo $row['age']; ?>" required>
-                <i class="fa fa-instagram" style="font-size:24px"></i>
-                <label for="instagram"><b>Instagram</b></label>
+                <label for="instagram"><b><i class="fa fa-instagram"style="margin:4px" ></i>Instagram</b></label>
                 <!-- valeur par defaut: lien du compte instagram de l'influenceur-->
-                <input type="text" placeholder="Entrer votre instagram" name="instagram" value="<?php echo $row['insta']; ?>">
+                <input type="text" placeholder= "Ex:https://www.instagram.com" name="instagram" value="<?php echo $row['insta']; ?>">
                 <!-- valeur par defaut:lien du compte facebook de l'influenceur-->
-                <i class="fa fa-facebook-official" style="font-size:24px"></i>
-                <label for="facebook"><b>Facebook</b></label>
-                <input type="text" placeholder="Entrer votre facebook" name="facebook" value="<?php echo $row['fcbk']; ?>" >
+                <label for="facebook"><b> <i class="fa fa-facebook-official" style="margin:4px"></i>Facebook </b></label>
+                <input type="text" placeholder= " Ex:https://www.facebook.com" name="facebook" value="<?php echo $row['fcbk']; ?>" >
                 <!-- valeur par defaut:lien de la chaine youtube de l'influenceur-->
-                <i class="fa fa-youtube-play" style="font-size:24px"></i>
-                <label for="youtube"><b>Youtube</b></label>
-                <input type="text" placeholder="Entrer votre youtube" name="youtube" value="<?php echo $row['youtube']; ?>" >
+                <label for="youtube"><b><i class="fa fa-youtube-play" style="margin:4px"></i>Youtube</b></label>
+                <input type="text" placeholder="Ex:https://www.youtube.com" name="youtube" value="<?php echo $row['youtube']; ?>" >
                 <!-- Domaine ,valeur par defaut: domaine de l'influenceur-->
                 <br>
                 <label for="domaine"><b>Domaine</b></label>

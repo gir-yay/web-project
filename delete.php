@@ -44,15 +44,15 @@ if(isset($_POST['delete']) && isset($_POST['confirm'])) {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Delete Account</title>
+  <title>Supprimer le compte</title>
 </head>
 <body>
-  <h1>Delete Account</h1>
-  <p>Are you sure you want to delete your account?</p>
+  <h1>Supprimer Le compte</h1>
+  <p>êtes vous vraiment sûr de vouloire  supprimer votre compte ? </p>
   <form method="post">
-  <label style="margin-top: 10px;"><input type="checkbox" name="confirm" required> Yes, I want to delete my account.</label><br>
+  <label style="margin-top: 10px;"><input type="checkbox" name="confirm" required>Oui, Je suis sûr</label><br>
 
-    <input type="submit" name="delete" value="Delete Account">
+    <input type="submit" name="delete" value="Supprimer mon compte">
     <!-- selon le type d'utilisateur ( entreprise.php ou the influenceur.php ) -->
     <?php if($type==='entreprise'){ ?>
         <a href="entreprise.php">Retour au profile</a>

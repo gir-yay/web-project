@@ -21,7 +21,7 @@ $logo='Upload/'.$row['logo'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier profile influenceur</title>
+    <title>Modifier profile entreprise</title>
     <link rel="stylesheet" href="css\modifypfent.css">
 </head>
 <body>
@@ -31,9 +31,9 @@ $logo='Upload/'.$row['logo'];
         <form method="post" action="" enctype="multipart/form-data">
 
       <img src="<?php echo $logo; ?>" alt="logo">
+                    <label for="name"><b>Choisir une photo </b></label>
                    <input type="file" name="logo"  id="file" accept="image/*">
-                <h1>Modifier profil entreprise</h1>
-            <p>Remplissez ce formulaire pour modifier votre profil.</p>
+             
             <hr>
             <label for="name"><b>Nom</b></label>
                  <!-- valeur par defaut: nom de l'entreprise-->
@@ -45,13 +45,13 @@ $logo='Upload/'.$row['logo'];
 
             <label for="ca"><b>Chiffre d'affaire</b></label>
             <!-- valeur par defaut:chiffre d'affaire de l'entreprise-->
-            <input type="text" placeholder="Entrer le chiffre d'affaire" name="ca" value="<?php echo $ca; ?>" required>
+            <input type="text" placeholder="Entrer le chiffre d'affaire en MAD" name="ca" value="<?php echo $ca; ?>" required>
             <!-- valeur par defaut:Numero du telephone de l'entreprise-->
             <label for="tel"><b>Numéro de téléphone</b></label>
             <input type="text" placeholder="Entrer le numéro de téléphone" name="tel" value="<?php echo $row['telephone']; ?>" required>
             <!-- valeur par defaut:Le site web de l'entreprise-->
             <label for="site"><b>Site web</b></label>
-            <input type="text" placeholder="Entrer le site web" name="site" value="<?php echo $row['site']; ?>" required>
+            <input type="text" placeholder="Ex:https://www.nomEntreprise.com" name="site" value="<?php echo $row['site']; ?>" required>
             <!-- valeur par defaut:Le domaine de l'entreprise -->
             <label for="domaine"><b>Domaine</b></label>
             <select name="domaine" id="domaine" value="<?php echo $row['domaine']; ?>" required>

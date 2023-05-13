@@ -19,6 +19,11 @@ body {
   padding-bottom: 50px;
 }
 
+.box::-webkit-scrollbar{ 
+  /* pour rendre scrollbar invisible */
+  width: 0px;
+}
+
 .box img {
   box-sizing: border-box;
   width: 100px;
@@ -60,6 +65,15 @@ input[type="email"]:focus {
   color: #750c9b;
 }
 
+select{
+  background-color: #3b0450;
+  color: #fff;
+  font-size: 15px;
+  height: 30px;
+  width: 120px;
+  border-radius: 5px;
+  margin: 15px;
+ }
 label {
   box-sizing: border-box;
   color: #3b0450;

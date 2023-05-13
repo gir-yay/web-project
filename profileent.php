@@ -40,12 +40,16 @@ $logo='Upload/'.$row['logo'];
                 </div>
             <div class="text-data">
                 <span class="name"> <?php echo $row['nom']; ?> </span>
-                <span>  <?php echo $row['telephone']; ?> </span>
                 <span class="domaine"><?php echo $row['domaine']; ?></span>
+                <span>  <?php echo $row['telephone']; ?> </span>
                 <span  > <?php echo $row['email']; ?> </span>
-                <span  > <?php echo $row['site']; ?> </span>
-                <span class="follower" ></i> <?php echo $row['ca']; ?> CA</span>
+                <span class="follower" ></i> <?php echo $row['ca']; ?> MAD</span>
             </div>
+            <div class="media-buttons">
+                     <a href="<?php echo $row['site']; ?> " target="_blank" class="link">
+                       <i class="fa-solid fa-globe"></i>
+                     </a> 
+             </div>  
             <div class="buttons">
                    
                    <!-- button retour à la page précedente  -->
@@ -147,17 +151,27 @@ if(isset($_POST['retour'])) {
 }
 .text-data .domaine{
     font-size: 15px;
-    font-weight: 400;
-}
-
-.text-data .follower{
-    font-size: 15px;
     font-weight: 500;
 }
-.text-data a{
-    color: #333;
-}
 
+.profil-card .media-buttons{
+    display: flex;
+    align-items: center;
+    margin-top:15px ;
+}
+.media-buttons .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size:18px;
+    height: 34px;
+    width: 34px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color:  rgb(86, 20, 114);
+    text-decoration: none;
+}
 
 .profil-card .buttons{
     display: flex;
