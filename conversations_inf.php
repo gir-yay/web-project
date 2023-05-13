@@ -58,7 +58,7 @@
   <ul>
              <!--  lien pour modifier les infomations de l'influenceur -->
              <li>
-                <a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modify Profile</a>
+                <a href="modifypfinf.php"><i class="fa fa-pencil-square-o"></i> Modifier mon profil</a>
             </li><br>
             <!-- envoyer une demande de suppression du compte  -->
             <li>
@@ -68,7 +68,7 @@
 
             <!--retour a influenceur.php -->
 
-                <a href="influenceur.php"><i class="fa fa-sign-out"></i>Return</a>
+                <a href="influenceur.php"><i class="fa fa-sign-out"></i>Retour</a>
         </li><br>
         
     
@@ -96,7 +96,7 @@ $sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.i
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-echo "<table border='1'><th>From</th><th>Date</th><th>Action</th>";
+echo "<table border='1'><th>De</th><th>Date</th><th>Action</th>";
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>" .$row['nom'] . "</td>";
@@ -105,7 +105,7 @@ foreach ($result as $row) {
                     echo "<td>";
 
         echo "<form method='post'>";
-        echo "<button type='submit' class='message-btn' name='message'>Read</button>";
+        echo "<button type='submit' class='message-btn' name='message'>Lire</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</form>";
         echo "</td>";
@@ -114,7 +114,7 @@ foreach ($result as $row) {
     echo "</table>";
 
 
-      echo "<h1><center>ALL CONVERSATIONS</center></h1>";
+      echo "<h1><center>TOUTES LES CONVERSATIONS</center></h1>";
 
       /*recuperer tous les messages lu ou  non lu envoyé a cet influenceur */
 
@@ -125,7 +125,7 @@ $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_assoc($result2);
 
 echo "<table>";
-echo "<th>From</th><th>Date</th><th>Action</th>";
+echo "<th>De</th><th>Date</th><th>Action</th>";
 foreach ($result2 as $row2) {
     echo "<tr>";
     echo "<td>" .$row2['email'] . "</td>";
