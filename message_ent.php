@@ -102,10 +102,10 @@ if ($type == 'ent') {
         </div>
             <!-- zone d'ecriture des messages -->
         <form class="typing-area" method="post" action="">
-            <input type="text" name="message" placeholder="Type your message here...">
-            <!-- bouton d'envoi -->
-            <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
-        </form>
+                <textarea name="message" placeholder="Type your message here..."></textarea>
+                <!-- bouton d'envoi-->
+                <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
+            </form>
     </section>
 
 </body>

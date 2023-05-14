@@ -99,11 +99,11 @@ if ($type == 'inf') {
                 ?>
         </div>
                 <!--  zone d'ecriture -->
-        <form class="typing-area" method="post" action="">
-            <input type="text" name="message" placeholder="Type your message here...">
-            <!-- bouton d'envoi-->
-            <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
-        </form>
+            <form class="typing-area" method="post" action="">
+                <textarea name="message" placeholder="Type your message here..."></textarea>
+                <!-- bouton d'envoi-->
+                <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
+            </form>
     </section>
 </body>
 </html>
@@ -136,3 +136,4 @@ if(isset($_POST['send'])){
     }
 }
 ?>
+
