@@ -121,11 +121,13 @@ li{
     font-size: 19px;
 }
 img {
-height: 100px;
 margin-left: 90px;
 margin-bottom: 40px;
 border-radius: 200px;
-border: solid rgb(57, 4, 57);
+width: 100px;
+height: 100px;
+box-shadow: 0 2px 3px #be56c6;
+border: solid rgb(176, 9, 176);
 }
 /*enlever les puces de la listes*/
 ul{
