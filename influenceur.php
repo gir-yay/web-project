@@ -128,10 +128,10 @@ echo "<h2>Entreprises</h2>";
         echo "<button type='button' class='suggestion-btn'>suggestion</button>";
         /*invisible  (display:none)*/
         echo "<div class='suggestion-form' style='display:none;'>";
-        echo "<input type='text' class='sug-options' name='terms' placeholder='Terms'>";
-        echo "<input type='text'class='sug-options'  name='amount' placeholder='Amount'>";
-        echo "<input type='text' class='sug-options' name='duration' placeholder='Duration'><br>";
-        echo "<button type='submit' class='submit-sug' name='submit'>Submit</button>";
+        echo "<input type='text' class='sug-options' name='terms' placeholder='Conditions'>";
+        echo "<input type='text'class='sug-options'  name='amount' placeholder='Montant'>";
+        echo "<input type='text' class='sug-options' name='duration' placeholder='Durée'><br>";
+        echo "<button type='submit' class='submit-sug' name='submit'>Envoyer</button>";
         echo "<input type='hidden' name='id' value='".$row['id']."'>";
         echo "</div>";
         echo "</form>";
