@@ -111,7 +111,7 @@ body {
 
 }
 
-.chat-area .typing-area {
+.typing-area {
     padding: 18px 30px;
     display: flex;
     justify-content: space-between;

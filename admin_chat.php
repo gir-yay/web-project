@@ -103,7 +103,7 @@ $receiverName = $row_['email'];
         </div>
         <!-- zone d'ecriture des messages -->
         <form class="typing-area" method="post" action="">
-            <input type="text" name="message" placeholder="Type your message here...">
+            <input type="text" name="message" placeholder="Taper votre message ici...">
             <button type="submit" name="send"><i class="fa-sharp fa-solid fa-paper-plane fa-lg" ></i></button>
         </form>
             </section>
