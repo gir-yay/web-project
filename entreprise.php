@@ -119,9 +119,9 @@ foreach ($result as $row) {
 
     echo "<div clas-form' style='display:none;'>";
     // ajouter un formulaire pour executer un offre: Les termes d'un accord entre deux parties, le montant payé par une marque à un influenceur et la durée du contrat.
-    echo "<input type='text' class='offer-options' name='terms' placeholder='Terms'>";
-    echo "<input type='text' class='offer-options' name='amount' placeholder='Amount'>";
-    echo "<input type='text' class='offer-options' name='duration' placeholder='Duration'>";
+    echo "<input type='text' class='offer-options' name='terms' placeholder='Conditions'>";
+    echo "<input type='text' class='offer-options' name='amount' placeholder='Montant'>";
+    echo "<input type='text' class='offer-options' name='duration' placeholder='Durée'>";
     echo "<button type='submit' class='submit-offer' name='submit'>Envoyer</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</div>";
@@ -297,7 +297,7 @@ exit();
 //Afficher la suggestion acceptée de l'influenceur sous forme de table en utilisant une jointure interne avec la table d'influenceurs pour obtenir le prénom et le nom de famille de l'influenceur.
 $sql = "SELECT * FROM suggestion INNER JOIN influencer ON suggestion.id_influencer = influencer.id WHERE state = 'accepted' AND id_entreprise = '$id'";
 $result = mysqli_query($conn, $sql);
-echo "<h1>Collaboration actif </h1>";
+echo "<h1>COLLABORATIONS ACTIVES </h1>";
 echo "<table>";
 echo "<tr><th>ID</th><th>Conditions</th><th>Montant</th><th>Durée</th><th>Etat</th><th>Influenceur</th></tr>";
 foreach ($result as $row) {
