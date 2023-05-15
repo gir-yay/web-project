@@ -121,7 +121,7 @@ foreach ($result as $row) {
     // ajouter un formulaire pour executer un offre: Les termes d'un accord entre deux parties, le montant payé par une marque à un influenceur et la durée du contrat.
     echo "<input type='text' class='offer-options' name='terms' placeholder='Conditions'>";
     echo "<input type='text' class='offer-options' name='amount' placeholder='Montant'>";
-    echo "<input type='text' class='offer-options' name='duration' placeholder='Durée'>";
+    echo "<input type='text' class='offer-options' name='duration' placeholder='Durée'><br>";
     echo "<button type='submit' class='submit-offer' name='submit'>Envoyer</button>";
     echo "<input type='hidden' name='id' value='".$row['id']."'>";
     echo "</div>";
