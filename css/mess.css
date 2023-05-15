@@ -116,3 +116,44 @@ table {
   .message-btn:hover {
     background-color: #04a9f5;
   }
+  .chat-box .chat pre {
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+        0 16px 16px -16px rgb(0 0 0 /10%);
+    word-wrap: break-word;
+}
+
+.chat-box .outgoing {
+    display: flex;
+}
+
+.outgoing .details {
+    max-width: calc(100% - 130px);
+    margin-left: auto;
+}
+
+.outgoing .details pre {
+    background: #333;
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+
+}
+
+.chat-box .incoming {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.incoming .details {
+    margin-left: 10px;
+    margin-right: auto;
+    max-width: calc(100% - 130px);
+}
+
+.incoming .details pre {
+    background: rgb(190, 104, 231);
+    color: #fff;
+    border-radius: 18px 18px 18px 0px;
+
+}
