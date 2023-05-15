@@ -82,13 +82,13 @@ if ($type == 'inf') {
                         if($row['sender'] == $sender && $row['receiver_type'] == "ent"){
                             //display the message in the right side of the conversation div
                              echo '<div class="chat outgoing">';
-                            echo '<div class="details"><p>'.$message.'<br>'.$timestamp.'</p></div>';
+                            echo '<div class="details"><pre>'.$message.'<br>'.$timestamp.'</pre></div>';
                             echo '</div>';
 
                         }else{
                             //display the message in the left side of the conversation div
                              echo '<div class="chat incoming">';
-                             echo '<div class="details"><p>'.$message.'<br>'.$timestamp.'</p></div>';
+                             echo '<div class="details"><pre>'.$message.'<br>'.$timestamp.'</pre></div>';
                             echo '</div>';
                            
                         }

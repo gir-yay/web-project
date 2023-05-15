@@ -78,13 +78,13 @@ if ($type === 'entreprise') {
                     if ($row['sender_type'] === 'entreprise') {
                         echo '<div class="chat outgoing">
                                 <div class="details">
-                                    <p>' . $row['message_text'] . '</p>
+                                    <pre>' . $row['message_text'] . '</pre>
                                 </div>
                             </div>';
                     } else if($row['sender_type'] === 'influenceur') {
                         echo '<div class="chat outgoing">
                                 <div class="details">
-                                    <p>' . $row['message_text'] . '</p>
+                                    <pre>' . $row['message_text'] . '</pre>
                                 </div>
                             </div>';
                     }else{
@@ -92,7 +92,7 @@ if ($type === 'entreprise') {
 
                     echo '<div class="chat incoming">
                             <div class="details">
-                                <p>' . $row['message_text'] . '</p>
+                                <pre>' . $row['message_text'] . '</pre>
                             </div>
                         </div>';
                     }
