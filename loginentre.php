@@ -5,8 +5,8 @@ session_start();
 include "database.php";
 
 //recuperer l'email et le mot de passe a travers $_POST
-$email =$_POST['email'];
-$password =$_POST['password'];
+$email =htmlspecialchars($_POST['email']);
+$password =htmlspecialchars($_POST['password']);
 
 // encrypter le mot de passe
 

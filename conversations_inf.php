@@ -92,7 +92,7 @@ $id = $_SESSION['id'];
 
 /*recuperer tous les messages non lu envoyé a cet influenceur */
 
-$sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `receiver_type` like 'inf' and read_ =0 group by sender order by time_stamp ";
+$sql = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and receiver_type like 'inf' and read_ =0 group by sender order by time_stamp ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -119,7 +119,7 @@ foreach ($result as $row) {
       /*recuperer tous les messages lu ou  non lu envoyé a cet influenceur */
 
 
-    $sql2 = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and `receiver_type` like 'inf' group by sender order by time_stamp ";
+    $sql2 = "SELECT * FROM messages join entreprise on messages.sender = entreprise.id WHERE receiver='$id' and receiver_type like 'inf' group by sender order by time_stamp ";
 
 $result2 = mysqli_query($conn, $sql2);
 $row2 = mysqli_fetch_assoc($result2);

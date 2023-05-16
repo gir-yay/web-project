@@ -8,19 +8,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if(isset($_POST['submit'])){
      //recevoir les données de signup.php section entreprise
 
-      $nom = $_POST['nom'];
-      $telephone = $_POST['telephone'];
-      $email = $_POST['email'];
+      $nom = htmlspecialchars($_POST['nom']);
+      $telephone = htmlspecialchars($_POST['telephone']);
+      $email = htmlspecialchars($_POST['email']);
       // get the logo name and store it in the Upload folder
       $logo = $_FILES['logo']['name'];
       $tmp_name = $_FILES['logo']['tmp_name'];
       $path = "Upload/".$logo;
       move_uploaded_file($tmp_name,$path);
-      $site = $_POST['site'];
-      $ca = $_POST['ca'];
-      $domaine = $_POST['domaine'];
-      $password = $_POST['password'];
-      $password2 = $_POST['password-confirm'];
+      $site = htmlspecialchars($_POST['site']);
+      $ca = htmlspecialchars($_POST['ca']);
+      $domaine = htmlspecialchars($_POST['domaine']);
+      $password = htmlspecialchars($_POST['password']);
+      $password2 = htmlspecialchars($_POST['password-confirm']);
       //verifier si le mot de passe et sa confirmation sont les memes
       if($password == $password2){
          //verifier si l'email n'est jamais utilisé

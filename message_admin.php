@@ -122,7 +122,7 @@ if ($type === 'entreprise') {
 //bouton send est cliqué
 if (isset($_POST['send'])) {
     //contenu du messages
-    $message = $_POST['message'];
+    $message = htmlspecialchars($_POST['message']);
     // date de l'envoi
     $date = date('Y-m-d H:i:s');
     // pas encore lu

@@ -57,8 +57,8 @@ include 'database.php';
 // verifier si le bouton est cliqué
 if (isset($_POST['username'])) {
     // recuperer le nom d'utilisateur et le mot de passe
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
     $pw=sha1($password);
 
     // authentification

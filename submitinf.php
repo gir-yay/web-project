@@ -9,29 +9,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST['submit'])){
         //recevoir les données de signup.php section influenceur
         //stocker nom
-        $nom = $_POST['nom'];
+        /*htmlspecialchars() est pour transformer les caractere speciaux en un code html par exemple ' peut generer des erreurs sql*/
+        $nom = htmlspecialchars($_POST['nom']);
         //stocker prenom
-        $prenom = $_POST['prenom'];
+        $prenom = htmlspecialchars($_POST['prenom']);
         //stocker l'age
-        $age = $_POST['age'];
+        $age = htmlspecialchars($_POST['age']);
         //stocker le tel
-        $telephone = $_POST['telephone'];
+        $telephone = htmlspecialchars($_POST['telephone']);
         //l'email
-        $email = $_POST['email'];
+        $email = htmlspecialchars($_POST['email']);
         //lien instagram
-        $insta = $_POST['insta'];
+        $insta = htmlspecialchars($_POST['insta']);
         //lien facebook
-        $fcbk = $_POST['fcbk'];
+        $fcbk = htmlspecialchars($_POST['fcbk']);
         //lien de la chaine youtube
         $youtube = $_POST['ytb'];
         //domaine
-        $domaine = $_POST['domaine'];
+        $domaine = htmlspecialchars($_POST['domaine']);
         //stocker le nombre des abonnées
-        $abonne = $_POST['follower'];
+        $abonne = htmlspecialchars($_POST['follower']);
         //mot de passe
-        $password = $_POST['password'];
+        $password = htmlspecialchars($_POST['password']);
         //confirmation du mot de passe
-        $password2 = $_POST['password-confirm'];
+        $password2 = htmlspecialchars($_POST['password-confirm']);
         // get the logo name and store it in the Upload folder
         $logo = $_FILES['logo']['name'];
         $tmp_name = $_FILES['logo']['tmp_name'];

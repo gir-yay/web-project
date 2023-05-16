@@ -113,7 +113,7 @@ $receiverName = $row_['email'];
 //si on clique sur le bouton "send":
 if (isset($_POST['send'])) {
     //le contenu du message
-    $message = $_POST['message'];
+    $message = htmlspecialchars($_POST['message']);
     // date de l'envoi
     $date = date('Y-m-d H:i:s');
     // lu ou non

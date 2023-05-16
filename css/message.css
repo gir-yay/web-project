@@ -69,12 +69,28 @@ body {
     margin: 15px 0;
 }
 
+/*couper le texte pour la balise <pre> */
+pre {
+    white-space: pre-wrap;
+    /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+}
+
 .chat-box .chat pre {
     padding: 8px 16px;
     box-shadow: 0 0 32px rgb(0 0 0 / 8%),
         0 16px 16px -16px rgb(0 0 0 /10%);
     word-wrap: break-word;
+
 }
+
 
 .chat-box .outgoing {
     display: flex;
@@ -139,11 +155,13 @@ body {
     line-height: 45px;
 
 }
-.wrapper .chat-area .chat-box .chat .details p{
+
+.wrapper .chat-area .chat-box .chat .details p {
     font-size: 1rem;
 }
+
 /* style the text area */
-.wrapper .typing-area textarea{
+.wrapper .typing-area textarea {
     width: calc(100% - 58px);
     /* height need to fit the content */
     height: 45px;
@@ -152,7 +170,8 @@ body {
     border-radius: 5px 0 0 5px;
     outline: none;
 }
+
 /* style the send button */
-.wrapper .typing-area textarea:focus{
+.wrapper .typing-area textarea:focus {
     border: 1px solid #5271ff;
 }

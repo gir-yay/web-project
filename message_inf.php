@@ -113,7 +113,7 @@ if ($type == 'inf') {
 //if the send button is clicked
 if(isset($_POST['send'])){
     //contenu du message
-    $message = $_POST['message'];
+    $message = htmlspecialchars($_POST['message']);
     //date de l'envoi
     $date = date('Y-m-d H:i:s');
     // non encore lu
