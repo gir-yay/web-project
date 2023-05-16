@@ -58,7 +58,7 @@ foreach ($result as $row)
     //add a button to go to the massage.php page
     echo "<td>"; 
     echo "<form method='post'>";
-    echo "<button type='submit' class='message-btn' name='message'>Read</button>";
+    echo "<button type='submit' class='message-btn' name='message'>Lire</button>";
     /*id du message */
     echo "<input type='hidden' name='id' value='".$row['message_id']."'>";
     echo "</form>";

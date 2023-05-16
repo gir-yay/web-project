@@ -8,7 +8,10 @@ session_start();
 //si l'utilisateur n'est pas authentifié
 if(!isset($_SESSION['username'])){
     //retour à admin.php
-    header('Location: admin.php');
+    ?>
+<!-- rediriger vers loogin.php -->
+      <script type="text/javascript">window.location="admin.php";</script>
+<?php
     exit();
 }
 /*variable definis dans la page mess.php */
@@ -129,8 +132,10 @@ if (isset($_POST['send'])) {
         $result = mysqli_query($conn, $sql);
         //if the message is inserted
         if ($result) {
-            //refresh the page
-            header("Refresh:0");
+            ?>
+      <script type="text/javascript">window.location="admin_chat.php";</script>
+<?php
+
         }
     }
 }
