@@ -121,7 +121,7 @@ echo "<h2>Entreprises</h2>";
         /*email de l'entreprise */
         echo "<td>" . $row['email'] . "</td>";
         /*chiffre d'affaire de l'entreprise */
-        echo "<td>" . $row['ca'] . "</td>";
+        echo "<td>" . $row['ca'] ." MAD" . "</td>";
         echo "<td>";
         echo "<form method='post'>";
         // bouton pour suggerer qqc à une entreprise
