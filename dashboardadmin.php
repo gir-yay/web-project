@@ -91,7 +91,7 @@ if(isset($_POST['delete_influencer'])){
 
                 /*si c'est bien supprimeé afficher: */
 
-        echo  '<center><p class="done">Bien Supprimé!</p></center>';
+        echo  '<center><p class="done">Supprimé!</p></center>';
     } else {
         /*sinon afficher un message d'erreur  */
 
@@ -139,7 +139,7 @@ if(isset($_POST['delete_brand'])){
 
       if ($result) {
         /*si c'est bien supprimeé afficher: */
-        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
+        echo  '<center><p class="done">Supprimé!</p></center>';
     } else {
         /*sinon afficher un message d'erreur  */
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
@@ -213,7 +213,7 @@ if(isset($_POST['delete_offer'])){
 
       if ($result) {
         /*si c'est bien supprimeé afficher: */
-        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
+        echo  '<center><p class="done">Supprimé!</p></center>';
     } else {
         /*sinon afficher un message d'erreur  */
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
@@ -229,7 +229,7 @@ if(isset($_POST['delete_suggestion'])){
 
       if ($result) {
         /*si c'est bien supprimeé afficher: */
-        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
+        echo  '<center><p class="done">Supprimé!</p></center>';
     } else {
         /*sinon afficher un message d'erreur  */
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
@@ -290,7 +290,7 @@ if(isset($_POST['delete_request'])){
         // chenger le satut du request à 'deleted'
         $sql = "UPDATE request SET state = 'deleted' WHERE id = '$id'";
        if ($result) {
-        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
+        echo  '<center><p class="done">Supprimé!</p></center>';
     } else {
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
@@ -314,7 +314,7 @@ if(isset($_POST['delete_request'])){
 
 
        if ($result) {
-        echo  '<center><p class="done">Supprimé avec succés!</p></center>';
+        echo  '<center><p class="done">Supprimé!</p></center>';
     } else {
         echo '<center><p class="erreur">Erreur: ' . mysqli_error($conn) . '</p></center>';
     }
