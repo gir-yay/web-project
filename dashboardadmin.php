@@ -238,7 +238,7 @@ if(isset($_POST['delete_suggestion'])){
 /*request pour supprimer le compte */
 //tableau de requetes: id ,user_id , type ,state, delete button 
 echo "<center>";
-echo "<h2>Demandes</h2>";
+echo "<h2>Demandes de Suppression de compte</h2>";
 echo "</center>";
 /*selectionner tout de la table request */
 $sql = "SELECT * FROM request";

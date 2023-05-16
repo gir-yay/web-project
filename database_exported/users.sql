@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 16 mai 2023 à 12:57
+-- Généré le : mar. 16 mai 2023 à 13:35
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -92,7 +92,8 @@ INSERT INTO `entreprise` (`id`, `nom`, `telephone`, `email`, `logo`, `site`, `ca
 (2, 'gushi', '066666***', 'gushi@gmail.com', 'hh.jpeg', 'www.google.com', 5000.00, 'Fashion', '1fbfbe3f88f29ffdf50e2caaacfa5d4857b1af64'),
 (4, 'KIKO', '0655885577', 'kiko@gmail.com', 'kiko.jpg', 'http://google.com', 6890000.00, 'autre', '3b55b765725f874ac5421250a71175623ee325f9'),
 (5, 'shein', '05622321221', 'shein@gmail.com', 'Shein-logo.png', 'http://google.com', 900000.00, 'Fashion', '3327e7b8309c8f91833261d8ebea5d6f37a0b725'),
-(6, 'sports', '0877766699', 'sports@gmail.com', 'sports.png', 'http://google.com', 8887774.00, 'Sport', '150a8af76a92892f269dead204d533cbfad5cd7f');
+(6, 'sports', '0877766699', 'sports@gmail.com', 'sports.png', 'http://google.com', 8887774.00, 'Sport', '150a8af76a92892f269dead204d533cbfad5cd7f'),
+(9, 'halo', '066666', 'halo@gmail.com', 'planet.jpg', 'http://google.com', 6890000.00, 'Cuisine', '33b1eac210971fb02a3b90afce9dbff758be794d');
 
 -- --------------------------------------------------------
 
@@ -177,6 +178,13 @@ CREATE TABLE `offer` (
   `state` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `offer`
+--
+
+INSERT INTO `offer` (`id`, `id_influencer`, `id_entreprise`, `terms`, `amount`, `duration`, `reg_date`, `state`) VALUES
+(4, 9, 5, 'utiliser nos produits dans votre videos', '200Dh', '5mois', '2023-05-16 11:18:20', 'waiting');
+
 -- --------------------------------------------------------
 
 --
@@ -190,6 +198,13 @@ CREATE TABLE `request` (
   `state` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `request`
+--
+
+INSERT INTO `request` (`id`, `user_id`, `type`, `state`) VALUES
+(1, 9, 'entreprise', 'pending');
+
 -- --------------------------------------------------------
 
 --
@@ -200,9 +215,9 @@ CREATE TABLE `suggestion` (
   `id` int(11) NOT NULL,
   `id_entreprise` int(11) NOT NULL,
   `id_influencer` int(11) NOT NULL,
-  `terms` varchar(255) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `duration` int(11) NOT NULL,
+  `terms` text NOT NULL,
+  `amount` tinytext NOT NULL,
+  `duration` text NOT NULL,
   `state` varchar(255) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -212,7 +227,8 @@ CREATE TABLE `suggestion` (
 --
 
 INSERT INTO `suggestion` (`id`, `id_entreprise`, `id_influencer`, `terms`, `amount`, `duration`, `state`, `reg_date`) VALUES
-(3, 2, 11, 'des vidéos sponsorisées', 500, 3, 'accepted', '2023-05-16 09:28:04');
+(3, 2, 11, 'des vidéos sponsorisées', '500Dh', '3mois', 'accepted', '2023-05-16 09:28:04'),
+(4, 6, 8, 'faire de la publicités pour vos produits', '2000Dh', '1an', 'waiting', '2023-05-16 11:20:14');
 
 --
 -- Index pour les tables déchargées
@@ -287,7 +303,7 @@ ALTER TABLE `admin_messages`
 -- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `influencer`
@@ -305,19 +321,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT pour la table `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `request`
 --
 ALTER TABLE `request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `suggestion`
 --
 ALTER TABLE `suggestion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
