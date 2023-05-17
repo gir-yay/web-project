@@ -1,7 +1,7 @@
 <?php
 // commencer la session
 session_start();
-// if the session is not set
+// Si la session n'est pas définie
 if (!isset($_SESSION['id'])) {
 ?>
 <!-- rediriger vers loogin.php -->
@@ -21,7 +21,7 @@ $type = $_SESSION['type'];
 
 // influenceur
 $receiver_type="inf";
-//the receiver id
+// l'id du destinataire
 $receiver = $_SESSION['id2'];
 
 
@@ -72,7 +72,7 @@ if ($type == 'ent') {
             </header>
 
         <div class="chat-area">
-            <!-- Messages will be displayed here -->
+            <!-- Les messages seront affichés ici -->
            <?php
                 echo '<div class="chat-box">';
 
@@ -80,15 +80,15 @@ if ($type == 'ent') {
                     while($row = mysqli_fetch_assoc($result)){
                         $message = $row['message'];
                         $timestamp = $row['time_stamp'];
-                        //if the sender is the current user
+                        // Si l'expéditeur est l'utilisateur actuel
                         if($row['sender'] == $sender && $row['receiver_type'] != 'ent'){
-                            //display the message in the right side of the conversation div
+                            // Afficher le message du côté droit de la div de conversation
                              echo '<div class="chat outgoing">';
                             echo '<div class="details"><pre>'.$message.'<br>'.$timestamp.'</pre></div>';
                             echo '</div>';
 
                         }else {
-                            //display the message in the left side of the conversation div
+                            // Afficher le message du côté gauche de la div de conversation
                              echo '<div class="chat incoming">';
                              echo '<div class="details"><pre>'.$message.'<br>'.$timestamp.'</pre></div>';
                             echo '</div>';
@@ -119,10 +119,10 @@ if(isset($_POST['send'])){
     //date de l'envoi
     $date = date('Y-m-d H:i:s');
     $read=0;
-    //insert the message into the message table
+     // Insérer le message dans la table "message"
       $sql = "INSERT INTO messages (`sender`, `receiver`, `message`, `receiver_type`, `time_stamp`, `read_`) VALUES ('$sender', '$receiver', '$message', '$receiver_type','$date', '$read')";
     $result = mysqli_query($conn, $sql);
-    //if the message is inserted
+    // Si le message est inséré
     if($result){
         
 ?>
@@ -130,7 +130,7 @@ if(isset($_POST['send'])){
 <?php
 
 }else{
-        //display an error message
+        // Afficher un message d'erreur
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }

@@ -5,10 +5,10 @@ include 'database.php';
 session_start();
 // verifier les variables de la session
 if (isset($_SESSION['username'])) {
-    // if the session variable are set 
+    // Si les variables de session sont définies.
     $name=$_SESSION['username'];
 } else {
-    // if the session variable are not set, redirect to admin.php
+    // Si les variables de session ne sont pas définies, redirigez vers admin.php.
     header('Location: admin.php');
 }
 ?>
@@ -30,7 +30,8 @@ if (isset($_SESSION['username'])) {
     <div id="cancel" >&#x2716;</div>
 </label>
     
-    <!-- nav bar to logout and message -->
+    
+<!-- Barre de navigation pour la déconnexion et les messages -->
     
     <nav>
         <ul>

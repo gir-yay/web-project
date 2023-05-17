@@ -2,7 +2,7 @@ body {
   background-color: rgb(64, 8, 78);
 }
 
-*:focus {
+*:focus {  /* lorsqu'un élément reçoit le focus, son contour (outline) doit être supprimé. */
   outline: none;
 }
 
@@ -16,6 +16,7 @@ body {
   background-color: #eee4f6;
   margin-top: 50px;
   overflow-y: auto;
+  /* lorsque le contenu dépasse la hauteur de l'élément,une barre de défilement verticale sera creer */
   padding-bottom: 50px;
 }
 
@@ -57,7 +58,7 @@ input[type="file"] {
 input[type="text"] {
   margin-top: 25px;
 }
-
+/* style  pour les éléments <input> de type "text" et "email" lorsqu'ils sont en état de focus. */
 input[type="text"]:focus,
 input[type="email"]:focus {
   border-bottom: 2px solid #a419e4;

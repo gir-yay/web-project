@@ -63,7 +63,7 @@ if(isset($_POST['delete']) && isset($_POST['confirm'])) {
 </body>
 </html>
 <style>
-  /* Center the contents of the page */
+  /* Centrer le contenu de la page */
 body {
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Style the title and subtitle */
+/* Styliser le titre et le sous-titre */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -86,10 +86,10 @@ p {
   text-align: center;
 }
 
-/* Style the form and its components */
+/* Styliser le formulaire et ses composants */
 form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /*  les éléments sont affichés dans une disposition en colonne plutôt qu'en ligne. */
   align-items: center;
   justify-content: center;
   width: 100%;

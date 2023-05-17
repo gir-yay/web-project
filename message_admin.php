@@ -19,7 +19,7 @@ $type = $_SESSION['type'];
 if ($type === 'entreprise') {
     $sql = "SELECT * FROM entreprise WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
-    //get the information of the sender
+    // Obtenir les informations de l'expéditeur
     $row = mysqli_fetch_assoc($result);
     $senderName = $row['nom'];
     $receiverName="admin";
@@ -32,7 +32,7 @@ if ($type === 'entreprise') {
 
     $sql = "SELECT * FROM influencer WHERE id = '$sender'";
     $result = mysqli_query($conn, $sql);
-    //get the information of the sender
+    // Obtenir les informations de l'expéditeur
     $row = mysqli_fetch_assoc($result);
     $senderName = $row['email'];
     $receiverName="admin";
@@ -61,7 +61,7 @@ if ($type === 'entreprise') {
             </header>
 
         <div class="chat-area">
-            <!-- create a conversation where the receiver is the admin -->
+            <!-- Créer une conversation où le destinataire est l'administrateur -->
             <?php
                 echo '<div class="chat-box">';
             /*l admin est le destinataire */
@@ -131,12 +131,12 @@ if (isset($_POST['send'])) {
 
     //si le message est non vide
     if (!empty($message)) {
-        //insert the message in the admin_messages table
+        // Insérer le message dans la table "message"
         $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `time_stamp` , `read_`) VALUES ('$sender','$type','$type','$message' ,'$date', '$read')";
         $result = mysqli_query($conn, $sql);
-        //if the message is inserted
+        // Si le message est inséré
         if ($result) {
-            //refresh the page
+            // Rafraîchir la page
             header("Refresh:0");
         }
     }

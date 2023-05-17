@@ -2,11 +2,11 @@
 //logout.php
 session_start();
 
-//remove all session variables
+// Supprimer toutes les variables de session
 session_unset();
 session_destroy();
 
-//redirect to home page
+// Rediriger vers la page d'accueil
 header("Location: index.php");
 exit();
 ?>

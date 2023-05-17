@@ -5,13 +5,13 @@ include 'database.php';
 session_start();
 // verifier les variables de la session
 if (isset($_SESSION['username'])) {
-    // if the session variable are set 
+    // Si les variables de session sont définies
     $name=$_SESSION['username'];
     $type='admin';
 
 
 } else {
-    // if the session variable are not set, redirect to admin.php
+    // Si les variables de session ne sont pas définies, rediriger vers admin.php
     header('Location: admin.php');
 }
 
@@ -84,7 +84,7 @@ foreach ($result as $row) {
     /*email de l'influenceur*/
     echo "<td>" .$row['email'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
-    //add a button to go to the massage.php page
+    // Ajouter un bouton pour accéder à la page massage.php
     echo "<td>"; 
     echo "<form method='post'>";
     echo "<button type='submit' class='message-btn' name='message'>Message</button>";
@@ -116,7 +116,7 @@ foreach ($result as $row) {
         /*nom de l'entreprise */
     echo "<td>" .$row['nom'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
-            //add a button to go to the massage.php page
+           // Ajouter un bouton pour accéder à la page massage.php
                echo "<td>";
      
         echo "<form method='post'>";
@@ -149,7 +149,7 @@ foreach ($result as $row) {
     /*nom de l'entreprise */
     echo "<td>" .$row['nom'] . "</td>";
     echo "<td>".$row['time_stamp']."</td>";
-            //add a button to go to the massage.php page
+            // Ajouter un bouton pour accéder à la page massage.php
                echo "<td>";
      
         echo "<form method='post'>";
@@ -165,7 +165,8 @@ foreach ($result as $row) {
 echo "<br><br>";
     
 
-//check if the message button is clicked
+
+// Vérifier si le bouton "message" a été cliqué
     if(isset($_POST['message'])) {
         //Recuperer l'ID du message
     $id = $_POST['id'];

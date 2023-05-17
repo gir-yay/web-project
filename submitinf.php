@@ -3,8 +3,8 @@
 include 'database.php';
 
 //si le formulaire est envoyé:
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    //check if the form has been submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+// Vérifier si le formulaire a été soumis
     //si le formulaire est envoyé:
     if(isset($_POST['submit'])){
         //recevoir les données de signup.php section influenceur
