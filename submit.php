@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   //check if the form has been submitted
   if(isset($_POST['submit'])){
      //recevoir les données de signup.php section entreprise
-
+      /* htmlspecialchars transformes les caracteres speciaux à un code html par exemple le caractère ' devient &#039 */
       $nom = htmlspecialchars($_POST['nom']);
       $telephone = htmlspecialchars($_POST['telephone']);
       $email = htmlspecialchars($_POST['email']);

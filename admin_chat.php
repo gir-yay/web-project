@@ -116,6 +116,8 @@ $receiverName = $row_['email'];
 //si on clique sur le bouton "send":
 if (isset($_POST['send'])) {
     //le contenu du message
+    /* htmlspecialchars transformes les caracteres speciaux à un code html par exemple le caractère ' devient &#039 */
+
     $message = htmlspecialchars($_POST['message']);
     // date de l'envoi
     $date = date('Y-m-d H:i:s');

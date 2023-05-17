@@ -115,6 +115,8 @@ if ($type == 'ent') {
 //si le bouton 'send' est cliqué
 if(isset($_POST['send'])){
     //contenu du message
+    /* htmlspecialchars transformes les caracteres speciaux à un code html par exemple le caractère ' devient &#039 */
+
     $message = htmlspecialchars($_POST['message']);
     //date de l'envoi
     $date = date('Y-m-d H:i:s');

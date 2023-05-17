@@ -5,6 +5,8 @@ session_start();
 include "database.php";
 
 //recuperer l'email et le mot de passe a travers $_POST
+/* htmlspecialchars transformes les caracteres speciaux à un code html par exemple le caractère ' devient &#039 */
+
 $email = htmlspecialchars($_POST['email']);
 $password = htmlspecialchars($_POST['password']);
 
