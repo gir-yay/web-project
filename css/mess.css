@@ -1,159 +1,185 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/*style pour mess.php*/
 * {
   font-family: "poppins", sans-serif;
   text-decoration: none;
 }
+
 /*ajouter une background image (filgrane du logo du site web)*/
 body {
   background-image: url("../images/bg.png");
   background-size: cover;
   background-attachment: fixed;
 }
+
 h1 {
-    transition: left .5s; /*transition animée de 5 secondes*/
-    padding: 16px;
-    margin-left: 30px;
-    font-size: 40px;
-    text-align: center;
-    color: #211010;
-  }
+  transition: left .5s;
+  /*transition animée de 5 secondes*/
+  padding: 16px;
+  margin-left: 30px;
+  font-size: 40px;
+  text-align: center;
+  color: #211010;
+}
+
 /*la mise en forme des tableaux*/
 table {
-    border-collapse: collapse;
-    /*bordures effacées*/
-    width: 100%;
-    /*la largeur est fixée à 100%*/
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    /*bordure de 1px solide de couleur grise*/
-    border-collapse: separate;
-    /**/
-    border-color: #787475;
-    /*bordure de couleur grise*/
-    border-radius: 5px;
-    /*une bordure arrondie de 5px*/
-    margin-top: 20px;
-   
+  border-collapse: collapse;
+  /*bordures effacées*/
+  width: 100%;
+  /*la largeur est fixée à 100%*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  /*bordure de 1px solide de couleur grise*/
+  border-collapse: separate;
+  /**/
+  border-color: #787475;
+  /*bordure de couleur grise*/
+  border-radius: 5px;
+  /*une bordure arrondie de 5px*/
+  margin-top: 20px;
+
+}
+
+/*styler le tableau*/
+td,
+th {
+  border: 1px solid #c2bbbb;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+
+
+}
+
+/*styler les lignes impaires et paires du tableau*/
+tr:nth-child(odd) {
+  background: linear-gradient(to right, #c01c7e, #825366);
+}
+
+tr:nth-child(even) {
+  background: linear-gradient(to right, #74516c, #cfadb7);
+}
+
+/*style des lignes lors du survol */
+table tr:first-child:hover {
+  background: linear-gradient(to right, #b3095e, #8a8286);
+  color: #110d0d;
+  animation: highlight 0.4s ease-in-out;
+}
+
+/*keyframe pour le changement de couleurs avec un effet de zoom*/
+@keyframes highlight {
+  0% {
+    transform: scale(1);
   }
-  
-  /*styler le tableau*/
-  td,
-  th {
-    border: 1px solid #c2bbbb;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    color: white;
-    
-  
+
+  50% {
+    transform: scale(1.05);
   }
-  
-  /*styler les lignes impaires et paires du tableau*/
-  tr:nth-child(odd) {
-    background: linear-gradient(to right, #c01c7e, #825366);
+
+  100% {
+    transform: scale(1);
   }
-  
-  tr:nth-child(even) {
-    background: linear-gradient(to right, #74516c, #cfadb7);
-  }
-  
-  /*style des lignes lors du survol */
-  table tr:first-child:hover {
-    background: linear-gradient(to right, #b3095e, #8a8286);
-    color: #110d0d;
-    animation: highlight 0.4s ease-in-out;
-  }
-  
-  /*keyframe pour le changement de couleurs avec un effet de zoom*/
-  @keyframes highlight {
-    0% {
-      transform: scale(1);
-    }
-  
-    50% {
-      transform: scale(1.05);
-    }
-  
-    100% {
-      transform: scale(1);
-    }
-  }
-  .retour-btn{
-    background-color: #7d0839;    /*définir la couleur de fond du bouton*/
-    display: inline-block;    /*définir le type d'affichage du bouton à inline-block*/
-    margin-top: 50px;      /*définir la marge supérieure du bouton*/
-     margin-left: 30px;  /*définir la marge gauche du bouton */
-     width: 60px;   /*définir la largeur du bouton*/
-     height: 60px;  /*définir la hauteur du bouton */
-     border-radius: 50%;    /*définir le rayon de la bordure du bouton pour le rendre circulaire*/
-     color: #fff;     /*définir la couleur du texte du bouton*/
-     text-align: center;    /*définir l'alignement du texte du bouton*/
-     font-size: 20px;     /*définir la taille de police du texte du bouton*/
-     line-height: 40px;     /*définir la hauteur de ligne du texte du bouton*/
-     border: none;    /*Aucune bordure.*/
-     align-items: center;       /*Centrer des éléments du bouton*/
-   }
-  
-  /*Styler le bouton message */
+}
+
+.retour-btn {
+  background-color: #7d0839;
+  /*définir la couleur de fond du bouton*/
+  display: inline-block;
+  /*définir le type d'affichage du bouton à inline-block*/
+  margin-top: 50px;
+  /*définir la marge supérieure du bouton*/
+  margin-left: 30px;
+  /*définir la marge gauche du bouton */
+  width: 60px;
+  /*définir la largeur du bouton*/
+  height: 60px;
+  /*définir la hauteur du bouton */
+  border-radius: 50%;
+  /*définir le rayon de la bordure du bouton pour le rendre circulaire*/
+  color: #fff;
+  /*définir la couleur du texte du bouton*/
+  text-align: center;
+  /*définir l'alignement du texte du bouton*/
+  font-size: 20px;
+  /*définir la taille de police du texte du bouton*/
+  line-height: 40px;
+  /*définir la hauteur de ligne du texte du bouton*/
+  border: none;
+  /*Aucune bordure.*/
+  align-items: center;
+  /*Centrer des éléments du bouton*/
+}
+
+/*Styler le bouton message */
 .message-btn {
-    background-color: #2590be; /*définir la couleur de fond du bouton*/
-    border: none;
-    border-radius: 4px; /*définir le rayon de la bordure du bouton*/
-    color: white;
-    padding: 12px 24px;
-    cursor: pointer; /*définir le curseur de la souris lorsqu'il passe sur le bouton*/
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 15px; /*définir la marge gauche du bouton*/
-    margin-top: 10px; /*définir la marge supérieure du bouton*/
-    margin-right: 0px; /*définir la marge droite du bouton*/
-  }
-  
-  /*Styler le bouton des messages lors du survol*/
-  .message-btn:hover {
-    background-color: #04a9f5;
-  }
-  .chat-box .chat pre {
-    padding: 8px 16px;
-    box-shadow: 0 0 32px rgb(0 0 0 / 8%),
-        0 16px 16px -16px rgb(0 0 0 /10%);
-    word-wrap: break-word;
+  background-color: #2590be;
+  /*définir la couleur de fond du bouton*/
+  border: none;
+  border-radius: 4px;
+  /*définir le rayon de la bordure du bouton*/
+  color: white;
+  padding: 12px 24px;
+  cursor: pointer;
+  /*définir le curseur de la souris lorsqu'il passe sur le bouton*/
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 15px;
+  /*définir la marge gauche du bouton*/
+  margin-top: 10px;
+  /*définir la marge supérieure du bouton*/
+  margin-right: 0px;
+  /*définir la marge droite du bouton*/
+}
+
+/*Styler le bouton des messages lors du survol*/
+.message-btn:hover {
+  background-color: #04a9f5;
+}
+
+.chat-box .chat pre {
+  padding: 8px 16px;
+  box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+    0 16px 16px -16px rgb(0 0 0 /10%);
+  word-wrap: break-word;
 }
 
 .chat-box .outgoing {
-    display: flex;
+  display: flex;
 }
 
 .outgoing .details {
-    max-width: calc(100% - 130px);
-    margin-left: auto;
+  max-width: calc(100% - 130px);
+  margin-left: auto;
 }
 
 .outgoing .details pre {
-    background: #333;
-    color: #fff;
-    border-radius: 18px 18px 0 18px;
+  background: #333;
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
 
 }
 
 .chat-box .incoming {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 
 .incoming .details {
-    margin-left: 10px;
-    margin-right: auto;
-    max-width: calc(100% - 130px);
+  margin-left: 10px;
+  margin-right: auto;
+  max-width: calc(100% - 130px);
 }
 
 .incoming .details pre {
-    background: rgb(190, 104, 231);
-    color: #fff;
-    border-radius: 18px 18px 18px 0px;
+  background: rgb(190, 104, 231);
+  color: #fff;
+  border-radius: 18px 18px 18px 0px;
 
 }

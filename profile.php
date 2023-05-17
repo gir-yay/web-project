@@ -1,4 +1,5 @@
 <?php
+/*profile de l'influenceur */
 session_start();
 include 'database.php';
 // l'id de l'utilisateur courant

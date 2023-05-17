@@ -1,4 +1,5 @@
 <?php 
+/*login influenceur */
 //commencer la session
 session_start(); 
 // connecter a la bd

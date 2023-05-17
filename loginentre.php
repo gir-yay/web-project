@@ -1,4 +1,5 @@
 <?php 
+/*login entreprise */
 //commencer la session
 session_start(); 
 // connecter a la bd

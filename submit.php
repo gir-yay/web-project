@@ -1,4 +1,5 @@
 <?php
+/*enregistrer les données du nouvelle entreprise */
 /* connecter a la base de donnees  data avec include... */
 include('database.php');
 

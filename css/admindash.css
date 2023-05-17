@@ -4,6 +4,7 @@
   font-family: "poppins", sans-serif;
 }
 
+/*style pour le tableau de bord de l'admin*/
 /*ajouter une background image (filgrane du logo du site web)*/
 body {
   background-image: url("../images/bg.png");
@@ -11,223 +12,241 @@ body {
   background-attachment: fixed;
 
 }
+
 /*Lorsque la touche du menu est cochée, le menu s'affiche, sinon il est caché.*/
-#check{
-    display: none;/*les deux boutons sont cachés initialement.*/
-  }
-  
-  label #btn, label #cancel{
-    position: absolute;
-    cursor: pointer;
-    background-color: #56111b;
-    height: 45px;
-    width: 45px;
-    text-align: center; /*centrer le texte à l'intérieur des boutons.*/
-    line-height: 45px; /*la hauteur de ligne des boutons*/
-    color: white;
-    font-size: 29px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px #7b0232;
-    margin: 10px 20px;
-    transition: all .5s ease; /*transition animée de 5 secondes lorsque les boutons sont affichés ou cachés*/
-  }
-  /*Avant de cocher le bouton du menu , le bouton de fermeture est invisible*/
-  label #cancel{
-    opacity: 0;
-    visibility: hidden;
-  
-  }
-  /*lorsque l'élément #check est coché le bouton de menu doit être caché. */
-  #check:checked ~ label #btn{
-    margin-left: 250px;/*déplacer le bouton de menu vers la droite (avec une marge de 250 pixels).*/
-    opacity: 0;/*On le cache en réduisant son opacité,*/
-    visibility: hidden;/*et en le rendant invisible.*/
-  }
-  /*lorsque l'élément #check est coché et que le bouton de fermeture doit être affiché*/
-  #check:checked ~ label #cancel{
-    margin-left: 250px;
-    opacity: 1; /*on augmente son opacité pour le rendre bien visible*/
-    visibility: visible;
-  }
-  /*Affichage du menu apres avoir cliquer sur le bouton menu*/
-  #check:checked ~ nav{
-    left: 0;
-  
-  }
-  /*On deplace le contenu de la page 250px à gauche pour afficher le menu*/
-  #check:checked ~ .main{
-  margin-left: 250px;
-  
-  }
-  
-  /*styler la barre de navigation*/
-  nav {
-    height: 100%;
-    /*une hauteur de 100%*/
-    width: 200px;
-    /*une largeur de 200px*/
-    position: fixed;
-    /*ne position fixe sur la page*/
-    z-index: 1;
-    /*afficher en premier plan*/
-    top: 0;
-    /*Cacher la barre menu initialement en affectant la valeur negative de sa largeur*/
-    left: -250px;
-    /*Couleur du fond de la barre menu*/
-    background-color: #4f092b;
-    /*couleur de fond : violet foncé */
-    overflow: hidden;
-    /*transition animéée de 0.5secondes*/
-    transition: 0.5s;
-    /*transition animée de 5s*/
-    transition: all .5s ease;
-  }
-  
-  /*styler le lien*/
-  nav li a {
-    color: white;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /*style de la liste lors du survol */
-  nav li:hover * {
-    cursor: pointer;
-    padding-left: 5px;
-  }
-  .delete-btn {
-    background-color: #b70909;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    padding: 13px 18px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-    
-  /*styler la div de class main */
-  .main {
-  
-    transition: margin-left .5s;
-    padding: 16px;
-    margin-left: 0px;
-  
-  }
-  
-  /*styler les titres du main*/
-  .main h2 {
-    transition: left .5s;
-    padding: 16px;
-    margin-left: 30px;
-    font-size: 30px;
-    text-align: center;
-    color: #080808;
-  }
-  .main h1 {
-    transition: left .5s;
-    padding: 16px;
-    margin-left: 30px;
-    font-size: 40px;
-    text-align: center;
-    color: #211010;
-  }
-  
-  /*styler les textes des li*/
-  li {
-    color: #f1f1f1;
-    font-size: 19px;
-    margin-bottom: 30px;
-  }
-  
-  /*enlever les puces de la listes*/
-  ul {
-    list-style-type: none;
-    margin-top: 160px;
-  }
-  
-  /*la mise en forme des tableaux*/
-  table {
-    border-collapse: collapse;
-    /*bordures effacées*/
-    width: 100%;
-    /*la largeur est fixée à 100%*/
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    /*bordure de 1px solide de couleur grise*/
-    border-collapse: separate;
-    /**/
-    border-color: #787475;
-    /*bordure de couleur grise*/
-    border-radius: 5px;
-    /*une bordure arrondie de 5px*/
-    margin-top: 20px;
-  }
-  
-  /*styler le tableau*/
-  td,
-  th {
-    border: 1px solid #c2bbbb;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-  
-  }
-  
-  /*styler les lignes impaires et paires du tableau*/
-  tr:nth-child(odd) {
-    background: linear-gradient(to right, #bf8ad2, #c15681);
-  }
-  
-  tr:nth-child(even) {
-    background: linear-gradient(to right, #a56db6, #d1bac1);
-  }
-  
-  /*style des lignes lors du survol */
-  table tr:first-child:hover {
-    background: linear-gradient(to right, #b3095e, #8a8286);
-    color: #110d0d;
-    animation: highlight 0.4s ease-in-out;
-  }
-  
-  /*keyframe pour le changement de couleurs avec un effet de zoom*/
-  @keyframes highlight {
-    0% {
-      transform: scale(1);
-    }
-  
-    50% {
-      transform: scale(1.05);
-    }
-  
-    100% {
-      transform: scale(1);
-    }
-  }
-  /*Styler les messages d'erreur*/
-  #erreur {
-    background-color: rgb(195, 135, 151);
-    width: 200px;
-    height: 30px;
-    border-radius: 20px;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2rem;
-    margin-bottom: 2%;
+#check {
+  display: none;
+  /*les deux boutons sont cachés initialement.*/
+}
+
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background-color: #56111b;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  /*centrer le texte à l'intérieur des boutons.*/
+  line-height: 45px;
+  /*la hauteur de ligne des boutons*/
+  color: white;
+  font-size: 29px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #7b0232;
+  margin: 10px 20px;
+  transition: all .5s ease;
+  /*transition animée de 5 secondes lorsque les boutons sont affichés ou cachés*/
+}
+
+/*Avant de cocher le bouton du menu , le bouton de fermeture est invisible*/
+label #cancel {
+  opacity: 0;
+  visibility: hidden;
 
 }
+
+/*lorsque l'élément #check est coché le bouton de menu doit être caché. */
+#check:checked~label #btn {
+  margin-left: 250px;
+  /*déplacer le bouton de menu vers la droite (avec une marge de 250 pixels).*/
+  opacity: 0;
+  /*On le cache en réduisant son opacité,*/
+  visibility: hidden;
+  /*et en le rendant invisible.*/
+}
+
+/*lorsque l'élément #check est coché et que le bouton de fermeture doit être affiché*/
+#check:checked~label #cancel {
+  margin-left: 250px;
+  opacity: 1;
+  /*on augmente son opacité pour le rendre bien visible*/
+  visibility: visible;
+}
+
+/*Affichage du menu apres avoir cliquer sur le bouton menu*/
+#check:checked~nav {
+  left: 0;
+
+}
+
+/*On deplace le contenu de la page 250px à gauche pour afficher le menu*/
+#check:checked~.main {
+  margin-left: 250px;
+
+}
+
+/*styler la barre de navigation*/
+nav {
+  height: 100%;
+  /*une hauteur de 100%*/
+  width: 200px;
+  /*une largeur de 200px*/
+  position: fixed;
+  /*ne position fixe sur la page*/
+  z-index: 1;
+  /*afficher en premier plan*/
+  top: 0;
+  /*Cacher la barre menu initialement en affectant la valeur negative de sa largeur*/
+  left: -250px;
+  /*Couleur du fond de la barre menu*/
+  background-color: #4f092b;
+  /*couleur de fond : violet foncé */
+  overflow: hidden;
+  /*transition animéée de 0.5secondes*/
+  transition: 0.5s;
+  /*transition animée de 5s*/
+  transition: all .5s ease;
+}
+
+/*styler le lien*/
+nav li a {
+  color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*style de la liste lors du survol */
+nav li:hover * {
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.delete-btn {
+  background-color: #b70909;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 13px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/*styler la div de class main */
+.main {
+
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 0px;
+
+}
+
+/*styler les titres du main*/
+.main h2 {
+  transition: left .5s;
+  padding: 16px;
+  margin-left: 30px;
+  font-size: 30px;
+  text-align: center;
+  color: #080808;
+}
+
+.main h1 {
+  transition: left .5s;
+  padding: 16px;
+  margin-left: 30px;
+  font-size: 40px;
+  text-align: center;
+  color: #211010;
+}
+
+/*styler les textes des li*/
+li {
+  color: #f1f1f1;
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+
+/*enlever les puces de la listes*/
+ul {
+  list-style-type: none;
+  margin-top: 160px;
+}
+
+/*la mise en forme des tableaux*/
+table {
+  border-collapse: collapse;
+  /*bordures effacées*/
+  width: 100%;
+  /*la largeur est fixée à 100%*/
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  /*bordure de 1px solide de couleur grise*/
+  border-collapse: separate;
+  /**/
+  border-color: #787475;
+  /*bordure de couleur grise*/
+  border-radius: 5px;
+  /*une bordure arrondie de 5px*/
+  margin-top: 20px;
+}
+
+/*styler le tableau*/
+td,
+th {
+  border: 1px solid #c2bbbb;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+
+}
+
+/*styler les lignes impaires et paires du tableau*/
+tr:nth-child(odd) {
+  background: linear-gradient(to right, #bf8ad2, #c15681);
+}
+
+tr:nth-child(even) {
+  background: linear-gradient(to right, #a56db6, #d1bac1);
+}
+
+/*style des lignes lors du survol */
+table tr:first-child:hover {
+  background: linear-gradient(to right, #b3095e, #8a8286);
+  color: #110d0d;
+  animation: highlight 0.4s ease-in-out;
+}
+
+/*keyframe pour le changement de couleurs avec un effet de zoom*/
+@keyframes highlight {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*Styler les messages d'erreur*/
+#erreur {
+  background-color: rgb(195, 135, 151);
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 2%;
+
+}
+
 /*Styler les messages de confirmation*/
 .done {
-    background-color: rgba(0, 255, 0, 1);
-    width: 200px;
-    height: 30px;
-    border-radius: 20px;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2rem;
-    margin-bottom: 2%;
+  background-color: rgba(0, 255, 0, 1);
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 2%;
 
 }
-  

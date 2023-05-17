@@ -1,4 +1,5 @@
 <?php 
+/*liste des conversations de l'admin */
 // connection avec la base de données
 include 'database.php';
 //la session commence

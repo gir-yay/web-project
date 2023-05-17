@@ -1,4 +1,5 @@
 <?php
+/*page pour contacter l'admin */
 // commencer la session
 session_start();
 //si l'utilisateur n'est pas authentifie 
