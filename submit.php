@@ -4,14 +4,14 @@ include('database.php');
 
 //si le formulaire est envoyé:
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  //check if the form has been submitted
+// Vérifier si le formulaire a été soumis
   if(isset($_POST['submit'])){
      //recevoir les données de signup.php section entreprise
       /* htmlspecialchars transformes les caracteres speciaux à un code html par exemple le caractère ' devient &#039 */
       $nom = htmlspecialchars($_POST['nom']);
       $telephone = htmlspecialchars($_POST['telephone']);
       $email = htmlspecialchars($_POST['email']);
-      // get the logo name and store it in the Upload folder
+      // Obtenir le nom du logo et le stocker dans le dossier "Upload"
       $logo = $_FILES['logo']['name'];
       $tmp_name = $_FILES['logo']['tmp_name'];
       $path = "Upload/".$logo;

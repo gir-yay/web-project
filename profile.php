@@ -126,7 +126,7 @@ if(isset($_POST['retour'])) {
 }
 .profil-card{
     display: flex;
-    flex-direction: column; /*----*/
+    flex-direction: column;  /*  les éléments sont affichés dans une disposition en colonne plutôt qu'en ligne. */
     align-items: center;
     max-width: 500px;
     width: 100%;
@@ -146,16 +146,17 @@ if(isset($_POST['retour'])) {
     padding: 3px;
     margin-bottom: 10px;
 }
+/* afficher l'image de profil circulaire */
 .image .profile-img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+    object-fit: cover; /* Indique à l'image de remplir complètement son conteneur  */
+    border-radius: 50%;/* ca la rendra circulaire. */
     border: 3px solid #fff;
 }
 .profil-card .text-data{
     display: flex;
-    flex-direction: column; /*----*/
+    flex-direction: column;  /*  les éléments sont affichés dans une disposition en colonne plutôt qu'en ligne. */
     align-items: center;
     color: #333;
 }
@@ -180,6 +181,7 @@ if(isset($_POST['retour'])) {
     align-items: center;
     margin-top: 25px;
 }
+/* styler les buttons */
 .button{
     font-size: 14px;
     font-weight: 400;
@@ -195,11 +197,13 @@ if(isset($_POST['retour'])) {
 .button:hover{
     background-color: rgb(44, 11, 58);
 }
+
 .profil-card .media-buttons{
     display: flex;
     align-items: center;
     margin-top:15px ;
 }
+/* styler les icons des resaux sociaux */
 .media-buttons .link{
     display: flex;
     align-items: center;

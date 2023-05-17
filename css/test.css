@@ -117,7 +117,7 @@ le contenu de l'élément ciblé */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; /*  les éléments sont affichés dans une disposition en colonne plutôt qu'en ligne. */
     text-align: center;
 }
 
@@ -351,7 +351,7 @@ le contenu de l'élément ciblé */
 .wrapper .container .profile {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* signifie que l'élément sera déplacé vers la gauche de la moitié de sa largeur. */
     top: -10%;
     width: 100%;
     display: block;
@@ -399,7 +399,7 @@ le contenu de l'élément ciblé */
     font-size: 15px;
     opacity: 0.8; /* indique que l'élément aura un niveau de transparence de 0.8. */
 }
- /*  Les icons quotes  */
+ /*  style Les icons quotes " "  */
 .wrapper .container .left {
     font-size: 30px;
     display: block;
@@ -421,7 +421,6 @@ footer {
     color: #FFFAE1;
     padding: 20px 0 10px 0;
     text-align: center;
-    
 }
 
 #contactus {
@@ -519,7 +518,7 @@ textarea {
 
     .about {
         padding: 20px;
-        flex-direction: column;
+        flex-direction: column;  /*  les éléments sont affichés dans une disposition en colonne plutôt qu'en ligne. */
     }
 
     .about-image {
@@ -539,7 +538,7 @@ textarea {
     /* ___________________Pourquoi-nous choisir Responsive__________________*/
     .why .choix {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /*  les éléments sont affichés dans une disposition en colonne plutôt qu'en ligne. */
     }
 
     .choix .card {

@@ -25,16 +25,16 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     /*creer les variables de la session de l'entreprise courrante */
-    //store the email in the session
+    // Stocker l'email dans la session
     $_SESSION['email'] = $email;
-    //add the id of the entreprise to the session
+    // Ajouter l'ID de l'entreprise à la session
     $row = mysqli_fetch_assoc($result);
     $_SESSION['id'] = $row['id'];
-    //redirect to the dashboard page
+    //rediriger vers la page du tableau de bord
     header("Location: entreprise.php");
     exit();
 } else {
-    //redirect to the login page with an error message
+    // Rediriger vers la page de connexion avec un message d'erreur
     header("Location: loogin.php?error=email et/ou mot de passe incorrect(s)");
     exit();
 }

@@ -13,8 +13,9 @@ $password = htmlspecialchars($_POST['password']);
 // encrypter le mot de passe
 $pw = sha1($password);
 
-//we already know the email and password from the form are not empty
-//so we can directly use them in the query
+
+// Nous savons déjà que l'email et le mot de passe du formulaire ne sont pas vides
+// Nous pouvons donc les utiliser directement dans la requête
 /*recuperer les informations de l'influenceur dont l'email est $email et le mot de passe est $pw */
 /*les mots de passe sont encrypter dans la bd */
 $sql = "SELECT * FROM influencer WHERE email='$email' AND password='$pw'";

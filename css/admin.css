@@ -33,7 +33,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* hide the error  */
+    /* met le message d'erreur invisible   */
     display: none;
 }
 
@@ -157,8 +157,6 @@ form {
     top: -5px;
 
 }
-
-
 .eye {
     position: absolute;
     right: 15px;

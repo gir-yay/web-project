@@ -1,6 +1,6 @@
 <?php
 /*le chat box de l'admin */
-// Connect to the database
+//connecter à la base de données 
 include_once 'database.php';
 
 session_start();
@@ -128,11 +128,12 @@ if (isset($_POST['send'])) {
     //si le message est non vide
     if (!empty($message)) {
 
-        //insert the message in the admin_messages table
+      
+        // Insérer le message dans la table "admin_messages"
         
         $sql = "INSERT INTO admin_messages (`user_id`,`user_type`,`sender_type`,`message_text` , `time_stamp` , `read_`) VALUES ('$receiver','$receiver_type','$type','$message' ,'$date', '$read')";
         $result = mysqli_query($conn, $sql);
-        //if the message is inserted
+       // Si le message est inséré
         if ($result) {
             ?>
       <script type="text/javascript">window.location="admin_chat.php";</script>

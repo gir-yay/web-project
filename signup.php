@@ -99,7 +99,7 @@
                         </div>
             
                         <div class="input-boxss">
-                        <!-- niche -->
+                        <!-- demander le Domaine de l'influenceur -->
                         <label >Domaine</label>
                         <select name="domaine" id="domaine">
                            <option value="Fashion">Fashion</option>
@@ -159,7 +159,7 @@
          <!-- les info seront envoyé à la page submit.php par POST-->
         <form action="submit.php" method="post" enctype="multipart/form-data">
                 <div class="details personnel">
-                    <span class="titre">Information Personnel</span>
+                    <span class="titre">Information Générale</span>
                     <div class="erreur-msg" id="ent">
             <!-- ecrire l'erreur s'il y a des erreurs -->
  
@@ -212,6 +212,7 @@
                         <input type="text" name="ca" placeholder="en MAD "required>
                         </div>
                         <div class="input-boxss">
+                               <!-- demander le Domaine  de l'entreprise-->
                         <label >Domaine</label>
                         <select name="domaine" id="">
                            <option value="Fashion">Fashion</option>

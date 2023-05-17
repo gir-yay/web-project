@@ -10,7 +10,7 @@
         exit();
 
 }else{
-        //if set get the name of the influencer
+        //if set get le nom de l'influenceur
         /*email de l'influenceur */
         $email=$_SESSION['email'];
         /*nom complet de l'influenceur */
@@ -23,16 +23,15 @@
     }
 
     $_SESSION['type']='influenceur';
-    //connect to the database
+    //connecter a la base de donnes 
     include 'database.php';
-    // get the row of the influenceur from the database
     /*recuperer tout les infos de l'influenceur courant de la base de données */
     $sql = "SELECT * FROM influencer WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    //get the pfp of the influenceur
+    //recuperer la photo de profile de l'influenceur
     $pfp = $row['pfp'];
-    //add the path to the pfp from Upload folder
+   // Ajouter le chemin d'accès à la photo de profil à partir du dossier "Upload"
     $pfp = "Upload/".$pfp;
 
 
@@ -104,7 +103,7 @@ include 'database.php';
 $sql = "SELECT * FROM entreprise";
 $result = $conn->query($sql);
 echo "<h2>Entreprises</h2>";
-    // output data of each row
+    // Afficher les données de chaque ligne
     echo "<table border='1'>
     <tr>
     <th>Nom</th>
@@ -165,7 +164,7 @@ echo "<h2>Entreprises</h2>";
         $duration = $_POST['duration'];
         //l'id de l'influenceur
         $id_influencer = $id;
-        //set the state of the offer to waiting
+       // Définir l'état de l'offre sur "En attente" waiting
         $state = "waiting";
         //ajouter ces informations à la bd (tableau: suggestion)
         $sql = "INSERT INTO suggestion (id_entreprise, id_influencer, terms, amount, duration, state) VALUES ('$id_entreprise', '$id_influencer', '$terms', '$amount', '$duration', '$state')";
@@ -182,7 +181,7 @@ echo "<h2>Entreprises</h2>";
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
   }
-  //check if the message button is clicked
+  // Vérifier si le bouton de message est cliqué
     if(isset($_POST['message'])) {
         //recuperer l'id de l'entreprise
         $id_entreprise = $_POST['id'];
@@ -221,7 +220,7 @@ if(isset($_POST['profile'])) {
     //afficher tous les offres en attente de l'influenceur dans un tableau
     $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'waiting'";
     $result=mysqli_query($conn, $sql);
-    // output data of each row
+    // Afficher les données de chaque ligne
     //ajouter une option pour accepter ou refuser l'offre
     echo "<h2>Offres</h2>";
     echo "<table border='1'>
@@ -234,7 +233,7 @@ if(isset($_POST['profile'])) {
     <th>Accepter</th>
     <th>Refuser</th>
     </tr>";
-    //check if the result is not empty
+    // Vérifier si le résultat n'est pas vide
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
@@ -249,14 +248,14 @@ if(isset($_POST['profile'])) {
             echo "<td>" . $row['nom'] . "</td>";
             echo "<td>";
             echo "<form method='post'>";
-            //add a button to accept the offer
+            // Ajouter un bouton pour accepter l'offre
             echo "<button type='submit' class='accept-btn' name='accept'>Accepter</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
             echo "</td>";
             echo "<td>";
             echo "<form method='post'>";
-            //add a button to refuse the offer 
+           // Ajouter un bouton pour refuser l'offre
             echo "<button type='submit' class='refuse-btn' name='refuse'>Refuser</button>";
             echo "<input type='hidden' name='id' value='".$row['id']."'>";
             echo "</form>";
@@ -315,7 +314,7 @@ exit();
     //requete pour afficher tous les offres dont state= accepted de l'influenceur courant
     $sql = "SELECT offer.id, offer.terms, offer.amount, offer.duration, offer.state, entreprise.nom FROM offer INNER JOIN entreprise ON offer.id_entreprise = entreprise.id WHERE offer.id_influencer = $id AND offer.state = 'accepted'";
     $result=mysqli_query($conn, $sql);
-    // output data of each row
+    // Afficher les données de chaque ligne
     echo "<table border='1'>
     <tr>
     <th>Conditions</th>
@@ -324,7 +323,7 @@ exit();
     <th>Etat</th>
     <th>Entreprise</th>
     </tr>";
-    //check if the result is not empty
+    // Vérifier si le résultat n'est pas vide
     if($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             //afficher les resultats dans un tableau
